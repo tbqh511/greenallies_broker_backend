@@ -17,8 +17,8 @@ class Category extends Model
         'image',
         'status',
         'sequence',
-        'parameter_types'
-
+        'parameter_types',
+        'order'
     ];
     protected $hidden = [
         'updated_at'

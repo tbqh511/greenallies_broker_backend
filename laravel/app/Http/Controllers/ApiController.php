@@ -336,7 +336,7 @@ class ApiController extends Controller
         $offset = isset($request->offset) ? $request->offset : 0;
         $limit = isset($request->limit) ? $request->limit : 10;
 
-        $categories = Category::select('id', 'category', 'image', 'parameter_types')->where('status', '1');
+        $categories = Category::select('id', 'category', 'image', 'parameter_types','order')->where('status', '1');
 
         if (isset($request->search) && !empty($request->search)) {
             $search = $request->search;
