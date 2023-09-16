@@ -2663,8 +2663,13 @@ class ApiController extends Controller
     //* START :: get_wards   *//
     public function get_wards(Request $request)
     {
+        // $districtCode = config('location.district_code');
+        // $locationWards = LocationsWard::select('code', 'full_name')->where('district_code',$districtCode);
         $districtCode = config('location.district_code');
-        $locationWards = LocationsWard::select('code', 'full_name')->where('district_code',$districtCode);
+$locationWards = LocationsWard::select('code', 'full_name')
+    ->whereNotNull('district_code')
+    ->where('district_code', $districtCode)
+    ->get();
         //$categories = Category::select('id', 'category', 'image', 'parameter_types', 'order')->where('status', '1');
 
         $total = $locationWards->get()->count();
