@@ -70,4 +70,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('get_agents_details', [ApiController::class, 'get_agents_details']);
     Route::get('get_facilities', [ApiController::class, 'get_facilities']);
     Route::get('get_report_reasons', [ApiController::class, 'get_report_reasons']);
+
+    //HuyTBQ: add route for location module
+    Route::get('get_wards', [ApiController::class, 'get_wards']);
 });
