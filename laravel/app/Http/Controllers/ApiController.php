@@ -11,6 +11,7 @@ use App\Models\Favourite;
 
 use App\Models\InterestedUser;
 use App\Models\Language;
+use App\Models\LocationsStreet;
 use App\Models\LocationsWard;
 use App\Models\Notifications;
 use App\Models\Package;
@@ -2689,4 +2690,32 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: get_wards   *//
+
+    //* START :: get_streets   *//
+    public function get_streets(Request $request)
+    {
+        $districtCode = config('location.district_code');
+
+        $locationStreets = LocationsStreet::select('code', 'street_name')
+            ->whereNotNull('district_code')
+            ->where('district_code', $districtCode)
+            ->get();
+
+        $total = $locationStreets->count();
+        $result = $locationStreets;
+
+
+        if (!$result->isEmpty()) {
+            $response['error'] = false;
+            $response['message'] = "Data Fetch Successfully";
+            $response['total'] = $total;
+            $response['data'] = $result;
+        } else {
+            $response['error'] = false;
+            $response['message'] = "No data found!";
+            $response['data'] = [];
+        }
+        return response()->json($response);
+    }
+    //* END :: get_streets   *//
 }

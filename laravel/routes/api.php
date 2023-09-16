@@ -73,4 +73,5 @@ Route::group(['middleware' => ['jwt.verify']], function () {
 
     //HuyTBQ: add route for location module
     Route::get('get_wards', [ApiController::class, 'get_wards']);
+    Route::get('get_streets', [ApiController::class, 'get_streets']);
 });
