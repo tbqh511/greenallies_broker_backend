@@ -69,7 +69,7 @@ class ApiController extends Controller
 
         $result = '';
 
-        $result =  Setting::select('type', 'data')->get();
+        $result = Setting::select('type', 'data')->get();
         $data_arr = [];
         foreach ($result as $row) {
             $tempRow[$row->type] = $row->data;
@@ -163,19 +163,19 @@ class ApiController extends Controller
 
                 $saveCustomer->save();
 
-                $start_date =  Carbon::now();
-                $package=Package::find(1);
-// dd($package->id);
-            if($package && $package->status==1){
-                $user_package = new UserPurchasedPackage();
-                $user_package->modal()->associate($saveCustomer);
-                $user_package->package_id = 1;
-                $user_package->start_date = $start_date;
-                $user_package->end_date =  Carbon::now()->addDays($package->duration);
-                $user_package->save();
+                $start_date = Carbon::now();
+                $package = Package::find(1);
+                // dd($package->id);
+                if ($package && $package->status == 1) {
+                    $user_package = new UserPurchasedPackage();
+                    $user_package->modal()->associate($saveCustomer);
+                    $user_package->package_id = 1;
+                    $user_package->start_date = $start_date;
+                    $user_package->end_date = Carbon::now()->addDays($package->duration);
+                    $user_package->save();
 
-                $saveCustomer->subscription = 1;
-                $saveCustomer->update();
+                    $saveCustomer->subscription = 1;
+                    $saveCustomer->update();
                 }
                 // $user_package = new UserPurchasedPackage();
                 // $user_package->modal()->associate($saveCustomer);
@@ -249,7 +249,7 @@ class ApiController extends Controller
 
 
     //* START :: get_slider   *//
-      public function get_slider(Request $request)
+    public function get_slider(Request $request)
     {
         $tempRow = array();
         $slider = Slider::select('id', 'image', 'sequence', 'category_id', 'propertys_id')->orderBy('sequence', 'ASC')->get();
@@ -287,27 +287,27 @@ class ApiController extends Controller
                 } else {
                     $tempRow['promoted'] = false;
                 }
-                 $tempRow['property_title'] = $property->title;
-                  $tempRow['property_price'] = $property->price;
-                 
-                 
-                  if ($property->propery_type == 0) {
-                        $tempRow['property_type'] = "sell";
-                    } elseif ($property->propery_type == 1) {
-                        $tempRow['property_type'] = "rent";
-                    } elseif ($property->propery_type == 2) {
-                        $tempRow['property_type'] = "sold";
-                    } elseif ($property->propery_type == 3) {
-                        $tempRow['property_type'] = "Rented";
-                    }
-                 
+                $tempRow['property_title'] = $property->title;
+                $tempRow['property_price'] = $property->price;
+
+
+                if ($property->propery_type == 0) {
+                    $tempRow['property_type'] = "sell";
+                } elseif ($property->propery_type == 1) {
+                    $tempRow['property_type'] = "rent";
+                } elseif ($property->propery_type == 2) {
+                    $tempRow['property_type'] = "sold";
+                } elseif ($property->propery_type == 3) {
+                    $tempRow['property_type'] = "Rented";
+                }
+
                 $tempRow['parameters'] = [];
-               
+
                 foreach ($property->parameters as $res) {
                     $parameter = [
                         'id' => $res->id,
                         'name' => $res->name,
-                        
+
                         'value' => $res->pivot->value,
                     ];
                     array_push($tempRow['parameters'], $parameter);
@@ -335,8 +335,7 @@ class ApiController extends Controller
     {
         $offset = isset($request->offset) ? $request->offset : 0;
         $limit = isset($request->limit) ? $request->limit : 10;
-
-        $categories = Category::select('id', 'category', 'image', 'parameter_types','order')->where('status', '1');
+        $categories = Category::select('id', 'category', 'image', 'parameter_types', 'order')->where('status', '1');
 
         if (isset($request->search) && !empty($request->search)) {
             $search = $request->search;
@@ -351,18 +350,12 @@ class ApiController extends Controller
         $total = $categories->get()->count();
         $result = $categories->orderBy('sequence', 'ASC')->skip($offset)->take($limit)->get();
 
-
-
-
         if (!$result->isEmpty()) {
             $response['error'] = false;
             $response['message'] = "Data Fetch Successfully";
             foreach ($result as $row) {
-
-
                 $row->parameter_types = parameterTypesByCategory($row->id);
             }
-
             $response['total'] = $total;
             $response['data'] = $result;
         } else {
@@ -372,13 +365,45 @@ class ApiController extends Controller
         }
         return response()->json($response);
     }
-    //* END :: get_slider   *//
+    //* END :: get_categories   *//
 
+    //HuyTBQ
+    //* START :: get_wards   *//
+    public function get_wards(Request $request)
+    {
+        $offset = isset($request->offset) ? $request->offset : 0;
+        $limit = isset($request->limit) ? $request->limit : 10;
+        $categories = Category::select('id', 'category', 'image', 'parameter_types', 'order')->where('status', '1');
 
+        if (isset($request->search) && !empty($request->search)) {
+            $search = $request->search;
+            $categories->where('category', 'LIKE', "%$search%");
+        }
 
+        if (isset($request->id) && !empty($request->id)) {
+            $id = $request->id;
+            $categories->where('id', '=', $id);
+        }
 
+        $total = $categories->get()->count();
+        $result = $categories->orderBy('sequence', 'ASC')->skip($offset)->take($limit)->get();
 
-
+        if (!$result->isEmpty()) {
+            $response['error'] = false;
+            $response['message'] = "Data Fetch Successfully";
+            foreach ($result as $row) {
+                $row->parameter_types = parameterTypesByCategory($row->id);
+            }
+            $response['total'] = $total;
+            $response['data'] = $result;
+        } else {
+            $response['error'] = false;
+            $response['message'] = "No data found!";
+            $response['data'] = [];
+        }
+        return response()->json($response);
+    }
+    //* END :: get_wards   *//
 
     //* START :: update_profile   *//
     public function update_profile(Request $request)
@@ -391,7 +416,7 @@ class ApiController extends Controller
         if (!$validator->fails()) {
             $id = $request->userid;
 
-            $customer =  Customer::find($id);
+            $customer = Customer::find($id);
 
             if (!empty($customer)) {
                 if (isset($request->name)) {
@@ -470,7 +495,6 @@ class ApiController extends Controller
     }
     //* END :: update_profile   *//
 
-
     //* START :: get_user_by_id   *//
     public function get_user_by_id(Request $request)
     {
@@ -481,7 +505,7 @@ class ApiController extends Controller
         if (!$validator->fails()) {
             $id = $request->userid;
 
-            $customer =  Customer::find($id);
+            $customer = Customer::find($id);
             if (!empty($customer)) {
 
                 $response['error'] = false;
@@ -500,7 +524,6 @@ class ApiController extends Controller
     }
     //* END :: get_user_by_id   *//
 
-
     //* START :: get_property   *//
     public function get_property(Request $request)
     {
@@ -512,7 +535,7 @@ class ApiController extends Controller
         $property = Property::with('customer')->with('user')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users');
 
 
-        $property_type = $request->property_type;  //0 : Buy 1:Rent
+        $property_type = $request->property_type; //0 : Buy 1:Rent
         $max_price = $request->max_price;
         $min_price = $request->min_price;
         $top_rated = $request->top_rated;
@@ -544,10 +567,10 @@ class ApiController extends Controller
             $property = $property->whereBetween('price', [$min_price, $max_price]);
         }
         if (isset($property_type)) {
-            if ($property_type == 0 ||  $property_type == 2) {
+            if ($property_type == 0 || $property_type == 2) {
                 $property = $property->where('propery_type', $property_type);
             }
-            if ($property_type == 1 ||  $property_type == 3) {
+            if ($property_type == 1 || $property_type == 3) {
                 $property = $property->where('propery_type', $property_type);
             }
         }
@@ -561,7 +584,7 @@ class ApiController extends Controller
                 );
             }
             if ($posted_since == 1) {
-                $property =  $property->whereDate('created_at', Carbon::yesterday());
+                $property = $property->whereDate('created_at', Carbon::yesterday());
             }
         }
 
@@ -585,7 +608,7 @@ class ApiController extends Controller
             $property = $property->where('furnished', $furnished);
         }
         if (isset($request->promoted)) {
-            $adv = Advertisement::select('property_id')->where('is_enable',1)->get();
+            $adv = Advertisement::select('property_id')->where('is_enable', 1)->get();
 
             $ad_arr = [];
             foreach ($adv as $ad) {
@@ -601,7 +624,7 @@ class ApiController extends Controller
             $response['data'] = [];
         }
         if (isset($request->users_promoted)) {
-            $adv = Advertisement::select('property_id')->where('customer_id', $current_user)->where('is_enable',1)->get();
+            $adv = Advertisement::select('property_id')->where('customer_id', $current_user)->where('is_enable', 1)->get();
 
             $ad_arr = [];
             foreach ($adv as $ad) {
@@ -649,7 +672,7 @@ class ApiController extends Controller
             $property = $property->orderBy('total_click', 'DESC');
         }
 
-        if (!$request->most_liked &&  !$request->top_rated) {
+        if (!$request->most_liked && !$request->top_rated) {
             $property = $property->orderBy('id', 'DESC');
         }
         if ($request->most_liked) {
@@ -683,20 +706,12 @@ class ApiController extends Controller
     }
     //* END :: get_property   *//
 
-
-
     //* START :: post_property   *//
     public function post_property(Request $request)
     {
-
-
-
         $validator = Validator::make($request->all(), [
             'package_id' => 'required',
             'title_image' => 'required|file|max:3000|mimes:jpeg,png,jpg',
-
-
-
         ]);
 
         if (!$validator->fails()) {
@@ -704,9 +719,11 @@ class ApiController extends Controller
             $current_user = ($payload['customer_id']);
 
 
-            $package = UserPurchasedPackage::where('modal_id', $current_user)->with(['package' => function ($q) {
-                $q->select('id', 'property_limit', 'advertisement_limit')->where('property_limit', '!=', NULL);
-            }])->first();
+            $package = UserPurchasedPackage::where('modal_id', $current_user)->with([
+                'package' => function ($q) {
+                    $q->select('id', 'property_limit', 'advertisement_limit')->where('property_limit', '!=', NULL);
+                }
+            ])->first();
 
 
             $arr = 0;
@@ -772,7 +789,7 @@ class ApiController extends Controller
                     $Saveproperty->video_link = (isset($request->video_link)) ? $request->video_link : "";
 
                     $Saveproperty->package_id = $request->package_id;
-                    
+
                     $Saveproperty->post_type = 1;
                     if ($request->hasFile('title_image')) {
 
@@ -782,7 +799,7 @@ class ApiController extends Controller
                         $profile->move($destinationPath, $imageName);
                         $Saveproperty->title_image = $imageName;
                     } else {
-                        $Saveproperty->title_image  = '';
+                        $Saveproperty->title_image = '';
                     }
 
                     // threeD_image
@@ -797,12 +814,12 @@ class ApiController extends Controller
                         $profile->move($destinationPath, $imageName);
                         $Saveproperty->threeD_image = $imageName;
                     } else {
-                        $Saveproperty->threeD_image  = '';
+                        $Saveproperty->threeD_image = '';
                     }
                     // print_r(json_encode($request->parameters));
                     $Saveproperty->save();
                     $package->used_limit_for_property
-                        =  $package->used_limit_for_property + 1;
+                        = $package->used_limit_for_property + 1;
                     $package->save();
                     $destinationPathforparam = public_path('images') . config('global.PARAMETER_IMAGE_PATH');
                     if (!is_dir($destinationPath)) {
@@ -885,7 +902,7 @@ class ApiController extends Controller
 
                     /// END :: UPLOAD GALLERY IMAGE
 
-                     $result = Property::with('customer')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->where('id', $Saveproperty->id)->get();
+                    $result = Property::with('customer')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->where('id', $Saveproperty->id)->get();
                     $property_details = get_property_details($result);
 
                     $response['error'] = false;
@@ -982,7 +999,7 @@ class ApiController extends Controller
 
 
                         if ($property->title_image != '') {
-                            if (file_exists(public_path('images') . config('global.PROPERTY_TITLE_IMG_PATH') .  $property->title_image)) {
+                            if (file_exists(public_path('images') . config('global.PROPERTY_TITLE_IMG_PATH') . $property->title_image)) {
                                 unlink(public_path('images') . config('global.PROPERTY_TITLE_IMG_PATH') . $property->title_image);
                             }
                         }
@@ -999,7 +1016,7 @@ class ApiController extends Controller
 
 
                         if ($property->title_image != '') {
-                            if (file_exists(public_path('images') . config('global.3D_IMG_PATH') .  $property->title_image)) {
+                            if (file_exists(public_path('images') . config('global.3D_IMG_PATH') . $property->title_image)) {
                                 unlink(public_path('images') . config('global.3D_IMG_PATH') . $property->title_image);
                             }
                         }
@@ -1089,14 +1106,14 @@ class ApiController extends Controller
                     AssignedOutdoorFacilities::where('property_id', $request->id)->delete();
                     if ($request->facilities) {
                         foreach ($request->facilities as $key => $value) {
-                            
 
-                                $facilities = new AssignedOutdoorFacilities();
-                                $facilities->facility_id = $value['facility_id'];
-                                $facilities->property_id = $request->id;
-                                $facilities->distance = $value['distance'];
-                                $facilities->save();
-                        
+
+                            $facilities = new AssignedOutdoorFacilities();
+                            $facilities->facility_id = $value['facility_id'];
+                            $facilities->property_id = $request->id;
+                            $facilities->distance = $value['distance'];
+                            $facilities->save();
+
                         }
                     }
                     $property->update();
@@ -1114,30 +1131,30 @@ class ApiController extends Controller
                     if (!is_dir($destinationPath)) {
                         mkdir($destinationPath, 0777, true);
                     }
-                    if($request->remove_gallery_images){
-                       
-                       
+                    if ($request->remove_gallery_images) {
 
-                            foreach ($request->remove_gallery_images as $key => $value) {
-                   
-                                 $gallary_images = PropertyImages::find($value);
-                                       
-                                        
-                                if (file_exists(public_path('images') . config('global.PROPERTY_GALLERY_IMG_PATH') .$gallary_images->propertys_id .'/'. $gallary_images->image)) {
-                                    
-                                    unlink(public_path('images') . config('global.PROPERTY_GALLERY_IMG_PATH') .$gallary_images->propertys_id .'/'.$gallary_images->image);
-                                }
-                                
-                              $gallary_images->delete();
+
+
+                        foreach ($request->remove_gallery_images as $key => $value) {
+
+                            $gallary_images = PropertyImages::find($value);
+
+
+                            if (file_exists(public_path('images') . config('global.PROPERTY_GALLERY_IMG_PATH') . $gallary_images->propertys_id . '/' . $gallary_images->image)) {
+
+                                unlink(public_path('images') . config('global.PROPERTY_GALLERY_IMG_PATH') . $gallary_images->propertys_id . '/' . $gallary_images->image);
                             }
 
-                       
-                        
+                            $gallary_images->delete();
+                        }
+
+
+
 
                     }
                     if ($request->hasfile('gallery_images')) {
-                        
-                          
+
+
                         foreach ($request->file('gallery_images') as $file) {
                             $name = time() . rand(1, 100) . '.' . $file->extension();
                             $file->move($destinationPath, $name);
@@ -1148,10 +1165,10 @@ class ApiController extends Controller
 
 
                             ]);
-                              
-                          
+
+
                         }
-                        
+
                     }
 
                     /// END :: UPLOAD GALLERY IMAGE
@@ -1217,7 +1234,7 @@ class ApiController extends Controller
                         }
 
                         $response['error'] = false;
-                        $response['message'] =  'Delete Successfully';
+                        $response['message'] = 'Delete Successfully';
                     } else {
                         $response['error'] = true;
                         $response['message'] = 'something wrong';
@@ -1248,7 +1265,7 @@ class ApiController extends Controller
             $id = $request->id;
             $getImage = PropertyImages::where('id', $id)->first();
             $image = $getImage->image;
-            $propertys_id =  $getImage->propertys_id;
+            $propertys_id = $getImage->propertys_id;
 
             if (PropertyImages::where('id', $id)->delete()) {
                 if (file_exists(public_path('images') . config('global.PROPERTY_GALLERY_IMG_PATH') . $propertys_id . "/" . $image)) {
@@ -1284,7 +1301,7 @@ class ApiController extends Controller
         ]);
 
         if (!$validator->fails()) {
-            $action_type = $request->action_type;  ////0: add   1:update
+            $action_type = $request->action_type; ////0: add   1:update
             if ($action_type == 0) {
                 //add inquiry
                 $validator = Validator::make($request->all(), [
@@ -1299,7 +1316,7 @@ class ApiController extends Controller
                         PropertysInquiry::create([
                             'propertys_id' => $request->property_id,
                             'customers_id' => $current_user,
-                            'status'  => '0'
+                            'status' => '0'
                         ]);
                         $response['error'] = false;
                         $response['message'] = 'Inquiry Send Succssfully';
@@ -1356,13 +1373,13 @@ class ApiController extends Controller
         if (!$validator->fails()) {
             $id = $request->userid;
 
-            $Notifications =  Notifications::whereRaw("FIND_IN_SET($id,customers_id)")->orwhere('send_type', '1')->orderBy('id', 'DESC')->get();
+            $Notifications = Notifications::whereRaw("FIND_IN_SET($id,customers_id)")->orwhere('send_type', '1')->orderBy('id', 'DESC')->get();
 
 
             if (!$Notifications->isEmpty()) {
                 for ($i = 0; $i < count($Notifications); $i++) {
                     $Notifications[$i]->created = $Notifications[$i]->created_at->diffForHumans();
-                    $Notifications[$i]->image  = ($Notifications[$i]->image != '') ? url('') . config('global.IMG_PATH') . config('global.NOTIFICATION_IMG_PATH') . $Notifications[$i]->image : '';
+                    $Notifications[$i]->image = ($Notifications[$i]->image != '') ? url('') . config('global.IMG_PATH') . config('global.NOTIFICATION_IMG_PATH') . $Notifications[$i]->image : '';
                 }
                 $response['error'] = false;
                 $response['data'] = $Notifications;
@@ -1566,7 +1583,7 @@ class ApiController extends Controller
         $offset = isset($request->offset) ? $request->offset : 0;
         $limit = isset($request->limit) ? $request->limit : 10;
 
-        $article = Article::select('id', 'image', 'title', 'description','created_at');
+        $article = Article::select('id', 'image', 'title', 'description', 'created_at');
 
         $total = $article->get()->count();
         $result = $article->orderBy('id', 'ASC')->skip($offset)->take($limit)->get();
@@ -1603,9 +1620,11 @@ class ApiController extends Controller
             $payload = JWTAuth::getPayload($this->bearerToken($request));
             $current_user = ($payload['customer_id']);
 
-            $userpackage = UserPurchasedPackage::where('modal_id', $current_user)->with(['package' => function ($q) {
-                $q->select('id', 'property_limit', 'advertisement_limit')->where('advertisement_limit', '!=', NULL);
-            }])->first();
+            $userpackage = UserPurchasedPackage::where('modal_id', $current_user)->with([
+                'package' => function ($q) {
+                    $q->select('id', 'property_limit', 'advertisement_limit')->where('advertisement_limit', '!=', NULL);
+                }
+            ])->first();
             $arr = 0;
 
             $prop_count = 0;
@@ -1687,7 +1706,7 @@ class ApiController extends Controller
 
                         $adv->image = "";
                         $adv->save();
-                        $userpackage->used_limit_for_advertisement =  $userpackage->used_limit_for_advertisement + 1;
+                        $userpackage->used_limit_for_advertisement = $userpackage->used_limit_for_advertisement + 1;
 
                         $userpackage->save();
                         $response['error'] = false;
@@ -1768,7 +1787,7 @@ class ApiController extends Controller
     public function user_purchase_package(Request $request)
     {
 
-        $start_date =  Carbon::now();
+        $start_date = Carbon::now();
         $validator = Validator::make($request->all(), [
 
             'package_id' => 'required',
@@ -1827,7 +1846,7 @@ class ApiController extends Controller
         // dd($favourite);
         $arr = array();
         foreach ($favourite as $p) {
-            $arr[] =  $p->property_id;
+            $arr[] = $p->property_id;
         }
 
         $property_details = Property::whereIn('id', $arr)->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('parameters');
@@ -1850,7 +1869,7 @@ class ApiController extends Controller
             });
             $response['error'] = false;
             $response['message'] = "Data Fetch Successfully";
-            $response['data'] =  get_property_details($result);
+            $response['data'] = get_property_details($result);
             $response['total'] = $total;
         } else {
             $response['error'] = false;
@@ -1971,7 +1990,7 @@ class ApiController extends Controller
         // dd($favourite);
         $arr = array();
         foreach ($favourite as $p) {
-            $arr[] =  $p->property_id;
+            $arr[] = $p->property_id;
         }
         $property_details = Property::whereIn('id', $arr)->with('category:id,category')->with('parameters');
         $result = $property_details->orderBy('id', 'ASC')->skip($offset)->take($limit)->get();
@@ -2007,9 +2026,11 @@ class ApiController extends Controller
         if (!$validator->fails()) {
             $payload = JWTAuth::getPayload($this->bearerToken($request));
             $current_user = ($payload['customer_id']);
-            $package = UserPurchasedPackage::where('modal_id', $current_user)->where('package_id', $request->id)->with(['package' => function ($q) {
-                $q->select('id', 'property_limit', 'advertisement_limit');
-            }])->first();
+            $package = UserPurchasedPackage::where('modal_id', $current_user)->where('package_id', $request->id)->with([
+                'package' => function ($q) {
+                    $q->select('id', 'property_limit', 'advertisement_limit');
+                }
+            ])->first();
             if (!$package) {
                 $response['error'] = true;
                 $response['message'] = "package not found";
@@ -2239,9 +2260,11 @@ class ApiController extends Controller
                 $chat->audio = '';
             }
             $chat->save();
-            $customer = Customer::select('id', 'fcm_id', 'name','profile')->with(['usertokens' => function ($q) {
-                $q->select('fcm_id', 'id', 'customer_id');
-            }])->find($request->receiver_id);
+            $customer = Customer::select('id', 'fcm_id', 'name', 'profile')->with([
+                'usertokens' => function ($q) {
+                    $q->select('fcm_id', 'id', 'customer_id');
+                }
+            ])->find($request->receiver_id);
             $property = Property::find($request->property_id);
             // dd($customer->toArray());
             if ($customer) {
@@ -2264,7 +2287,8 @@ class ApiController extends Controller
                 foreach ($user_data as $user) {
                     array_push($fcm_id, $user->fcm_id);
                 }
-            };
+            }
+            ;
             $customer = Customer::select('fcm_id', 'name')->find($request->sender_id);
 
             // print_r($fcm_id);
@@ -2527,9 +2551,11 @@ class ApiController extends Controller
         $offset = isset($request->offset) ? $request->offset : 0;
         $limit = isset($request->limit) ? $request->limit : 10;
         $agent_arr = array();
-        $propertiesByAgent = Property::with(['customer' => function ($q) {
-            $q->where('role', 1);
-        }])
+        $propertiesByAgent = Property::with([
+            'customer' => function ($q) {
+                $q->where('role', 1);
+            }
+        ])
             ->groupBy('added_by')
             ->select('added_by', \DB::raw('count(*) as count'))->skip($offset)->take($limit)
             ->get();
@@ -2581,7 +2607,7 @@ class ApiController extends Controller
         }
         return response()->json($response);
     }
-      public function get_report_reasons(Request $request)
+    public function get_report_reasons(Request $request)
     {
         $offset = isset($request->offset) ? $request->offset : 0;
         $limit = isset($request->limit) ? $request->limit : 10;
@@ -2646,7 +2672,7 @@ class ApiController extends Controller
         }
         return response()->json($response);
     }
-      public function delete_chat_message(Request $request)
+    public function delete_chat_message(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'message_id' => 'required',
@@ -2668,4 +2694,3 @@ class ApiController extends Controller
         return response()->json($response);
     }
 }
-
