@@ -2667,7 +2667,6 @@ class ApiController extends Controller
         $locationWards = LocationsWard::select('code', 'full_name')
             ->whereNotNull('district_code')
             ->where('district_code', $districtCode)
-            ->orderBy('code', 'asc')
             ->get();
         //$categories = Category::select('id', 'category', 'image', 'parameter_types', 'order')->where('status', '1');
 
