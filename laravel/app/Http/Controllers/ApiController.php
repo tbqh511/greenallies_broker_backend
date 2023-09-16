@@ -2665,27 +2665,26 @@ class ApiController extends Controller
     {
         $offset = isset($request->offset) ? $request->offset : 0;
         $limit = isset($request->limit) ? $request->limit : 10;
-        $categories = Category::select('id', 'category', 'image', 'parameter_types', 'order')->where('status', '1');
 
-        if (isset($request->search) && !empty($request->search)) {
-            $search = $request->search;
-            $categories->where('category', 'LIKE', "%$search%");
+        $districtCode = config('location.district_code');
+        if($districtCode!=null)
+        {
+            $locationsWards = LocationsWard::select('code','full_name')->where('district_code', $districtCode)->get();
+        }
+        else
+        {
+            $locationsWards = LocationsWard::select('code','full_name')->where('district_code', 672 )->get();
         }
 
-        if (isset($request->id) && !empty($request->id)) {
-            $id = $request->id;
-            $categories->where('id', '=', $id);
-        }
+        
 
-        $total = $categories->get()->count();
-        $result = $categories->orderBy('sequence', 'ASC')->skip($offset)->take($limit)->get();
+        $total = $locationsWards->get()->count();
+        $result = $locationsWards->get();
 
         if (!$result->isEmpty()) {
             $response['error'] = false;
             $response['message'] = "Data Fetch Successfully";
-            foreach ($result as $row) {
-                $row->parameter_types = parameterTypesByCategory($row->id);
-            }
+            
             $response['total'] = $total;
             $response['data'] = $result;
         } else {
@@ -2694,6 +2693,7 @@ class ApiController extends Controller
             $response['data'] = [];
         }
         return response()->json($response);
+        
         // $offset = isset($request->offset) ? $request->offset : 0;
         // $limit = isset($request->limit) ? $request->limit : 10;
         // $districtCode = config('location.district_code');

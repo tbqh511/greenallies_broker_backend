@@ -204,8 +204,6 @@ if (!function_exists('get_states_from_json')) {
 if (!function_exists('parameterTypesByCategory')) {
     function parameterTypesByCategory($category_id)
     {
-
-
         $parameter_types = DB::table('categories')->select('parameter_types')->where('categories.id', $category_id)->first();
 
         $tempRow = array();
