@@ -2665,20 +2665,20 @@ class ApiController extends Controller
     {
         $offset = isset($request->offset) ? $request->offset : 0;
         $limit = isset($request->limit) ? $request->limit : 10;
-        $districtCode = config('location.district_code');
+        $categories = Category::select('id', 'category', 'image', 'parameter_types', 'order')->where('status', '1');
 
-        if($districtCode!=null)
-        {
-            $wards = LocationsWard::where('district_code', $districtCode)->get();
+        if (isset($request->search) && !empty($request->search)) {
+            $search = $request->search;
+            $categories->where('category', 'LIKE', "%$search%");
         }
-        else
-        {
-            $wards = LocationsWard::all();
-        }
-        //$wards = Category::select('id', 'category', 'image', 'parameter_types', 'order')->where('status', '1');
 
-        $total = $wards->get()->count();
-        $result = $wards->skip($offset)->take($limit)->get();
+        if (isset($request->id) && !empty($request->id)) {
+            $id = $request->id;
+            $categories->where('id', '=', $id);
+        }
+
+        $total = $categories->get()->count();
+        $result = $categories->orderBy('sequence', 'ASC')->skip($offset)->take($limit)->get();
 
         if (!$result->isEmpty()) {
             $response['error'] = false;
@@ -2694,6 +2694,37 @@ class ApiController extends Controller
             $response['data'] = [];
         }
         return response()->json($response);
+        // $offset = isset($request->offset) ? $request->offset : 0;
+        // $limit = isset($request->limit) ? $request->limit : 10;
+        // $districtCode = config('location.district_code');
+
+        // if($districtCode!=null)
+        // {
+        //     $wards = LocationsWard::where('district_code', $districtCode)->get();
+        // }
+        // else
+        // {
+        //     $wards = LocationsWard::all();
+        // }
+        // //$wards = Category::select('id', 'category', 'image', 'parameter_types', 'order')->where('status', '1');
+
+        // $total = $wards->get()->count();
+        // $result = $wards->skip($offset)->take($limit)->get();
+
+        // if (!$result->isEmpty()) {
+        //     $response['error'] = false;
+        //     $response['message'] = "Data Fetch Successfully";
+        //     foreach ($result as $row) {
+        //         $row->parameter_types = parameterTypesByCategory($row->id);
+        //     }
+        //     $response['total'] = $total;
+        //     $response['data'] = $result;
+        // } else {
+        //     $response['error'] = false;
+        //     $response['message'] = "No data found!";
+        //     $response['data'] = [];
+        // }
+        // return response()->json($response);
     }
     //* END :: get_wards   *//
 }
