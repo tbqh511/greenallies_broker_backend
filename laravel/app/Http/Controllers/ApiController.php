@@ -2661,21 +2661,17 @@ class ApiController extends Controller
     }
 
     //HuyTBQ
-    //* START :: get_wards   *//
-    public function get_wards(Request $request)
+    //* START :: get_locations_wards   *//
+    public function get_locations_wards(Request $request)
     {
-        // $districtCode = config('location.district_code');
-        // $locationWards = LocationsWard::select('code', 'full_name')->where('district_code',$districtCode);
         $districtCode = config('location.district_code');
 
-        $locationWards = LocationsWard::select('code', 'full_name')
+        $result = LocationsWard::select('code', 'full_name')
             ->whereNotNull('district_code')
             ->where('district_code', $districtCode)
             ->get();
 
-        $total = $locationWards->count();
-        $result = $locationWards;
-
+        $total = $result->count();
 
         if (!$result->isEmpty()) {
             $response['error'] = false;
@@ -2689,21 +2685,19 @@ class ApiController extends Controller
         }
         return response()->json($response);
     }
-    //* END :: get_wards   *//
+    //* END :: get_locations_wards   *//
 
     //* START :: get_streets   *//
-    public function get_streets(Request $request)
+    public function get_locations_streets(Request $request)
     {
         $districtCode = config('location.district_code');
 
-        $locationStreets = LocationsStreet::select('code', 'street_name')
+        $result = LocationsStreet::select('code', 'street_name')
             ->whereNotNull('district_code')
             ->where('district_code', $districtCode)
             ->get();
 
-        $total = $locationStreets->count();
-        $result = $locationStreets;
-
+        $total = $result->count();
 
         if (!$result->isEmpty()) {
             $response['error'] = false;
