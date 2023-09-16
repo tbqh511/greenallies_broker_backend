@@ -368,7 +368,7 @@ class ApiController extends Controller
     }
     //* END :: get_categories   *//
 
-    
+
 
     //* START :: update_profile   *//
     public function update_profile(Request $request)
@@ -2666,14 +2666,15 @@ class ApiController extends Controller
         // $districtCode = config('location.district_code');
         // $locationWards = LocationsWard::select('code', 'full_name')->where('district_code',$districtCode);
         $districtCode = config('location.district_code');
-$locationWards = LocationsWard::select('code', 'full_name')
-    ->whereNotNull('district_code')
-    ->where('district_code', $districtCode)
-    ->get();
-        //$categories = Category::select('id', 'category', 'image', 'parameter_types', 'order')->where('status', '1');
 
-        $total = $locationWards->get()->count();
-        $result = $locationWards->get();
+        $locationWards = LocationsWard::select('code', 'full_name')
+            ->whereNotNull('district_code')
+            ->where('district_code', $districtCode)
+            ->get();
+
+        $total = $locationWards->count();
+        $result = $locationWards;
+
 
         if (!$result->isEmpty()) {
             $response['error'] = false;
