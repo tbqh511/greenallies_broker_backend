@@ -2663,23 +2663,9 @@ class ApiController extends Controller
     //* START :: get_wards   *//
     public function get_wards(Request $request)
     {
-        $offset = isset($request->offset) ? $request->offset : 0;
-        $limit = isset($request->limit) ? $request->limit : 10;
 
-        $districtCode = config('location.district_code');
-        if($districtCode!=null)
-        {
-            $locationsWards = LocationsWard::select('code','full_name')->where('district_code', $districtCode)->get();
-        }
-        else
-        {
-            $locationsWards = LocationsWard::select('code','full_name')->where('district_code', 672 )->get();
-        }
-
-        
-
-        $total = $locationsWards->get()->count();
-        $result = $locationsWards->get();
+        $result = LocationsWard::select('code','full_name')->get();
+        $total = $result->get()->count();
 
         if (!$result->isEmpty()) {
             $response['error'] = false;
