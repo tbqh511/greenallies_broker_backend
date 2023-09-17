@@ -47,12 +47,12 @@ class Property extends Model
     //HuyTBQ: Start add address coloumns for propertys table
     public function ward()
     {
-        return $this->hasOne(LocationsWard::class, 'ward_code', 'code');
+        return $this->hasOne(LocationsWard::class, 'code', 'ward_code');
     }
     
     public function street()
     {
-        return $this->hasOne(LocationsStreet::class, 'street_code', 'code');
+        return $this->hasOne(LocationsStreet::class, 'street_code', 'street_code');
     }   
     //End HuyTBQ
 
