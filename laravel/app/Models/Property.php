@@ -17,7 +17,7 @@ class Property extends Model
         //HuyTBQ: Add address columns for property table
         'street_number',
         'street_code',
-        'category_id',
+        'ward_code',
 
         'title',
         'description',
