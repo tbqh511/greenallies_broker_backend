@@ -13,6 +13,12 @@ class Property extends Model
 
     protected $fillable = [
         'category_id',
+        
+        //HuyTBQ: Add address columns for property table
+        'street_number',
+        'street_code',
+        'category_id',
+
         'title',
         'description',
         'address',
@@ -37,6 +43,18 @@ class Property extends Model
     protected $appends = [
         'gallery'
     ];
+
+    //HuyTBQ: Start add address coloumns for propertys table
+    public function ward()
+    {
+        return $this->hasOne(LocationsWard::class, 'ward_code', 'ward_code');
+    }
+    
+    public function street()
+    {
+        return $this->hasOne(LocationsStreet::class, 'street_code', 'street_code');
+    }   
+    //End HuyTBQ
 
     public function category()
     {

@@ -485,7 +485,7 @@ class ApiController extends Controller
         $payload = JWTAuth::getPayload($this->bearerToken($request));
         $current_user = ($payload['customer_id']);
         DB::enableQueryLog();
-        $property = Property::with('customer')->with('user')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users');
+        $property = Property::with('customer')->with('user')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->with('ward')->with('street');
 
 
         $property_type = $request->property_type; //0 : Buy 1:Rent
@@ -503,6 +503,22 @@ class ApiController extends Controller
 
         $furnished = $request->furnished;
         $parameter_id = $request->parameter_id;
+
+        //HuyTBQ: Add address columns for propertys table 
+        $street_number = $request->street_number;
+        $street_code = $request->street_code;
+        $ward_code = $request->ward_code;
+
+        if (isset($street_number)) {
+            $property = $property->where('street_number', $street_number);
+        }
+        if (isset($street_code)) {
+            $property = $property->where('street_code', $street_code);
+        }
+        if (isset($ward_code)) {
+            $property = $property->where('ward_code', $ward_code);
+        }
+
         if (isset($parameter_id)) {
 
             $property = $property->whereHas('parameters', function ($q) use ($parameter_id) {
@@ -733,6 +749,11 @@ class ApiController extends Controller
                     $Saveproperty->longitude = (isset($request->longitude)) ? $request->longitude : '';
                     $Saveproperty->rentduration = (isset($request->rentduration)) ? $request->rentduration : '';
 
+
+                    //HuyTBQ: add address columns for properites table
+                    $Saveproperty->street_code = $request->street_code;
+                    $Saveproperty->ward_code = $request->ward_code;
+                    $Saveproperty->street_number = $request->street_number;
 
 
 

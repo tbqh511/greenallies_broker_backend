@@ -367,6 +367,11 @@ function get_property_details($result, $current_user = NULL)
         $tempRow['added_by'] = $row->added_by;
         $tempRow['video_link'] = $row->video_link;
 
+        //HuyTBQ: Add address columns for properties table
+        $tempRow['street_number'] = $row->street_number;
+        $tempRow['street_code'] = $row->street_code;
+        $tempRow['ward_code'] = $row->ward_code;
+
         $tempRow['assign_facilities'] = [];
         foreach ($row->assignfacilities as $facility) {
             $tempRow['assign_facilities'][] = [
