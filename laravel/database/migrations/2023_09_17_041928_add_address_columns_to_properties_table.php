@@ -12,7 +12,7 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::table('properties', function (Blueprint $table) {
+        Schema::table('propertys', function (Blueprint $table) {
             $table->string('street_number')->nullable();
             $table->string('street_code')->nullable();
             $table->string('ward_code')->nullable();
@@ -26,7 +26,7 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::table('properties', function (Blueprint $table) {
+        Schema::table('propertys', function (Blueprint $table) {
             $table->dropColumn('street_number');
             $table->dropColumn('street_code');
             $table->dropColumn('ward_code');
