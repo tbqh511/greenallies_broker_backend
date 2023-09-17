@@ -118,8 +118,6 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: Get System Setting   *//
-
-
     //* START :: user_signup   *//
     public function user_signup(Request $request)
     {
@@ -247,9 +245,6 @@ class ApiController extends Controller
         }
         return response()->json($response);
     }
-
-
-
     //* START :: get_slider   *//
     public function get_slider(Request $request)
     {
@@ -328,10 +323,7 @@ class ApiController extends Controller
         }
         return response()->json($response);
     }
-
     //* END :: get_slider   *//
-
-
     //* START :: get_categories   *//
     public function get_categories(Request $request)
     {
@@ -368,9 +360,6 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: get_categories   *//
-
-
-
     //* START :: update_profile   *//
     public function update_profile(Request $request)
     {
@@ -460,7 +449,6 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: update_profile   *//
-
     //* START :: get_user_by_id   *//
     public function get_user_by_id(Request $request)
     {
@@ -489,7 +477,6 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: get_user_by_id   *//
-
     //* START :: get_property   *//
     public function get_property(Request $request)
     {
@@ -671,7 +658,6 @@ class ApiController extends Controller
         return ($response);
     }
     //* END :: get_property   *//
-
     //* START :: post_property   *//
     public function post_property(Request $request)
     {
@@ -1218,8 +1204,6 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: update_post_property   *//
-
-
     //* START :: remove_post_images   *//
     public function remove_post_images(Request $request)
     {
@@ -1257,7 +1241,6 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: remove_post_images   *//
-
     //* START :: set_property_inquiry   *//
     public function set_property_inquiry(Request $request)
     {
@@ -1325,10 +1308,6 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: set_property_inquiry   *//
-
-
-
-
     //* START :: get_notification_list   *//
     public function get_notification_list(Request $request)
     {
@@ -1362,7 +1341,6 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: get_notification_list   *//
-
     //* START :: get_property_inquiry   *//
     public function get_property_inquiry(Request $request)
     {
@@ -1435,9 +1413,6 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: get_property_inquiry   *//
-
-
-
     //* START :: set_property_total_click   *//
     public function set_property_total_click(Request $request)
     {
@@ -1463,8 +1438,6 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: set_property_total_click   *//
-
-
     //* START :: delete_user   *//
     public function delete_user(Request $request)
     {
@@ -2090,9 +2063,6 @@ class ApiController extends Controller
         }
         return response()->json($response);
     }
-
-
-
     public function paypal(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -2338,7 +2308,6 @@ class ApiController extends Controller
         }
         return response()->json($response);
     }
-
     public function get_chats(Request $request)
     {
         $payload = JWTAuth::getPayload($this->bearerToken($request));
@@ -2659,7 +2628,6 @@ class ApiController extends Controller
         }
         return response()->json($response);
     }
-
     //HuyTBQ
     //* START :: get_locations_wards   *//
     public function get_locations_wards(Request $request)
@@ -2686,7 +2654,6 @@ class ApiController extends Controller
         return response()->json($response);
     }
     //* END :: get_locations_wards   *//
-
     //* START :: get_streets   *//
     public function get_locations_streets(Request $request)
     {
