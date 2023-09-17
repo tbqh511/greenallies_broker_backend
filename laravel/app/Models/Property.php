@@ -52,7 +52,7 @@ class Property extends Model
     
     public function street()
     {
-        return $this->hasOne(LocationsStreet::class, 'street_code', 'street_code');
+        return $this->hasOne(LocationsStreet::class, 'code', 'street_code');
     }   
     //End HuyTBQ
 
