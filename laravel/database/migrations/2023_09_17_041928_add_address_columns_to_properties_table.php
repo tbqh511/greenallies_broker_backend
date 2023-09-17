@@ -13,9 +13,9 @@ return new class extends Migration {
     public function up()
     {
         Schema::table('propertys', function (Blueprint $table) {
-            $table->string('street_number')->nullable();
-            $table->string('street_code')->nullable();
-            $table->string('ward_code')->nullable();
+            $table->string('street_number')->nullable()->default('');
+            $table->string('street_code')->nullable()->default('');
+            $table->string('ward_code')->nullable()->default('');
         });
     }
 
