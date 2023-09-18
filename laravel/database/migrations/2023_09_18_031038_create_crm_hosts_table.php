@@ -14,7 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('crm_hosts', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('name', 255);
+            $table->string('gender', 10);
+            $table->string('contact', 255);
+            $table->unsignedInteger('age')->default(0)->nullable();
+            $table->string('company', 255)->nullable();
+            $table->string('about', 255)->nullable();
             $table->timestamps();
         });
     }
