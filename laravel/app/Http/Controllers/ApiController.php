@@ -485,7 +485,7 @@ class ApiController extends Controller
         $payload = JWTAuth::getPayload($this->bearerToken($request));
         $current_user = ($payload['customer_id']);
         DB::enableQueryLog();
-        $property = Property::with('customer')->with('user')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->with('ward')->with('street');
+        $property = Property::with('customer')->with('user')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->with('ward')->with('street')->with('host');
 
 
         $property_type = $request->property_type; //0 : Buy 1:Rent
@@ -508,6 +508,7 @@ class ApiController extends Controller
         $street_number = $request->street_number;
         $street_code = $request->street_code;
         $ward_code = $request->ward_code;
+        $host_id = $request->host_id;
 
         if (isset($street_number)) {
             $property = $property->where('street_number', $street_number);
@@ -517,6 +518,9 @@ class ApiController extends Controller
         }
         if (isset($ward_code)) {
             $property = $property->where('ward_code', $ward_code);
+        }
+        if (isset($host_id)) {
+            $property = $property->where('host_id', $host_id);
         }
 
         if (isset($parameter_id)) {
@@ -754,6 +758,7 @@ class ApiController extends Controller
                     $Saveproperty->street_code = $request->street_code;
                     $Saveproperty->ward_code = $request->ward_code;
                     $Saveproperty->street_number = $request->street_number;
+                    $Saveproperty->host_id = $request->host_id;
 
 
 

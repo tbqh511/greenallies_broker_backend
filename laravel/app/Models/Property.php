@@ -14,10 +14,12 @@ class Property extends Model
     protected $fillable = [
         'category_id',
         
+        
         //HuyTBQ: Add address columns for property table
         'street_number',
         'street_code',
         'ward_code',
+        'host_id',
 
         'title',
         'description',
