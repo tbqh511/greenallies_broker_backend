@@ -56,6 +56,14 @@ class Property extends Model
     }   
     //End HuyTBQ
 
+    //HuyTBQ: Add host_id for propertys table
+    public function host()
+    {
+        return $this->hasOne(CrmHost::class, 'id', 'host_id')->select('id', 'gender', 'name', 'contact','age','company','about');
+    }
+
+    //End HuyTBQ
+
     public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id')->select('id', 'category', 'parameter_types', 'image');
