@@ -1267,7 +1267,6 @@ class ApiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'action_type' => 'required',
-
         ]);
 
         if (!$validator->fails()) {
@@ -1276,7 +1275,6 @@ class ApiController extends Controller
                 //add inquiry
                 $validator = Validator::make($request->all(), [
                     'property_id' => 'required',
-
                 ]);
                 $payload = JWTAuth::getPayload($this->bearerToken($request));
                 $current_user = ($payload['customer_id']);
@@ -1303,7 +1301,6 @@ class ApiController extends Controller
                 $validator = Validator::make($request->all(), [
                     'id' => 'required',
                     'status' => 'required',
-
                 ]);
 
                 if (!$validator->fails()) {
@@ -1323,9 +1320,6 @@ class ApiController extends Controller
             $response['error'] = true;
             $response['message'] = "Please fill all data and Submit";
         }
-
-
-
         return response()->json($response);
     }
     //* END :: set_property_inquiry   *//
@@ -1439,7 +1433,6 @@ class ApiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'property_id' => 'required',
-
         ]);
 
         if (!$validator->fails()) {
