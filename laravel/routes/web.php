@@ -26,6 +26,8 @@ use App\Http\Controllers\ReportReasonController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
+use App\Http\Controllers\FrontEndHomeController;
+
 use App\Models\Payments;
 use App\Models\PropertysInquiry;
 use Illuminate\Support\Facades\Artisan;
@@ -42,7 +44,15 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 
+//HuyTBQ: Route for Frontend Page
 Route::get('/', function () {
+    return view('coming_soon');
+});
+
+Route::get('/home', [FrontEndHomeController::class, 'index']);
+//HuyTBQ: End - Route for Frontend Page
+
+Route::get('/admin', function () {
     return view('auth.login');
 });
 
@@ -277,4 +287,3 @@ Route::middleware(['auth', 'checklogin'])->group(function () {
 });
 
 Auth::routes();
-
