@@ -50,6 +50,48 @@ Route::get('/', function () {
 });
 
 Route::get('/frontend', [FrontEndHomeController::class, 'index']);
+
+//product controller
+// Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
+
+Route::get('/nha-dat', function () {
+    return view('product');
+});
+
+Route::get('/dang-tin', function () {
+    return view('product_create');
+});
+
+Route::get('/nha-ban', function () {
+    return view('products');
+});
+
+Route::get('/dat-ban', function () {
+    return view('products');
+});
+
+Route::get('/wiki-single', function () {
+    return view('post');
+});
+
+Route::get('/wiki', function () {
+    return view('posts');
+});
+
+Route::get('/dalatbds', function () {
+    return view('about');
+});
+
+Route::get('/tin-tuc', function () {
+    return view('posts');
+});
+
+Route::get('/lien-he', function () {
+    return view('contact');
+});
+Route::fallback(function () {
+    return view('404');
+});
 //HuyTBQ: End - Route for Frontend Page
 
 Route::get('/admin', function () {
