@@ -10,6 +10,7 @@
     @include('frontends.components.home_breadcrumb')
     <!-- breadcrumbs end -->
     <!-- section -->
+    {{-- @include('frontends.components.home_products_grid', ['newestProducts'=> $newestProducts]) --}}
     @include('frontends.components.home_products_grid', ['newestProducts'=> $newestProducts])
     <!-- section end-->
     <!-- section -->
