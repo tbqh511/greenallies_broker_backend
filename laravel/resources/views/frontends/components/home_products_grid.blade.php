@@ -18,7 +18,7 @@
         <div class="clearfix"></div>
         <!-- grid-item-holder-->
         <div class="grid-item-holder gallery-items gisp fl-wrap">
-            {{-- @foreach($newestProducts as $newestProduct)
+            @foreach($newestProducts as $newestProduct)
             <!-- gallery-item-->
             <div class="gallery-item for_sale">
                 <!-- listing-item -->
@@ -26,7 +26,7 @@
                 <!-- listing-item end-->
             </div>
             <!-- gallery-item end-->
-            @endforeach --}}
+            @endforeach
         </div>
         <!-- grid-item-holder-->
         <a href="/nha-ban" class="btn float-btn small-btn color-bg">Xem thêm</a>

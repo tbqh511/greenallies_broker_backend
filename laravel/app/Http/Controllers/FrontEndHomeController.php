@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Models\LocationsStreet;
 use App\Models\LocationsWard;
@@ -23,15 +25,24 @@ class FrontEndHomeController extends Controller
         } else {
             $locationsWards = LocationsWard::all();
         }
+            $categories = Category::all();
 
-        // $productTypes = ProductType::all();
-        // $newestProducts = Product::with('locationsStreet', 'locationsWard')->latest()->take(6)->get();
+        $offset = 0;
+        $limit = 10;
+        $sort = 'update_at';
+        $order = 'DESC';
+
+        //  $newestProducts = Product::with('locationsStreet', 'locationsWard')->latest()->take(6)->get();
+        $sql = Property::with('category')->with('customer')->with('assignParameter.parameter')->with('interested_users')->orderBy($sort, $order);
+        $sql->skip($offset)->take($limit);
+        $newestProducts = $sql->get();
+        
 
         return view('frontend_home', [
             'locationsStreets' => $locationsStreets,
             'locationsWards' => $locationsWards,
-            // 'productTypes' => $productTypes,
-            // 'newestProducts' => $newestProducts,
+            'categories' => $categories,
+            'newestProducts' => $newestProducts,
         ]);
     }
 

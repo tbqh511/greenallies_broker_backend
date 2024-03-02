@@ -3,8 +3,8 @@
 @section('content')
 <div class="content">
     <!--  section  -->
-    {{-- @include('frontends.components.home_slider',['locationsStreets' => $locationsStreets, 'locationsWards' => $locationsWards, 'productTypes'=> $productTypes]) --}}
-    @include('frontends.components.home_slider',['locationsStreets' => $locationsStreets, 'locationsWards' => $locationsWards])
+    @include('frontends.components.home_slider',['locationsStreets' => $locationsStreets, 'locationsWards' => $locationsWards, 'categories' => $categories])
+    {{-- @include('frontends.components.home_slider',['locationsStreets' => $locationsStreets, 'locationsWards' => $locationsWards]) --}}
     <!--  section  end-->
     <!-- breadcrumbs-->
     @include('frontends.components.home_breadcrumb')

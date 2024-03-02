@@ -26,9 +26,9 @@
                 <div class="main-search-input-item">
                     <select data-placeholder="All Categories" class="chosen-select no-search-select">
                         <option>Loại nhà đất</option>
-                        {{-- @foreach ($productTypes as $productType)
-                            <option> {{$productType->Name;}}</option>
-                        @endforeach --}}
+                        @foreach ($categories as $categorie)
+                            <option> {{$categorie->category;}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="main-search-input-item">
