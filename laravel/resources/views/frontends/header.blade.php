@@ -40,7 +40,7 @@
         <nav>
             <ul class="no-list-style">
                 <li>
-                    <a href="/home" class="act-link">Trang chủ <i class="fa"></i></a>
+                    <a href="/frontend" class="act-link">Trang chủ <i class="fa"></i></a>
                 </li>
                 <li>
                     <a href="/nha-ban">Nhà bán <i class="fa "></i></a>
