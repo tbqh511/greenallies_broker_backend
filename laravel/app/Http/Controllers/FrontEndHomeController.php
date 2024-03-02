@@ -29,7 +29,7 @@ class FrontEndHomeController extends Controller
 
         $offset = 0;
         $limit = 10;
-        $sort = 'update_at';
+        $sort = 'updated_at';
         $order = 'DESC';
 
         //  $newestProducts = Product::with('locationsStreet', 'locationsWard')->latest()->take(6)->get();
