@@ -49,7 +49,7 @@ Route::get('/', function () {
     return view('coming_soon');
 });
 
-Route::get('/home', [FrontEndHomeController::class, 'index']);
+Route::get('/frontend', [FrontEndHomeController::class, 'index']);
 //HuyTBQ: End - Route for Frontend Page
 
 Route::get('/admin', function () {
