@@ -11,7 +11,7 @@
     <!-- breadcrumbs end -->
     <!-- section -->
     {{-- @include('frontends.components.home_products_grid', ['newestProducts'=> $newestProducts]) --}}
-    @include('frontends.components.home_products_grid', ['newestProducts'=> $newestProducts])
+    @include('frontends.components.home_products_grid')
     <!-- section end-->
     <!-- section -->
     @include('frontends.components.home_about_wrap')
