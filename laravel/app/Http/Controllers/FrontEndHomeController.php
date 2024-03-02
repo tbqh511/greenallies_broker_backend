@@ -8,7 +8,7 @@ use App\Models\LocationsWard;
 use App\Models\ProductType;
 use App\Models\Product;
 
-class FrontPageHomeController extends Controller
+class FrontEndHomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,14 +24,14 @@ class FrontPageHomeController extends Controller
             $locationsWards = LocationsWard::all();
         }
 
-        $productTypes = ProductType::all();
-        $newestProducts = Product::with('locationsStreet', 'locationsWard')->latest()->take(6)->get();
+        // $productTypes = ProductType::all();
+        // $newestProducts = Product::with('locationsStreet', 'locationsWard')->latest()->take(6)->get();
 
-        return view('home', [
+        return view('frontend_home', [
             'locationsStreets' => $locationsStreets,
             'locationsWards' => $locationsWards,
-            'productTypes' => $productTypes,
-            'newestProducts' => $newestProducts,
+            // 'productTypes' => $productTypes,
+            // 'newestProducts' => $newestProducts,
         ]);
     }
 
