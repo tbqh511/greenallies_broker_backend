@@ -52,7 +52,7 @@ Route::get('/', function () {
 Route::get('/frontend', [FrontEndHomeController::class, 'index']);
 
 //product controller
-// Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/nha-dat', function () {
     return view('product');
