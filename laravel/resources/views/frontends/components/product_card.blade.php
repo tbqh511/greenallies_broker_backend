@@ -48,7 +48,7 @@ if ($price > $ty) {
         </div>
         <div class="geodir-category-content fl-wrap">
             {{-- HuyTQB: temp --}}
-            {{-- <h3 class="title-sin_item"><a href="{{ route('product.show', ['slug' => $product->slug]) }}">{{$product->title}}</a></h3> --}}
+            {{-- <h3 class="title-sin_item"><a href="{{ route('product.show', ['slug' => $product->slug]) }}">{{$product->title}}</a></h3>   --}}
             <div class="geodir-category-content_price">{{ $formattedPrice }}</div>
             <p>{{$product->description}}</p>
             <div class="geodir-category-content-details">
