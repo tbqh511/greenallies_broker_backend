@@ -1,23 +1,23 @@
 @php
-    \Carbon\Carbon::setLocale('vi');
-    $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
+    // \Carbon\Carbon::setLocale('vi');
+    // $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
 
-    $price = $product->prices;
-    $ty = 1000000000;
-    $trieu = 1000000;
+    // $price = $product->prices;
+    // $ty = 1000000000;
+    // $trieu = 1000000;
 
-    if ($price > $ty) {
-        if ($price % $ty == 0 ) {
-        $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
-        }
-        else {
-        $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
-        }
-    } elseif ($price > 0) {
-        $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
-    } else {
-        $formattedPrice = 'Giá thỏa thuận';
-    }
+    // if ($price > $ty) {
+    //     if ($price % $ty == 0 ) {
+    //     $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
+    //     }
+    //     else {
+    //     $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
+    //     }
+    // } elseif ($price > 0) {
+    //     $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
+    // } else {
+    //     $formattedPrice = 'Giá thỏa thuận';
+    // }
 @endphp
 @extends('frontends.master')
 @section('content')
@@ -105,7 +105,7 @@
                             </div>
                             <div class="list-single-header-footer fl-wrap">
                                 <div class="list-single-header-price" data-propertyprise="50500">
-                                    <strong>Giá:</strong>{{ $formattedPrice }}</div>
+                                    {{-- <strong>Giá:</strong>{{ $formattedPrice }}</div> --}}
                                 <div class="list-single-header-date"><span>Ngày đăng:</span>{{$product->created_at->format('d/m/Y H:i:s')}}</div>
                                 <div class="list-single-stats">
                                     <ul class="no-list-style">
@@ -182,7 +182,7 @@
                                             <li><span>Bedrooms:</span>2</li>
                                             <li><span>Garage Size:</span>2 cars</li>
                                             <li><span>Available from:</span>25.05.2020</li>
-                                            <li><span>Price:</span>{{$formattedPrice}}</li>
+                                            {{-- <li><span>Price:</span>{{$formattedPrice}}</li> --}}
                                             <li><span>Type:</span>Apartment/House</li>
                                         </ul>
                                     </div>
