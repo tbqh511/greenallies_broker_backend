@@ -1,23 +1,23 @@
 @php
-\Carbon\Carbon::setLocale('vi');
-$formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
+// \Carbon\Carbon::setLocale('vi');
+// $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
 
-$price = $product->prices;
-$ty = 1000000000;
-$trieu = 1000000;
+// $price = $product->prices;
+// $ty = 1000000000;
+// $trieu = 1000000;
 
-if ($price > $ty) {
-    if ($price % $ty == 0 ) {
-    $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
-    }
-    else {
-    $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
-    }
-} elseif ($price > 0) {
-    $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
-} else {
-    $formattedPrice = 'Giá thỏa thuận';
-}
+// if ($price > $ty) {
+//     if ($price % $ty == 0 ) {
+//     $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
+//     }
+//     else {
+//     $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
+//     }
+// } elseif ($price > 0) {
+//     $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
+// } else {
+//     $formattedPrice = 'Giá thỏa thuận';
+// }
 @endphp
 
 <div class="listing-item">
@@ -47,8 +47,9 @@ if ($price > $ty) {
             </div>
         </div>
         <div class="geodir-category-content fl-wrap">
-            {{-- HuyTQB: temp --}}
-            {{-- <h3 class="title-sin_item"><a href="{{ route('product.show', ['slug' => $product->slug]) }}">{{$product->title}}</a></h3>   --}}
+            <h3 class="title-sin_item">
+                {{-- <a href="{{ route('product.show', ['slug' => $product->slug]) }}">{{$product->title}}</a> --}}
+            </h3>  
             <div class="geodir-category-content_price">{{ $formattedPrice }}</div>
             <p>{{$product->description}}</p>
             <div class="geodir-category-content-details">
