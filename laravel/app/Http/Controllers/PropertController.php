@@ -214,7 +214,9 @@ class PropertController extends Controller
             // dd($parameters->toArray());
             $country = get_countries_from_json();
             $state = get_states_from_json($list->country);
-            $facility = OutdoorFacilities::with(['assign_facilities'=>function($q) use ($id){$q->where('property_id',$id);}])->get();
+            $facility = OutdoorFacilities::with(['assign_facilities' => function ($q) use ($id) {
+                $q->where('property_id', $id);
+            }])->get();
             $assignfacility = AssignedOutdoorFacilities::where('property_id', $id)->get();
 
             $arr = json_decode($list->carpet_area);
@@ -396,7 +398,7 @@ class PropertController extends Controller
      */
     public function destroy($id)
     {
-        if (env('DEMO_MODE') && Auth::user()->email!="superadmin@gmail.com") {
+        if (env('DEMO_MODE') && Auth::user()->email != "superadmin@gmail.com") {
             return redirect()->back()->with('error', 'This is not allowed in the Demo Version');
         }
         if (!has_permissions('delete', 'property')) {
@@ -586,9 +588,6 @@ class PropertController extends Controller
                 $tempRow['mobile'] = '*********';
             }
             if ($row->added_by == 0) {
-
-
-
                 $tempRow['added_by'] = 'Admin';
                 $tempRow['mobile'] = '*********';
             }
@@ -726,4 +725,3 @@ class PropertController extends Controller
         return response()->json($response);
     }
 }
-
