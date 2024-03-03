@@ -189,7 +189,10 @@
                                 @foreach ($res->type_values as $key => $value)
                                     <input type="checkbox" name="{{ $res->id . '[]' }}" id=""
                                         class="form-check-input" value={{ $value }}
-                                        {{ !empty($res->assigned_parameter->value) && in_array($value, $res->assigned_parameter->value) ? 'Checked' : '' }}>{{ $value }}
+                                        {{-- HuyTBQ --}}
+                                        {{-- {{ !empty($res->assigned_parameter->value) && in_array($value, $res->assigned_parameter->value) ? 'Checked' : '' }}>{{ $value }} --}}
+                                        {{ !empty($res->assigned_parameter->value) && is_array($res->assigned_parameter->value) && in_array($value, $res->assigned_parameter->value) ? 'Checked' : '' }}
+
                                 @endforeach
                             @endif
 
