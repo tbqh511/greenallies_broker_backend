@@ -36,7 +36,6 @@ class FrontEndHomeController extends Controller
         $sql = Property::with('category')->with('customer')->with('assignParameter.parameter')->with('interested_users')->orderBy($sort, $order);
         $sql->skip($offset)->take($limit);
         $newestProducts = $sql->get();
-        
 
         return view('frontend_home', [
             'locationsStreets' => $locationsStreets,

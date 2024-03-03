@@ -7,7 +7,6 @@
         <div class="hero-title hero-title_small">
             <h4>Mạng lưới thổ địa lớn nhất Đà Lạt</h4>
             <h2>Tìm bất động sản Đà Lạt của bạn
-
             </h2>
         </div>
         <div class="main-search-input-wrap">
@@ -16,10 +15,18 @@
                     <input type="text" placeholder="Đường, Phường, Xã" value="" />
                 </div> --}}
                 <div class="main-search-input-item">
-                    <select data-placeholder="All Categories" class="chosen-select" >
+                    <select data-placeholder="All Categories" class="chosen-select">
+                        <option>Phường Xã</option>
+                        @foreach ($locationsWards as $locationsWard)
+                        <option> {{$locationsWard->full_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="main-search-input-item">
+                    <select data-placeholder="All Categories" class="chosen-select">
                         <option>Đường</option>
                         @foreach ($locationsStreets as $locationsStreet)
-                            <option> {{$locationsStreet->street_name;}}</option>
+                        <option> {{$locationsStreet->street_name;}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -27,15 +34,7 @@
                     <select data-placeholder="All Categories" class="chosen-select no-search-select">
                         <option>Loại nhà đất</option>
                         @foreach ($categories as $categorie)
-                            <option> {{$categorie->category;}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="main-search-input-item">
-                    <select data-placeholder="All Categories" class="chosen-select">
-                        <option>Phường Xã</option>
-                        @foreach ($locationsWards as $locationsWard)
-                            <option> {{$locationsWard->full_name}}</option>
+                        <option> {{$categorie->category;}}</option>
                         @endforeach
                     </select>
                 </div>
