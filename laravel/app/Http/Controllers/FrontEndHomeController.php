@@ -28,7 +28,7 @@ class FrontEndHomeController extends Controller
             $categories = Category::all();
 
         $offset = 0;
-        $limit = 6;
+        $limit = 8;
         $sort = 'updated_at';
         $order = 'DESC';
 
