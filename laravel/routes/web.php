@@ -248,6 +248,7 @@ Route::middleware(['auth', 'checklogin'])->group(function () {
         Route::resource('parameters', ParameterController::class);
         Route::get('parameter-list', [ParameterController::class, 'show']);
         Route::post('parameter-update', [ParameterController::class, 'update']);
+        
         /// END :: PARAMETER FACILITY ROUTE
 
         /// START :: OUTDOOR FACILITY ROUTE
