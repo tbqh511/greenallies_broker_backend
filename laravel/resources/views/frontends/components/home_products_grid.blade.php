@@ -8,11 +8,11 @@
                 </div>
             </div>
             <div class="col-md-8">
-                {{-- <div class="listing-filters gallery-filters">
+                <div class="listing-filters gallery-filters">
                     <a href="#" class="gallery-filter  gallery-filter-active" data-filter="*"> <span>Tất cả</span></a>
                     <a href="#" class="gallery-filter" data-filter=".for_sale"> <span>Nhà bán</span></a>
                     <a href="#" class="gallery-filter" data-filter=".for_rent"> <span>Đất bán</span></a>
-                </div> --}}
+                </div>
             </div>
         </div>
         <div class="clearfix"></div>
