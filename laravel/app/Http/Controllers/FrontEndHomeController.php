@@ -30,7 +30,7 @@ class FrontEndHomeController extends Controller
 
         // Set parameters for the product query
         $offset = 0;
-        $limit = 8;
+        $limit = 9;
         $sort = 'updated_at';
         $order = 'DESC';
 
