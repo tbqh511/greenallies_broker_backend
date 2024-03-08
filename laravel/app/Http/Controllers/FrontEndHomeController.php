@@ -17,26 +17,34 @@ class FrontEndHomeController extends Controller
      */
     public function index()
     {
+        // Get the list of streets in the areas
         $locationsStreets = LocationsStreet::all();
 
+        // Get the district code from configuration
         $districtCode = config('location.district_code');
-        if ($districtCode != null) {
-            $locationsWards = LocationsWard::where('district_code', $districtCode)->get();
-        } else {
-            $locationsWards = LocationsWard::all();
-        }
-            $categories = Category::all();
+        // If there's a district code, get the list of wards in that district
+        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->get() : LocationsWard::all();
 
+        // Get the list of product categories
+        $categories = Category::all();
+
+        // Set parameters for the product query
         $offset = 0;
         $limit = 8;
         $sort = 'updated_at';
         $order = 'DESC';
 
-        //  $newestProducts = Product::with('locationsStreet', 'locationsWard')->latest()->take(6)->get();
-        $sql = Property::with('category')->with('customer')->with('assignParameter.parameter')->with('interested_users')->orderBy($sort, $order);
-        $sql->skip($offset)->take($limit);
-        $newestProducts = $sql->get();
+        // Get the list of newest products
+        $newestProducts = Property::with('category')
+            ->with('customer')
+            ->with('assignParameter.parameter')
+            ->with('interested_users')
+            ->orderBy($sort, $order)
+            ->skip($offset)
+            ->take($limit)
+            ->get();
 
+        // Return the frontend_home view with the necessary data
         return view('frontend_home', [
             'locationsStreets' => $locationsStreets,
             'locationsWards' => $locationsWards,
@@ -44,6 +52,8 @@ class FrontEndHomeController extends Controller
             'newestProducts' => $newestProducts,
         ]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.

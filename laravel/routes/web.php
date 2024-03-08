@@ -5,6 +5,7 @@ use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\AreaMeasurementController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BedroomController;
+use App\Http\Controllers\FrontEndProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
@@ -52,7 +53,8 @@ Route::get('/', function () {
 Route::get('/frontend', [FrontEndHomeController::class, 'index']);
 
 //product controller
-// Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
+//Route::get('/product/{slug}', [FrontEndProductController::class, 'show'])->name('product.show');
+Route::get('/product/{slug}', [FrontEndProductController::class, 'show'])->name('product.show');
 
 Route::get('/nha-dat', function () {
     return view('product');
