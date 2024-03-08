@@ -30,15 +30,21 @@ class FrontEndHomeController extends Controller
 
         // Set parameters for the product query
         $offset = 0;
-        $limit = 9;
+        $limit = 6;
         $sort = 'updated_at';
         $order = 'DESC';
 
         // Get the list of newest products
-        $newestProducts = Property::with('category')
-            ->with('customer')
-            ->with('assignParameter.parameter')
+        $newestProducts = Property::with('customer')
+            ->with('user')
+            ->with('category:id,category,image')
+            ->with('assignfacilities.outdoorfacilities')
+            ->with('favourite')
+            ->with('parameters')
             ->with('interested_users')
+            ->with('ward')
+            ->with('street')
+            ->with('host')
             ->orderBy($sort, $order)
             ->skip($offset)
             ->take($limit)
