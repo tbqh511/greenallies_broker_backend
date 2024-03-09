@@ -2,7 +2,7 @@
 \Carbon\Carbon::setLocale('vi');
 $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
 
-$price = $product->prices;
+$price = $product->price;
 $ty = 1000000000;
 $trieu = 1000000;
 
