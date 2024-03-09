@@ -7,51 +7,52 @@ $ty = 1000000000;
 $trieu = 1000000;
 
 if ($price > $ty) {
-    if ($price % $ty == 0 ) {
-    $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
-    }
-    else {
-    $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
-    }
+if ($price % $ty == 0 ) {
+$formattedPrice = number_format($price / $ty, 0) . ' tỷ';
+}
+else {
+$formattedPrice = number_format($price / $ty, 1) . ' tỷ';
+}
 } elseif ($price > 0) {
-    $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
+$formattedPrice = number_format($price / $trieu, 0) . ' triệu';
 } else {
-    $formattedPrice = 'Giá thỏa thuận';
+$formattedPrice = 'Giá thỏa thuận';
 }
 @endphp
 
 <div class="listing-item">
     <article class="geodir-category-listing fl-wrap">
         <div class="geodir-category-img fl-wrap">
-            {{-- <a href="{{ route('product.show', ['slug' => $product->slug]) }}" class="geodir-category-img_item"> --}}
-            <a href="" class="geodir-category-img_item">
-                <img src="{{$product->title_image}}" alt="">
-                <div class="overlay"></div>
-            </a>
-            <div class="geodir-category-location">
-                <a href="#"><i class="fas fa-map-marker-alt"></i>
-                    <span>
-                        {{ optional($product->locationsStreet)->street_name }}, {{optional
-                        ($product->locationsWard)->name}}
-                    </span></a>
-            </div>
-            <ul class="list-single-opt_header_cat">
-                <li><a href="#" class="cat-opt blue-bg">Nhà bán</a></li>
-                <li><a href="#" class="cat-opt color-bg">{{ $product->created_at->diffForHumans() }}</a></li>
-            </ul>
-            {{-- <a href="#" class="geodir_save-btn tolt" data-microtip-position="left" data-tooltip="Save"><span><i
-                        class="fal fa-heart"></i></span></a>
-            <a href="#" class="compare-btn tolt" data-microtip-position="left" f data-tooltip="Compare"><span><i
-                        class="fal fa-random"></i></span></a> --}}
-            <div class="geodir-category-listing_media-list">
-                <span><i class="fas fa-camera"></i> 8</span>
-            </div>
+            {{-- <a href="{{ route('product.show', ['slug' => $product->slug]) }}" class="geodir-category-img_item">
+                --}}
+                <a href="" class="geodir-category-img_item">
+                    <img src="{{$product->title_image}}" alt="">
+                    <div class="overlay"></div>
+                </a>
+                <div class="geodir-category-location">
+                    <a href="#"><i class="fas fa-map-marker-alt"></i>
+                        <span>
+                            {{ optional($product->locationsStreet)->street_name }}, {{optional
+                            ($product->locationsWard)->name}}
+                        </span></a>
+                </div>
+                <ul class="list-single-opt_header_cat">
+                    <li><a href="#" class="cat-opt blue-bg">{{ $item->category->category }}</a></li>
+                    <li><a href="#" class="cat-opt color-bg">{{ $product->created_at->diffForHumans() }}</a></li>
+                </ul>
+                {{-- <a href="#" class="geodir_save-btn tolt" data-microtip-position="left" data-tooltip="Save"><span><i
+                            class="fal fa-heart"></i></span></a>
+                <a href="#" class="compare-btn tolt" data-microtip-position="left" f data-tooltip="Compare"><span><i
+                            class="fal fa-random"></i></span></a> --}}
+                <div class="geodir-category-listing_media-list">
+                    <span><i class="fas fa-camera"></i> 8</span>
+                </div>
         </div>
         <div class="geodir-category-content fl-wrap">
             <h3 class="title-sin_item">
                 {{-- <a href="{{ route('product.show', ['slug' => $product->slug]) }}">{{$product->title}}</a> --}}
                 <a href="">{{$product->title}}</a>
-            </h3>  
+            </h3>
             <div class="geodir-category-content_price">{{ $formattedPrice }}</div>
             <p>{{$product->description}}</p>
             <div class="geodir-category-content-details">
