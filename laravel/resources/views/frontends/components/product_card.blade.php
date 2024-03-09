@@ -23,7 +23,8 @@
 <div class="listing-item">
     <article class="geodir-category-listing fl-wrap">
         <div class="geodir-category-img fl-wrap">
-            <a href="{{ route('product.show', ['slug' => $product->slug]) }}" class="geodir-category-img_item">
+            {{-- <a href="{{ route('product.show', ['slug' => $product->slug]) }}" class="geodir-category-img_item"> --}}
+            <a href="" class="geodir-category-img_item">
                 <img src="{{asset('/images/bg/1.jpg')}}" alt="">
                 <div class="overlay"></div>
             </a>
@@ -49,6 +50,7 @@
         <div class="geodir-category-content fl-wrap">
             <h3 class="title-sin_item">
                 {{-- <a href="{{ route('product.show', ['slug' => $product->slug]) }}">{{$product->title}}</a> --}}
+                <a href="">{{$product->price}}</a>
             </h3>  
             {{-- <div class="geodir-category-content_price">{{ $formattedPrice }}</div> --}}
             <p>{{$product->description}}</p>
