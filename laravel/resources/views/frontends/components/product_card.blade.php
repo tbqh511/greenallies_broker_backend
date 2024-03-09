@@ -18,7 +18,6 @@ if ($price > $ty) {
 } else {
     $formattedPrice = 'Giá thỏa thuận';
 }
-dd($formattedPrice);
 @endphp
 
 <div class="listing-item">
