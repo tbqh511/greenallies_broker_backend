@@ -54,7 +54,7 @@ $formattedPrice = 'Giá thỏa thuận';
                 <a href="">{{$product->title}}</a>
             </h3>
             <div class="geodir-category-content_price">{{ $formattedPrice }}</div>
-            <p>{{dd($product)}}</p>
+            <p>{{dd($product->description)}}</p>
             <div class="geodir-category-content-details">
                 <ul>
                     {{-- <li><i class="fal fa-bed"></i><span>3</span></li>
