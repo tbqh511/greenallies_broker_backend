@@ -37,7 +37,7 @@ $formattedPrice = 'Giá thỏa thuận';
                         </span></a>
                 </div>
                 <ul class="list-single-opt_header_cat">
-                    <li><a href="#" class="cat-opt blue-bg">{{ $item->category->category }}</a></li>
+                    <li><a href="#" class="cat-opt blue-bg">{{ $product->category->category }}</a></li>
                     <li><a href="#" class="cat-opt color-bg">{{ $product->created_at->diffForHumans() }}</a></li>
                 </ul>
                 {{-- <a href="#" class="geodir_save-btn tolt" data-microtip-position="left" data-tooltip="Save"><span><i
