@@ -25,7 +25,7 @@ if ($price > $ty) {
         <div class="geodir-category-img fl-wrap">
             {{-- <a href="{{ route('product.show', ['slug' => $product->slug]) }}" class="geodir-category-img_item"> --}}
             <a href="" class="geodir-category-img_item">
-                <img src="{{asset('/images/bg/1.jpg')}}" alt="">
+                <img src="{{$product->title_image}}" alt="">
                 <div class="overlay"></div>
             </a>
             <div class="geodir-category-location">
