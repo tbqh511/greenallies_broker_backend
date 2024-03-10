@@ -229,6 +229,7 @@ function initHomeradar() {
     $(".geodir-category-content p").each(function() {
         // Lấy văn bản trong phần tử p
         var text = $(this).text();
+        console.log(text);
         // Kiểm tra nếu chiều dài văn bản lớn hơn 120 ký tự
         if (text.length > 120) {
             // Cắt văn bản và thêm dấu ba chấm
