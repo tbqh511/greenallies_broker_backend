@@ -1,7 +1,7 @@
 //   all ------------------
 function initHomeradar() {
     "use strict";
-    $('head').append('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">');
+	$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">'); 
     //   loader ------------------
     $(".loader-wrap").fadeOut(300, function () {
         $("#main").animate({
@@ -69,19 +69,19 @@ function initHomeradar() {
         centerMode: true,
         variableWidth: true,
         responsive: [{
-            breakpoint: 1224,
-            settings: {
-                slidesToShow: 2,
-                centerMode: true,
+                breakpoint: 1224,
+                settings: {
+                    slidesToShow: 2,
+                    centerMode: true,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: true,
+                }
             }
-        },
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1,
-                centerMode: true,
-            }
-        }
         ]
 
     });
@@ -93,19 +93,19 @@ function initHomeradar() {
         centerMode: false,
         variableWidth: false,
         responsive: [{
-            breakpoint: 1224,
-            settings: {
-                slidesToShow: 2,
-                centerMode: false,
+                breakpoint: 1224,
+                settings: {
+                    slidesToShow: 2,
+                    centerMode: false,
+                }
+            },
+            {
+                breakpoint: 564,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: false,
+                }
             }
-        },
-        {
-            breakpoint: 564,
-            settings: {
-                slidesToShow: 1,
-                centerMode: false,
-            }
-        }
         ]
 
     });
@@ -117,20 +117,20 @@ function initHomeradar() {
         centerMode: true,
         variableWidth: false,
         responsive: [{
-            breakpoint: 1224,
-            settings: {
-                slidesToShow: 2,
-                centerMode: false,
-            }
-        },
+                breakpoint: 1224,
+                settings: {
+                    slidesToShow: 2,
+                    centerMode: false,
+                }
+            },
 
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1,
-                centerMode: false,
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: false,
+                }
             }
-        }
         ]
 
     });
@@ -154,19 +154,19 @@ function initHomeradar() {
         dots: true,
         arrows: false,
         responsive: [{
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 2,
-                centerMode: true,
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    centerMode: true,
+                }
+            },
+            {
+                breakpoint: 650,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: false,
+                }
             }
-        },
-        {
-            breakpoint: 650,
-            settings: {
-                slidesToShow: 1,
-                centerMode: false,
-            }
-        }
         ]
     });
     $('.slider-for').slick({
@@ -225,27 +225,19 @@ function initHomeradar() {
     //   Checkboxes ------------------
     // var myDiv = $(".geodir-category-content p");
     // myDiv.text(myDiv.text().substring(0, 120) + '...');
-    // Hàm để rút gọn văn bản
-    function truncateText(element, maxLength) {
-        var text = element.text();
-        if (text.length > maxLength) {
-            var truncatedText = text.substring(0, maxLength) + '...';
-            element.text(truncatedText);
-        }
-    }
-
-    // Rút gọn văn bản chỉ khi phần tử được hiển thị trên trang
-    $(".geodir-category-content p").each(function () {
-        var isVisible = $(this).is(":visible");
-        if (isVisible) {
-            truncateText($(this), 120);
-        } else {
-            $(this).on('show.bs.collapse', function () {
-                truncateText($(this), 120);
-            });
+    //HUYTBQ:
+    $(".geodir-category-content p").each(function() {
+        // Lấy văn bản trong phần tử hiện tại
+        var text = $(this).text();
+        // Kiểm tra độ dài của văn bản
+        if (text.length > 120) {
+            // Nếu văn bản dài hơn 120 ký tự, cắt đi và thêm dấu "..."
+            var truncatedText = text.substring(0, 120) + '...';
+            // Thay thế văn bản ban đầu bằng văn bản đã được cắt
+            $(this).text(truncatedText);
         }
     });
-
+    
     var $checkboxes = $('.leave-rating input:radio');
     $checkboxes.change(function () {
         var countCheckedCheckboxes = $checkboxes.filter(':checked').attr("data-ratingtext");
@@ -447,9 +439,9 @@ function initHomeradar() {
         $(this).toggleClass("act-category");
     });
     //   Isotope------------------
-
-    function initIsotope() {
-        if ($(".gallery-items").length) {
+ 
+        function initIsotope() {
+    if ($(".gallery-items").length) {
             var agf = $(".gallery-items").isotope({
                 singleMode: true,
                 columnWidth: ".grid-sizer, .grid-sizer-second, .grid-sizer-three",
@@ -470,9 +462,9 @@ function initHomeradar() {
                 $(".gallery-filters a").removeClass("gallery-filter-active");
                 $(this).addClass("gallery-filter-active");
             });
-        }
+        }   
     }
-    initIsotope();
+initIsotope();
     // modal ------------------
     var wlwrp = $(".header-modal"),
         wllink = $(".show-header-modal"),
@@ -976,14 +968,14 @@ function initparallax() {
         b.init();
     }
     if (trueMobile) {
-        $(".background-vimeo , .background-youtube-wrapper ").remove();
+		$(".background-vimeo , .background-youtube-wrapper ").remove();
         $("html, body").animate({
             scrollTop: 0
-        }, 1);
-    }
+        }, 1);	
+	}
 }
 document.addEventListener('gesturestart', function (e) {
-    e.preventDefault();
+	e.preventDefault();
 });
 //   Init All ------------------
 $(document).ready(function () {
