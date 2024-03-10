@@ -54,7 +54,7 @@ $formattedPrice = 'Giá thỏa thuận';
                 --}}
                 @if($productCard->propery_type == 0)
                 <a href="">{{"Bán " . $productCard->category->category}}, {{ optional($productCard->street)->street_name
-                    }}, {{optional($productCard->ward)->name}}</a>
+                    }}, {{optional($productCard->ward)->name}} , Tp Đà Lạt</a>
                 @elseif($productCard->propery_type == 1)
                 <a href="">{{"Cho thuê " . $productCard->category->category}}, {{
                     optional($productCard->street)->street_name }}, {{optional($productCard->ward)->name}}</a>
