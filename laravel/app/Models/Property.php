@@ -13,8 +13,8 @@ class Property extends Model
 
     protected $fillable = [
         'category_id',
-        
-        
+
+
         //HuyTBQ: Add address columns for property table
         'street_number',
         'street_code',
@@ -51,17 +51,17 @@ class Property extends Model
     {
         return $this->hasOne(LocationsWard::class, 'code', 'ward_code');
     }
-    
+
     public function street()
     {
         return $this->hasOne(LocationsStreet::class, 'code', 'street_code');
-    }   
+    }
     //End HuyTBQ
 
     //HuyTBQ: Add host_id for propertys table
     public function host()
     {
-        return $this->hasOne(CrmHost::class, 'id', 'host_id')->select('id', 'gender', 'name', 'contact','age','company','about');
+        return $this->hasOne(CrmHost::class, 'id', 'host_id')->select('id', 'gender', 'name', 'contact', 'age', 'company', 'about');
     }
 
     //End HuyTBQ
@@ -123,11 +123,12 @@ class Property extends Model
         }
         return $data;
     }
-    public function getImagesCount()
+
+    public function imagesCount()
     {
-        return PropertyImages::where('propertys_id', $this->id)->count();
+        return $this->hasMany(PropertyImages::class, 'propertys_id', 'id')->selectRaw('propertys_id, count(*) as count')->groupBy('propertys_id');
     }
-    
+
     public function getTitleImageAttribute($image)
     {
 
