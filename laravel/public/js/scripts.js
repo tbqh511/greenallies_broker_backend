@@ -224,7 +224,7 @@ function initHomeradar() {
     });
     //   Checkboxes ------------------
     var myDiv = $(".geodir-category-content p");
-    myDiv.text(myDiv.text().substring(0, 90) + '...');
+    myDiv.text(myDiv.text().substring(0, 120) + '...');
     var $checkboxes = $('.leave-rating input:radio');
     $checkboxes.change(function () {
         var countCheckedCheckboxes = $checkboxes.filter(':checked').attr("data-ratingtext");
