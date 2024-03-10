@@ -2,7 +2,7 @@
 \Carbon\Carbon::setLocale('vi');
 $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
 
-$price = $product->price;
+$price = $productCard->price;
 $ty = 1000000000;
 $trieu = 1000000;
 
@@ -23,22 +23,22 @@ $formattedPrice = 'Giá thỏa thuận';
 <div class="listing-item">
     <article class="geodir-category-listing fl-wrap">
         <div class="geodir-category-img fl-wrap">
-            {{-- <a href="{{ route('product.show', ['slug' => $product->slug]) }}" class="geodir-category-img_item">
+            {{-- <a href="{{ route('product.show', ['slug' => $productCard->slug]) }}" class="geodir-category-img_item">
                 --}}
                 <a href="" class="geodir-category-img_item">
-                    <img src="{{$product->title_image}}" alt="">
+                    <img src="{{$productCard->title_image}}" alt="">
                     <div class="overlay"></div>
                 </a>
                 <div class="geodir-category-location">
                     <a href="#"><i class="fas fa-map-marker-alt"></i>
                         <span>
-                            {{ optional($product->locationsStreet)->street_name }}, {{optional
-                            ($product->locationsWard)->name}}
+                            {{ optional($productCard->locationsStreet)->street_name }}, {{optional
+                            ($productCard->locationsWard)->name}}
                         </span></a>
                 </div>
                 <ul class="list-single-opt_header_cat">
-                    <li><a href="#" class="cat-opt blue-bg">{{ $product->category->category }}</a></li>
-                    <li><a href="#" class="cat-opt color-bg">{{ $product->created_at->diffForHumans() }}</a></li>
+                    <li><a href="#" class="cat-opt blue-bg">{{ $productCard->category->category }}</a></li>
+                    <li><a href="#" class="cat-opt color-bg">{{ $productCard->created_at->diffForHumans() }}</a></li>
                 </ul>
                 {{-- <a href="#" class="geodir_save-btn tolt" data-microtip-position="left" data-tooltip="Save"><span><i
                             class="fal fa-heart"></i></span></a>
@@ -50,16 +50,16 @@ $formattedPrice = 'Giá thỏa thuận';
         </div>
         <div class="geodir-category-content fl-wrap">
             <h3 class="title-sin_item">
-                {{-- <a href="{{ route('product.show', ['slug' => $product->slug]) }}">{{$product->title}}</a> --}}
-                <a href="">{{$product->title}}</a>
+                {{-- <a href="{{ route('product.show', ['slug' => $productCard->slug]) }}">{{$productCard->title}}</a> --}}
+                <a href="">{{$productCard->title}}</a>
             </h3>
             <div class="geodir-category-content_price">{{ $formattedPrice }}</div>
-            <p> {{$product->title}} & {{$product->description}}</p>
+            <p> {{$productCard->description}}</p>
             <div class="geodir-category-content-details">
                 <ul>
                     {{-- <li><i class="fal fa-bed"></i><span>3</span></li>
                     <li><i class="fal fa-bath"></i><span>2</span></li> --}}
-                    <li><i class="fal fa-cube"></i><span>{{ number_format($product->area) }} m²</span></li>
+                    <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²</span></li>
 
                 </ul>
             </div>

@@ -625,7 +625,7 @@
                     <!-- gallery-item-->
                     <div class="slick-slide-item">
                         <!-- listing-item -->
-                        @include('frontends.components.product_card',['product'=>$newestProduct])
+                        @include('frontends.components.product_card',['productCard'=>$newestProduct])
                         <!-- listing-item end-->
                     </div>
                     <!-- gallery-item end-->
