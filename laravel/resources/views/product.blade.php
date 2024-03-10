@@ -635,7 +635,7 @@
                         <!-- slick-slide-item -->
                         <div class="slick-slide-item">
                             <!-- listing-item -->
-                            @include('frontends.components.product_card',['product'=>$newestProduct])
+                            @include('frontends.components.product_card',['productCard'=>$newestProduct])
                             {{-- <div class="listing-item">
                                 <article class="geodir-category-listing fl-wrap">
                                     <div class="geodir-category-img fl-wrap">

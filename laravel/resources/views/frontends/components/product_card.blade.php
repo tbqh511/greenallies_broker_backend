@@ -45,7 +45,7 @@ $formattedPrice = 'Giá thỏa thuận';
                 <a href="#" class="compare-btn tolt" data-microtip-position="left" f data-tooltip="Compare"><span><i
                             class="fal fa-random"></i></span></a> --}}
                 <div class="geodir-category-listing_media-list">
-                    <span><i class="fas fa-camera"></i> 8</span>
+                    <span><i class="fas fa-camera"></i> {{$productCard->getImagesCount}}</span>
                 </div>
         </div>
         <div class="geodir-category-content fl-wrap">

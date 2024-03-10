@@ -123,6 +123,11 @@ class Property extends Model
         }
         return $data;
     }
+    public function getImagesCount()
+    {
+        return PropertyImages::where('propertys_id', $this->id)->count();
+    }
+    
     public function getTitleImageAttribute($image)
     {
 
@@ -132,6 +137,8 @@ class Property extends Model
     {
         return $threeDimage != '' ? url('') . config('global.IMG_PATH') . config('global.3D_IMG_PATH') . $threeDimage : '';
     }
+
+
     protected $casts = [
         'category_id' => 'integer',
     ];
