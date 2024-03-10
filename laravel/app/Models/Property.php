@@ -124,10 +124,11 @@ class Property extends Model
         return $data;
     }
 
-    public function imagesCount()
+    public function getImagesCountAttribute()
     {
-        return $this->hasMany(PropertyImages::class, 'propertys_id', 'id')->count();
+        return PropertyImages::where('propertys_id', $this->id)->count();
     }
+
 
     public function getTitleImageAttribute($image)
     {
