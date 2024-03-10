@@ -126,7 +126,7 @@ class Property extends Model
 
     public function imagesCount()
     {
-        return $this->hasMany(PropertyImages::class, 'propertys_id', 'id')->selectRaw('propertys_id, count(*) as count')->groupBy('propertys_id');
+        return $this->hasMany(PropertyImages::class, 'propertys_id', 'id')->count();
     }
 
     public function getTitleImageAttribute($image)
