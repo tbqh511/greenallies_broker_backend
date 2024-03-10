@@ -18,11 +18,11 @@
         <div class="clearfix"></div>
         <!-- grid-item-holder-->
         <div class="grid-item-holder gallery-items gisp fl-wrap">
-            @foreach($newestProducts as $product)
+            @foreach($newestProducts as $productItem )
             <!-- gallery-item-->
             <div class="gallery-item for_sale">
                 <!-- listing-item -->
-                {{-- @include('frontends.components.product_card',['product'=>$product]) --}}
+                {{-- @include('frontends.components.product_card',['product'=>$productItem ]) --}}
                 @php
                 \Carbon\Carbon::setLocale('vi');
                 $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
@@ -52,21 +52,21 @@
                                 class="geodir-category-img_item">
                                 --}}
                                 <a href="" class="geodir-category-img_item">
-                                    <img src="{{$product->title_image}}" alt="">
+                                    <img src="{{$productItem ->title_image}}" alt="">
                                     <div class="overlay"></div>
                                 </a>
                                 <div class="geodir-category-location">
                                     <a href="#"><i class="fas fa-map-marker-alt"></i>
                                         <span>
-                                            {{ optional($product->locationsStreet)->street_name }}, {{optional
-                                            ($product->locationsWard)->name}}
+                                            {{ optional($productItem ->locationsStreet)->street_name }}, {{optional
+                                            ($productItem ->locationsWard)->name}}
                                         </span></a>
                                 </div>
                                 <ul class="list-single-opt_header_cat">
-                                    <li><a href="#" class="cat-opt blue-bg">{{ $product->category->category }}</a>
+                                    <li><a href="#" class="cat-opt blue-bg">{{ $productItem ->category->category }}</a>
                                     </li>
                                     <li><a href="#" class="cat-opt color-bg">{{
-                                            $product->created_at->diffForHumans() }}</a></li>
+                                            $productItem ->created_at->diffForHumans() }}</a></li>
                                 </ul>
                                 {{-- <a href="#" class="geodir_save-btn tolt" data-microtip-position="left"
                                     data-tooltip="Save"><span><i class="fal fa-heart"></i></span></a>
@@ -81,15 +81,15 @@
                                 {{-- <a
                                     href="{{ route('product.show', ['slug' => $product->slug]) }}">{{$product->title}}</a>
                                 --}}
-                                <a href="">{{$product->title}}</a>
+                                <a href="">{{$productItem ->title}}</a>
                             </h3>
                             <div class="geodir-category-content_price">{{ $formattedPrice }}</div>
-                            <p>{{$product->description}}</p>
+                            <p>{{$productItem ->description}}</p>
                             <div class="geodir-category-content-details">
                                 <ul>
                                     {{-- <li><i class="fal fa-bed"></i><span>3</span></li>
                                     <li><i class="fal fa-bath"></i><span>2</span></li> --}}
-                                    <li><i class="fal fa-cube"></i><span>{{ number_format($product->area) }}
+                                    <li><i class="fal fa-cube"></i><span>{{ number_format($productItem ->area) }}
                                             m²</span></li>
 
                                 </ul>
@@ -97,7 +97,7 @@
                             <div class="geodir-category-footer fl-wrap">
                                 <a href="agent-single.html" class="gcf-company"><img
                                         src="{{asset('https://i.pravatar.cc/40')}}"
-                                        alt=""><span>{{$product->description}}</span></a>
+                                        alt=""><span>{{$productItem ->title}}</span></a>
                                 <div class="listing-rating card-popup-rainingvis tolt" data-microtip-position="top"
                                     data-tooltip="Good" data-starrating2="4"></div>
                             </div>
