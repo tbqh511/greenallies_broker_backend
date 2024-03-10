@@ -32,8 +32,8 @@ $formattedPrice = 'Giá thỏa thuận';
                 <div class="geodir-category-location">
                     <a href="#"><i class="fas fa-map-marker-alt"></i>
                         <span>
-                            {{ optional($productCard->locationsStreet)->street_name }}, {{optional
-                            ($productCard->locationsWard)->name}}
+                            {{ optional($productCard->street)->street_name }}, {{optional
+                            ($productCard->ward)->name}}
                         </span></a>
                 </div>
                 <ul class="list-single-opt_header_cat">
