@@ -223,21 +223,9 @@ function initHomeradar() {
         arrows: false,
     });
     //   Checkboxes ------------------
-    // var myDiv = $(".geodir-category-content p");
-    // myDiv.text(myDiv.text().substring(0, 120) + '...');
-    //Huy TBQ
-    $(".geodir-category-content p").each(function() {
-        // Lấy văn bản trong phần tử p
-        var text = $(this).text();
-        console.log(text);
-        // Kiểm tra nếu chiều dài văn bản lớn hơn 120 ký tự
-        if (text.length > 120) {
-            // Cắt văn bản và thêm dấu ba chấm
-            var truncatedText = text.substring(0, 120) + '...';
-            // Thay đổi nội dung của phần tử p thành văn bản đã cắt
-            $(this).text(truncatedText);
-        }
-    });
+    var myDiv = $(".geodir-category-content p");
+    myDiv.text(myDiv.text().substring(0, 120) + '...');
+    
     var $checkboxes = $('.leave-rating input:radio');
     $checkboxes.change(function () {
         var countCheckedCheckboxes = $checkboxes.filter(':checked').attr("data-ratingtext");
