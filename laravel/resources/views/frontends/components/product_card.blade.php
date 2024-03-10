@@ -50,9 +50,15 @@ $formattedPrice = 'Giá thỏa thuận';
         </div>
         <div class="geodir-category-content fl-wrap">
             <h3 class="title-sin_item">
-                {{-- <a href="{{ route('product.show', ['slug' => $productCard->slug]) }}">{{$productCard->title}}</a> --}}
-                <a href="">{{$productCard->category->category}}, {{ optional($productCard->street)->street_name }}, {{optional
-                    ($productCard->ward)->name}}</a>
+                {{-- <a href="{{ route('product.show', ['slug' => $productCard->slug]) }}">{{$productCard->title}}</a>
+                --}}
+                @if($productCard->propery_type == 0)
+                <a href="">{{"Bán " . $productCard->category->category}}, {{ optional($productCard->street)->street_name
+                    }}, {{optional($productCard->ward)->name}}</a>
+                @elseif($productCard->propery_type == 1)
+                <a href="">{{"Cho thuê " . $productCard->category->category}}, {{
+                    optional($productCard->street)->street_name }}, {{optional($productCard->ward)->name}}</a>
+                @endif
             </h3>
             <div class="geodir-category-content_price">{{ $formattedPrice }}</div>
             <p> {{$productCard->description}}</p>
