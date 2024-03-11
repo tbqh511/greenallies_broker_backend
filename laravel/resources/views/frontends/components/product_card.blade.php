@@ -72,8 +72,7 @@ $formattedPrice = 'Giá thỏa thuận';
             </div>
             <div class="geodir-category-footer fl-wrap">
                 <a href="agent-single.html" class="gcf-company"><img src="{{asset('https://i.pravatar.cc/40')}}"
-                        alt=""><span>Johnny
-                        Trí Nguyễn</span></a>
+                        alt=""><span>{{$productCard->customer->name}}</span></a>
                 <div class="listing-rating card-popup-rainingvis tolt" data-microtip-position="top" data-tooltip="Good"
                     data-starrating2="4"></div>
             </div>
