@@ -63,11 +63,32 @@ $formattedPrice = 'Giá thỏa thuận';
             <div class="geodir-category-content_price">{{ $formattedPrice }}</div>
             <p> {{$productCard->description}}</p>
             <div class="geodir-category-content-details">
-                <ul>
+                {{-- <ul> --}}
                     {{-- <li><i class="fal fa-bed"></i><span>3</span></li>
                     <li><i class="fal fa-bath"></i><span>2</span></li> --}}
-                    <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²</span></li>
+                    {{-- <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²</span></li> --}}
 
+                {{-- </ul> --}}
+                <ul>
+                    @php
+                        // Lọc ra parameter có tên là 'diện tích'
+                        $areaParameter = $productCard->parameters->where('name', 'diện tích')->first();
+                
+                        // Lọc ra hai parameter khác
+                        $otherParameters = $productCard->parameters->reject(function ($parameter) {
+                            return $parameter->name === 'diện tích';
+                        })->take(2);
+                    @endphp
+                
+                    {{-- Hiển thị 'diện tích' --}}
+                    @if($areaParameter)
+                        <li><i class="fal fa-cube"></i><span>{{ number_format($areaParameter->value) }} m²</span></li>
+                    @endif
+                
+                    {{-- Hiển thị hai parameter khác --}}
+                    @foreach($otherParameters as $parameter)
+                        <li><i class="fal fa-bed"></i><span>{{ $parameter->value }}</span></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="geodir-category-footer fl-wrap">
