@@ -71,7 +71,7 @@ $formattedPrice = 'Giá thỏa thuận';
                 </ul>
             </div>
             <div class="geodir-category-footer fl-wrap">
-                <a href="agent-single.html" class="gcf-company"><img src="{{asset('https://i.pravatar.cc/40')}}"
+                <a href="agent-single.html" class="gcf-company"><img src="{{$productCard->agent ? $productCard->agent->profile:'abc')}}"
                         alt=""><span>{{ $productCard->agent ? $productCard->agent->name : 'Đà Lạt BDS'}}</span></a>
                 <div class="listing-rating card-popup-rainingvis tolt" data-microtip-position="top" data-tooltip="Good"
                     data-starrating2="4"></div>
