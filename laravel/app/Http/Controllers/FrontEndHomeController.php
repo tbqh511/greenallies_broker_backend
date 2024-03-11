@@ -51,26 +51,6 @@ class FrontEndHomeController extends Controller
             ->get();
 
         //dd($newestProducts[0]->parameters->where('id','15')->pivot->value);
-        // Lấy ra collection chứa các parameter của $newestProducts[0]
-$parameters = $newestProducts[0]->parameters;
-
-// Lặp qua từng parameter để lấy giá trị của cột 'value'
-foreach ($parameters as $parameter) {
-    $value = $parameter->pivot->value;
-    // Sử dụng $value ở đây
-}   
-dd($value);
-
-        // Return the frontend_home view with the necessary data
-        return view('frontend_home', [
-            'locationsStreets' => $locationsStreets,
-            'locationsWards' => $locationsWards,
-            'categories' => $categories,
-            'newestProducts' => $newestProducts,
-        ]);
-    }
-
-
 
     /**
      * Show the form for creating a new resource.

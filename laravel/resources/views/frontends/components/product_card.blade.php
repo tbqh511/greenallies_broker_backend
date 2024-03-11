@@ -72,7 +72,7 @@ $formattedPrice = 'Giá thỏa thuận';
                 <ul>
                     @php
                         // Lọc ra parameter có tên là 'diện tích'
-                        $areaParameter = $productCard->parameters->where('name', 'Diện tích')->first();
+                        $areaParameter = $productCard->parameters->where('id', '15')->first();
                 
                         // Lọc ra hai parameter khác
                         $otherParameters = $productCard->parameters->reject(function ($parameter) {
