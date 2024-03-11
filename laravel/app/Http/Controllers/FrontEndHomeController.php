@@ -50,7 +50,7 @@ class FrontEndHomeController extends Controller
             ->take($limit)
             ->get();
 
-        dd($newestProducts);
+        //dd($newestProducts);
 
         // Return the frontend_home view with the necessary data
         return view('frontend_home', [
