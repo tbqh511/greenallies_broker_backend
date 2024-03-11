@@ -50,7 +50,15 @@ class FrontEndHomeController extends Controller
             ->take($limit)
             ->get();
 
-        dd($newestProducts->parameters);
+        // dd($newestProducts[3]->parameters);
+        // Lọc ra parameter có tên 'Diện tích'
+        $areaParameter = $newestProducts[3]->parameters->firstWhere('name', 'Diện tích');
+
+        // Lấy giá trị của 'value' nếu parameter tồn tại
+        $areaValue = $areaParameter ? $areaParameter->value : null;
+
+        // Hiển thị giá trị của parameter 'Diện tích'
+        dd($areaValue);
 
         // Return the frontend_home view with the necessary data
         return view('frontend_home', [
