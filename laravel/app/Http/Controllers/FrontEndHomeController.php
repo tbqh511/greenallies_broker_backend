@@ -52,7 +52,7 @@ class FrontEndHomeController extends Controller
 
         //dd($newestProducts[0]->parameters[0]->pivot->pivot_value);
         //dd($newestProducts[0]->parameters[0]->pivot->value);
-        $valueOfParameterId15 = $newestProducts[0]->parameters->where('name', 'Diện tích')->first()->pivot->value;
+        $valueOfParameterId15 = $newestProducts[0]->parameters->where('name', config('global.area'))->first()->pivot->value;
         dd($valueOfParameterId15);
         
         // Return the frontend_home view with the necessary data

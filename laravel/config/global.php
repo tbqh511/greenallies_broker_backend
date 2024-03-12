@@ -17,7 +17,8 @@ return [
     'PARAMETER_IMAGE_PATH' => '/parameter_img/',
     'FACILITY_IMAGE_PATH' => '/facility_img/',
 
-    "JSON_PATH" => '/json'
+    "JSON_PATH" => '/json',
 
-
+    //HuyTBQ: Parameter for properties
+    'area' => 'Diện tích',
 ];
