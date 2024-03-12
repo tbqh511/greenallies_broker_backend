@@ -73,6 +73,21 @@ class Property extends Model
     }
 
     //End HuyTBQ
+
+    
+    //HuyTBQ: add function get count image
+    public function getImagesCountAttribute()
+    {
+        return PropertyImages::where('propertys_id', $this->id)->count();
+    }
+    //End HuyTBQ
+
+    //HuyTBQ: add function get Aera
+    public function getAreaAttribute()
+    {
+        return $this->parameters->where('name', config('global.area'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
     public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id')->select('id', 'category', 'parameter_types', 'image');
@@ -131,12 +146,6 @@ class Property extends Model
         return $data;
     }
 
-    //HuyTBQ: add function get count image
-    public function getImagesCountAttribute()
-    {
-        return PropertyImages::where('propertys_id', $this->id)->count();
-    }
-    //End HuyTBQ
 
     public function getTitleImageAttribute($image)
     {
