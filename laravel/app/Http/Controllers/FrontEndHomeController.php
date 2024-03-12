@@ -51,7 +51,7 @@ class FrontEndHomeController extends Controller
             ->get();
 
         //dd($newestProducts[0]->parameters[0]->pivot->pivot_value);
-        dd($newestProducts[0]->parameters[0]->pivot->value);
+        dd($newestProducts[0]->parameters[0]->pivot->pivot_parameter_id);
 
         
         // Return the frontend_home view with the necessary data
