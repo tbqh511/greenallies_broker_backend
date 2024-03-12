@@ -99,7 +99,7 @@ class Property extends Model
     //HuyTBQ: add function get number room
     public function getNumberRoomAttribute()
     {
-        return $this->parameters->where('id', config('global.number_bedroom'))->first()->pivot->value ?? null;
+        return $this->parameters->where('id', config('global.number_room'))->first()->pivot->value ?? null;
     }
     //End HuyTBQ
     public function category()

@@ -24,6 +24,6 @@ return [
     'area' => '15',
     //'number_floor','Số tầng',
     'number_floor','18',
-    //'number_bedroom','Phòng ngủ'
-    'number_bedroom','19'
+    //'number_room','Phòng ngủ'
+    'number_room','19'
 ];
