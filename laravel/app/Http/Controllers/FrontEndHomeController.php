@@ -50,7 +50,7 @@ class FrontEndHomeController extends Controller
             ->take($limit)
             ->get();
 
-        dd($newestProducts->where('id', 3)->parameters);
+        dd($newestProducts[0]->parameters->assigned_parameter);
 
         // Return the frontend_home view with the necessary data
         return view('frontend_home', [

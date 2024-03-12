@@ -93,7 +93,7 @@ class Property extends Model
 
     public function parameters()
     {
-        return $this->belongsToMany(parameter::class, 'assign_parameters', 'modal_id', 'parameter_id')->withPivot('value');;
+        return $this->belongsToMany(parameter::class, 'assign_parameters', 'modal_id', 'parameter_id')->withPivot('value');
     }
     public function assignfacilities()
     {
