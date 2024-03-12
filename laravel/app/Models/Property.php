@@ -88,6 +88,20 @@ class Property extends Model
         return $this->parameters->where('name', config('global.area'))->first()->pivot->value ?? null;
     }
     //End HuyTBQ
+
+    //HuyTBQ: add function get number Floor
+    public function getNumberFloorAttribute()
+    {
+        return $this->parameters->where('name', config('global.number_floor'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
+
+    //HuyTBQ: add function get number room
+    public function getNumberRoomAttribute()
+    {
+        return $this->parameters->where('name', config('global.number_bedroom'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
     public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id')->select('id', 'category', 'parameter_types', 'image');

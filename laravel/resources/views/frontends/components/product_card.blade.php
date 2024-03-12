@@ -66,22 +66,28 @@ $formattedPrice = 'Giá thỏa thuận';
                 {{-- <ul> --}}
                     {{-- <li><i class="fal fa-bed"></i><span>3</span></li>
                     <li><i class="fal fa-bath"></i><span>2</span></li> --}}
-                    {{-- <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²</span></li> --}}
+                    {{-- <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²</span></li>
+                    --}}
 
-                {{-- </ul> --}}
+                    {{--
+                </ul> --}}
                 <ul>
-                        <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²sss</span></li>
-                        <li><i class="fal fa-bed"></i><span>3</span></li>
-                        <li><i class="fal fa-bath"></i><span>2</span></li>
-                    {{-- Hiển thị hai parameter khác --}}
-                    {{-- @foreach($otherParameters as $parameter)
-                        <li><i class="fal fa-bed"></i><span>{{ $parameter->value }}</span></li>
-                    @endforeach --}}
+                    @if ($productCard->area)
+                    <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²</span></li>
+                    @endif
+                    @if ($productCard->number_room)
+                    <li><i class="fal fa-bed"></i><span>{{ number_format($productCard->number_room) }}</span></li>
+                    @endif
+                    @if ($productCard->number_floor)
+                    <li><i class="fad fa-house-flood"></i><span>{{ number_format($productCard->number_floor) }}</span></li>
+                    @endif
                 </ul>
             </div>
             <div class="geodir-category-footer fl-wrap">
-                <a href="agent-single.html" class="gcf-company"><img src="{{$productCard->agent ? ($productCard->agent->profile?$productCard->agent->profile:'https://dalatbds.com/images/users/1693209486.1303.jpg'):'https://dalatbds.com/images/users/1693209486.1303.jpg'}}"
-                        alt="Đà Lạt BDS"><span>{{ $productCard->agent ? ($productCard->agent->name ?: 'Đà Lạt BDS') : 'Đà Lạt BDS' }}</span></a>
+                <a href="agent-single.html" class="gcf-company"><img
+                        src="{{$productCard->agent ? ($productCard->agent->profile?$productCard->agent->profile:'https://dalatbds.com/images/users/1693209486.1303.jpg'):'https://dalatbds.com/images/users/1693209486.1303.jpg'}}"
+                        alt="Đà Lạt BDS"><span>{{ $productCard->agent ? ($productCard->agent->name ?: 'Đà Lạt BDS') :
+                        'Đà Lạt BDS' }}</span></a>
                 <div class="listing-rating card-popup-rainingvis tolt" data-microtip-position="top" data-tooltip="Good"
                     data-starrating2="5"></div>
             </div>

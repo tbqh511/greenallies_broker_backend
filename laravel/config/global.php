@@ -21,4 +21,6 @@ return [
 
     //HuyTBQ: Parameter for properties
     'area' => 'Diện tích',
+    'number_floor','Số tầng',
+    'number_bedroom','Phòng ngủ'
 ];
