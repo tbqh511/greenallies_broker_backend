@@ -50,7 +50,8 @@ class FrontEndHomeController extends Controller
             ->take($limit)
             ->get();
 
-        //dd($newestProducts[0]->parameters->where('id','15')->pivot->value);
+        dd($newestProducts->where('id', 3)->whereHas('parameters', function ($query) {
+            $query->where('parameter_id', 15);})->get());
 
         // Return the frontend_home view with the necessary data
         return view('frontend_home', [
@@ -60,8 +61,6 @@ class FrontEndHomeController extends Controller
             'newestProducts' => $newestProducts,
         ]);
     }
-
-
 
     /**
      * Show the form for creating a new resource.
