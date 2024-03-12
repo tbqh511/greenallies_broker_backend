@@ -30,7 +30,7 @@ class AssignParameters extends Model
     public function getValueAttribute($value)
     {
 
-        $a = json_decode($value, true);
+        $a = json_decode($value, true); 
         if ($a == NULL) {
             return $value;
         } else {

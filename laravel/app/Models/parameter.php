@@ -22,9 +22,6 @@ class parameter extends Model
 
     public function getTypeValuesAttribute($value)
     {
-
-
-
         $a = json_decode($value, true);
         if ($a == NULL) {
             return $value;
