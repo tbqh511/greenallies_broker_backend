@@ -70,7 +70,7 @@ $formattedPrice = 'Giá thỏa thuận';
 
                 {{-- </ul> --}}
                 <ul>
-                        <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²</span></li>
+                        <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²sss</span></li>
                         <li><i class="fal fa-bed"></i><span>3</span></li>
                         <li><i class="fal fa-bath"></i><span>2</span></li>
                     {{-- Hiển thị hai parameter khác --}}
