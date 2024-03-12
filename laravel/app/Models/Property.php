@@ -85,21 +85,21 @@ class Property extends Model
     //HuyTBQ: add function get Aera
     public function getAreaAttribute()
     {
-        return $this->parameters->where('name', config('global.area'))->first()->pivot->value ?? null;
+        return $this->parameters->where('id', config('global.area'))->first()->pivot->value ?? null;
     }
     //End HuyTBQ
 
     //HuyTBQ: add function get number Floor
     public function getNumberFloorAttribute()
     {
-        return $this->parameters->where('name', config('global.number_floor'))->first()->pivot->value ?? null;
+        return $this->parameters->where('id', config('global.number_floor'))->first()->pivot->value ?? null;
     }
     //End HuyTBQ
 
     //HuyTBQ: add function get number room
     public function getNumberRoomAttribute()
     {
-        return $this->parameters->where('name', config('global.number_bedroom'))->first()->pivot->value ?? null;
+        return $this->parameters->where('id', config('global.number_bedroom'))->first()->pivot->value ?? null;
     }
     //End HuyTBQ
     public function category()
