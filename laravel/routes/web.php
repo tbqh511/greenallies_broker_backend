@@ -54,11 +54,11 @@ Route::get('/frontend', [FrontEndHomeController::class, 'index']);
 
 //product controller
 //Route::get('/product/{slug}', [FrontEndProductController::class, 'show'])->name('product.show');
-Route::get('/property/{id}', [FrontEndPropertiesController::class, 'getPropertyById']);
+Route::get('/property/{id}', [FrontEndPropertiesController::class, 'getPropertyById'])->name('property.showid');
 
 
 // Route// Route for displaying the detail of a property
-Route::get('/property/{slug}', [FrontEndPropertiesController::class, 'show'])->name('property.show');
+Route::get('/property/detail/{slug}', [FrontEndPropertiesController::class, 'show'])->name('property.show');
 
 // Route for displaying a listing of the properties with search variables
 Route::get('/properties', [FrontEndPropertiesController::class, 'index'])->name('properties.index');
