@@ -23,17 +23,17 @@ class FrontEndPropertiesController extends Controller
         // Return the product detail view with the necessary data
         return view('product', ['product' => $product]);
     }
-/**
- * Display the detail of a property by its ID.
- */
-public function getPropertyById(int $id)
-{
-    // Fetch the property based on the ID
-    $property = Property::findOrFail($id);
-
-    // Return the property detail view with the necessary data
-    return view('property_detail', ['property' => $property]);
-}
+    /**
+     * Display the detail of a property by its ID.
+     */
+    public function getPropertyById(int $id)
+    {
+        // Fetch the property based on the ID
+        $property = Property::findOrFail($id);
+    
+        // Return the property detail view with the necessary data
+        return view('property_detail', ['property' => $property]);
+    }
 
     /**
      * Display a listing of the products with search variables: category, ward, street, id.
