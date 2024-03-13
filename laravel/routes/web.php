@@ -28,7 +28,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
 use App\Http\Controllers\FrontEndHomeController;
-
+use App\Http\Controllers\FrontEndPropertiesController;
 use App\Models\Payments;
 use App\Models\PropertysInquiry;
 use Illuminate\Support\Facades\Artisan;
@@ -54,7 +54,15 @@ Route::get('/frontend', [FrontEndHomeController::class, 'index']);
 
 //product controller
 //Route::get('/product/{slug}', [FrontEndProductController::class, 'show'])->name('product.show');
-Route::get('/product/{slug}', [FrontEndProductController::class, 'show'])->name('product.show');
+Route::get('/properties/{id}', [FrontEndPropertiesController::class, 'getPropertyById']);
+
+
+// Route for displaying the detail of a product
+Route::get('/product/{slug}', [FrontEndPropertiesController::class, 'show'])->name('product.show');
+
+// Route for displaying a listing of the products with search variables
+Route::get('/products', [FrontEndPropertiesController::class, 'index'])->name('products.index');
+
 
 Route::get('/nha-dat', function () {
     return view('product');
