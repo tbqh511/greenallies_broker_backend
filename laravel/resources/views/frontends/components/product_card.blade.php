@@ -79,7 +79,7 @@ $formattedPrice = 'Giá thỏa thuận';
                         <li><i class="fal fa-bed"></i><span>{{ number_format($productCard->number_room) }}</span></li>
                     @endif
                     @if ($productCard->number_floor)
-                        <li><i class="fa-regular fa-building"></i><span>{{ number_format($productCard->number_floor) }}</span></li>
+                        <li><i class="far fa-building"></i><span>{{ number_format($productCard->number_floor) }}</span></li>
                     @endif
                 </ul>
             </div>
