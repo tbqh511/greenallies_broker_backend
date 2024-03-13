@@ -54,14 +54,14 @@ Route::get('/frontend', [FrontEndHomeController::class, 'index']);
 
 //product controller
 //Route::get('/product/{slug}', [FrontEndProductController::class, 'show'])->name('product.show');
-Route::get('/properties/{id}', [FrontEndPropertiesController::class, 'getPropertyById']);
+Route::get('/property/{id}', [FrontEndPropertiesController::class, 'getPropertyById']);
 
 
-// Route for displaying the detail of a product
-Route::get('/product/{slug}', [FrontEndPropertiesController::class, 'show'])->name('product.show');
+// Route// Route for displaying the detail of a property
+Route::get('/property/{slug}', [FrontEndPropertiesController::class, 'show'])->name('property.show');
 
-// Route for displaying a listing of the products with search variables
-Route::get('/products', [FrontEndPropertiesController::class, 'index'])->name('products.index');
+// Route for displaying a listing of the properties with search variables
+Route::get('/properties', [FrontEndPropertiesController::class, 'index'])->name('properties.index');
 
 
 Route::get('/nha-dat', function () {
