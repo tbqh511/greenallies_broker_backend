@@ -29,6 +29,6 @@
             @endforeach
         </div>
         <!-- grid-item-holder-->
-        <a href="/nha-ban" class="btn float-btn small-btn color-bg">Xem thêm</a>
+        <a href="/nha-ban" class="btn float-btn small-btn color-bg" style=" position: relative; top:50%; left:50%;">Xem thêm</a>
     </div>
 </section>
