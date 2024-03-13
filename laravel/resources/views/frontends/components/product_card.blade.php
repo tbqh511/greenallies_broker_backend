@@ -73,13 +73,13 @@ $formattedPrice = 'Giá thỏa thuận';
                 </ul> --}}
                 <ul>
                     @if ($productCard->area)
-                    <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²</span></li>
+                        <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²</span></li>
                     @endif
                     @if ($productCard->number_room)
-                    <li><i class="fal fa-bed"></i><span>{{ number_format($productCard->number_room) }}</span></li>
+                        <li><i class="fal fa-bed"></i><span>{{ number_format($productCard->number_room) }}</span></li>
                     @endif
                     @if ($productCard->number_floor)
-                    <li><i class="fad fa-house-flood"></i><span>{{ number_format($productCard->number_floor) }}</span></li>
+                        <li><i class="fad fa-house-flood"></i><span>{{ number_format($productCard->number_floor) }}</span></li>
                     @endif
                 </ul>
             </div>
