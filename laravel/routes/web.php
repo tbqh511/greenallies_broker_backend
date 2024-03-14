@@ -61,22 +61,9 @@ Route::get('/property/detail/{slug}', [FrontEndPropertiesController::class, 'sho
 // Route for displaying a listing of the properties with search variables
 Route::get('/properties', [FrontEndPropertiesController::class, 'index'])->name('properties.index');
 
+Route::get('/nha-ban', [FrontEndPropertiesController::class, 'index']);
 
-Route::get('/nha-dat', function () {
-    return view('product');
-});
-
-Route::get('/dang-tin', function () {
-    return view('product_create');
-});
-
-Route::get('/nha-ban', function () {
-    return view('products');
-});
-
-Route::get('/dat-ban', function () {
-    return view('products');
-});
+Route::get('/dat-ban', [FrontEndPropertiesController::class, 'index']);
 
 Route::get('/wiki-single', function () {
     return view('post');
@@ -84,6 +71,10 @@ Route::get('/wiki-single', function () {
 
 Route::get('/wiki', function () {
     return view('posts');
+});
+
+Route::get('/dang-tin', function () {
+    return view('product_create');
 });
 
 Route::get('/dalatbds', function () {
