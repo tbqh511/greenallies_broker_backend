@@ -30,7 +30,7 @@ $formattedPrice = 'Giá thỏa thuận';
                     <div class="overlay"></div>
                 </a>
                 <div class="geodir-category-location">
-                    <a href="#"><i class="fas fa-map-marker-alt"></i>
+                    <a href="{{ route('property.showid', ['id' => $productCard->id]) }}"><i class="fas fa-map-marker-alt"></i>
                         <span>
                             {{ optional($productCard->street)->street_name }}, {{optional
                             ($productCard->ward)->name}}
