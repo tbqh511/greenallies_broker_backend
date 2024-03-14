@@ -21,7 +21,7 @@ class FrontEndPropertiesController extends Controller
         $product = Property::where('slug', $slug)->first();
 
         // Return the product detail view with the necessary data
-        return view('frontend_news_detail', ['property' => $product]);
+        return view('frontend_properties_detail', ['property' => $product]);
     }
     /**
      * Display the detail of a property by its ID.
@@ -32,7 +32,7 @@ class FrontEndPropertiesController extends Controller
         $property = Property::findOrFail($id);
     
         // Return the property detail view with the necessary data
-        return view('frontend_news_detail', ['property' => $property]);
+        return view('frontend_properties_detail', ['property' => $property]);
     }
 
     /**
