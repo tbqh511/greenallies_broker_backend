@@ -2,7 +2,7 @@
     // \Carbon\Carbon::setLocale('vi');
     // $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
 
-    // $price = $product->prices;
+    // $price = $property->prices;
     // $ty = 1000000000;
     // $trieu = 1000000;
 
@@ -76,7 +76,7 @@
                         <div class="list-single-opt_header fl-wrap">
                             <ul class="list-single-opt_header_cat">
                                 <li><a href="#" class="cat-opt color-bg">Nhà bán</a></li>
-                                <li><a href="#" class="cat-opt color-bg">{{ $product->created_at->diffForHumans() }}</a></li>
+                                <li><a href="#" class="cat-opt color-bg">{{ $property->created_at->diffForHumans() }}</a></li>
                             </ul>
                             <div class="share-holder hid-share">
                                 <a href="#" class="share-btn showshare sfcs"> <i class="fas fa-share-alt"></i> Chia sẻ</a>
@@ -88,11 +88,11 @@
                         <div class="list-single-header-item  fl-wrap" id="sec2">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <h1>{{$product->title}}<span class="verified-badge tolt"
+                                    <h1>{{$property->title}}<span class="verified-badge tolt"
                                             data-microtip-position="bottom" data-tooltip="Đã xác thực"><i
                                                 class="fas fa-check"></i></span></h1>
                                     <div class="geodir-category-location fl-wrap">
-                                        <a href="#"><i class="fas fa-map-marker-alt"></i> {{ optional($product->locationsStreet)->street_name }}, {{optional ($product->locationsWard)->name}}</a>
+                                        <a href="#"><i class="fas fa-map-marker-alt"></i> {{ optional($property->locationsStreet)->street_name }}, {{optional ($property->locationsWard)->name}}</a>
                                         <div class="listing-rating card-popup-rainingvis" data-starrating2="4"><span
                                                 class="re_stars-title">Tốt</span></div>
                                     </div>
@@ -107,7 +107,7 @@
                             <div class="list-single-header-footer fl-wrap">
                                 <div class="list-single-header-price" data-propertyprise="50500">
                                     {{-- <strong>Giá:</strong>{{ $formattedPrice }}</div> --}}
-                                <div class="list-single-header-date"><span>Ngày đăng:</span>{{$product->created_at->format('d/m/Y H:i:s')}}</div>
+                                <div class="list-single-header-date"><span>Ngày đăng:</span>{{$property->created_at->format('d/m/Y H:i:s')}}</div>
                                 <div class="list-single-stats">
                                     <ul class="no-list-style">
                                         <li><span class="viewed-counter"><i class="fas fa-eye"></i> Đã xem - 156 </span>
@@ -163,7 +163,7 @@
                                     <h3>Thông tin</h3>
                                 </div>
                                 <div class="list-single-main-item_content fl-wrap">
-                                    <p>{{$product->description}}</p>
+                                    <p>{{$property->description}}</p>
                                     {{-- <a href="#" class="btn float-btn color-bg">Visit Website</a> --}}
                                 </div>
                             </div>
