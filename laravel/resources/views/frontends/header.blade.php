@@ -43,10 +43,10 @@
                     <a href="/frontend" class="act-link">Trang chủ <i class="fa"></i></a>
                 </li>
                 <li>
-                    <a href="/nha-ban">Nhà bán <i class="fa "></i></a>
+                    <a href="{{ route('properties.index') }}">Nhà bán <i class="fa "></i></a>
                 </li>
                 <li>
-                    <a href="/dat-ban">Đất bán <i class="fa "></i></a>
+                    <a href="{{ route('properties.index') }}">Đất bán <i class="fa "></i></a>
                 </li>
                 {{-- <li>
                     <a href="#">Listings <i class="fa fa-caret-down"></i></a>
