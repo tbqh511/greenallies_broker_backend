@@ -249,9 +249,9 @@
                     <!-- list-main-wrap-header end-->
                     <!-- listing-item-wrap-->
                     <div class="listing-item-container  box-list_ic fl-wrap">
-                        @foreach (range(1,6) as $index)
+                        @foreach($newestProducts as $productItem )
                         <!-- listing-item -->
-                        @include('frontends.components.product_card')
+                        @include('frontends.components.product_card',['productCard'=>$productItem ])
                         <!-- listing-item end-->
                         @endforeach
                     </div>
