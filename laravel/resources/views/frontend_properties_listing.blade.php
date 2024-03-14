@@ -284,12 +284,25 @@
             <!-- listing-item-wrap end-->
             <!-- pagination-->
             <div class="pagination">
-                <a href="#" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
-                <a href="#" >1</a>
-                <a href="#" class="current-page">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
+                @if ($properties->onFirstPage())
+                    <span class="prevposts-link disabled"><i class="fa fa-caret-left"></i></span>
+                @else
+                    <a href="{{ $properties->previousPageUrl() }}" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
+                @endif
+                
+                @foreach ($properties->getUrlRange(1, $properties->lastPage()) as $page => $url)
+                    @if ($page == $properties->currentPage())
+                        <span class="current-page">{{ $page }}</span>
+                    @else
+                        <a href="{{ $url }}">{{ $page }}</a>
+                    @endif
+                @endforeach
+            
+                @if ($properties->hasMorePages())
+                    <a href="{{ $properties->nextPageUrl() }}" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
+                @else
+                    <span class="nextposts-link disabled"><i class="fa fa-caret-right"></i></span>
+                @endif
             </div>
             <!-- pagination end-->						
         </div>
