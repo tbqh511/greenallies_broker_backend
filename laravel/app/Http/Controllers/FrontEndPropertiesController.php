@@ -30,7 +30,7 @@ class FrontEndPropertiesController extends Controller
     {
         // Fetch the property based on the ID
         $property = Property::findOrFail($id);
-    
+        dd($property);
         // Return the property detail view with the necessary data
         return view('frontend_properties_detail', ['property' => $property]);
     }
