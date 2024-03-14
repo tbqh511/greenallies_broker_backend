@@ -31,8 +31,31 @@ class FrontEndPropertiesController extends Controller
         // Fetch the property based on the ID
         $property = Property::findOrFail($id);
         //dd($property);
+
+        // Set parameters for the product query
+        $offset = 0;
+        $limit = 6;
+        $sort = 'updated_at';
+        $order = 'DESC';
+        $newestProducts = Property::with('customer')
+            ->with('user')
+            ->with('category:id,category,image')
+            ->with('assignfacilities.outdoorfacilities')
+            ->with('favourite')
+            ->with('parameters')
+            ->with('interested_users')
+            ->with('ward')
+            ->with('street')
+            ->with('host')
+            ->orderBy($sort, $order)
+            ->skip($offset)
+            ->take($limit)
+            ->get();
         // Return the property detail view with the necessary data
-        return view('frontend_properties_detail', ['property' => $property]);
+        return view('frontend_properties_detail', [
+            'property' => $property,
+            'newestProducts' => $newestProducts,
+    ]);
     }
 
     /**
