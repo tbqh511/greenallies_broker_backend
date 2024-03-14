@@ -38,11 +38,11 @@
                         @endforeach
                     </select>
                 </div>
-                <button class="main-search-button color-bg" onclick="window.location.href='/nha-ban'"> Tìm kiếm <i
+                <button class="main-search-button color-bg" onclick="window.location.href='{{ route('properties.index') }}'"> Tìm kiếm <i
                         class="far fa-search"></i> </button>
             </div>
         </div>
-        <div class="hero-notifer fl-wrap">Lọc thêm? <a href="/nha-ban">Tìm kiếm nâng cao</a>
+        <div class="hero-notifer fl-wrap">Lọc thêm? <a href="{{ route('properties.index') }}">Tìm kiếm nâng cao</a>
         </div>
         <div class="scroll-down-wrap">
             <div class="mousey">
