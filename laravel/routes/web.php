@@ -102,6 +102,7 @@ Route::fallback(function () {
 });
 //HuyTBQ: End - Route for Frontend Page
 
+
 Route::get('/admin', function () {
     return view('auth.login');
 });

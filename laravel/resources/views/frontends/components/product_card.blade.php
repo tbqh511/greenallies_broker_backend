@@ -25,7 +25,7 @@ $formattedPrice = 'Giá thỏa thuận';
         <div class="geodir-category-img fl-wrap">
             {{-- <a href="{{ route('product.show', ['slug' => $productCard->slug]) }}" class="geodir-category-img_item">
                 --}}
-                <a href="" class="geodir-category-img_item">
+                <a href="{{ route('property.showid', ['id' => $productCard->id]) }}" class="geodir-category-img_item">
                     <img src="{{$productCard->title_image}}" alt="">
                     <div class="overlay"></div>
                 </a>

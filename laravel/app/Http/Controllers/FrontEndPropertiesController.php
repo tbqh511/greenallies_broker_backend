@@ -21,7 +21,7 @@ class FrontEndPropertiesController extends Controller
         $product = Property::where('slug', $slug)->first();
 
         // Return the product detail view with the necessary data
-        return view('product', ['product' => $product]);
+        return view('frontend_news_detail', ['property' => $product]);
     }
     /**
      * Display the detail of a property by its ID.
@@ -32,7 +32,7 @@ class FrontEndPropertiesController extends Controller
         $property = Property::findOrFail($id);
     
         // Return the property detail view with the necessary data
-        return view('property_detail', ['property' => $property]);
+        return view('frontend_news_detail', ['property' => $property]);
     }
 
     /**
@@ -46,29 +46,29 @@ class FrontEndPropertiesController extends Controller
         $street = $request->input('street');
         $id = $request->input('id');
 
-        // Query to fetch products based on search parameters
-        $productsQuery = Property::query();
+        // Query to fetch properties based on search parameters
+        $propertiesQuery = Property::query();
 
         if ($category) {
-            $productsQuery->where('category_id', $category);
+            $propertiesQuery->where('category_id', $category);
         }
 
         if ($ward) {
-            $productsQuery->where('ward_id', $ward);
+            $propertiesQuery->where('ward_id', $ward);
         }
 
         if ($street) {
-            $productsQuery->where('street_id', $street);
+            $propertiesQuery->where('street_id', $street);
         }
 
         if ($id) {
-            $productsQuery->where('id', $id);
+            $propertiesQuery->where('id', $id);
         }
 
         // Get the list of products based on the query
-        $products = $productsQuery->paginate(10);
+        $properties = $propertiesQuery->paginate(10);
 
         // Return the product list view with the necessary data
-        return view('product_list', ['products' => $products]);
+        return view('frontend_properties_listing', ['properties' => $properties]);
     }
 }
