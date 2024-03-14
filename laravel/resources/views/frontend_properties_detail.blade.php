@@ -21,6 +21,7 @@
 @endphp
 @extends('frontends.master')
 @section('content')
+<!-- content -->	
 <div class="content">
     <!--  carousel-->
     @include('frontends.components.product_slider')
