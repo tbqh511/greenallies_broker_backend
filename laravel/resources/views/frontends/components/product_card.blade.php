@@ -37,8 +37,8 @@ $formattedPrice = 'Giá thỏa thuận';
                         </span></a>
                 </div>
                 <ul class="list-single-opt_header_cat">
-                    <li><a href="#" class="cat-opt blue-bg">{{ $productCard->category->category }}</a></li>
-                    <li><a href="#" class="cat-opt color-bg">{{ $productCard->created_at->diffForHumans() }}</a></li>
+                    <li><a href="{{ route('properties.index') }}" class="cat-opt blue-bg">{{ $productCard->category->category }}</a></li>
+                    <li><a href="{{ route('properties.index') }}" class="cat-opt color-bg">{{ $productCard->created_at->diffForHumans() }}</a></li>
                 </ul>
                 {{-- <a href="#" class="geodir_save-btn tolt" data-microtip-position="left" data-tooltip="Save"><span><i
                             class="fal fa-heart"></i></span></a>
