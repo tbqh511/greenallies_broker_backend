@@ -283,6 +283,14 @@
             </div>
             <!-- listing-item-wrap end-->
             <!-- pagination-->
+            {{-- <div class="pagination">
+                <a href="#" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
+                <a href="#" >1</a>
+                <a href="#" class="current-page">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
+            </div> --}}
             <div class="pagination">
                 @if ($properties->onFirstPage())
                     <span class="prevposts-link disabled"><i class="fa fa-caret-left"></i></span>
