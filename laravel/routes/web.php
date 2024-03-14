@@ -53,9 +53,7 @@ Route::get('/', function () {
 Route::get('/frontend', [FrontEndHomeController::class, 'index']);
 
 //product controller
-//Route::get('/product/{slug}', [FrontEndProductController::class, 'show'])->name('product.show');
 Route::get('/property/{id}', [FrontEndPropertiesController::class, 'getPropertyById'])->name('property.showid');
-
 
 // Route// Route for displaying the detail of a property
 Route::get('/property/detail/{slug}', [FrontEndPropertiesController::class, 'show'])->name('property.show');
