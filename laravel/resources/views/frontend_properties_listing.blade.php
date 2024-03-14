@@ -249,7 +249,7 @@
                     <!-- list-main-wrap-header end-->
                     <!-- listing-item-wrap-->
                     <div class="listing-item-container  box-list_ic fl-wrap">
-                        @foreach($newestProducts as $productItem )
+                        @foreach($properties as $productItem )
                         <!-- listing-item -->
                         @include('frontends.components.product_card',['productCard'=>$productItem ])
                         <!-- listing-item end-->
