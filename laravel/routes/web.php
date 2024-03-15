@@ -29,6 +29,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
 use App\Http\Controllers\FrontEndHomeController;
 use App\Http\Controllers\FrontEndPropertiesController;
+use App\Http\Controllers\FrontEndAgentsController;
 use App\Models\Payments;
 use App\Models\PropertysInquiry;
 use Illuminate\Support\Facades\Artisan;
@@ -61,10 +62,16 @@ Route::get('/property/detail/{slug}', [FrontEndPropertiesController::class, 'sho
 // Route for displaying a listing of the properties with search variables
 Route::get('/properties', [FrontEndPropertiesController::class, 'index'])->name('properties.index');
 
+//Category menu
 Route::get('/nha-ban', [FrontEndPropertiesController::class, 'index']);
 
 Route::get('/dat-ban', [FrontEndPropertiesController::class, 'index']);
 
+//News Layout
+Route::get('/tin-tuc', function () {
+    return view('posts');
+});
+// Wiki layout
 Route::get('/wiki-single', function () {
     return view('post');
 });
@@ -72,17 +79,15 @@ Route::get('/wiki-single', function () {
 Route::get('/wiki', function () {
     return view('posts');
 });
+//agent aloyout
+Route::get('/agent/{id}', [FrontEndAgentsController::class, 'getPropertyById'])->name('agent.showid');
 
-Route::get('/dang-tin', function () {
-    return view('product_create');
-});
+
+Route::get('/agents', [FrontEndAgentsController::class, 'index'])->name('agents.index');
+
 
 Route::get('/dalatbds', function () {
     return view('about');
-});
-
-Route::get('/tin-tuc', function () {
-    return view('posts');
 });
 
 Route::get('/lien-he', function () {
@@ -91,6 +96,11 @@ Route::get('/lien-he', function () {
 Route::fallback(function () {
     return view('404');
 });
+
+// //Create properties layout
+// Route::get('/dang-tin', function () {
+//     return view('product_create');
+// });
 //HuyTBQ: End - Route for Frontend Page
 
 
