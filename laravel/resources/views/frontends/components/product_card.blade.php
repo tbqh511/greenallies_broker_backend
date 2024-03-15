@@ -30,7 +30,7 @@ $formattedPrice = 'Giá thỏa thuận';
                 <div class="geodir-category-location">
                     <a href="{{ route('property.showid', ['id' => $productCard->id]) }}"><i class="fas fa-map-marker-alt"></i>
                         <span>
-                            {{ $productCard->address_location }}
+                            {{ $productCard->address_location }}s
                         </span></a>
                 </div>
                 <ul class="list-single-opt_header_cat">
