@@ -25,7 +25,7 @@
 <div class="content">
     <section class="hidden-section   single-hero-section" data-scrollax-parent="true" id="sec1">
         <div class="bg-wrap bg-parallax-wrap-gradien">
-            <div class="bg par-elem "  data-bg="{{$productCard->title_image}}" data-scrollax="properties: { translateY: '30%' }"></div>
+            <div class="bg par-elem "  data-bg="{{$property->title_image}}" data-scrollax="properties: { translateY: '30%' }"></div>
         </div>
         <div class="container">
             <!--  list-single-opt_header-->
