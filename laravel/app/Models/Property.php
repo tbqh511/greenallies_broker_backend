@@ -71,10 +71,8 @@ class Property extends Model
     {
         return $this->hasOne(Customer::class,'id', 'added_by')->select('name', 'profile', 'mobile');
     }
-
     //End HuyTBQ
 
-    
     //HuyTBQ: add function get count image
     public function getImagesCountAttribute()
     {
@@ -102,6 +100,13 @@ class Property extends Model
         return $this->parameters->where('id', config('global.number_room'))->first()->pivot->value ?? null;
     }
     //End HuyTBQ
+    //HuyTBQ: add function get title
+    public function getTitleByAddressAttribute()
+    {
+        return optional($this->street)->street_name . ', ' . optional($this->ward)->name;
+    }
+    //End HuyTBQ
+
     public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id')->select('id', 'category', 'parameter_types', 'image');

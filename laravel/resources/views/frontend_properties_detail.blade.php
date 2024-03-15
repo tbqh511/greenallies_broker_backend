@@ -1,23 +1,23 @@
 @php
-    // \Carbon\Carbon::setLocale('vi');
-    // $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
+    \Carbon\Carbon::setLocale('vi');
+    $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
 
-    // $price = $property->prices;
-    // $ty = 1000000000;
-    // $trieu = 1000000;
+    $price = $property->prices;
+    $ty = 1000000000;
+    $trieu = 1000000;
 
-    // if ($price > $ty) {
-    //     if ($price % $ty == 0 ) {
-    //     $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
-    //     }
-    //     else {
-    //     $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
-    //     }
-    // } elseif ($price > 0) {
-    //     $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
-    // } else {
-    //     $formattedPrice = 'Giá thỏa thuận';
-    // }
+    if ($price > $ty) {
+        if ($price % $ty == 0 ) {
+        $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
+        }
+        else {
+        $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
+        }
+    } elseif ($price > 0) {
+        $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
+    } else {
+        $formattedPrice = 'Giá thỏa thuận';
+    }
 @endphp
 @extends('frontends.master')
 @section('content')
@@ -25,7 +25,7 @@
 <div class="content">
     <section class="hidden-section   single-hero-section" data-scrollax-parent="true" id="sec1">
         <div class="bg-wrap bg-parallax-wrap-gradien">
-            <div class="bg par-elem "  data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+            <div class="bg par-elem "  data-bg="{{$productCard->title_image}}" data-scrollax="properties: { translateY: '30%' }"></div>
         </div>
         <div class="container">
             <!--  list-single-opt_header-->

@@ -23,8 +23,6 @@ $formattedPrice = 'Giá thỏa thuận';
 <div class="listing-item">
     <article class="geodir-category-listing fl-wrap">
         <div class="geodir-category-img fl-wrap">
-            {{-- <a href="{{ route('product.show', ['slug' => $productCard->slug]) }}" class="geodir-category-img_item">
-                --}}
                 <a href="{{ route('property.showid', ['id' => $productCard->id]) }}" class="geodir-category-img_item">
                     <img src="{{$productCard->title_image}}" alt="">
                     <div class="overlay"></div>
@@ -32,8 +30,7 @@ $formattedPrice = 'Giá thỏa thuận';
                 <div class="geodir-category-location">
                     <a href="{{ route('property.showid', ['id' => $productCard->id]) }}"><i class="fas fa-map-marker-alt"></i>
                         <span>
-                            {{ optional($productCard->street)->street_name }}, {{optional
-                            ($productCard->ward)->name}}
+                            {{ $productCard->title_by_address }}
                         </span></a>
                 </div>
                 <ul class="list-single-opt_header_cat">
@@ -50,8 +47,6 @@ $formattedPrice = 'Giá thỏa thuận';
         </div>
         <div class="geodir-category-content fl-wrap">
             <h3 class="title-sin_item">
-                {{-- <a href="{{ route('product.show', ['slug' => $productCard->slug]) }}">{{$productCard->title}}</a>
-                --}}
                 @if($productCard->propery_type == 0)
                 <a href="{{ route('property.showid', ['id' => $productCard->id]) }}">{{"Bán " . $productCard->category->category}}, {{ optional($productCard->street)->street_name
                     }}, {{optional($productCard->ward)->name}} , Tp Đà Lạt</a>
