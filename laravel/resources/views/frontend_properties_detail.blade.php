@@ -33,11 +33,11 @@
                 </div>
                 <div class="list-single-header-footer fl-wrap">
                     <div class="list-single-header-price" data-propertyprise="50500"><strong>Giá:</strong>{{$property->formatted_prices}}</div>
-                    <div class="list-single-header-date"><span>Date:</span>20.05.2020</div>
+                    <div class="list-single-header-date"><span>Ngày đăng:</span>{{ $property->created_at->diffForHumans() }}</div>
                     <div class="list-single-stats">
                         <ul class="no-list-style">
-                            <li><span class="viewed-counter"><i class="fas fa-eye"></i> Viewed -  156 </span></li>
-                            <li><span class="bookmark-counter"><i class="fas fa-heart"></i> Bookmark -  24 </span></li>
+                            <li><span class="viewed-counter"><i class="fas fa-eye"></i> Lượt xem -  {{$property->total_click}} </span></li>
+                            {{-- <li><span class="bookmark-counter"><i class="fas fa-heart"></i> Bookmark -  24 </span></li> --}}
                         </ul>
                     </div>
                 </div>
