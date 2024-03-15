@@ -44,21 +44,9 @@
             </div>
         </div>
     </section>
-    <div class="breadcrumbs fw-breadcrumbs smpar fl-wrap">
-        <div class="container">
-            <div class="breadcrumbs-list">
-                <a href="#">Home</a><a href="#">Listings</a><a href="#">New York</a><span>Property Single</span>
-            </div>
-            <div class="show-more-snopt smact"><i class="fal fa-ellipsis-v"></i></div>
-            <div class="show-more-snopt-tooltip">
-                <a href="#sec15" class="custom-scroll-link"> <i class="fas fa-comment-alt"></i> Write a review</a>
-                <a href="#"> <i class="fas fa-exclamation-triangle"></i> Report </a>
-            </div>
-            <a class="print-btn tolt" href="javascript:window.print()" data-microtip-position="bottom"  data-tooltip="Print"><i class="fas fa-print"></i></a>
-            <a class="compare-top-btn tolt" data-microtip-position="bottom"  data-tooltip="Compare" href="#"><i class="fas fa-random"></i></a>
-            <div class="like-btn"><i class="fas fa-heart"></i> Save</div>
-        </div>
-    </div>
+    <!-- breadcrumbs-->
+    @include('frontends.components.home_breadcrumb')
+    <!-- breadcrumbs end -->
     <div class="gray-bg small-padding fl-wrap">
         <div class="container">
             <div class="row">
