@@ -80,7 +80,7 @@ Route::get('/wiki', function () {
     return view('posts');
 });
 //agent aloyout
-Route::get('/agent/{id}', [FrontEndAgentsController::class, 'getPropertyById'])->name('agent.showid');
+Route::get('/agent/{id}', [FrontEndAgentsController::class, 'getAgentById'])->name('agent.showid');
 
 
 Route::get('/agents', [FrontEndAgentsController::class, 'index'])->name('agents.index');
