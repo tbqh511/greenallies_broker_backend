@@ -1,25 +1,3 @@
-@php
-\Carbon\Carbon::setLocale('vi');
-$formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
-
-$price = $productCard->price;
-$ty = 1000000000;
-$trieu = 1000000;
-
-if ($price > $ty) {
-if ($price % $ty == 0 ) {
-$formattedPrice = number_format($price / $ty, 0) . ' tỷ';
-}
-else {
-$formattedPrice = number_format($price / $ty, 1) . ' tỷ';
-}
-} elseif ($price > 0) {
-$formattedPrice = number_format($price / $trieu, 0) . ' triệu';
-} else {
-$formattedPrice = 'Giá thỏa thuận';
-}
-@endphp
-
 <div class="listing-item">
     <article class="geodir-category-listing fl-wrap">
         <div class="geodir-category-img fl-wrap">
@@ -30,7 +8,7 @@ $formattedPrice = 'Giá thỏa thuận';
                 <div class="geodir-category-location">
                     <a href="{{ route('property.showid', ['id' => $productCard->id]) }}"><i class="fas fa-map-marker-alt"></i>
                         <span>
-                            {{ $productCard->address_location }}s
+                            {{ $productCard->address_location }}
                         </span></a>
                 </div>
                 <ul class="list-single-opt_header_cat">
@@ -49,7 +27,7 @@ $formattedPrice = 'Giá thỏa thuận';
             <h3 class="title-sin_item">
                 <a href="{{ route('property.showid', ['id' => $productCard->id]) }}">{{ $productCard->title_by_address }}</a>
             </h3>
-            <div class="geodir-category-content_price">{{ $formattedPrice }}</div>
+            <div class="geodir-category-content_price">{{ $productCard->formatted_prices }}</div>
             <p> {{$productCard->description}}</p>
             <div class="geodir-category-content-details">
                 {{-- <ul> --}}

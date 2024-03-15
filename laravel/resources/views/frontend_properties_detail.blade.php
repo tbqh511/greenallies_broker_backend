@@ -1,24 +1,4 @@
-@php
-    \Carbon\Carbon::setLocale('vi');
-    $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
 
-    $price = $property->prices;
-    $ty = 1000000000;
-    $trieu = 1000000;
-
-    if ($price > $ty) {
-        if ($price % $ty == 0 ) {
-        $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
-        }
-        else {
-        $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
-        }
-    } elseif ($price > 0) {
-        $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
-    } else {
-        $formattedPrice = 'Giá thỏa thuận';
-    }
-@endphp
 @extends('frontends.master')
 @section('content')
 <!-- content -->	
@@ -40,19 +20,19 @@
             <div class="list-single-header-item no-bg-list_sh fl-wrap">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>{{ $property->title_by_address }} <span class="verified-badge tolt" data-microtip-position="bottom"  data-tooltip="Verified"><i class="fas fa-check"></i></span></h1>
+                        <h1>{{ $property->title_by_address }} <span class="verified-badge tolt" data-microtip-position="bottom"  data-tooltip="Đã xác nhận"><i class="fas fa-check"></i></span></h1>
                         <div class="geodir-category-location fl-wrap">
-                            <a href="#"><i class="fas fa-map-marker-alt"></i>  70 Bright St New York, USA</a> 
-                            <div class="listing-rating card-popup-rainingvis" data-starrating2="4"><span class="re_stars-title">Good</span></div>
+                            <a href="#"><i class="fas fa-map-marker-alt"></i>  {{$property->address_location}}</a> 
+                            {{-- <div class="listing-rating card-popup-rainingvis" data-starrating2="4"><span class="re_stars-title">Good</span></div> --}}
                         </div>
                         <div class="share-holder hid-share">
-                            <a href="#" class="share-btn showshare sfcs">  <i class="fas fa-share-alt"></i>  Share   </a>
-                            <div class="share-container  isShare"></div>
+                            {{-- <a href="#" class="share-btn showshare sfcs">  <i class="fas fa-share-alt"></i>  Share   </a>
+                            <div class="share-container  isShare"></div> --}}
                         </div>
                     </div>
                 </div>
                 <div class="list-single-header-footer fl-wrap">
-                    <div class="list-single-header-price" data-propertyprise="50500"><strong>Price:</strong><span>$</span>50.500</div>
+                    <div class="list-single-header-price" data-propertyprise="50500"><strong>Giá:</strong>{{$property->formatted_prices}}</div>
                     <div class="list-single-header-date"><span>Date:</span>20.05.2020</div>
                     <div class="list-single-stats">
                         <ul class="no-list-style">

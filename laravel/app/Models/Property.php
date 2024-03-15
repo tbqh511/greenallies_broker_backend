@@ -100,7 +100,7 @@ class Property extends Model
         return $this->parameters->where('id', config('global.number_room'))->first()->pivot->value ?? null;
     }
     //End HuyTBQ
-    //HuyTBQ: add function get title
+    //HuyTBQ: add function get address location
     public function getAddressLocationAttribute()
     {
         return optional($this->street)->street_name . ', ' . optional($this->ward)->name;
@@ -119,6 +119,32 @@ class Property extends Model
             return $address;
         }
     }
+    //End HuyTBQ
+
+    //HuyTBQ: add function get formatted prices
+    public function getFormattedPricesAttribute()
+{
+    \Carbon\Carbon::setLocale('vi');
+    $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
+
+    $price = $this->price;
+    $ty = 1000000000;
+    $trieu = 1000000;
+
+    if ($price > $ty) {
+        if ($price % $ty == 0 ) {
+            $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
+        } else {
+            $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
+        }
+    } elseif ($price > 0) {
+        $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
+    } else {
+        $formattedPrice = 'Giá thỏa thuận';
+    }
+
+    return $formattedPrice;
+}
     //End HuyTBQ
 
     public function category()
