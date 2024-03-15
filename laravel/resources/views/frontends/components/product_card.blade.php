@@ -47,13 +47,7 @@ $formattedPrice = 'Giá thỏa thuận';
         </div>
         <div class="geodir-category-content fl-wrap">
             <h3 class="title-sin_item">
-                @if($productCard->propery_type == 0)
-                <a href="{{ route('property.showid', ['id' => $productCard->id]) }}">{{"Bán " . $productCard->category->category}}, {{ optional($productCard->street)->street_name
-                    }}, {{optional($productCard->ward)->name}} , Tp Đà Lạt</a>
-                @elseif($productCard->propery_type == 1)
-                <a href="{{ route('property.showid', ['id' => $productCard->id]) }}">{{"Cho thuê " . $productCard->category->category}}, {{
-                    optional($productCard->street)->street_name }}, {{optional($productCard->ward)->name}}</a>
-                @endif
+                <a href="{{ route('property.showid', ['id' => $productCard->id]) }}">{{ $productCard->title_by_address }}</a>
             </h3>
             <div class="geodir-category-content_price">{{ $formattedPrice }}</div>
             <p> {{$productCard->description}}</p>

@@ -101,9 +101,23 @@ class Property extends Model
     }
     //End HuyTBQ
     //HuyTBQ: add function get title
-    public function getTitleByAddressAttribute()
+    public function getAddressLocationAttribute()
     {
         return optional($this->street)->street_name . ', ' . optional($this->ward)->name;
+    }
+    //End HuyTBQ
+    //HuyTBQ: add function get title
+    public function getTitleByAddressAttribute()
+    {
+        $address = $this->getAddressLocationAttribute();
+
+        if ($this->propery_type == 0) {
+            return "Bán " . $this->category->category . ', ' . $address . ', Tp Đà Lạt';
+        } elseif ($this->propery_type == 1) {
+            return "Cho thuê " . $this->category->category . ', ' . $address;
+        } else {
+            return $address;
+        }
     }
     //End HuyTBQ
 
