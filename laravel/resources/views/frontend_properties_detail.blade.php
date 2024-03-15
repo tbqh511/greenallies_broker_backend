@@ -31,9 +31,8 @@
             <!--  list-single-opt_header-->
             <div class="list-single-opt_header fl-wrap">
                 <ul class="list-single-opt_header_cat">
-                    <li><a href="#" class="cat-opt color-bg">Rent</a></li>
-                    <li><a href="#" class="cat-opt blue-bg">Sale</a></li>
-                    <li><a href="#" class="cat-opt color-bg">Apartment</a></li>
+                    <li><a href="{{ route('properties.index') }}" class="cat-opt blue-bg">{{ $productCard->category->category }}</a></li>
+                    <li><a href="{{ route('properties.index') }}" class="cat-opt color-bg">{{ $productCard->created_at->diffForHumans() }}</a></li>
                 </ul>
             </div>
             <!--  list-single-opt_header end -->
@@ -41,7 +40,7 @@
             <div class="list-single-header-item no-bg-list_sh fl-wrap">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>House in Financial District <span class="verified-badge tolt" data-microtip-position="bottom"  data-tooltip="Verified"><i class="fas fa-check"></i></span></h1>
+                        <h1>{{ $productCard->title_by_address }} <span class="verified-badge tolt" data-microtip-position="bottom"  data-tooltip="Verified"><i class="fas fa-check"></i></span></h1>
                         <div class="geodir-category-location fl-wrap">
                             <a href="#"><i class="fas fa-map-marker-alt"></i>  70 Bright St New York, USA</a> 
                             <div class="listing-rating card-popup-rainingvis" data-starrating2="4"><span class="re_stars-title">Good</span></div>
