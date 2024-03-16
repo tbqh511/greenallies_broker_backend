@@ -18,6 +18,6 @@
             {{-- <div class="swiper-button-prev lc-wbtn lc-wbtn_prev"><i class="far fa-angle-left"></i></div>
             <div class="swiper-button-next lc-wbtn lc-wbtn_next"><i class="far fa-angle-right"></i></div> --}}
         </div>
-        <a href="{{ route('agents.index') }}" class="btn float-btn small-btn color-bg" style=" position: relative; top:50%; left:50%;">Xem thêm</a>
     </div>
+    <a href="{{ route('agents.index') }}" class="btn float-btn small-btn color-bg" style=" position: relative; top:50%; left:50%;">Xem thêm</a>
 </section>
