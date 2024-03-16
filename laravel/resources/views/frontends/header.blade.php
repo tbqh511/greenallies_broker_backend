@@ -83,10 +83,11 @@
                     <!--second level end-->
                 </li> --}}
                 <li>
-                    <a href="/tin-tuc">Tin tức</a>
+                    <a href="/wiki">Wiki BĐS</a>
+                    <a href="{{ route('properties.index') }}">Đất bán <i class="fa "></i></a>
                 </li>
                 <li>
-                    <a href="/wiki">Wiki BĐS</a>
+                    <a href="/tin-tuc">Đối tác</a>
                 </li>
                 {{-- <li>
                     <a href="#">Pages <i class="fa fa-caret-down"></i></a>
