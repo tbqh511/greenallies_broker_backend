@@ -83,7 +83,7 @@
                     <!--second level end-->
                 </li> --}}
                 <li>
-                    <a href="{{ route('agents.index') }}">Wiki BĐS</a>
+                    <a href="{{ route('news.index') }}">Wiki BĐS</a>
                 </li>
                 <li>
                     <a href="{{ route('agents.index') }}">Đối tác</a>

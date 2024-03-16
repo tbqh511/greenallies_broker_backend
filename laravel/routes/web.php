@@ -5,6 +5,7 @@ use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\AreaMeasurementController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BedroomController;
+use App\Http\Controllers\FrontEndNewsController;
 use App\Http\Controllers\FrontEndProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -68,18 +69,10 @@ Route::get('/nha-ban', [FrontEndPropertiesController::class, 'index']);
 Route::get('/dat-ban', [FrontEndPropertiesController::class, 'index']);
 
 //News Layout
-Route::get('/tin-tuc', function () {
-    return view('posts');
-});
-// Wiki layout
-Route::get('/wiki-single', function () {
-    return view('post');
-});
+Route::get('/new/{id}', [FrontEndNewsController::class,'getNewsById'])->name('new.showid');
 
-Route::get('/wiki', function () {
-    return view('posts');
-});
-//agent aloyout
+Route::get('/news', [FrontEndNewsController::class,'index'])->name('news.index');
+//agent layout
 Route::get('/agent/{id}', [FrontEndAgentsController::class, 'getAgentById'])->name('agent.showid');
 
 
