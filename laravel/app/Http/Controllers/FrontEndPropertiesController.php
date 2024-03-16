@@ -90,7 +90,7 @@ class FrontEndPropertiesController extends Controller
         }
 
         // Get the list of products based on the query
-        $properties = $propertiesQuery->paginate(6);
+        $properties = $propertiesQuery->paginate(8);
 
         // Return the product list view with the necessary data
         return view('frontend_properties_listing', ['properties' => $properties]);
