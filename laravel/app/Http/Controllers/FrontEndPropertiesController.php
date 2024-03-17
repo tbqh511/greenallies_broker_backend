@@ -52,6 +52,9 @@ class FrontEndPropertiesController extends Controller
             ->skip($offset)
             ->take($limit)
             ->get();
+            
+            //$gallery = $property->getGalleryAttribute();
+            dd($property->getGalleryAttribute());
         // Return the property detail view with the necessary data
         return view('frontend_properties_detail', [
             'property' => $property,
