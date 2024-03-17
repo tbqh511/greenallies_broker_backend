@@ -90,74 +90,19 @@
                         </div>
                         <!--  scroll-nav-wrap end-->
                         <div class="list-single-main-media fl-wrap" id="sec2">
-                            <!-- gallery-items   -->
-                            <div class="gallery-items grid-small-pad  list-single-gallery three-coulms lightgallery">
-                                <!-- 1 -->
-                                <div class="gallery-item ">
-                                    <div class="grid-item-holder">
-                                        <div class="box-item">
-                                            <img src="images/all/1.jpg" alt="">
-                                            <a href="images/all/1.jpg" class="gal-link popup-image"><i
-                                                    class="fa fa-search"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 1 end -->
-                                <!-- 2 -->
+                            <!-- gallery-items -->
+                            <div class="gallery-items grid-small-pad list-single-gallery three-coulms lightgallery">
+                                @foreach ($property->getGalleryAttribute() as $image)
                                 <div class="gallery-item">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img src="images/all/1.jpg" alt="">
-                                            <a href="images/all/1.jpg" class="gal-link popup-image"><i
+                                            <img src="{{ $image['image_url'] }}" alt="">
+                                            <a href="{{ $image['image_url'] }}" class="gal-link popup-image"><i
                                                     class="fa fa-search"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- 2 end -->
-                                <!-- 3 -->
-                                <div class="gallery-item gallery-item-second">
-                                    <div class="grid-item-holder">
-                                        <div class="box-item">
-                                            <img src="images/all/1.jpg" alt="">
-                                            <a href="images/all/1.jpg" class="gal-link popup-image"><i
-                                                    class="fa fa-search"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 3 end -->
-                                <!-- 4 -->
-                                <div class="gallery-item">
-                                    <div class="grid-item-holder">
-                                        <div class="box-item">
-                                            <img src="images/all/1.jpg" alt="">
-                                            <a href="images/all/1.jpg" class="gal-link popup-image"><i
-                                                    class="fa fa-search"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 4 end -->
-                                <!-- 5 -->
-                                <div class="gallery-item">
-                                    <div class="grid-item-holder">
-                                        <div class="box-item">
-                                            <img src="images/all/1.jpg" alt="">
-                                            <a href="images/all/1.jpg" class="gal-link popup-image"><i
-                                                    class="fa fa-search"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 5 end -->
-                                <!-- 7 -->
-                                <div class="gallery-item">
-                                    <div class="grid-item-holder">
-                                        <div class="box-item">
-                                            <img src="images/all/1.jpg" alt="">
-                                            <a href="images/all/1.jpg" class="gal-link popup-image"><i
-                                                    class="fa fa-search"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 7 end -->
+                                @endforeach
                             </div>
                             <!-- end gallery items -->
                         </div>
