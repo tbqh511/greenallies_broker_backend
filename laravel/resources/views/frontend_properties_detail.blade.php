@@ -57,14 +57,15 @@
                         <div class="scroll-nav-wrap">
                             <nav class="scroll-nav scroll-init fixed-column_menu-init">
                                 <ul class="no-list-style">
-                                    <li><a class="act-scrlink" href="#sec1"><i class="fal fa-home-lg-alt"></i></a><span>Main</span></li>
-                                    <li><a  href="#sec2"><i class="fal fa-image"></i></a><span>Gallery</span></li>
-                                    <li><a href="#sec3"><i class="fal fa-info"></i> </a><span>Details</span></li>
-                                    <li><a href="#sec4"><i class="fal fa-bed"></i></a><span>Rooms</span></li>
+                                    <li><a class="act-scrlink" href="#sec1"><i class="fal fa-home-lg-alt"></i></a><span>Trang chính</span></li>
+                                    <li><a href="#sec2"><i class="fal fa-image"></i></a><span>Bộ sưu tập</span></li>
+                                    <li><a href="#sec3"><i class="fal fa-info"></i> </a><span>Chi tiết</span></li>
+                                    <li><a href="#sec4"><i class="fal fa-bed"></i></a><span>Phòng</span></li>
                                     <li><a href="#sec5"><i class="fal fa-video"></i></a><span>Video</span></li>
-                                    <li><a href="#sec6"><i class="fal fa-map-pin"></i></a><span>Location</span></li>
-                                    <li><a href="#sec7"><i class="fal fa-comment-alt-lines"></i></a><span>Reviews</span></li>
+                                    <li><a href="#sec6"><i class="fal fa-map-pin"></i></a><span>Vị trí</span></li>
+                                    <li><a href="#sec7"><i class="fal fa-comment-alt-lines"></i></a><span>Đánh giá</span></li>
                                 </ul>
+                                
                                 <div class="progress-indicator">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         viewBox="-1 -1 34 34">
