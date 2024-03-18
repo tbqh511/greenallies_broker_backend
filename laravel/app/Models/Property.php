@@ -144,9 +144,20 @@ class Property extends Model
     }
 
     return $formattedPrice;
-}
+    }
     //End HuyTBQ
-
+    //HuyTBQ: add function get title
+    public function getTypeAttribute()
+    {
+        if ($this->propery_type == 0) {
+            return 'Bán';
+        } elseif ($this->propery_type == 1) {
+            return 'Cho thuê';
+        } else {
+            return null; // Hoặc bất kỳ giá trị mặc định nào bạn muốn nếu không có giá trị phù hợp
+        }
+    }
+    //End HuyTBQ
     public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id')->select('id', 'category', 'parameter_types', 'image');

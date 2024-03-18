@@ -112,15 +112,8 @@
                                 <div class="inline-facts">
                                     <i class="fal fa-home-lg"></i>
                                     <h6>
-                                        @switch($property->propery_type)
-                                        @case(0)
-                                            Bán
-                                            @break
-                                        @case(1)
-                                            Cho thuê
-                                            @break
-                                    @endswitch
-                                </h6>
+                                        {{$property->type}}
+                                    </h6>
                                     <span>Apartment/ House</span>
                                 </div>
                             </div>
