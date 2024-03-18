@@ -160,20 +160,20 @@
                             <!-- list-single-main-item -->
                             <div class="list-single-main-item fl-wrap">
                                 <div class="list-single-main-item-title">
-                                    <h3>Details</h3>
+                                    <h3>Chi tiết</h3>
                                 </div>
                                 <div class="list-single-main-item_content fl-wrap">
                                     <div class="details-list">
                                         <ul>
-                                            <li><span>Property Id:</span>154</li>
-                                            <li><span>Property Lot Size:</span>850 m2</li>
-                                            <li><span>Bathrooms:</span>4</li>
-                                            <li><span>Rooms:</span>8</li>
-                                            <li><span>Bedrooms:</span>2</li>
-                                            <li><span>Garage Size:</span>2 cars</li>
-                                            <li><span>Available from:</span>25.05.2020</li>
-                                            <li><span>Price:</span>$ 50.500.00</li>
-                                            <li><span>Type:</span>Apartment/House</li>
+                                            <li><span>Mã Bất động sản:</span>154</li>
+                                            <li><span>Diện tích Lô đất:</span>850 m2</li>
+                                            <li><span>Phòng tắm:</span>4</li>
+                                            <li><span>Phòng:</span>8</li>
+                                            <li><span>Phòng ngủ:</span>2</li>
+                                            <li><span>Diện tích Gara:</span>2 xe hơi</li>
+                                            <li><span>Khả dụng từ ngày:</span>25.05.2020</li>
+                                            <li><span>Giá:</span>$ 50.500,00</li>
+                                            <li><span>Loại:</span>Căn hộ/Nhà</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -373,6 +373,80 @@
                             </div> --}}
                             <!-- list-single-main-item end -->
                             <!-- list-single-main-item -->
+                            <div class="list-single-main-item fl-wrap" id="sec7">
+                                <div class="list-single-main-item-title">
+                                    <h3>Đánh giá <span>2</span></h3>
+                                </div>
+                                <div class="list-single-main-item_content fl-wrap">
+                                    <div class="reviews-comments-wrap fl-wrap">
+                                        <div class="review-total">
+                                            <span class="review-number blue-bg">4.0</span>
+                                            <div class="listing-rating card-popup-rainingvis" data-starrating2="4"><span
+                                                    class="re_stars-title">Tốt</span></div>
+                                        </div>
+                                        <!-- reviews-comments-item -->
+                                        <div class="reviews-comments-item">
+                                            <div class="review-comments-avatar">
+                                                <img src="images/avatar/1.jpg" alt="">
+                                            </div>
+                                            <div class="reviews-comments-item-text smpar">
+                                                <div class="box-widget-menu-btn smact"><i class="far fa-ellipsis-h"></i>
+                                                </div>
+                                                <div class="show-more-snopt-tooltip bxwt">
+                                                    <a href="#"> <i class="fas fa-reply"></i> Trả lời</a>
+                                                    <a href="#"> <i class="fas fa-exclamation-triangle"></i> Báo cáo
+                                                    </a>
+                                                </div>
+                                                <h4><a href="#">Liza Rose</a></h4>
+                                                <div class="listing-rating card-popup-rainingvis" data-starrating2="3">
+                                                    <span class="re_stars-title">Trung bình</span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <p>" Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
+                                                    sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
+                                                    vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
+                                                    imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
+                                                    mollis pretium. "</p>
+                                                <div class="reviews-comments-item-date"><span
+                                                        class="reviews-comments-item-date-item"><i
+                                                            class="far fa-calendar-check"></i>12 Tháng 4, 2018</span><a
+                                                        href="#" class="rate-review"><i class="fal fa-thumbs-up"></i>
+                                                        Đánh giá hữu ích <span>6</span> </a></div>
+                                            </div>
+                                        </div>
+                                        <!--reviews-comments-item end-->
+                                        <!-- reviews-comments-item -->
+                                        <div class="reviews-comments-item">
+                                            <div class="review-comments-avatar">
+                                                <img src="images/avatar/1.jpg" alt="">
+                                            </div>
+                                            <div class="reviews-comments-item-text smpar">
+                                                <div class="box-widget-menu-btn smact"><i class="far fa-ellipsis-h"></i>
+                                                </div>
+                                                <div class="show-more-snopt-tooltip bxwt">
+                                                    <a href="#"> <i class="fas fa-reply"></i> Trả lời</a>
+                                                    <a href="#"> <i class="fas fa-exclamation-triangle"></i> Báo cáo
+                                                    </a>
+                                                </div>
+                                                <h4><a href="#">Adam Koncy</a></h4>
+                                                <div class="listing-rating card-popup-rainingvis" data-starrating2="5">
+                                                    <span class="re_stars-title">Xuất sắc</span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <p>" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                                                    posuere convallis purus non cursus. Cras metus neque, gravida
+                                                    sodales massa ut. "</p>
+                                                <div class="reviews-comments-item-date"><span
+                                                        class="reviews-comments-item-date-item"><i
+                                                            class="far fa-calendar-check"></i>03 Tháng 12, 2017</span><a
+                                                        href="#" class="rate-review"><i class="fal fa-thumbs-up"></i>
+                                                        Đánh giá hữu ích <span>2</span> </a></div>
+                                            </div>
+                                        </div>
+                                        <!--reviews-comments-item end-->
+                                    </div>
+                                </div>
+                            </div>
                             <div class="list-single-main-item fl-wrap" id="sec7">
                                 <div class="list-single-main-item-title">
                                     <h3>Reviews <span>2</span></h3>
