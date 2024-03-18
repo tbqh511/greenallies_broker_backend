@@ -37,7 +37,7 @@ class FrontEndPropertiesController extends Controller
         $limit = 6;
         $sort = 'updated_at';
         $order = 'DESC';
-        
+
         $newestProducts = Property::with('customer')
             ->with('user')
             ->with('category:id,category,image')
@@ -52,15 +52,15 @@ class FrontEndPropertiesController extends Controller
             ->skip($offset)
             ->take($limit)
             ->get();
-            
+
         //$gallery = $property->getGalleryAttribute();
         //dd($property->getGalleryAttribute());
-        
+
         // Return the property detail view with the necessary data
         return view('frontend_properties_detail', [
             'property' => $property,
             'newestProducts' => $newestProducts,
-    ]   );
+        ]);
     }
 
     /**

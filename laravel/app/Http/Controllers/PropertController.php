@@ -312,9 +312,6 @@ class PropertController extends Controller
             }
             $UpdateProperty->update();
 
-
-
-
             AssignedOutdoorFacilities::where('property_id', $UpdateProperty->id)->delete();
             $facility = OutdoorFacilities::all();
             foreach ($facility as $key => $value) {
