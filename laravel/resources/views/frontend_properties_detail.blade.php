@@ -451,56 +451,47 @@
                             <!-- list-single-main-item -->
                             <div class="list-single-main-item fl-wrap" id="sec15">
                                 <div class="list-single-main-item-title fl-wrap">
-                                    <h3>Add Your Review</h3>
+                                    <h3>Thêm Đánh giá Của Bạn</h3>
                                 </div>
-                                <!-- Add Review Box -->
+                                <!-- Hộp Thêm Đánh giá -->
                                 <div id="add-review" class="add-review-box">
                                     <div class="leave-rating-wrap">
-                                        <span class="leave-rating-title">Your rating for this listing : </span>
+                                        <span class="leave-rating-title">Đánh giá của bạn cho bản ghi này: </span>
                                         <div class="leave-rating">
-                                            <input type="radio" data-ratingtext="Excellent" name="rating" id="rating-1"
-                                                value="1" />
+                                            <input type="radio" data-ratingtext="Tuyệt vời" name="rating" id="rating-1" value="1" />
                                             <label for="rating-1" class="fal fa-star"></label>
-                                            <input type="radio" data-ratingtext="Good" name="rating" id="rating-2"
-                                                value="2" />
+                                            <input type="radio" data-ratingtext="Tốt" name="rating" id="rating-2" value="2" />
                                             <label for="rating-2" class="fal fa-star"></label>
-                                            <input type="radio" name="rating" data-ratingtext="Average" id="rating-3"
-                                                value="3" />
+                                            <input type="radio" name="rating" data-ratingtext="Trung bình" id="rating-3" value="3" />
                                             <label for="rating-3" class="fal fa-star"></label>
-                                            <input type="radio" data-ratingtext="Fair" name="rating" id="rating-4"
-                                                value="4" />
+                                            <input type="radio" data-ratingtext="Công bằng" name="rating" id="rating-4" value="4" />
                                             <label for="rating-4" class="fal fa-star"></label>
-                                            <input type="radio" data-ratingtext="Very Bad " name="rating" id="rating-5"
-                                                value="5" />
+                                            <input type="radio" data-ratingtext="Rất tệ" name="rating" id="rating-5" value="5" />
                                             <label for="rating-5" class="fal fa-star"></label>
                                         </div>
                                         <div class="count-radio-wrapper">
-                                            <span id="count-checked-radio">Your Rating</span>
+                                            <span id="count-checked-radio">Đánh Giá Của Bạn</span>
                                         </div>
                                     </div>
-                                    <!-- Review Comment -->
+                                    <!-- Ô Nhận Xét -->
                                     <form class="add-comment custom-form">
                                         <fieldset>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Your name* <span class="dec-icon"><i
-                                                                class="fas fa-user"></i></span></label>
+                                                    <label>Tên của bạn* <span class="dec-icon"><i class="fas fa-user"></i></span></label>
                                                     <input name="phone" type="text" onClick="this.select()" value="">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>Yourmail* <span class="dec-icon"><i
-                                                                class="fas fa-envelope"></i></span></label>
-                                                    <input name="reviewwname" type="text" onClick="this.select()"
-                                                        value="">
+                                                    <label>Email của bạn* <span class="dec-icon"><i class="fas fa-envelope"></i></span></label>
+                                                    <input name="reviewwname" type="text" onClick="this.select()" value="">
                                                 </div>
                                             </div>
-                                            <textarea cols="40" rows="3" placeholder="Your Review:"></textarea>
+                                            <textarea cols="40" rows="3" placeholder="Đánh giá của bạn:"></textarea>
                                         </fieldset>
-                                        <button class="btn big-btn color-bg float-btn">Submit Review <i
-                                                class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                                        <button class="btn big-btn color-bg float-btn">Gửi Đánh giá <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
                                     </form>
                                 </div>
-                                <!-- Add Review Box / End -->
+                                <!-- Hộp Thêm Đánh giá / Kết thúc -->
                             </div>
                             <!-- list-single-main-item end -->
                         </div>
