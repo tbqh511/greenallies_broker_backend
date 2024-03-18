@@ -123,7 +123,7 @@
                                 <div class="inline-facts">
                                     <i class="fas fa-arrows-alt"></i>
                                     <h6>{{config('global.area_title')}}</h6>
-                                    <span>{{$productCard->area}}</span>
+                                    <span>{{$property->area}}</span>
                                 </div>
                             </div>
                             <!-- inline-facts end -->
