@@ -121,9 +121,9 @@
                             <!-- inline-facts  -->
                             <div class="inline-facts-wrap">
                                 <div class="inline-facts">
-                                    <i class="fal fa-users"></i>
-                                    <h6>Accomodation</h6>
-                                    <span>6 Guest</span>
+                                    <i class="fas fa-arrows-alt"></i>
+                                    <h6>{{config('global.area_title')}}</h6>
+                                    <span>{{$productCard->area}}</span>
                                 </div>
                             </div>
                             <!-- inline-facts end -->

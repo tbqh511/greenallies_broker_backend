@@ -20,7 +20,7 @@ return [
     "JSON_PATH" => '/json',
 
     //HuyTBQ: Parameter for properties on properties card
-    //'area' => 'Diện tích',
+    'area_title' => 'Diện tích',
     'area' => '15',
     //'number_floor'=>'Số tầng',
     'number_floor'=>'18',
