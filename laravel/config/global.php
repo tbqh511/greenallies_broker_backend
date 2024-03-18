@@ -22,8 +22,8 @@ return [
     //HuyTBQ: Parameter for properties on properties card
     'area_title' => 'Diện tích',
     'area' => '15',
-    //'number_floor'=>'Số tầng',
+    'number_floor_title'=>'Số tầng',
     'number_floor'=>'18',
-    //'number_room'=>'Phòng ngủ'
+    'number_room_title'=>'Số phòng',
     'number_room'=>'19'
 ];

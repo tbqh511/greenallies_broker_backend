@@ -123,25 +123,25 @@
                                 <div class="inline-facts">
                                     <i class="fas fa-arrows-alt"></i>
                                     <h6>{{config('global.area_title')}}</h6>
-                                    <span>{{$property->area}}</span>
+                                    <span>{{$property->area}} m²</span>
                                 </div>
                             </div>
                             <!-- inline-facts end -->
                             <!-- inline-facts -->
                             <div class="inline-facts-wrap">
                                 <div class="inline-facts">
-                                    <i class="fal fa-bed"></i>
-                                    <h6>Bedrooms</h6>
-                                    <span>3 Bedrooms / 4 Beds</span>
+                                    <i class="fas fa-door-open"></i>
+                                    <h6>{{config('global.number_room_title')}}</h6>
+                                    <span>{{$property->number_room}}</span>
                                 </div>
                             </div>
                             <!-- inline-facts end -->
                             <!-- inline-facts -->
                             <div class="inline-facts-wrap">
                                 <div class="inline-facts">
-                                    <i class="fal fa-bath"></i>
-                                    <h6>Bathrooms</h6>
-                                    <span>3 Full</span>
+                                    <i class="fas fa-layer-group"></i>
+                                    <h6>{{config('global.number_floor_title')}}</h6>
+                                    <span>{{$property->number_floor}}</span>
                                 </div>
                             </div>
                             <!-- inline-facts end -->
