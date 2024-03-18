@@ -114,7 +114,7 @@
                                     <h6>
                                         {{$property->type}}
                                     </h6>
-                                    <span>Apartment/ House</span>
+                                    <span>$productCard->category->category</span>
                                 </div>
                             </div>
                             <!-- inline-facts end -->
