@@ -180,7 +180,7 @@
                             </div>
                             <!-- list-single-main-item end -->
                             <!--   list-single-main-item -->
-                            <div class="list-single-main-item fl-wrap" id="sec4">
+                            {{-- <div class="list-single-main-item fl-wrap" id="sec4">
                                 <div class="list-single-main-item-title fl-wrap">
                                     <h3>Available Rooms</h3>
                                 </div>
@@ -291,10 +291,10 @@
                                     <!--  rooms-item end -->
                                 </div>
                                 <!--   rooms-container end -->
-                            </div>
+                            </div> --}}
                             <!-- list-single-main-item end -->
                             <!-- list-single-main-item -->
-                            <div class="list-single-main-item fl-wrap">
+                            {{-- <div class="list-single-main-item fl-wrap">
                                 <div class="list-single-main-item-title">
                                     <h3>Floor Plans</h3>
                                 </div>
@@ -323,7 +323,7 @@
                                             viverra.</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- list-single-main-item end -->
                             <!-- list-single-main-item -->
                             <div class="list-single-main-item fl-wrap" id="sec5">
@@ -340,7 +340,7 @@
                             </div>
                             <!-- list-single-main-item end -->
                             <!-- list-single-main-item -->
-                            <div class="list-single-main-item fl-wrap">
+                            {{-- <div class="list-single-main-item fl-wrap">
                                 <div class="list-single-main-item-title">
                                     <h3>Features</h3>
                                 </div>
@@ -358,10 +358,10 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- list-single-main-item end -->
                             <!-- list-single-main-item -->
-                            <div class="list-single-main-item fw-lmi fl-wrap" id="sec6">
+                            {{-- <div class="list-single-main-item fw-lmi fl-wrap" id="sec6">
                                 <div class="map-container mapC_vis mapC_vis2">
                                     <div id="singleMap" data-latitude="40.7427837" data-longitude="-73.11445617675781"
                                         data-mapTitle="Our Location" data-infotitle="House in Financial Distric"
@@ -370,7 +370,7 @@
                                 </div>
                                 <input id="pac-input" class="controls fl-wrap controls-mapwn" autocomplete="on"
                                     type="text" placeholder="What Nearby? Schools, Gym... " value="">
-                            </div>
+                            </div> --}}
                             <!-- list-single-main-item end -->
                             <!-- list-single-main-item -->
                             <div class="list-single-main-item fl-wrap" id="sec7">
