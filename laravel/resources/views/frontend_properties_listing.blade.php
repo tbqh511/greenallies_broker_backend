@@ -22,7 +22,7 @@
     </section>
     <!--  section  end-->
     <!-- breadcrumbs-->
-    <div class="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">
+    {{-- <div class="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">
         <div class="container">
             <div class="breadcrumbs-list">
                 <a href="#">Home</a><a href="#">Listings</a> <span>New York</span>
@@ -32,7 +32,7 @@
                 <div class="share-container  isShare"></div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- breadcrumbs end -->
     <!-- col-list-wrap -->
     <section class="gray-bg small-padding ">
