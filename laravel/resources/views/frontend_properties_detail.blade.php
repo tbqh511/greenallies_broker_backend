@@ -153,7 +153,7 @@
                                     <h3>Thông tin chi tiết</h3>
                                 </div>
                                 <div class="list-single-main-item_content fl-wrap">
-                                    {{$property->description}}
+                                    <p>{{$productCard->description}}</p>
                                 </div>
                             </div>
                             <!-- list-single-main-item end -->
