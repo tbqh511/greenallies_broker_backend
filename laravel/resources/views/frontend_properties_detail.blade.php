@@ -506,12 +506,12 @@
                             <div class="profile-widget-header color-bg smpar fl-wrap">
                                 <div class="pwh_bg"></div>
                                 <div class="call-btn"><a href="tel:123-456-7890" class="tolt color-bg"
-                                        data-microtip-position="right" data-tooltip="Call Now"><i
+                                        data-microtip-position="right" data-tooltip="Gọi ngay"><i
                                             class="fas fa-phone-alt"></i></a></div>
                                 <div class="box-widget-menu-btn smact"><i class="far fa-ellipsis-h"></i></div>
                                 <div class="show-more-snopt-tooltip bxwt">
-                                    <a href="#"> <i class="fas fa-comment-alt"></i> Write a review</a>
-                                    <a href="#"> <i class="fas fa-exclamation-triangle"></i> Report </a>
+                                    <a href="#"> <i class="fas fa-comment-alt"></i> Viết đánh giá</a>
+                                    <a href="#"> <i class="fas fa-exclamation-triangle"></i> Báo cáo </a>
                                 </div>
                                 <div class="profile-widget-card">
                                     <div class="profile-widget-image">
@@ -520,7 +520,7 @@
                                     <div class="profile-widget-header-title">
                                         <h4><a href="agent-single.html">Jessie Wilcox</a></h4>
                                         <div class="clearfix"></div>
-                                        <div class="pwh_counter"><span>22</span>Property Listings</div>
+                                        <div class="pwh_counter"><span>22</span>Danh sách Bất động sản</div>
                                         <div class="clearfix"></div>
                                         <div class="listing-rating card-popup-rainingvis" data-starrating2="4"></div>
                                     </div>
@@ -529,19 +529,19 @@
                             <div class="profile-widget-content fl-wrap">
                                 <div class="contats-list fl-wrap">
                                     <ul class="no-list-style">
-                                        <li><span><i class="fal fa-phone"></i> Phone :</span> <a
+                                        <li><span><i class="fal fa-phone"></i> Điện thoại :</span> <a
                                                 href="#">+7(123)987654</a></li>
-                                        <li><span><i class="fal fa-envelope"></i> Mail :</span> <a
+                                        <li><span><i class="fal fa-envelope"></i> Email :</span> <a
                                                 href="#">JessieWilcox@domain.com</a></li>
                                         <li><span><i class="fal fa-browser"></i> Website :</span> <a
                                                 href="#">themeforest.net</a></li>
                                     </ul>
                                 </div>
                                 <div class="profile-widget-footer fl-wrap">
-                                    <a href="agent-single.html" class="btn float-btn color-bg small-btn">View
-                                        Profile</a>
+                                    <a href="agent-single.html" class="btn float-btn color-bg small-btn">Xem
+                                        Hồ sơ</a>
                                     <a href="#sec-contact" class="custom-scroll-link tolt" data-microtip-position="left"
-                                        data-tooltip="Viewing Property"><i class="fal fa-paper-plane"></i></a>
+                                        data-tooltip="Xem Bất động sản"><i class="fal fa-paper-plane"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -613,7 +613,7 @@
                     </div>
                     <!--box-widget end -->
                     <!--box-widget-->
-                    <div class="box-widget fl-wrap hidden-section" style="margin-top: 30px">
+                    {{-- <div class="box-widget fl-wrap hidden-section" style="margin-top: 30px">
                         <div class="box-widget-content fl-wrap color-bg">
                             <div class="color-form reset-action">
                                 <div class="color-form-title fl-wrap">
@@ -649,10 +649,10 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!--box-widget end -->
                     <!--box-widget-->
-                    <div class="box-widget fl-wrap">
+                    {{-- <div class="box-widget fl-wrap">
                         <div class="box-widget-title fl-wrap">Propertie Documents</div>
                         <div class="box-widget-content fl-wrap">
                             <div class="bwc_download-list">
@@ -663,10 +663,10 @@
                                 <a href="#" download><span><i class="fal fa-file-pdf"></i></span>Property Plans</a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!--box-widget end -->
                     <!--box-widget-->
-                    <div class="box-widget fl-wrap">
+                    {{-- <div class="box-widget fl-wrap">
                         <div class="box-widget-fixed-init fl-wrap" id="sec-contact">
                             <div class="box-widget-title fl-wrap box-widget-title-color color-bg">Contact Property</div>
                             <div class="box-widget-content fl-wrap">
@@ -708,7 +708,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!--box-widget end -->
                 </div>
                 <!--  sidebar end-->
