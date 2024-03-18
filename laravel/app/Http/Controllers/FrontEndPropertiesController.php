@@ -52,6 +52,9 @@ class FrontEndPropertiesController extends Controller
             ->skip($offset)
             ->take($limit)
             ->get();
+            
+        // Tăng giá trị của cột total_click
+        $property->increment('total_click');
 
         //$gallery = $property->getGalleryAttribute();
         //dd($property->getGalleryAttribute());
