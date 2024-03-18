@@ -150,21 +150,10 @@
                             <!-- list-single-main-item -->
                             <div class="list-single-main-item fl-wrap">
                                 <div class="list-single-main-item-title">
-                                    <h3>About This Listing</h3>
+                                    <h3>Thông tin chi tiết</h3>
                                 </div>
                                 <div class="list-single-main-item_content fl-wrap">
-                                    <p>Praesent eros turpis, commodo vel justo at, pulvinar mollis eros. Mauris aliquet
-                                        eu quam id ornare. Morbi ac quam enim. Cras vitae nulla condimentum, semper
-                                        dolor non, faucibus dolor. Vivamus adipiscing eros quis orci fringilla, sed
-                                        pretium lectus viverra. Pellentesque habitant morbi tristique senectus et netus
-                                        et malesuada fames ac turpis egestas. Donec nec velit non odio aliquam suscipit.
-                                        Sed non neque faucibus, condimentum lectus at, accumsan enim. </p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar
-                                        neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere
-                                        sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat.
-                                        Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa
-                                        faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.</p>
-                                    <a href="#" class="btn float-btn color-bg">Visit Website</a>
+                                    {{$productCard->description}}
                                 </div>
                             </div>
                             <!-- list-single-main-item end -->
