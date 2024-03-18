@@ -3,9 +3,9 @@
         <div class="breadcrumbs-list">
             <a href="#">Trang chủ</a> <span>Mới nhất</span>
         </div>
-        <div class="share-holder hid-share">
+        {{-- <div class="share-holder hid-share">
             <a href="#" class="share-btn showshare sfcs"> <i class="fas fa-share-alt"></i> Chia sẻ </a>
             <div class="share-container  isShare"></div>
-        </div>
+        </div> --}}
     </div>
 </div>
