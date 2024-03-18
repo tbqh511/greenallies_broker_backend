@@ -3,7 +3,7 @@
 <!-- content -->	
 <div class="content">
     <!--  section  -->
-    <section class="hidden-section single-par2  " data-scrollax-parent="true">
+    {{-- <section class="hidden-section single-par2  " data-scrollax-parent="true">
         <div class="bg-wrap bg-parallax-wrap-gradien">
             <div class="bg par-elem "  data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
         </div>
@@ -19,7 +19,7 @@
                 <span>Scroll Down To Discover</span>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--  section  end-->
     <!-- breadcrumbs-->
     {{-- <div class="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">
