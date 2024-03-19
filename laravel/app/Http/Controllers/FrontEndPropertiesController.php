@@ -76,6 +76,7 @@ class FrontEndPropertiesController extends Controller
         ];
         foreach ($property->parameters as $parameter) {
             $propertyAttributes[$parameter->name] = $parameter->value;
+            dd($parameter);
         }
 
         //$gallery = $property->getGalleryAttribute();
