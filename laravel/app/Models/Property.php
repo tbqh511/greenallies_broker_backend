@@ -77,8 +77,25 @@ class Property extends Model
     {
         $prefix = ($this->propery_type == 0) ? 'S' : 'R';
         $wardName = $this->ward->name ?? '';
-        return $prefix . '_' . $this->id . '_' . $wardName;
+
+        // Chuyển đổi tên phường thành định dạng mong muốn
+        $formattedWardName = $this->formatWardName($wardName);
+
+        return $prefix . '_' . $this->id . '_' . $formattedWardName;
     }
+
+    // Hàm chuyển đổi tên phường thành định dạng mong muốn
+    private function formatWardName($wardName)
+    {
+        // Loại bỏ các khoảng trắng
+        $wardName = str_replace(' ', '', $wardName);
+
+        // Lấy ra 2 ký tự đầu tiên của tên phường
+        $formattedWardName = substr($wardName, 0, 2);
+
+        return $formattedWardName;
+    }
+
     //End HuyTBQ
     //HuyTBQ: add function get count image
     public function getImagesCountAttribute()
