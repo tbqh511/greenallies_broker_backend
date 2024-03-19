@@ -180,7 +180,9 @@
                                 <div class="list-single-main-item_content fl-wrap">
                                     <div class="details-list">
                                         <ul>
-                                            <li><span>Mã Bất động sản:</span>154</li>
+                                            @if($property->code)
+                                            <li><span>Mã Bất động sản:</span>{{$property->code}}</li>
+                                            @endif
                                             @if($property->area)
                                             <li><span>Diện tích:</span>{{$property->area}} m²</li>
                                             @endif

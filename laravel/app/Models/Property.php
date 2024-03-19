@@ -72,7 +72,14 @@ class Property extends Model
         return $this->hasOne(Customer::class, 'id', 'added_by')->select('name', 'profile', 'mobile');
     }
     //End HuyTBQ
-
+    //HuyTBQ: get Code atribute
+    public function getCodeAttribute()
+    {
+        $prefix = ($this->propery_type == 0) ? 'S' : 'R';
+        $wardName = $this->ward->name ?? '';
+        return $this->id . '_' . $prefix . '_' . $wardName;
+    }
+    //End HuyTBQ
     //HuyTBQ: add function get count image
     public function getImagesCountAttribute()
     {
