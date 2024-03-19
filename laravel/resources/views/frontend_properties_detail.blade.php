@@ -41,8 +41,8 @@
                     <div class="list-single-header-price" data-propertyprise="50500">
                         <strong>Giá:</strong>{{$property->formatted_prices}}
                     </div>
-                    <div class="list-single-header-date"><span>Ngày đăng:</span>{{
-                        $property->created_at->diffForHumans() }}</div>
+                    <div class="list-single-header-date"><span>Diện tích:</span>{{
+                        $property->area }}</div>
                     <div class="list-single-stats">
                         <ul class="no-list-style">
                             <li><span class="viewed-counter"><i class="fas fa-eye"></i> Lượt xem -
