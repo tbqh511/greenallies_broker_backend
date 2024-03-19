@@ -182,19 +182,10 @@
                                         <ul>
                                             <li><span>Mã Bất động sản:</span>154</li>
                                             @if($property->area)
-                                            <li><span>Diện tích:</span>{{$property->area}}</li>
+                                            <li><span>Diện tích:</span>{{$property->area}} m²</li>
                                             @endif
-                                            @if($property->number_room)
-                                            <li><span>Phòng ngủ:</span>{{$property->number_room}}</li>
-                                            @endif
-                                            @if($property->number_floor)
-                                            <li><span>Số tầng:</span>{{$property->number_floor}}</li>
-                                            @endif
-                                            @if($property->garage)
-                                            <li><span>Gara đổ xe - chỗ đậu xe:</span>{{$property->garage}}</li>
-                                            @endif
-                                            @if($property->price_m2)
-                                            <li><span>Giá m2:</span>{{$property->price_m2}}</li>
+                                            @if($property->floor_area)
+                                            <li><span>Diện tích sàn:</span>{{$property->floor_area}}</li>
                                             @endif
                                             @if($property->legal)
                                             <li><span>Pháp lý:</span>{{$property->legal}}</li>
@@ -202,29 +193,32 @@
                                             @if($property->direction)
                                             <li><span>Hướng:</span>{{$property->direction}}</li>
                                             @endif
-                                            @if($property->pool)
-                                            <li><span>Hồ bơi:</span>{{$property->pool}}</li>
-                                            @endif
                                             @if($property->road_width)
                                             <li><span>Đường rộng:</span>{{$property->road_width}}</li>
                                             @endif
-                                            @if($property->floor_area)
-                                            <li><span>Diện tích sàn:</span>{{$property->floor_area}}</li>
+                                            @if($property->price_m2)
+                                            <li><span>Giá m2:</span>{{$property->price_m2}}</li>
+                                            @endif
+                                            @if($property->number_floor)
+                                            <li><span>Số tầng:</span>{{$property->number_floor}}</li>
+                                            @endif
+                                            @if($property->number_room)
+                                            <li><span>Phòng ngủ:</span>{{$property->number_room}}</li>
+                                            @endif
+                                            @if($property->bathroom)
+                                            <li><span>Nhà vệ sinh:</span>{{$property->bathroom}}</li>
+                                            @endif
+                                            @if($property->garage)
+                                            <li><span>Gara đổ xe - chỗ đậu xe:</span>{{$property->garage}}</li>
+                                            @endif
+                                            @if($property->pool)
+                                            <li><span>Hồ bơi:</span>{{$property->pool}}</li>
                                             @endif
                                             @if($property->furniture)
                                             <li><span>Nội thất:</span>{{$property->furniture}}</li>
                                             @endif
                                             @if($property->construction_status)
                                             <li><span>Tình trạng xây dựng:</span>{{$property->construction_status}}</li>
-                                            @endif
-                                            @if($property->added_by)
-                                            <li><span>Đăng bởi:</span>{{$property->added_by}}</li>
-                                            @endif
-                                            @if($property->additional_facilities)
-                                            <li><span>Tiện ích bổ sung:</span>{{$property->additional_facilities}}</li>
-                                            @endif
-                                            @if($property->bathroom)
-                                            <li><span>Nhà vệ sinh:</span>{{$property->bathroom}}</li>
                                             @endif
                                             @if($property->rental_period)
                                             <li><span>Thời hạn thuê:</span>{{$property->rental_period}}</li>

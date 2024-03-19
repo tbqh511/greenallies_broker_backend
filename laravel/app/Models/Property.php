@@ -216,7 +216,6 @@ class Property extends Model
         return $data;
     }
 
-
     public function getTitleImageAttribute($image)
     {
         return $image != '' ? url('') . config('global.IMG_PATH') . config('global.PROPERTY_TITLE_IMG_PATH') . $image : '';
@@ -225,7 +224,6 @@ class Property extends Model
     {
         return $threeDimage != '' ? url('') . config('global.IMG_PATH') . config('global.3D_IMG_PATH') . $threeDimage : '';
     }
-
 
     protected $casts = [
         'category_id' => 'integer',
