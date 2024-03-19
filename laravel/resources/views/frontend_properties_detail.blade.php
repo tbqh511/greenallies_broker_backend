@@ -180,42 +180,56 @@
                                 <div class="list-single-main-item_content fl-wrap">
                                     <div class="details-list">
                                         <ul>
-                                            <li><span>Mã Bất động sản:</span>{{ $property->id }}</li>
+                                            <li><span>bla bla:</span>1234</li>
+                                            <li><span>Mã Bất động sản:</span>154</li>
                                             @if($property->area)
-                                            <li><span>Diện tích Lô đất:</span>{{ $property->area }} m2</li>
+                                            <li><span>Diện tích:</span>{{$property->area}}</li>
                                             @endif
-                                            @if($property->bathrooms)
-                                            <li><span>Phòng tắm:</span>{{ $property->bathrooms }}</li>
+                                            @if($property->number_room)
+                                            <li><span>Phòng ngủ:</span>{{$property->number_room}}</li>
                                             @endif
-                                            @if($property->rooms)
-                                            <li><span>Phòng:</span>{{ $property->rooms }}</li>
-                                            @endif
-                                            @if($property->bedrooms)
-                                            <li><span>Phòng ngủ:</span>{{ $property->bedrooms }}</li>
+                                            @if($property->number_floor)
+                                            <li><span>Số tầng:</span>{{$property->number_floor}}</li>
                                             @endif
                                             @if($property->garage)
-                                            <li><span>Diện tích Gara:</span>{{ $property->garage }}</li>
+                                            <li><span>Gara đổ xe - chỗ đậu xe:</span>{{$property->garage}}</li>
                                             @endif
-                                            @if($property->available_date)
-                                            <li><span>Khả dụng từ ngày:</span>{{ $property->available_date }}</li>
+                                            @if($property->price_m2)
+                                            <li><span>Giá m2:</span>{{$property->price_m2}}</li>
                                             @endif
-                                            @if($property->price)
-                                            <li><span>Giá:</span>{{ $property->price }}</li>
+                                            @if($property->legal)
+                                            <li><span>Pháp lý:</span>{{$property->legal}}</li>
                                             @endif
-                                            @if($property->property_type)
-                                            <li><span>Loại:</span>{{ $property->property_type }}</li>
+                                            @if($property->direction)
+                                            <li><span>Hướng:</span>{{$property->direction}}</li>
                                             @endif
-                                            <!-- Thêm các thuộc tính mới -->
-                                            @if($property->bedrooms_19)
-                                            <li><span>Phòng ngủ (Mới):</span>{{ $property->bedrooms_19 }}</li>
+                                            @if($property->pool)
+                                            <li><span>Hồ bơi:</span>{{$property->pool}}</li>
                                             @endif
-                                            @if($property->floors_18)
-                                            <li><span>Số tầng:</span>{{ $property->floors_18 }}</li>
+                                            @if($property->road_width)
+                                            <li><span>Đường rộng:</span>{{$property->road_width}}</li>
                                             @endif
-                                            @if($property->garage_parking_17)
-                                            <li><span>Gara đổ xe - chổ đậu xe:</span>{{ $property->garage_parking_17 }}</li>
+                                            @if($property->floor_area)
+                                            <li><span>Diện tích sàn:</span>{{$property->floor_area}}</li>
                                             @endif
-                                            <!-- Các thuộc tính khác -->
+                                            @if($property->furniture)
+                                            <li><span>Nội thất:</span>{{$property->furniture}}</li>
+                                            @endif
+                                            @if($property->construction_status)
+                                            <li><span>Tình trạng xây dựng:</span>{{$property->construction_status}}</li>
+                                            @endif
+                                            @if($property->added_by)
+                                            <li><span>Đăng bởi:</span>{{$property->added_by}}</li>
+                                            @endif
+                                            @if($property->additional_facilities)
+                                            <li><span>Tiện ích bổ sung:</span>{{$property->additional_facilities}}</li>
+                                            @endif
+                                            @if($property->bathroom)
+                                            <li><span>Nhà vệ sinh:</span>{{$property->bathroom}}</li>
+                                            @endif
+                                            @if($property->rental_period)
+                                            <li><span>Thời hạn thuê:</span>{{$property->rental_period}}</li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>
