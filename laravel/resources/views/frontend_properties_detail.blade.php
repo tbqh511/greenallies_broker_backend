@@ -162,7 +162,7 @@
                                 <div class="list-single-main-item-title">
                                     <h3>Chi tiết</h3>
                                 </div>
-                                <div class="list-single-main-item_content fl-wrap">
+                                {{-- <div class="list-single-main-item_content fl-wrap">
                                     <div class="details-list">
                                         <ul>
                                             <li><span>Mã Bất động sản:</span>154</li>
@@ -176,7 +176,23 @@
                                             <li><span>Loại:</span>Căn hộ/Nhà</li>
                                         </ul>
                                     </div>
+                                </div> --}}
+                                <div class="list-single-main-item_content fl-wrap">
+                                    <div class="details-list">
+                                        <ul>
+                                            <li><span>Mã Bất động sản:</span>{{ $property->id }}</li>
+                                            <li><span>Diện tích Lô đất:</span>{{ $property->area }} m2</li>
+                                            <li><span>Phòng tắm:</span>{{ $property->bathroom }}</li>
+                                            <li><span>Phòng:</span>{{ $property->room }}</li>
+                                            <li><span>Phòng ngủ:</span>{{ $property->bedroom }}</li>
+                                            <li><span>Diện tích Gara:</span>{{ $property->garage }} xe hơi</li>
+                                            <li><span>Khả dụng từ ngày:</span>{{ $property->available_date }}</li>
+                                            <li><span>Giá:</span>{{ $property->formatted_price }}</li>
+                                            <li><span>Loại:</span>{{ $property->category->category }}</li>
+                                        </ul>
+                                    </div>
                                 </div>
+                                
                             </div>
                             <!-- list-single-main-item end -->
                             <!--   list-single-main-item -->
