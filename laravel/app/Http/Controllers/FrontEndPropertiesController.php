@@ -77,7 +77,7 @@ class FrontEndPropertiesController extends Controller
 
 
         //$gallery = $property->getGalleryAttribute();
-        //dd($property->getGalleryAttribute());
+        dd($property->assignParameter());
 
         // Return the property detail view with the necessary data
         return view('frontend_properties_detail', [
