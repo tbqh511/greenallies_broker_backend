@@ -87,11 +87,17 @@ class Property extends Model
     // Hàm chuyển đổi tên phường thành định dạng mong muốn
     private function formatWardName($wardName)
     {
-        // Loại bỏ các khoảng trắng
-        $wardName = str_replace(' ', '', $wardName);
+        // Loại bỏ các khoảng trắng ở đầu và cuối chuỗi
+        $wardName = trim($wardName);
 
-        // Lấy ra 2 ký tự đầu tiên của tên phường
-        $formattedWardName = substr($wardName, 0, 2);
+        // Tách tên phường thành mảng dựa trên khoảng trắng
+        $parts = explode(' ', $wardName);
+
+        // Lấy ra hai ký tự đầu tiên của mỗi phần tử trong mảng và kết hợp chúng lại
+        $formattedWardName = '';
+        foreach ($parts as $part) {
+            $formattedWardName .= substr($part, 0, 2);
+        }
 
         return $formattedWardName;
     }
