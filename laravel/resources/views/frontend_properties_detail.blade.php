@@ -181,18 +181,44 @@
                                     <div class="details-list">
                                         <ul>
                                             <li><span>Mã Bất động sản:</span>{{ $property->id }}</li>
+                                            @if($property->area)
                                             <li><span>Diện tích Lô đất:</span>{{ $property->area }} m2</li>
-                                            <li><span>Phòng tắm:</span>{{ $property->bathroom }}</li>
-                                            <li><span>Phòng:</span>{{ $property->room }}</li>
-                                            <li><span>Phòng ngủ:</span>{{ $property->bedroom }}</li>
-                                            <li><span>Diện tích Gara:</span>{{ $property->garage }} xe hơi</li>
+                                            @endif
+                                            @if($property->bathrooms)
+                                            <li><span>Phòng tắm:</span>{{ $property->bathrooms }}</li>
+                                            @endif
+                                            @if($property->rooms)
+                                            <li><span>Phòng:</span>{{ $property->rooms }}</li>
+                                            @endif
+                                            @if($property->bedrooms)
+                                            <li><span>Phòng ngủ:</span>{{ $property->bedrooms }}</li>
+                                            @endif
+                                            @if($property->garage)
+                                            <li><span>Diện tích Gara:</span>{{ $property->garage }}</li>
+                                            @endif
+                                            @if($property->available_date)
                                             <li><span>Khả dụng từ ngày:</span>{{ $property->available_date }}</li>
-                                            <li><span>Giá:</span>{{ $property->formatted_price }}</li>
-                                            <li><span>Loại:</span>{{ $property->category->category }}</li>
+                                            @endif
+                                            @if($property->price)
+                                            <li><span>Giá:</span>{{ $property->price }}</li>
+                                            @endif
+                                            @if($property->property_type)
+                                            <li><span>Loại:</span>{{ $property->property_type }}</li>
+                                            @endif
+                                            <!-- Thêm các thuộc tính mới -->
+                                            @if($property->bedrooms_19)
+                                            <li><span>Phòng ngủ (Mới):</span>{{ $property->bedrooms_19 }}</li>
+                                            @endif
+                                            @if($property->floors_18)
+                                            <li><span>Số tầng:</span>{{ $property->floors_18 }}</li>
+                                            @endif
+                                            @if($property->garage_parking_17)
+                                            <li><span>Gara đổ xe - chổ đậu xe:</span>{{ $property->garage_parking_17 }}</li>
+                                            @endif
+                                            <!-- Các thuộc tính khác -->
                                         </ul>
                                     </div>
                                 </div>
-                                
                             </div>
                             <!-- list-single-main-item end -->
                             <!--   list-single-main-item -->
