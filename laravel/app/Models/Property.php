@@ -69,7 +69,7 @@ class Property extends Model
     //HuyTBQ: Add function for customer
     public function agent()
     {
-        return $this->hasOne(Customer::class,'id', 'added_by')->select('name', 'profile', 'mobile');
+        return $this->hasOne(Customer::class, 'id', 'added_by')->select('name', 'profile', 'mobile');
     }
     //End HuyTBQ
 
@@ -123,27 +123,27 @@ class Property extends Model
 
     //HuyTBQ: add function get formatted prices
     public function getFormattedPricesAttribute()
-{
-    \Carbon\Carbon::setLocale('vi');
-    $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
+    {
+        \Carbon\Carbon::setLocale('vi');
+        $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
 
-    $price = $this->price;
-    $ty = 1000000000;
-    $trieu = 1000000;
+        $price = $this->price;
+        $ty = 1000000000;
+        $trieu = 1000000;
 
-    if ($price > $ty) {
-        if ($price % $ty == 0 ) {
-            $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
+        if ($price > $ty) {
+            if ($price % $ty == 0) {
+                $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
+            } else {
+                $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
+            }
+        } elseif ($price > 0) {
+            $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
         } else {
-            $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
+            $formattedPrice = 'Giá thỏa thuận';
         }
-    } elseif ($price > 0) {
-        $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
-    } else {
-        $formattedPrice = 'Giá thỏa thuận';
-    }
 
-    return $formattedPrice;
+        return $formattedPrice;
     }
     //End HuyTBQ
     //HuyTBQ: add function get title
