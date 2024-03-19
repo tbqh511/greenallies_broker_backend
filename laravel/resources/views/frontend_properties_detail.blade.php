@@ -181,7 +181,7 @@
                                     <div class="details-list">
                                         <ul>
                                             @if($property->code)
-                                            <li><span>Mã Bất động sản:</span>{{$property->code}}</li>
+                                            <li><span>Mã BDS:</span>{{$property->code}}</li>
                                             @endif
                                             @if($property->area)
                                             <li><span>Diện tích:</span>{{$property->area}} m²</li>
