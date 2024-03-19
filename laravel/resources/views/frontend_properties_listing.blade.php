@@ -254,20 +254,20 @@
             <div class="list-main-wrap-header box-list-header fl-wrap">
                 <!-- list-main-wrap-title-->
                 <div class="list-main-wrap-title">
-                    <h2>Results For : <span>New York </span><strong>8</strong></h2>
+                    <h2>Kết quả cho: <span>New York</span><strong>8</strong></h2>
                 </div>
                 <!-- list-main-wrap-title end-->
                 <!-- list-main-wrap-opt-->
                 <div class="list-main-wrap-opt">
                     <!-- price-opt-->
                     <div class="price-opt">
-                        <span class="price-opt-title">Sort   by:</span>
+                        <span class="price-opt-title">Sắp xếp theo:</span>
                         <div class="listsearch-input-item">
-                            <select data-placeholder="Popularity" class="chosen-select no-search-select" >
-                                <option>Popularity</option>
-                                <option>Average rating</option>
-                                <option>Price: low to high</option>
-                                <option>Price: high to low</option>
+                            <select data-placeholder="Phổ biến" class="chosen-select no-search-select" >
+                                <option>Phổ biến</option>
+                                <option>Điểm đánh giá trung bình</option>
+                                <option>Giá: thấp đến cao</option>
+                                <option>Giá: cao đến thấp</option>
                             </select>
                         </div>
                     </div>
@@ -275,14 +275,15 @@
                     <!-- price-opt-->
                     <div class="grid-opt">
                         <ul class="no-list-style">
-                            <li class="grid-opt_act"><span class="two-col-grid act-grid-opt tolt" data-microtip-position="bottom" data-tooltip="Grid View"><i class="far fa-th"></i></span></li>
-                            <li class="grid-opt_act"><span class="one-col-grid tolt" data-microtip-position="bottom" data-tooltip="List View"><i class="far fa-list"></i></span></li>
+                            <li class="grid-opt_act"><span class="two-col-grid act-grid-opt tolt" data-microtip-position="bottom" data-tooltip="Xem dạng lưới"><i class="far fa-th"></i></span></li>
+                            <li class="grid-opt_act"><span class="one-col-grid tolt" data-microtip-position="bottom" data-tooltip="Xem dạng danh sách"><i class="far fa-list"></i></span></li>
                         </ul>
                     </div>
                     <!-- price-opt end-->
                 </div>
                 <!-- list-main-wrap-opt end-->                    
             </div>
+            
             <!-- list-main-wrap-header end-->						
             <!-- listing-item-wrap-->
             <div class="listing-item-container three-columns-grid  box-list_ic fl-wrap">
