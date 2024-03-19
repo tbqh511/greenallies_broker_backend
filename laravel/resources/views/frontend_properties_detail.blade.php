@@ -110,7 +110,7 @@
                             <!-- inline-facts -->
                             <div class="inline-facts-wrap">
                                 <div class="inline-facts">
-                                    <i class="fal fa-home-lg"></i>
+                                    <i class="fas fa-home-lg"></i>
                                     <h6>
                                         {{$property->type}}
                                     </h6>
@@ -458,15 +458,20 @@
                                     <div class="leave-rating-wrap">
                                         <span class="leave-rating-title">Đánh giá của bạn cho bản ghi này: </span>
                                         <div class="leave-rating">
-                                            <input type="radio" data-ratingtext="Tuyệt vời" name="rating" id="rating-1" value="1" />
+                                            <input type="radio" data-ratingtext="Tuyệt vời" name="rating" id="rating-1"
+                                                value="1" />
                                             <label for="rating-1" class="fal fa-star"></label>
-                                            <input type="radio" data-ratingtext="Tốt" name="rating" id="rating-2" value="2" />
+                                            <input type="radio" data-ratingtext="Tốt" name="rating" id="rating-2"
+                                                value="2" />
                                             <label for="rating-2" class="fal fa-star"></label>
-                                            <input type="radio" name="rating" data-ratingtext="Trung bình" id="rating-3" value="3" />
+                                            <input type="radio" name="rating" data-ratingtext="Trung bình" id="rating-3"
+                                                value="3" />
                                             <label for="rating-3" class="fal fa-star"></label>
-                                            <input type="radio" data-ratingtext="Công bằng" name="rating" id="rating-4" value="4" />
+                                            <input type="radio" data-ratingtext="Công bằng" name="rating" id="rating-4"
+                                                value="4" />
                                             <label for="rating-4" class="fal fa-star"></label>
-                                            <input type="radio" data-ratingtext="Rất tệ" name="rating" id="rating-5" value="5" />
+                                            <input type="radio" data-ratingtext="Rất tệ" name="rating" id="rating-5"
+                                                value="5" />
                                             <label for="rating-5" class="fal fa-star"></label>
                                         </div>
                                         <div class="count-radio-wrapper">
@@ -478,17 +483,21 @@
                                         <fieldset>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Tên của bạn* <span class="dec-icon"><i class="fas fa-user"></i></span></label>
+                                                    <label>Tên của bạn* <span class="dec-icon"><i
+                                                                class="fas fa-user"></i></span></label>
                                                     <input name="phone" type="text" onClick="this.select()" value="">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>Email của bạn* <span class="dec-icon"><i class="fas fa-envelope"></i></span></label>
-                                                    <input name="reviewwname" type="text" onClick="this.select()" value="">
+                                                    <label>Email của bạn* <span class="dec-icon"><i
+                                                                class="fas fa-envelope"></i></span></label>
+                                                    <input name="reviewwname" type="text" onClick="this.select()"
+                                                        value="">
                                                 </div>
                                             </div>
                                             <textarea cols="40" rows="3" placeholder="Đánh giá của bạn:"></textarea>
                                         </fieldset>
-                                        <button class="btn big-btn color-bg float-btn">Gửi Đánh giá <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                                        <button class="btn big-btn color-bg float-btn">Gửi Đánh giá <i
+                                                class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
                                     </form>
                                 </div>
                                 <!-- Hộp Thêm Đánh giá / Kết thúc -->
@@ -549,9 +558,9 @@
                     <!--box-widget end -->
                     <!--box-widget-->
                     <div class="box-widget fl-wrap">
-                        <div class="box-widget-title fl-wrap">Featured Properties</div>
+                        <div class="box-widget-title fl-wrap">Bất động sản Nổi bật</div>
                         <div class="box-widget-content fl-wrap">
-                            <!--widget-posts-->
+                            <!-- Bài viết nổi bật -->
                             <div class="widget-posts  fl-wrap">
                                 <ul class="no-list-style">
                                     <li>
@@ -559,36 +568,11 @@
                                                     src="images/all/small/1.jpg" alt=""></a>
                                         </div>
                                         <div class="widget-posts-descr">
-                                            <h4><a href="listing-single.html">Affordable Urban Room</a></h4>
+                                            <h4><a href="listing-single.html">Phòng Đô Thị Phải Chăng</a></h4>
                                             <div class="geodir-category-location fl-wrap"><a href="#"><i
-                                                        class="fas fa-map-marker-alt"></i> 40 Journal Square , NJ,
-                                                    USA</a></div>
-                                            <div class="widget-posts-descr-price"><span>Price: </span> $ 1500 / per
-                                                month</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="widget-posts-img"><a href="listing-single.html"><img
-                                                    src="images/all/small/1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="widget-posts-descr">
-                                            <h4><a href="listing-single.html">Family House</a></h4>
-                                            <div class="geodir-category-location fl-wrap"><a href="#"><i
-                                                        class="fas fa-map-marker-alt"></i> 70 Bright St New York, USA
-                                                </a></div>
-                                            <div class="widget-posts-descr-price"><span>Price: </span> $ 50000</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="widget-posts-img"><a href="listing-single.html"><img
-                                                    src="images/all/small/1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="widget-posts-descr">
-                                            <h4><a href="listing-single.html">Apartment to Rent</a></h4>
-                                            <div class="geodir-category-location fl-wrap"><a href="#"><i
-                                                        class="fas fa-map-marker-alt"></i>75 Prince St, NY, USA</a>
+                                                        class="fas fa-map-marker-alt"></i> 40 Journal Square, NJ, Mỹ</a>
                                             </div>
-                                            <div class="widget-posts-descr-price"><span>Price: </span> $100 / per night
+                                            <div class="widget-posts-descr-price"><span>Giá: </span> $ 1500 / mỗi tháng
                                             </div>
                                         </div>
                                     </li>
@@ -597,20 +581,46 @@
                                                     src="images/all/small/1.jpg" alt=""></a>
                                         </div>
                                         <div class="widget-posts-descr">
-                                            <h4><a href="listing-single.html">Apartment to Rent</a></h4>
+                                            <h4><a href="listing-single.html">Nhà Gia Đình</a></h4>
                                             <div class="geodir-category-location fl-wrap"><a href="#"><i
-                                                        class="fas fa-map-marker-alt"></i>75 Prince St, NY, USA</a>
+                                                        class="fas fa-map-marker-alt"></i> 70 Bright St New York, Mỹ</a>
                                             </div>
-                                            <div class="widget-posts-descr-price"><span>Price: </span> $100 / per night
+                                            <div class="widget-posts-descr-price"><span>Giá: </span> $ 50000</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="widget-posts-img"><a href="listing-single.html"><img
+                                                    src="images/all/small/1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="widget-posts-descr">
+                                            <h4><a href="listing-single.html">Căn hộ Cho Thuê</a></h4>
+                                            <div class="geodir-category-location fl-wrap"><a href="#"><i
+                                                        class="fas fa-map-marker-alt"></i> 75 Prince St, NY, Mỹ</a>
+                                            </div>
+                                            <div class="widget-posts-descr-price"><span>Giá: </span> $100 / mỗi đêm
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="widget-posts-img"><a href="listing-single.html"><img
+                                                    src="images/all/small/1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="widget-posts-descr">
+                                            <h4><a href="listing-single.html">Căn hộ Cho Thuê</a></h4>
+                                            <div class="geodir-category-location fl-wrap"><a href="#"><i
+                                                        class="fas fa-map-marker-alt"></i> 75 Prince St, NY, Mỹ</a>
+                                            </div>
+                                            <div class="widget-posts-descr-price"><span>Giá: </span> $100 / mỗi đêm
                                             </div>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
-                            <!-- widget-posts end-->
-                            <a href="listing.html" class="btn float-btn color-bg small-btn">View All Properties</a>
+                            <!-- Kết thúc bài viết nổi bật -->
+                            <a href="listing.html" class="btn float-btn color-bg small-btn">Xem Tất cả Bất động sản</a>
                         </div>
                     </div>
+
                     <!--box-widget end -->
                     <!--box-widget-->
                     {{-- <div class="box-widget fl-wrap hidden-section" style="margin-top: 30px">
