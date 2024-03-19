@@ -74,10 +74,12 @@ class FrontEndPropertiesController extends Controller
             // 'Tình trạng xây dựng' => $property->construction_status,
             // 'Thời hạn thuê' => $property->rental_period,
         ];
-
+        foreach ($property->parameters as $parameter) {
+            $propertyAttributes[$parameter->name] = $parameter->value;
+        }
 
         //$gallery = $property->getGalleryAttribute();
-        dd($property->parameters()->first());
+        //dd($property->parameters()->first());
 
         // Return the property detail view with the necessary data
         return view('frontend_properties_detail', [
