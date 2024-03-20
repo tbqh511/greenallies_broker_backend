@@ -37,8 +37,13 @@ class FrontEndPropertiesController extends Controller
         $limit = 6;
         $sort = 'updated_at';
         $order = 'DESC';
+        
+        // Lấy loại của property hiện tại
+        $category_id = $property->category_id;
 
-        $newestProducts = Property::with('customer')
+        $relatedProducts = Property::where('category_id', $category_id) // Lọc theo loại sản phẩm
+            ->where('id', '!=', $property->id) // Loại bỏ sản phẩm hiện tại
+            ->with('customer')
             ->with('user')
             ->with('category:id,category,image')
             ->with('assignfacilities.outdoorfacilities')
@@ -56,14 +61,12 @@ class FrontEndPropertiesController extends Controller
         // Tăng giá trị của cột total_click
         $property->increment('total_click');
 
-        
-        //$gallery = $property->getGalleryAttribute();
         //dd($property->parameters()->first());
 
         // Return the property detail view with the necessary data
         return view('frontend_properties_detail', [
             'property' => $property,
-            'newestProducts' => $newestProducts,
+            'relatedProducts' => $relatedProducts,
         ]);
     }
 

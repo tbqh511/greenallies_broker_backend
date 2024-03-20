@@ -782,7 +782,7 @@
                     <h3>Tương Tự</h3>
                 </div>
                 <div class="listing-carousel carousel ">
-                    @foreach($newestProducts as $productItem )
+                    @foreach($relatedProducts as $productItem )
                     <!-- slick-slide-item -->
                     <div class="slick-slide-item">
                         <!-- listing-item -->
