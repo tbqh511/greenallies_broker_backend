@@ -96,7 +96,8 @@
                                 <div class="gallery-item">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img src="{{ $image['image_url'] }}" alt="{{ $property->title_by_address }}">
+                                            <img src="{{ $image['image_url'] }}"
+                                                alt="{{ $property->title_by_address }}">
                                             <a href="{{ $image['image_url'] }}" class="gal-link popup-image"><i
                                                     class="fa fa-search"></i></a>
                                         </div>
@@ -187,43 +188,54 @@
                                             <li><span>{{config('global.area_title')}}:</span>{{$property->area}} m²</li>
                                             @endif
                                             @if($property->floor_area)
-                                            <li><span>{{config('global.floor_area_title')}}:</span>{{$property->floor_area}}</li>
+                                            <li><span>{{config('global.floor_area_title')}}:</span>{{$property->floor_area}}
+                                            </li>
                                             @endif
                                             @if($property->legal)
                                             <li><span>{{config('global.legal_title')}}:</span>{{$property->legal}}</li>
                                             @endif
                                             @if($property->direction)
-                                            <li><span>{{config('global.direction_title')}}:</span>{{$property->direction}}</li>
+                                            <li><span>{{config('global.direction_title')}}:</span>{{$property->direction}}
+                                            </li>
                                             @endif
                                             @if($property->road_width)
-                                            <li><span>{{config('global.road_width_title')}}:</span>{{$property->road_width}}</li>
+                                            <li><span>{{config('global.road_width_title')}}:</span>{{$property->road_width}}
+                                            </li>
                                             @endif
                                             @if($property->price_m2)
-                                            <li><span>{{config('global.price_m2_title')}}:</span>{{$property->price_m2}}</li>
+                                            <li><span>{{config('global.price_m2_title')}}:</span>{{$property->price_m2}}
+                                            </li>
                                             @endif
                                             @if($property->number_floor)
-                                            <li><span>{{config('global.number_floor_title')}}:</span>{{$property->number_floor}}</li>
+                                            <li><span>{{config('global.number_floor_title')}}:</span>{{$property->number_floor}}
+                                            </li>
                                             @endif
                                             @if($property->number_room)
-                                            <li><span>{{config('global.number_room_title')}}:</span>{{$property->number_room}}</li>
+                                            <li><span>{{config('global.number_room_title')}}:</span>{{$property->number_room}}
+                                            </li>
                                             @endif
                                             @if($property->bathroom)
-                                            <li><span>{{config('global.bathroom_title')}}:</span>{{$property->bathroom}}</li>
+                                            <li><span>{{config('global.bathroom_title')}}:</span>{{$property->bathroom}}
+                                            </li>
                                             @endif
                                             @if($property->garage)
-                                            <li><span>{{config('global.garage_title')}}:</span>{{$property->garage}}</li>
+                                            <li><span>{{config('global.garage_title')}}:</span>{{$property->garage}}
+                                            </li>
                                             @endif
                                             @if($property->pool)
                                             <li><span>{{config('global.pool_title')}}:</span>{{$property->pool}}</li>
                                             @endif
                                             @if($property->furniture)
-                                            <li><span>{{config('global.furniture_title')}}:</span>{{$property->furniture}}</li>
+                                            <li><span>{{config('global.furniture_title')}}:</span>{{$property->furniture}}
+                                            </li>
                                             @endif
                                             @if($property->construction_status)
-                                            <li><span>{{config('global.construction_status_title')}}:</span>{{$property->construction_status}}</li>
+                                            <li><span>{{config('global.construction_status_title')}}:</span>{{$property->construction_status}}
+                                            </li>
                                             @endif
                                             @if($property->rental_period)
-                                            <li><span>{{config('global.rental_period_title')}}:</span>{{$property->rental_period}}</li>
+                                            <li><span>{{config('global.rental_period_title')}}:</span>{{$property->rental_period}}
+                                            </li>
                                             @endif
                                         </ul>
                                     </div>
@@ -384,7 +396,8 @@
                                 </div>
                                 <div class="list-single-main-item_content fl-wrap">
                                     <div class="video-box fl-wrap">
-                                        <img src="{{$property->title_image}}" class="respimg" alt="{{ $property->title_by_address }}">
+                                        <img src="{{$property->title_image}}" class="respimg"
+                                            alt="{{ $property->title_by_address }}">
                                         <a class="video-box-btn image-popup color-bg"
                                             href="{{ $properties->video_link }}"><i class="fas fa-play"></i></a>
                                     </div>
@@ -614,7 +627,7 @@
                         <div class="box-widget-title fl-wrap">Bất động sản Nổi bật</div>
                         <div class="box-widget-content fl-wrap">
                             <!-- Bài viết nổi bật -->
-                            <div class="widget-posts  fl-wrap">
+                            {{-- <div class="widget-posts  fl-wrap">
                                 <ul class="no-list-style">
                                     <li>
                                         <div class="widget-posts-img"><a href="listing-single.html"><img
@@ -631,7 +644,8 @@
                                     </li>
                                     <li>
                                         <div class="widget-posts-img"><a href="listing-single.html"><img
-                                                    src="images/all/small/1.jpg" alt="{{ $property->title_by_address }}"></a>
+                                                    src="images/all/small/1.jpg"
+                                                    alt="{{ $property->title_by_address }}"></a>
                                         </div>
                                         <div class="widget-posts-descr">
                                             <h4><a href="listing-single.html">Nhà Gia Đình</a></h4>
@@ -643,7 +657,8 @@
                                     </li>
                                     <li>
                                         <div class="widget-posts-img"><a href="listing-single.html"><img
-                                                    src="images/all/small/1.jpg" alt="{{ $property->title_by_address }}"></a>
+                                                    src="images/all/small/1.jpg"
+                                                    alt="{{ $property->title_by_address }}"></a>
                                         </div>
                                         <div class="widget-posts-descr">
                                             <h4><a href="listing-single.html">Căn hộ Cho Thuê</a></h4>
@@ -656,7 +671,8 @@
                                     </li>
                                     <li>
                                         <div class="widget-posts-img"><a href="listing-single.html"><img
-                                                    src="images/all/small/1.jpg" alt="{{ $property->title_by_address }}"></a>
+                                                    src="images/all/small/1.jpg"
+                                                    alt="{{ $property->title_by_address }}"></a>
                                         </div>
                                         <div class="widget-posts-descr">
                                             <h4><a href="listing-single.html">Căn hộ Cho Thuê</a></h4>
@@ -668,7 +684,31 @@
                                         </div>
                                     </li>
                                 </ul>
+                            </div> --}}
+                            <!-- Bài viết nổi bật -->
+                            <div class="widget-posts fl-wrap">
+                                <ul class="no-list-style">
+                                    @foreach($highlightedProducts as $product)
+                                    <li>
+                                        <div class="widget-posts-img"><a
+                                                href="{{ route('property.show', $product->id) }}"><img
+                                                    src="{{ $product->image_url }}" alt="{{ $product->title }}"></a>
+                                        </div>
+                                        <div class="widget-posts-descr">
+                                            <h4><a href="{{ route('property.show', $product->id) }}">{{ $product->title
+                                                    }}</a></h4>
+                                            <div class="geodir-category-location fl-wrap"><a href="#"><i
+                                                        class="fas fa-map-marker-alt"></i> {{ $product->address }}</a>
+                                            </div>
+                                            <div class="widget-posts-descr-price"><span>Giá: </span> {{ $product->price
+                                                }}</div>
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                </ul>
                             </div>
+                            <!-- Kết thúc bài viết nổi bật -->
+
                             <!-- Kết thúc bài viết nổi bật -->
                             <a href="listing.html" class="btn float-btn color-bg small-btn">Xem Tất cả Bất động sản</a>
                         </div>
