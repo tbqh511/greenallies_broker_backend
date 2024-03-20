@@ -60,7 +60,15 @@ class FrontEndPropertiesController extends Controller
             ->skip($offset)
             ->take($limit)
             ->get();
-            
+        
+            // Set parameters for the product query
+        $limit = 5;
+        $sort = 'total_click'; // Sắp xếp theo số lượt click
+        $order = 'DESC';
+
+        $highlightedProducts = Property::orderBy($sort, $order)
+            ->take($limit)
+            ->get();
         // Tăng giá trị của cột total_click
         $property->increment('total_click');
 
@@ -70,6 +78,7 @@ class FrontEndPropertiesController extends Controller
         return view('frontend_properties_detail', [
             'property' => $property,
             'relatedProducts' => $relatedProducts,
+            'highlightedProducts' => $highlightedProducts,
         ]);
     }
 
