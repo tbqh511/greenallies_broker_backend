@@ -40,9 +40,13 @@ class FrontEndPropertiesController extends Controller
         
         // Lấy loại của property hiện tại
         $category_id = $property->category_id;
+        $ward_id = $property->ward_id;
 
-        $relatedProducts = Property::where('category_id', $category_id) // Lọc theo loại sản phẩm
-            ->where('id', '!=', $property->id) // Loại bỏ sản phẩm hiện tại
+
+        $relatedProducts = Property::where(function ($query) use ($category_id, $ward_id) {
+            $query->where('category_id', $category_id)
+                ->orWhere('ward_id', $ward_id);
+        })  ->where('id', '!=', $property->id) // Loại bỏ sản phẩm hiện tại
             ->with('customer')
             ->with('user')
             ->with('category:id,category,image')
