@@ -72,7 +72,7 @@ class FrontEndPropertiesController extends Controller
         // Tăng giá trị của cột total_click
         $property->increment('total_click');
 
-        dd(Property::where('added_by', '1')->get()->count());
+        dd(Property::where('added_by', '2')->get()->count());
         
 
         // Return the property detail view with the necessary data
