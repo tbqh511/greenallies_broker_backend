@@ -586,9 +586,9 @@
                                         <i class="fas fa-phone-alt"></i>
                                     </a>
                                 </div> --}}
-                                <div class="box-widget-menu-btn smact">
+                                {{-- <div class="box-widget-menu-btn smact">
                                     <i class="far fa-ellipsis-h"></i>
-                                </div>
+                                </div> --}}
                                 {{-- <div class="show-more-snopt-tooltip bxwt">
                                     <a href="#"> <i class="fas fa-comment-alt"></i> Viết đánh giá</a>
                                     <a href="#"> <i class="fas fa-exclamation-triangle"></i> Báo cáo </a>
