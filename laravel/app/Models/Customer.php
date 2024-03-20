@@ -83,4 +83,13 @@ class Customer extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Usertokens::class, 'customer_id');
     }
+
+    // HuyTBQ: get count properties
+    public function getCountPropertiesAttribute()
+    {
+        // Đếm số lượng bất động sản mà khách hàng này đã tạo
+        return $this->hasMany(Property::class, 'added_by')->count();
+    }
+    //End: get count properties
+}
 }
