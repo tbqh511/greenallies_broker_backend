@@ -692,15 +692,15 @@
                                     <li>
                                         <div class="widget-posts-img"><a
                                                 href="{{ route('property.show', $product->id) }}"><img
-                                                    src="{{ $product->image_url }}" alt="{{ $product->title }}"></a>
+                                                    src="{{ $product->title_image  }}" alt="{{ $product->title_by_address  }}"></a>
                                         </div>
                                         <div class="widget-posts-descr">
-                                            <h4><a href="{{ route('property.show', $product->id) }}">{{ $product->title
+                                            <h4><a href="{{ route('property.show', $product->id) }}">{{ $product->title_by_address
                                                     }}</a></h4>
                                             <div class="geodir-category-location fl-wrap"><a href="#"><i
-                                                        class="fas fa-map-marker-alt"></i> {{ $product->address }}</a>
+                                                        class="fas fa-map-marker-alt"></i> {{ $product->title_by_address }}</a>
                                             </div>
-                                            <div class="widget-posts-descr-price"><span>Giá: </span> {{ $product->price
+                                            <div class="widget-posts-descr-price"><span>Giá: </span> {{ $product->formatted_prices
                                                 }}</div>
                                         </div>
                                     </li>
