@@ -96,7 +96,7 @@
                                 <div class="gallery-item">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img src="{{ $image['image_url'] }}" alt="">
+                                            <img src="{{ $image['image_url'] }}" alt="{{ $property->title_by_address }}">
                                             <a href="{{ $image['image_url'] }}" class="gal-link popup-image"><i
                                                     class="fa fa-search"></i></a>
                                         </div>
@@ -377,18 +377,20 @@
                             </div> --}}
                             <!-- list-single-main-item end -->
                             <!-- list-single-main-item -->
+                            @if($property->video_link)
                             <div class="list-single-main-item fl-wrap" id="sec5">
                                 <div class="list-single-main-item-title">
                                     <h3>Video</h3>
                                 </div>
                                 <div class="list-single-main-item_content fl-wrap">
                                     <div class="video-box fl-wrap">
-                                        <img src="images/all/1.jpg" class="respimg" alt="">
+                                        <img src="{{$property->title_image}}" class="respimg" alt="{{ $property->title_by_address }}">
                                         <a class="video-box-btn image-popup color-bg"
-                                            href="https://vimeo.com/158059890"><i class="fas fa-play"></i></a>
+                                            href="{{ $properties->video_link }}"><i class="fas fa-play"></i></a>
                                     </div>
                                 </div>
                             </div>
+                            @endif
                             <!-- list-single-main-item end -->
                             <!-- list-single-main-item -->
                             {{-- <div class="list-single-main-item fl-wrap">
@@ -438,7 +440,7 @@
                                         <!-- reviews-comments-item -->
                                         <div class="reviews-comments-item">
                                             <div class="review-comments-avatar">
-                                                <img src="images/avatar/1.jpg" alt="">
+                                                <img src="images/avatar/1.jpg" alt="{{ $property->title_by_address }}">
                                             </div>
                                             <div class="reviews-comments-item-text smpar">
                                                 <div class="box-widget-menu-btn smact"><i class="far fa-ellipsis-h"></i>
@@ -469,7 +471,7 @@
                                         <!-- reviews-comments-item -->
                                         <div class="reviews-comments-item">
                                             <div class="review-comments-avatar">
-                                                <img src="images/avatar/1.jpg" alt="">
+                                                <img src="images/avatar/1.jpg" alt="{{ $property->title_by_address }}">
                                             </div>
                                             <div class="reviews-comments-item-text smpar">
                                                 <div class="box-widget-menu-btn smact"><i class="far fa-ellipsis-h"></i>
@@ -616,7 +618,7 @@
                                 <ul class="no-list-style">
                                     <li>
                                         <div class="widget-posts-img"><a href="listing-single.html"><img
-                                                    src="images/all/small/1.jpg" alt=""></a>
+                                                    src="images/all/small/1.jpg" {{ $property->title_by_address }}"></a>
                                         </div>
                                         <div class="widget-posts-descr">
                                             <h4><a href="listing-single.html">Phòng Đô Thị Phải Chăng</a></h4>
@@ -629,7 +631,7 @@
                                     </li>
                                     <li>
                                         <div class="widget-posts-img"><a href="listing-single.html"><img
-                                                    src="images/all/small/1.jpg" alt=""></a>
+                                                    src="images/all/small/1.jpg" alt="{{ $property->title_by_address }}"></a>
                                         </div>
                                         <div class="widget-posts-descr">
                                             <h4><a href="listing-single.html">Nhà Gia Đình</a></h4>
@@ -641,7 +643,7 @@
                                     </li>
                                     <li>
                                         <div class="widget-posts-img"><a href="listing-single.html"><img
-                                                    src="images/all/small/1.jpg" alt=""></a>
+                                                    src="images/all/small/1.jpg" alt="{{ $property->title_by_address }}"></a>
                                         </div>
                                         <div class="widget-posts-descr">
                                             <h4><a href="listing-single.html">Căn hộ Cho Thuê</a></h4>
@@ -654,7 +656,7 @@
                                     </li>
                                     <li>
                                         <div class="widget-posts-img"><a href="listing-single.html"><img
-                                                    src="images/all/small/1.jpg" alt=""></a>
+                                                    src="images/all/small/1.jpg" alt="{{ $property->title_by_address }}"></a>
                                         </div>
                                         <div class="widget-posts-descr">
                                             <h4><a href="listing-single.html">Căn hộ Cho Thuê</a></h4>
