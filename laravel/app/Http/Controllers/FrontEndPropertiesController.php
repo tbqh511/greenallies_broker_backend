@@ -34,7 +34,7 @@ class FrontEndPropertiesController extends Controller
 
         // Set parameters for the product query
         $offset = 0;
-        $limit = 6;
+        $limit = 5;
         $sort = 'updated_at';
         $order = 'DESC';
         
