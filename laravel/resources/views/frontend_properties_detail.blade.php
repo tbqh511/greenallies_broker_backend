@@ -599,7 +599,7 @@
                                     </div>
                                     <div class="profile-widget-header-title">
                                         @if(isset($property->agent->id))
-                                        <h4><a href="{{ route('agent.showid', ['id' => $property->agent->id]) }}">{{
+                                        <h4><a href="{{ route('agent.showid', ['id' => $property->added_by]) }}">{{
                                                 $property->agent->name ?? 'Unknown' }}</a></h4>
                                         @endif
                                         <div class="clearfix"></div>
@@ -622,7 +622,7 @@
                                     </ul>
                                 </div>
                                 <div class="profile-widget-footer fl-wrap">
-                                    <a href="{{ route('agent.showid', ['id' => $property->agent->id]) }}
+                                    <a href="{{ route('agent.showid', ['id' => $property->added_by]) }}
                                         class="btn float-btn color-bg small-btn">Xem Hồ sơ</a>
                                     <a href="#sec-contact" class="custom-scroll-link tolt" data-microtip-position="left"
                                         data-tooltip="Xem Bất động sản"><i class="fal fa-paper-plane"></i></a>
