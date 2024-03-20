@@ -181,49 +181,49 @@
                                     <div class="details-list">
                                         <ul>
                                             @if($property->code)
-                                            <li><span>Mã BDS:</span>{{$property->code}}</li>
+                                            <li><span>{{config('global.code_title')}}:</span>{{$property->code}}</li>
                                             @endif
                                             @if($property->area)
-                                            <li><span>Diện tích:</span>{{$property->area}} m²</li>
+                                            <li><span>{{config('global.area_title')}}:</span>{{$property->area}} m²</li>
                                             @endif
                                             @if($property->floor_area)
-                                            <li><span>Diện tích sàn:</span>{{$property->floor_area}}</li>
+                                            <li><span>{{config('global.floor_area_title')}}:</span>{{$property->floor_area}}</li>
                                             @endif
                                             @if($property->legal)
-                                            <li><span>Pháp lý:</span>{{$property->legal}}</li>
+                                            <li><span>{{config('global.legal_title')}}:</span>{{$property->legal}}</li>
                                             @endif
                                             @if($property->direction)
-                                            <li><span>Hướng:</span>{{$property->direction}}</li>
+                                            <li><span>{{config('global.direction_title')}}:</span>{{$property->direction}}</li>
                                             @endif
                                             @if($property->road_width)
-                                            <li><span>Đường rộng:</span>{{$property->road_width}}</li>
+                                            <li><span>{{config('global.road_width_title')}}:</span>{{$property->road_width}}</li>
                                             @endif
                                             @if($property->price_m2)
-                                            <li><span>Giá m2:</span>{{$property->price_m2}}</li>
+                                            <li><span>{{config('global.price_m2_title')}}:</span>{{$property->price_m2}}</li>
                                             @endif
                                             @if($property->number_floor)
-                                            <li><span>Số tầng:</span>{{$property->number_floor}}</li>
+                                            <li><span>{{config('global.number_floor_title')}}:</span>{{$property->number_floor}}</li>
                                             @endif
                                             @if($property->number_room)
-                                            <li><span>Phòng ngủ:</span>{{$property->number_room}}</li>
+                                            <li><span>{{config('global.number_room_title')}}:</span>{{$property->number_room}}</li>
                                             @endif
                                             @if($property->bathroom)
-                                            <li><span>Nhà vệ sinh:</span>{{$property->bathroom}}</li>
+                                            <li><span>{{config('global.bathroom_title')}}:</span>{{$property->bathroom}}</li>
                                             @endif
                                             @if($property->garage)
-                                            <li><span>Gara đổ xe - chỗ đậu xe:</span>{{$property->garage}}</li>
+                                            <li><span>{{config('global.garage_title')}}:</span>{{$property->garage}}</li>
                                             @endif
                                             @if($property->pool)
-                                            <li><span>Hồ bơi:</span>{{$property->pool}}</li>
+                                            <li><span>{{config('global.pool_title')}}:</span>{{$property->pool}}</li>
                                             @endif
                                             @if($property->furniture)
-                                            <li><span>Nội thất:</span>{{$property->furniture}}</li>
+                                            <li><span>{{config('global.furniture_title')}}:</span>{{$property->furniture}}</li>
                                             @endif
                                             @if($property->construction_status)
-                                            <li><span>Tình trạng xây dựng:</span>{{$property->construction_status}}</li>
+                                            <li><span>{{config('global.construction_status_title')}}:</span>{{$property->construction_status}}</li>
                                             @endif
                                             @if($property->rental_period)
-                                            <li><span>Thời hạn thuê:</span>{{$property->rental_period}}</li>
+                                            <li><span>{{config('global.rental_period_title')}}:</span>{{$property->rental_period}}</li>
                                             @endif
                                         </ul>
                                     </div>

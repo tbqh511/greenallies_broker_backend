@@ -14,7 +14,6 @@ class Property extends Model
     protected $fillable = [
         'category_id',
 
-
         //HuyTBQ: Add address columns for property table
         'street_number',
         'street_code',
@@ -72,10 +71,11 @@ class Property extends Model
         return $this->hasOne(Customer::class, 'id', 'added_by')->select('name', 'profile', 'mobile');
     }
     //End HuyTBQ
+
     //HuyTBQ: get Code attribute
     public function getCodeAttribute()
     {
-        $prefix = ($this->propery_type == 0) ? 'S' : 'R';
+        $prefix = ($this->propery_type == 0) ? 'B' : 'T';
         $wardName = $this->ward->name ?? '';
 
         // Chuyển đổi tên phường thành định dạng mong muốn
@@ -101,13 +101,6 @@ class Property extends Model
 
         return $formattedWardName;
     }
-
-    //End HuyTBQ
-    //HuyTBQ: add function get count image
-    public function getImagesCountAttribute()
-    {
-        return PropertyImages::where('propertys_id', $this->id)->count();
-    }
     //End HuyTBQ
 
     //HuyTBQ: add function get Aera
@@ -116,7 +109,38 @@ class Property extends Model
         return $this->parameters->where('id', config('global.area'))->first()->pivot->value ?? null;
     }
     //End HuyTBQ
+    //HuyTBQ: get floor area
+    public function getFloorAreaAttribute()
+    {
+        return $this->parameters->where('id', config('global.floor_area'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
 
+    // HuyTBQ: add function get Legal
+    public function getLegalAttribute()
+    {
+        return $this->parameters->where('id', config('global.legal'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
+    // HuyTBQ: add function get Direction
+    public function getDirectionAttribute()
+    {
+        return $this->parameters->where('id', config('global.direction'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
+    // HuyTBQ: add function get Road Width
+    public function getRoadWidthAttribute()
+    {
+        return $this->parameters->where('id', config('global.road_width'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
+    // HuyTBQ: add function get Price per m2
+    public function getPriceM2Attribute()
+    {
+        return $this->parameters->where('id', config('global.price_m2'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
+    
     //HuyTBQ: add function get number Floor
     public function getNumberFloorAttribute()
     {
@@ -130,6 +154,50 @@ class Property extends Model
         return $this->parameters->where('id', config('global.number_room'))->first()->pivot->value ?? null;
     }
     //End HuyTBQ
+
+    // HuyTBQ: add function get Bathroom
+    public function getBathroomAttribute()
+    {
+        return $this->parameters->where('id', config('global.bathroom'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
+    // HuyTBQ: add function get Garage
+    public function getGarageAttribute()
+    {
+        return $this->parameters->where('id', config('global.garage'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
+    // HuyTBQ: add function get Pool
+    public function getPoolAttribute()
+    {
+        return $this->parameters->where('id', config('global.pool'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
+    // HuyTBQ: add function get Furniture
+    public function getFurnitureAttribute()
+    {
+        return $this->parameters->where('id', config('global.furniture'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
+    // HuyTBQ: add function get Construction Status
+    public function getConstructionStatusAttribute()
+    {
+        return $this->parameters->where('id', config('global.construction_status'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
+    // HuyTBQ: add function get Rental Period
+    public function getRentalPeriodAttribute()
+    {
+        return $this->parameters->where('id', config('global.rental_period'))->first()->pivot->value ?? null;
+    }
+    //End HuyTBQ
+    //HuyTBQ: add function get count image
+    public function getImagesCountAttribute()
+    {
+        return PropertyImages::where('propertys_id', $this->id)->count();
+    }
+    //End HuyTBQ
+    
     //HuyTBQ: add function get address location
     public function getAddressLocationAttribute()
     {
