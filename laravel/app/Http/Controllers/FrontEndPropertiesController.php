@@ -56,28 +56,7 @@ class FrontEndPropertiesController extends Controller
         // Tăng giá trị của cột total_click
         $property->increment('total_click');
 
-        // Lấy các thuộc tính từ $this->parameters
-        $propertyAttributes = [
-            //'Mã BDS' => $property->code,
-            // 'Diện tích' => $property->getAreaAttribute() ? $property->getAreaAttribute() . ' m²' : null,
-            // 'Diện tích sàn' => $property->getFloorAreaAttribute(),
-            // 'Pháp lý' => $property->legal,
-            // 'Hướng' => $property->direction,
-            // 'Đường rộng' => $property->road_width,
-            // 'Giá m2' => $property->price_m2,
-            // 'Số tầng' => $property->number_floor,
-            // 'Phòng ngủ' => $property->number_room,
-            // 'Nhà vệ sinh' => $property->bathroom,
-            // 'Gara đổ xe - chỗ đậu xe' => $property->garage,
-            // 'Hồ bơi' => $property->pool,
-            // 'Nội thất' => $property->furniture,
-            // 'Tình trạng xây dựng' => $property->construction_status,
-            // 'Thời hạn thuê' => $property->rental_period,
-        ];
-        foreach ($property->parameters as $parameter) {
-            $propertyAttributes[$parameter->name] = $parameter->value;
-        }
-
+        
         //$gallery = $property->getGalleryAttribute();
         //dd($property->parameters()->first());
 
@@ -85,7 +64,6 @@ class FrontEndPropertiesController extends Controller
         return view('frontend_properties_detail', [
             'property' => $property,
             'newestProducts' => $newestProducts,
-            'propertyAttributes' => $propertyAttributes,
         ]);
     }
 

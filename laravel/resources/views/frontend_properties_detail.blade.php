@@ -178,7 +178,7 @@
                                     </div>
                                 </div> --}}
                                 <div class="list-single-main-item_content fl-wrap">
-                                    {{-- <div class="details-list">
+                                    <div class="details-list">
                                         <ul>
                                             @if($property->code)
                                             <li><span>Mã BDS:</span>{{$property->code}}</li>
@@ -225,15 +225,6 @@
                                             @if($property->rental_period)
                                             <li><span>Thời hạn thuê:</span>{{$property->rental_period}}</li>
                                             @endif
-                                        </ul>
-                                    </div> --}}
-                                    <div class="details-list">
-                                        <ul>
-                                            @foreach($propertyAttributes as $attribute => $value)
-                                                @if($value)
-                                                    <li><span>{{ $attribute }}:</span>{{ $value }}</li>
-                                                @endif
-                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
