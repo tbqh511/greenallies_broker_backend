@@ -20,7 +20,7 @@ return [
     "JSON_PATH" => '/json',
 
     //HuyTBQ: Parameter for properties on properties card
-    'code_title' => 'Diện tích',
+    'code_title' => 'Mã BDS',
 
     'area_title' => 'Diện tích',
     'area' => '15',
