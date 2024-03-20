@@ -580,22 +580,26 @@
                         <div class="profile-widget">
                             <div class="profile-widget-header color-bg smpar fl-wrap">
                                 <div class="pwh_bg"></div>
-                                <div class="call-btn"><a href="tel:123-456-7890" class="tolt color-bg"
-                                        data-microtip-position="right" data-tooltip="Gọi ngay"><i
-                                            class="fas fa-phone-alt"></i></a></div>
-                                <div class="box-widget-menu-btn smact"><i class="far fa-ellipsis-h"></i></div>
+                                <div class="call-btn">
+                                    <a href="tel:123-456-7890" class="tolt color-bg" data-microtip-position="right" data-tooltip="Gọi ngay">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </a>
+                                </div>
+                                <div class="box-widget-menu-btn smact">
+                                    <i class="far fa-ellipsis-h"></i>
+                                </div>
                                 <div class="show-more-snopt-tooltip bxwt">
                                     <a href="#"> <i class="fas fa-comment-alt"></i> Viết đánh giá</a>
                                     <a href="#"> <i class="fas fa-exclamation-triangle"></i> Báo cáo </a>
                                 </div>
                                 <div class="profile-widget-card">
                                     <div class="profile-widget-image">
-                                        <img src="images/avatar/1.jpg" alt="">
+                                        <img src="{{ $property->agent->profile ?? 'images/avatar/1.jpg' }}" alt="">
                                     </div>
                                     <div class="profile-widget-header-title">
-                                        <h4><a href="agent-single.html">Jessie Wilcox</a></h4>
+                                        <h4><a href="{{ route('agent.single', $property->agent->id) }}">{{ $property->agent->name ?? 'Unknown' }}</a></h4>
                                         <div class="clearfix"></div>
-                                        <div class="pwh_counter"><span>22</span>Danh sách Bất động sản</div>
+                                        <div class="pwh_counter"><span>{{ $property->agent->properties_count ?? 0 }}</span>Danh sách Bất động sản</div>
                                         <div class="clearfix"></div>
                                         <div class="listing-rating card-popup-rainingvis" data-starrating2="4"></div>
                                     </div>
@@ -604,23 +608,19 @@
                             <div class="profile-widget-content fl-wrap">
                                 <div class="contats-list fl-wrap">
                                     <ul class="no-list-style">
-                                        <li><span><i class="fal fa-phone"></i> Điện thoại :</span> <a
-                                                href="#">+7(123)987654</a></li>
-                                        <li><span><i class="fal fa-envelope"></i> Email :</span> <a
-                                                href="#">JessieWilcox@domain.com</a></li>
-                                        <li><span><i class="fal fa-browser"></i> Website :</span> <a
-                                                href="#">themeforest.net</a></li>
+                                        <li><span><i class="fal fa-phone"></i> Điện thoại :</span> <a href="#">{{ $property->agent->mobile ?? 'N/A' }}</a></li>
+                                        <li><span><i class="fal fa-envelope"></i> Email :</span> <a href="#">{{ $property->agent->email ?? 'N/A' }}</a></li>
+                                        <li><span><i class="fal fa-browser"></i> Website :</span> <a href="#">{{ $property->agent->website ?? 'N/A' }}</a></li>
                                     </ul>
                                 </div>
                                 <div class="profile-widget-footer fl-wrap">
-                                    <a href="agent-single.html" class="btn float-btn color-bg small-btn">Xem
-                                        Hồ sơ</a>
-                                    <a href="#sec-contact" class="custom-scroll-link tolt" data-microtip-position="left"
-                                        data-tooltip="Xem Bất động sản"><i class="fal fa-paper-plane"></i></a>
+                                    <a href="{{ route('agent.single', $property->agent->id) }}" class="btn float-btn color-bg small-btn">Xem Hồ sơ</a>
+                                    <a href="#sec-contact" class="custom-scroll-link tolt" data-microtip-position="left" data-tooltip="Xem Bất động sản"><i class="fal fa-paper-plane"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                     <!--box-widget end -->
                     <!--box-widget-->
                     <div class="box-widget fl-wrap">
@@ -708,12 +708,10 @@
                                 </ul>
                             </div>
                             <!-- Kết thúc bài viết nổi bật -->
-
                             <!-- Kết thúc bài viết nổi bật -->
                             <a href="{{ route('properties.index') }}" class="btn float-btn color-bg small-btn">Xem Tất cả Bất động sản</a>
                         </div>
                     </div>
-
                     <!--box-widget end -->
                     <!--box-widget-->
                     {{-- <div class="box-widget fl-wrap hidden-section" style="margin-top: 30px">
