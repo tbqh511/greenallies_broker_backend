@@ -140,7 +140,7 @@ class Property extends Model
         return $this->parameters->where('id', config('global.price_m2'))->first()->pivot->value ?? null;
     }
     //End HuyTBQ
-    
+
     //HuyTBQ: add function get number Floor
     public function getNumberFloorAttribute()
     {
@@ -197,7 +197,7 @@ class Property extends Model
         return PropertyImages::where('propertys_id', $this->id)->count();
     }
     //End HuyTBQ
-    
+
     //HuyTBQ: add function get address location
     public function getAddressLocationAttribute()
     {
@@ -220,6 +220,31 @@ class Property extends Model
     //End HuyTBQ
 
     //HuyTBQ: add function get formatted prices
+    // public function getFormattedPricesAttribute()
+    // {
+    //     \Carbon\Carbon::setLocale('vi');
+    //     $formatter = new \NumberFormatter('vi_VN', \NumberFormatter::CURRENCY);
+
+    //     $price = $this->price;
+    //     $ty = 1000000000;
+    //     $trieu = 1000000;
+
+    //     if ($price > $ty) {
+    //         if ($price % $ty == 0) {
+    //             $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
+    //         } else {
+    //             $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
+    //         }
+    //     } elseif ($price > 0) {
+    //         $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
+    //     } else {
+    //         $formattedPrice = 'Giá thỏa thuận';
+    //     }
+
+    //     return $formattedPrice;
+    // }
+
+    //HuyTBQ: add function get formatted prices
     public function getFormattedPricesAttribute()
     {
         \Carbon\Carbon::setLocale('vi');
@@ -229,20 +254,43 @@ class Property extends Model
         $ty = 1000000000;
         $trieu = 1000000;
 
-        if ($price > $ty) {
-            if ($price % $ty == 0) {
-                $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
+        if ($this->propery_type == 0) {
+            if ($price > $ty) {
+                if ($price % $ty == 0) {
+                    $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
+                } else {
+                    $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
+                }
+            } elseif ($price > 0) {
+                $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
             } else {
-                $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
+                $formattedPrice = 'Giá thỏa thuận';
             }
-        } elseif ($price > 0) {
-            $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
+        } elseif ($this->propery_type == 1) {
+            if ($price > $ty) {
+                if ($price % $ty == 0) {
+                    $formattedPrice = number_format($price / $ty, 0) . ' tỷ / tháng';
+                } else {
+                    $formattedPrice = number_format($price / $ty, 1) . ' tỷ / tháng';
+                }
+            } elseif ($price > $trieu) {
+                if ($price % $trieu == 0) {
+                    $formattedPrice = number_format($price / $trieu, 0) . ' triệu / tháng';
+                } else {
+                    $formattedPrice = number_format($price / $trieu, 1) . ' triệu / tháng';
+                }
+            } else {
+                $formattedPrice = 'Giá thỏa thuận';
+            }
         } else {
             $formattedPrice = 'Giá thỏa thuận';
         }
 
         return $formattedPrice;
     }
+    //End HuyTBQ
+
+
     //End HuyTBQ
     //HuyTBQ: add function get title
     public function getTypeAttribute()
