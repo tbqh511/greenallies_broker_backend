@@ -597,7 +597,7 @@
                                         <img src="{{ $property->agent->profile ?? 'images/avatar/1.jpg' }}" alt="">
                                     </div>
                                     <div class="profile-widget-header-title">
-                                        <h4><a href="{{ route('agent.single', $property->agent->id) }}">{{ $property->agent->name ?? 'Unknown' }}</a></h4>
+                                        <h4><a href="{{ route('agent.showid', $property->agent->id) }}">{{ $property->agent->name ?? 'Unknown' }}</a></h4>
                                         <div class="clearfix"></div>
                                         <div class="pwh_counter"><span>{{ $property->agent->properties_count ?? 0 }}</span>Danh sách Bất động sản</div>
                                         <div class="clearfix"></div>
