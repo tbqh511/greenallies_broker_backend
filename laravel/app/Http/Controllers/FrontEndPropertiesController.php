@@ -72,7 +72,7 @@ class FrontEndPropertiesController extends Controller
         // Tăng giá trị của cột total_click
         $property->increment('total_click');
 
-        dd($property->agent->count_properties);
+        dd($property->agent->customer_total_post);
 
         // Return the property detail view with the necessary data
         return view('frontend_properties_detail', [
