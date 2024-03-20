@@ -622,8 +622,7 @@
                                     </ul>
                                 </div>
                                 <div class="profile-widget-footer fl-wrap">
-                                    <a href="{{ route('agent.showid', ['id' => $property->added_by]) }}
-                                        class="btn float-btn color-bg small-btn">Xem Hồ sơ</a>
+                                    <a href="{{ route('agent.showid', ['id' => $property->added_by]) }}" class="btn float-btn color-bg small-btn">Xem Hồ sơ</a>
                                     <a href="#sec-contact" class="custom-scroll-link tolt" data-microtip-position="left"
                                         data-tooltip="Xem Bất động sản"><i class="fal fa-paper-plane"></i></a>
                                 </div>
