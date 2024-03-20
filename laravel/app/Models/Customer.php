@@ -92,4 +92,4 @@ class Customer extends Authenticatable implements JWTSubject
     }
     //End: get count properties
 }
-}
+
