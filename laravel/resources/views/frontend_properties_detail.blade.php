@@ -580,19 +580,19 @@
                         <div class="profile-widget">
                             <div class="profile-widget-header color-bg smpar fl-wrap">
                                 <div class="pwh_bg"></div>
-                                <div class="call-btn">
+                                {{-- <div class="call-btn">
                                     <a href="tel:123-456-7890" class="tolt color-bg" data-microtip-position="right"
                                         data-tooltip="Gọi ngay">
                                         <i class="fas fa-phone-alt"></i>
                                     </a>
-                                </div>
+                                </div> --}}
                                 <div class="box-widget-menu-btn smact">
                                     <i class="far fa-ellipsis-h"></i>
                                 </div>
-                                <div class="show-more-snopt-tooltip bxwt">
+                                {{-- <div class="show-more-snopt-tooltip bxwt">
                                     <a href="#"> <i class="fas fa-comment-alt"></i> Viết đánh giá</a>
                                     <a href="#"> <i class="fas fa-exclamation-triangle"></i> Báo cáo </a>
-                                </div>
+                                </div> --}}
                                 <div class="profile-widget-card">
                                     <div class="profile-widget-image">
                                         <img src="{{ $property->agent->profile ?? 'images/avatar/1.jpg' }}" alt="">
@@ -613,12 +613,12 @@
                             <div class="profile-widget-content fl-wrap">
                                 <div class="contats-list fl-wrap">
                                     <ul class="no-list-style">
-                                        <li><span><i class="fal fa-phone"></i> Điện thoại :</span> <a href="#">{{
+                                        {{-- <li><span><i class="fal fa-phone"></i> Điện thoại :</span> <a href="#">{{
                                                 $property->agent->mobile ?? 'N/A' }}</a></li>
                                         <li><span><i class="fal fa-envelope"></i> Email :</span> <a href="#">{{
                                                 $property->agent->email ?? 'N/A' }}</a></li>
                                         <li><span><i class="fal fa-browser"></i> Website :</span> <a href="#">{{
-                                                $property->agent->website ?? 'N/A' }}</a></li>
+                                                $property->agent->website ?? 'N/A' }}</a></li> --}}
                                     </ul>
                                 </div>
                                 <div class="profile-widget-footer fl-wrap">
