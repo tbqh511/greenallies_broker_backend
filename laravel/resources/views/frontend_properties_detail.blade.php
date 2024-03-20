@@ -602,7 +602,6 @@
                                         <h4><a href="{{ route('agent.showid', $property->agent->id) }}">{{
                                                 $property->agent->name ?? 'Unknown' }}</a></h4>
                                         @endif
-
                                         <div class="clearfix"></div>
                                         <div class="pwh_counter"><span>{{ $property->agent->properties_count ?? 0
                                                 }}</span>Danh sách Bất động sản</div>
