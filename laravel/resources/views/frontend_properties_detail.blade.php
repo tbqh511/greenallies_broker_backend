@@ -426,7 +426,7 @@
                             </div> --}}
                             <!-- list-single-main-item end -->
                             <!-- list-single-main-item -->
-                            <div class="list-single-main-item fl-wrap" id="sec7">
+                            {{-- <div class="list-single-main-item fl-wrap" id="sec7">
                                 <div class="list-single-main-item-title">
                                     <h3>Đánh giá <span>2</span></h3>
                                 </div>
@@ -499,10 +499,10 @@
                                         <!--reviews-comments-item end-->
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- list-single-main-item end -->
                             <!-- list-single-main-item -->
-                            <div class="list-single-main-item fl-wrap" id="sec15">
+                            {{-- <div class="list-single-main-item fl-wrap" id="sec15">
                                 <div class="list-single-main-item-title fl-wrap">
                                     <h3>Thêm Đánh giá Của Bạn</h3>
                                 </div>
@@ -554,7 +554,7 @@
                                     </form>
                                 </div>
                                 <!-- Hộp Thêm Đánh giá / Kết thúc -->
-                            </div>
+                            </div> --}}
                             <!-- list-single-main-item end -->
                         </div>
                     </div>
