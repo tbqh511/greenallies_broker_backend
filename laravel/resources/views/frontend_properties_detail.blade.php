@@ -698,7 +698,7 @@
                                             <h4><a href="{{ route('property.show', $product->id) }}">{{ $product->title_by_address
                                                     }}</a></h4>
                                             <div class="geodir-category-location fl-wrap"><a href="#"><i
-                                                        class="fas fa-map-marker-alt"></i> {{ $product->title_by_address }}</a>
+                                                        class="fas fa-map-marker-alt"></i> {{ $product->address_location }}</a>
                                             </div>
                                             <div class="widget-posts-descr-price"><span>Giá: </span> {{ $product->formatted_prices
                                                 }}</div>
