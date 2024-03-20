@@ -256,6 +256,13 @@ class Property extends Model
         }
     }
     //End HuyTBQ
+    //HuyTBQ: add function get title
+    public function getCountPropertiesByAgentAttribute()
+    {
+        return Property::where('added_by', $this->id)->get()->count();
+    }
+    //End HuyTBQ
+
     public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id')->select('id', 'category', 'parameter_types', 'image');

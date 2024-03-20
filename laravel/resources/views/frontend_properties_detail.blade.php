@@ -603,7 +603,7 @@
                                                 $property->agent->name ?? 'Unknown' }}</a></h4>
                                         @endif
                                         <div class="clearfix"></div>
-                                        <div class="pwh_counter"><span>{{ $property->agent->count_properties ?? 0
+                                        <div class="pwh_counter"><span>{{ $property->count_properties_by_agent ?? 0
                                                 }}</span>Danh sách Bất động sản</div>
                                         <div class="clearfix"></div>
                                         <div class="listing-rating card-popup-rainingvis" data-starrating2="4"></div>
