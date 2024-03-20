@@ -710,7 +710,7 @@
                             <!-- Kết thúc bài viết nổi bật -->
 
                             <!-- Kết thúc bài viết nổi bật -->
-                            <a href="listing.html" class="btn float-btn color-bg small-btn">Xem Tất cả Bất động sản</a>
+                            <a href="{{ route('properties.index') }}" class="btn float-btn color-bg small-btn">Xem Tất cả Bất động sản</a>
                         </div>
                     </div>
 
