@@ -581,7 +581,8 @@
                             <div class="profile-widget-header color-bg smpar fl-wrap">
                                 <div class="pwh_bg"></div>
                                 <div class="call-btn">
-                                    <a href="tel:123-456-7890" class="tolt color-bg" data-microtip-position="right" data-tooltip="Gọi ngay">
+                                    <a href="tel:123-456-7890" class="tolt color-bg" data-microtip-position="right"
+                                        data-tooltip="Gọi ngay">
                                         <i class="fas fa-phone-alt"></i>
                                     </a>
                                 </div>
@@ -597,9 +598,14 @@
                                         <img src="{{ $property->agent->profile ?? 'images/avatar/1.jpg' }}" alt="">
                                     </div>
                                     <div class="profile-widget-header-title">
-                                        <h4><a href="{{ route('agent.showid', $property->agent->id) }}">{{ $property->agent->name ?? 'Unknown' }}</a></h4>
+                                        @if(isset($property->agent->id))
+                                        <h4><a href="{{ route('agent.showid', $property->agent->id) }}">{{
+                                                $property->agent->name ?? 'Unknown' }}</a></h4>
+                                        @endif
+
                                         <div class="clearfix"></div>
-                                        <div class="pwh_counter"><span>{{ $property->agent->properties_count ?? 0 }}</span>Danh sách Bất động sản</div>
+                                        <div class="pwh_counter"><span>{{ $property->agent->properties_count ?? 0
+                                                }}</span>Danh sách Bất động sản</div>
                                         <div class="clearfix"></div>
                                         <div class="listing-rating card-popup-rainingvis" data-starrating2="4"></div>
                                     </div>
@@ -608,19 +614,24 @@
                             <div class="profile-widget-content fl-wrap">
                                 <div class="contats-list fl-wrap">
                                     <ul class="no-list-style">
-                                        <li><span><i class="fal fa-phone"></i> Điện thoại :</span> <a href="#">{{ $property->agent->mobile ?? 'N/A' }}</a></li>
-                                        <li><span><i class="fal fa-envelope"></i> Email :</span> <a href="#">{{ $property->agent->email ?? 'N/A' }}</a></li>
-                                        <li><span><i class="fal fa-browser"></i> Website :</span> <a href="#">{{ $property->agent->website ?? 'N/A' }}</a></li>
+                                        <li><span><i class="fal fa-phone"></i> Điện thoại :</span> <a href="#">{{
+                                                $property->agent->mobile ?? 'N/A' }}</a></li>
+                                        <li><span><i class="fal fa-envelope"></i> Email :</span> <a href="#">{{
+                                                $property->agent->email ?? 'N/A' }}</a></li>
+                                        <li><span><i class="fal fa-browser"></i> Website :</span> <a href="#">{{
+                                                $property->agent->website ?? 'N/A' }}</a></li>
                                     </ul>
                                 </div>
                                 <div class="profile-widget-footer fl-wrap">
-                                    <a href="{{ route('agent.single', $property->agent->id) }}" class="btn float-btn color-bg small-btn">Xem Hồ sơ</a>
-                                    <a href="#sec-contact" class="custom-scroll-link tolt" data-microtip-position="left" data-tooltip="Xem Bất động sản"><i class="fal fa-paper-plane"></i></a>
+                                    <a href="{{ route('agent.single', $property->agent->id) }}"
+                                        class="btn float-btn color-bg small-btn">Xem Hồ sơ</a>
+                                    <a href="#sec-contact" class="custom-scroll-link tolt" data-microtip-position="left"
+                                        data-tooltip="Xem Bất động sản"><i class="fal fa-paper-plane"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!--box-widget end -->
                     <!--box-widget-->
                     <div class="box-widget fl-wrap">
@@ -692,15 +703,19 @@
                                     <li>
                                         <div class="widget-posts-img"><a
                                                 href="{{ route('property.show', $product->id) }}"><img
-                                                    src="{{ $product->title_image  }}" alt="{{ $product->title_by_address  }}"></a>
+                                                    src="{{ $product->title_image  }}"
+                                                    alt="{{ $product->title_by_address  }}"></a>
                                         </div>
                                         <div class="widget-posts-descr">
-                                            <h4><a href="{{ route('property.show', $product->id) }}">{{ $product->title_by_address
+                                            <h4><a href="{{ route('property.show', $product->id) }}">{{
+                                                    $product->title_by_address
                                                     }}</a></h4>
                                             <div class="geodir-category-location fl-wrap"><a href="#"><i
-                                                        class="fas fa-map-marker-alt"></i> {{ $product->address_location }}</a>
+                                                        class="fas fa-map-marker-alt"></i> {{ $product->address_location
+                                                    }}</a>
                                             </div>
-                                            <div class="widget-posts-descr-price"><span>Giá: </span> {{ $product->formatted_prices
+                                            <div class="widget-posts-descr-price"><span>Giá: </span> {{
+                                                $product->formatted_prices
                                                 }}</div>
                                         </div>
                                     </li>
@@ -709,7 +724,8 @@
                             </div>
                             <!-- Kết thúc bài viết nổi bật -->
                             <!-- Kết thúc bài viết nổi bật -->
-                            <a href="{{ route('properties.index') }}" class="btn float-btn color-bg small-btn">Xem Tất cả Bất động sản</a>
+                            <a href="{{ route('properties.index') }}" class="btn float-btn color-bg small-btn">Xem Tất
+                                cả Bất động sản</a>
                         </div>
                     </div>
                     <!--box-widget end -->
