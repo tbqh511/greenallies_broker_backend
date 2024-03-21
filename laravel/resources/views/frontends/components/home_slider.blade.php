@@ -15,15 +15,16 @@
                         <select name="ward" data-placeholder="All Categories" class="chosen-select">
                             <option>Phường Xã</option>
                             @foreach ($locationsWards as $locationsWard)
-                            <option>{{$locationsWard->full_name}}</option>
+                                <option value="{{$locationsWard->code}}">{{$locationsWard->full_name}}</option>
                             @endforeach
                         </select>
                     </div>
+                    
                     <div class="main-search-input-item">
                         <select name="street" data-placeholder="All Categories" class="chosen-select">
                             <option>Đường</option>
                             @foreach ($locationsStreets as $locationsStreet)
-                            <option>{{$locationsStreet->street_name}}</option>
+                                <option value="{{$locationsStreet->code}}">{{$locationsStreet->street_name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -31,7 +32,7 @@
                         <select name="category" data-placeholder="All Categories" class="chosen-select no-search-select">
                             <option>Loại nhà đất</option>
                             @foreach ($categories as $categorie)
-                            <option>{{$categorie->category}}</option>
+                            <option value="{{$categorie->id}}">{{$categorie->category}}</option>
                             @endforeach
                         </select>
                     </div>
