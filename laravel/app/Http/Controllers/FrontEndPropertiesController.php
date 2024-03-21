@@ -37,7 +37,7 @@ class FrontEndPropertiesController extends Controller
         $limit = 5;
         $sort = 'updated_at';
         $order = 'DESC';
-        
+
         // Lấy loại của property hiện tại
         $category_id = $property->category_id;
         $ward_code = $property->ward_code;
@@ -60,8 +60,8 @@ class FrontEndPropertiesController extends Controller
             ->skip($offset)
             ->take($limit)
             ->get();
-        
-            // Set parameters for the product query
+
+        // Set parameters for the product query
         $limit = 5;
         $sort = 'total_click'; // Sắp xếp theo số lượt click
         $order = 'DESC';
@@ -73,7 +73,7 @@ class FrontEndPropertiesController extends Controller
         $property->increment('total_click');
 
         //dd(Property::where('added_by', '2')->get()->count());
-        
+
 
         // Return the property detail view with the necessary data
         return view('frontend_properties_detail', [
@@ -87,41 +87,40 @@ class FrontEndPropertiesController extends Controller
      * Display a listing of the products with search variables: category, ward, street, id.
      */
     public function index(Request $request)
-{
-    // Get search parameters
-    $id = $request->input('id');
-    $category = $request->input('category');
-    $ward = $request->input('ward');
-    $street = $request->input('street');
+    {
+        // Get search parameters
+        $id = $request->input('id');
+        $category = $request->input('category');
+        $ward = $request->input('ward');
+        $street = $request->input('street');
 
-    // Query to fetch properties based on search parameters
-    $propertiesQuery = Property::query();
+        // Query to fetch properties based on search parameters
+        $propertiesQuery = Property::query();
 
-    if ($category) {
-        $propertiesQuery->where('category_id', $category);
+        if ($category) {
+            $propertiesQuery->where('category_id', $category);
+        }
+
+        if ($ward) {
+            $propertiesQuery->where('ward_id', $ward);
+        }
+
+        if ($street) {
+            $propertiesQuery->where('street_id', $street);
+        }
+
+        if ($id) {
+            $propertiesQuery->where('id', $id);
+        }
+
+        // Get the list of products based on the query
+        $properties = $propertiesQuery->paginate(6);
+
+        // Define the search result message
+        $searchResult = "Kết quả cho:" . $category . $ward . $street;
+        dd($category);
+
+        // Pass the properties and search result message to the view
+        return view('frontend_properties_listing', ['properties' => $properties, 'searchResult' => $searchResult]);
     }
-
-    if ($ward) {
-        $propertiesQuery->where('ward_id', $ward);
-    }
-
-    if ($street) {
-        $propertiesQuery->where('street_id', $street);
-    }
-
-    if ($id) {
-        $propertiesQuery->where('id', $id);
-    }
-
-    // Get the list of products based on the query
-    $properties = $propertiesQuery->paginate(6);
-
-    // Define the search result message
-    //$searchResult = "Kết quả cho:ss".$category.$ward.$street;
-    dd($category);
-
-    // Pass the properties and search result message to the view
-    return view('frontend_properties_listing', ['properties' => $properties, 'searchResult' => $searchResult]);
-}
-
 }
