@@ -1,4 +1,4 @@
-{{-- @extends('frontends.master')
+@extends('frontends.master')
 @section('content')
 <!-- content -->
 <div class="content">
@@ -329,4 +329,4 @@
     <div class="limit-box fl-wrap"></div>
 </div>
 <!-- content end -->
-@endsection 
+@endsection
