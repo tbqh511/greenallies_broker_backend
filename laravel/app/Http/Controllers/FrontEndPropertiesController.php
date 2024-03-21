@@ -102,11 +102,11 @@ class FrontEndPropertiesController extends Controller
         }
 
         if ($ward) {
-            $propertiesQuery->where('ward_id', $ward);
+            $propertiesQuery->where('code', $ward);
         }
 
         if ($street) {
-            $propertiesQuery->where('street_id', $street);
+            $propertiesQuery->where('code', $street);
         }
 
         if ($id) {
