@@ -264,7 +264,6 @@
                         <strong>{{ $properties->total() }}</strong>
                     </h2>
                 </div>
-                
                 <!-- list-main-wrap-title end-->
                 <!-- list-main-wrap-opt-->
                 <div class="list-main-wrap-opt">
