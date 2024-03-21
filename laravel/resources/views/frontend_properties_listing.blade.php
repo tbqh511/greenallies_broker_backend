@@ -261,9 +261,6 @@
                         @if($street)
                         <span>{{ $street }}</span>
                         @endif
-                        @if($id)
-                        <span>{{ $id }}</span>
-                        @endif
                         <strong>{{ $properties->total() }}</strong>
                     </h2>
                 </div>
