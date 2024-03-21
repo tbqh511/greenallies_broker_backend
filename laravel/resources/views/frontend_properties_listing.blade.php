@@ -252,15 +252,6 @@
                 <!-- list-main-wrap-title-->
                 <div class="list-main-wrap-title">
                     <h2>{{ $searchResult }} 
-                        @if($category)
-                        <span>{{ $category }}</span>
-                        @endif
-                        @if($ward)
-                        <span>{{ $ward }}</span>
-                        @endif
-                        @if($street)
-                        <span>{{ $street }}</span>
-                        @endif
                         <strong>{{ $properties->total() }}</strong>
                     </h2>
                 </div>
