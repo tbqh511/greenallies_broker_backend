@@ -89,10 +89,11 @@ class FrontEndPropertiesController extends Controller
     public function index(Request $request)
     {
         // Get search parameters
+        $id = $request->input('id');
         $category = $request->input('category');
         $ward = $request->input('ward');
         $street = $request->input('street');
-        $id = $request->input('id');
+        
 
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
