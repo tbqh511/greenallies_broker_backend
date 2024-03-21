@@ -253,7 +253,7 @@ class Property extends Model
         $price = $this->price;
         $ty = 1000000000;
         $trieu = 1000000;
-
+        $suffix ="";
         if ($this->propery_type == 0) {
             if ($price > $ty) {
                 if ($price % $ty == 0) {
@@ -267,21 +267,37 @@ class Property extends Model
                 $formattedPrice = 'Giá thỏa thuận';
             }
         } elseif ($this->propery_type == 1) {
+            // Check rent duration
+            switch ($this->rentduration) {
+                case "Monthly":
+                    $suffix = ' / tháng';
+                    break;
+                case "Daily":
+                    $suffix = ' / ngày';
+                    break;
+                case "Yearly":
+                    $suffix = ' / năm';
+                    break;
+                case "Quarterly":
+                    $suffix = ' / quý';
+                    break;
+                default:
+                    // Do nothing
+                    break;
+            }
             if ($price > $ty) {
                 if ($price % $ty == 0) {
-                    $formattedPrice = number_format($price / $ty, 0) . ' tỷ / tháng';
+                    $formattedPrice = number_format($price / $ty, 0) . ' tỷ'.$suffix;
                 } else {
-                    $formattedPrice = number_format($price / $ty, 1) . ' tỷ / tháng';
+                    $formattedPrice = number_format($price / $ty, 1) . ' tỷ'.$suffix;
                 }
-            } elseif ($price > $trieu) {
-                if ($price % $trieu == 0) {
-                    $formattedPrice = number_format($price / $trieu, 0) . ' triệu / tháng';
-                } else {
-                    $formattedPrice = number_format($price / $trieu, 1) . ' triệu / tháng';
-                }
+            } elseif ($price > 0) {
+                $formattedPrice = number_format($price / $trieu, 0) . ' triệu'.$suffix;
             } else {
                 $formattedPrice = 'Giá thỏa thuận';
             }
+            
+            
         } else {
             $formattedPrice = 'Giá thỏa thuận';
         }
