@@ -52,7 +52,6 @@
                             </div>
                         </div>
                         <!-- Kết thúc ô nhập liệu tìm kiếm -->
-
                         <!-- Ô lựa chọn trạng thái -->
                         <div class="col-sm-3">
                             <div class="listsearch-input-item">
@@ -64,8 +63,6 @@
                             </div>
                         </div>
                         <!-- Kết thúc ô lựa chọn trạng thái -->
-
-
                         <!-- Ô lựa chọn thành phố -->
                         <div class="col-sm-3">
                             <div class="listsearch-input-item">
@@ -84,9 +81,7 @@
                             </div>
                         </div>
                         <!-- Kết thúc ô lựa chọn thành phố -->
-
                         <div class="clearfix"></div>
-
                         <!-- Ô lựa chọn danh mục -->
                         <div class="col-sm-4">
                             <div class="listsearch-input-item">
@@ -101,7 +96,6 @@
                             </div>
                         </div>
                         <!-- Kết thúc ô lựa chọn danh mục -->
-
                         <!-- Ô lựa chọn giá -->
                         <div class="col-sm-5">
                             <div class="listsearch-input-item">
@@ -113,7 +107,6 @@
                             </div>
                         </div>
                         <!-- Kết thúc ô lựa chọn giá -->
-
                         <!-- Nút tìm kiếm -->
                         <div class="col-sm-3">
                             <div class="listsearch-input-item">
