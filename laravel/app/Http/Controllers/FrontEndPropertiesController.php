@@ -98,19 +98,19 @@ class FrontEndPropertiesController extends Controller
         $propertiesQuery = Property::query();
 
         if ($category) {
-            $propertiesQuery->where('category_id', $category);
+            $propertiesQuery->orwhere('category_id', $category);
         }
 
         if ($ward) {
-            $propertiesQuery->where('ward_code', $ward);
+            $propertiesQuery->orwhere('ward_code', $ward);
         }
 
         if ($street) {
-            $propertiesQuery->where('street_code', $street);
+            $propertiesQuery->orwhere('street_code', $street);
         }
 
         if ($id) {
-            $propertiesQuery->where('id', $id);
+            $propertiesQuery->orwhere('id', $id);
         }
 
         // Get the list of products based on the query
