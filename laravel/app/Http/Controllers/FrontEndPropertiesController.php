@@ -120,7 +120,7 @@ class FrontEndPropertiesController extends Controller
     $searchResult = "Kết quả cho:";
 
     // Pass the properties and search result message to the view
-    return view('frontend_properties_listing', ['properties' => $properties, 'searchResult' => $searchResult]);
+    return view('frontend_properties_listing', ['properties' => $properties, 'searchResult' => $searchResult,'category'=> $category,'ward'=> $ward,'street'=> $street]);
 }
 
 }
