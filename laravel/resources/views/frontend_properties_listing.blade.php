@@ -251,8 +251,23 @@
             <div class="list-main-wrap-header box-list-header fl-wrap">
                 <!-- list-main-wrap-title-->
                 <div class="list-main-wrap-title">
-                    <h2>Kết quả cho: <span>New York</span><strong>8</strong></h2>
+                    <h2>{{ $searchResult }} 
+                        @if($category)
+                        <span>{{ $category }}</span>
+                        @endif
+                        @if($ward)
+                        <span>{{ $ward }}</span>
+                        @endif
+                        @if($street)
+                        <span>{{ $street }}</span>
+                        @endif
+                        @if($id)
+                        <span>{{ $id }}</span>
+                        @endif
+                        <strong>{{ $properties->total() }}</strong>
+                    </h2>
                 </div>
+                
                 <!-- list-main-wrap-title end-->
                 <!-- list-main-wrap-opt-->
                 <div class="list-main-wrap-opt">
