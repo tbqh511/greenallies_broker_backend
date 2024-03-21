@@ -117,7 +117,6 @@
                         </div>
                         <!-- Kết thúc nút tìm kiếm --> 						
                     </div>
-                    
                     <div class="clearfix"></div>
                     <div class="hidden-listing-filter fl-wrap">
                         <div class="row">
@@ -239,15 +238,11 @@
                         </div>
                         <!-- listsearch-input-item end--> 												
                     </div>
-                    
                 </div>
-     
-                
                 <div class="more-filter-option-wrap">
                     <div class="more-filter-option-btn more-filter-option act-hiddenpanel"> <span>Tìm kiếm nâng cao</span> <i class="fas fa-caret-down"></i></div>
                     <div class="reset-form reset-btn"> <i class="far fa-sync-alt"></i> Đặt lại bộ lọc</div>
                 </div>
-                
             </div>
             <!-- list-searh-input-wrap end-->							
             <!-- list-main-wrap-header-->
@@ -283,7 +278,6 @@
                 </div>
                 <!-- list-main-wrap-opt end-->                    
             </div>
-            
             <!-- list-main-wrap-header end-->						
             <!-- listing-item-wrap-->
             <div class="listing-item-container three-columns-grid  box-list_ic fl-wrap">
