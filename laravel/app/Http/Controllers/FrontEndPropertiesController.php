@@ -117,8 +117,7 @@ public function index(Request $request)
 
     if (!empty($text)) {
         $propertiesQuery->where(function ($query) use ($text) {
-            $query->where('id', 'like', '%' . $text . '%')
-                  ->orWhere('code', 'like', '%' . $text . '%');
+            $query->where('id', 'like', '%' . $text . '%');
         });
     }
     
