@@ -12,7 +12,15 @@
             <form action="{{ route('properties.index') }}" method="GET">
                 <div class="main-search-input fl-wrap">
                     <div class="main-search-input-item">
-                        <input name="text" type="text" placeholder="Tìm bằng mã" value=""/>
+                        <input name="text" type="text" placeholder="Tìm BDS" value=""/>
+                    </div>
+                    <div class="main-search-input-item">
+                        <select name="category" data-placeholder="All Categories" class="chosen-select no-search-select">
+                            <option value="">Loại nhà đất</option>
+                            @foreach ($categories as $categorie)
+                            <option value="{{$categorie->id}}">{{$categorie->category}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="main-search-input-item">
                         <select name="street" data-placeholder="All Categories" class="chosen-select">
