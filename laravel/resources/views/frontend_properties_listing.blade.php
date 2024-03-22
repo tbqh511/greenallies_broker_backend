@@ -114,7 +114,7 @@
                             <!-- Nút tìm kiếm -->
                             <div class="col-sm-3">
                                 <div class="listsearch-input-item">
-                                    <a href="#" class="btn color-bg fw-btn float-btn small-btn">Tìm kiếm</a>
+                                    <button type="submit" class="btn color-bg fw-btn float-btn small-btn">Tìm kiếm</button>
                                 </div>
                             </div>
                             <!-- Kết thúc nút tìm kiếm -->
