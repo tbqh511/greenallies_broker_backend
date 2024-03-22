@@ -139,14 +139,14 @@ private function generateSearchResultMessage($categoryInput, $wardInput, $street
         }
 
         if (!empty($wardInput)) {
-            $ward = LocationsWard::find($wardInput);
+            $ward = LocationsWard::where('code', $wardInput)->first();
             if ($ward) {
                 $searchResult .= $ward->full_name . " ";
             }
         }
-
+        
         if (!empty($streetInput)) {
-            $street = LocationsStreet::find($streetInput);
+            $street = LocationsStreet::where('code', $streetInput)->first();
             if ($street) {
                 $searchResult .= $street->street_name . " ";
             }
