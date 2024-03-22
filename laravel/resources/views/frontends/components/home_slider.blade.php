@@ -38,14 +38,6 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="main-search-input-item">
-                        <select name="category" data-placeholder="All Categories" class="chosen-select no-search-select">
-                            <option value="">Loại nhà đất</option>
-                            @foreach ($categories as $categorie)
-                            <option value="{{$categorie->id}}">{{$categorie->category}}</option>
-                            @endforeach
-                        </select>
-                    </div>
                     <button type="submit" class="main-search-button color-bg">Tìm kiếm <i class="far fa-search"></i></button>
                 </div>
             </form>
