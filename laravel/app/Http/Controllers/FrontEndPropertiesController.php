@@ -94,6 +94,7 @@ class FrontEndPropertiesController extends Controller
         $wardInput = $request->input('ward');
         $streetInput = $request->input('street');
         $text = $request->input('text');
+        $propertyType = $request->input('property_type');
 
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
@@ -119,6 +120,18 @@ class FrontEndPropertiesController extends Controller
             $propertiesQuery->where('id', $id);
         }
 
+        if (!empty($propertyType)) {
+            if ($propertyType === '1') {
+                // Xử lý khi người dùng chọn "Cho Thuê"
+                $propertiesQuery->where('property_type', 1);
+            } elseif ($propertyType === '0') {
+                // Xử lý khi người dùng chọn "Bán"
+                $propertiesQuery->where('property_type', 0);
+            } else {
+                // Xử lý khi người dùng chọn "Cho thuê & Bán"
+                // Không cần thêm điều kiện gì vì đã xử lý các trường hợp này trước đó
+            }
+        }
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
         //dd($properties);

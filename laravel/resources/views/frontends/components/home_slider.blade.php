@@ -15,10 +15,10 @@
                         <input name="text" type="text" placeholder="Tìm BDS" value=""/>
                     </div>
                     <div class="main-search-input-item">
-                        <select data-placeholder="All Categories"  class="chosen-select no-search-select" >
-                            <option>All Statuses</option>
-                            <option>For Rent</option>
-                            <option>For Sale</option>
+                        <select name="propery_type" data-placeholder="Tất cả danh mục" class="chosen-select no-search-select">
+                            <option value="">Cho thuê & Bán</option>
+                            <option value="1">Cho Thuê</option>
+                            <option value="0">Bán</option>
                         </select>
                     </div>
                     {{-- <div class="main-search-input-item">
