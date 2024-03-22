@@ -50,7 +50,7 @@
                             <!-- Ô nhập liệu tìm kiếm -->
                             <div class="col-sm-6">
                                 <div class="listsearch-input-item">
-                                    <input type="text" placeholder="Địa chỉ, Tên đường, Tình trạng..." value="" />
+                                    <input name="text" type="text" placeholder="Tìm BDS" value="" />
                                 </div>
                             </div>
                             <!-- Kết thúc ô nhập liệu tìm kiếm -->

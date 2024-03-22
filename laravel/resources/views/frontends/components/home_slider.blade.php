@@ -15,6 +15,13 @@
                         <input name="text" type="text" placeholder="Tìm BDS" value=""/>
                     </div>
                     <div class="main-search-input-item">
+                        <select data-placeholder="All Categories"  class="chosen-select no-search-select" >
+                            <option>All Statuses</option>
+                            <option>For Rent</option>
+                            <option>For Sale</option>
+                        </select>
+                    </div>
+                    {{-- <div class="main-search-input-item">
                         <select name="category" data-placeholder="All Categories" class="chosen-select no-search-select">
                             <option value="">Loại nhà đất</option>
                             @foreach ($categories as $categorie)
@@ -29,15 +36,15 @@
                                 <option value="{{$locationsStreet->code}}">{{$locationsStreet->street_name}}</option>
                             @endforeach
                         </select>
-                    </div>
-                    <div class="main-search-input-item">
+                    </div> --}}
+                    {{-- <div class="main-search-input-item">
                         <select name="ward" data-placeholder="All Categories" class="chosen-select">
                             <option value="">Phường Xã</option>
                             @foreach ($locationsWards as $locationsWard)
                                 <option value="{{$locationsWard->code}}">{{$locationsWard->full_name}}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div> --}}
                     <button type="submit" class="main-search-button color-bg">Tìm kiếm <i class="far fa-search"></i></button>
                 </div>
             </form>
