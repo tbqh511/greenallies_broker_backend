@@ -87,61 +87,75 @@ class FrontEndPropertiesController extends Controller
      * Display a listing of the products with search variables: category, ward, street, id.
      */
     public function index(Request $request)
-    {
-        // Get search parameters
-        $id = $request->input('id');
-        $category = $request->input('category');
-        $ward = $request->input('ward');
-        $street = $request->input('street');
+{
+    // Get search parameters
+    $id = $request->input('id');
+    $categoryInput = $request->input('category');
+    $wardInput = $request->input('ward');
+    $streetInput = $request->input('street');
 
-        // Query to fetch properties based on search parameters
-        $propertiesQuery = Property::query();
+    // Query to fetch properties based on search parameters
+    $propertiesQuery = Property::query();
 
-        if ($category) {
-            $propertiesQuery->orwhere('category_id', $category);
-        }
-
-        if ($ward) {
-            $propertiesQuery->orwhere('ward_code', $ward);
-        }
-
-        if ($street) {
-            $propertiesQuery->orwhere('street_code', $street);
-        }
-
-        if ($id) {
-            $propertiesQuery->orwhere('id', $id);
-        }
-
-        // Get the list of products based on the query
-        $properties = $propertiesQuery->paginate(6);
-
-        // Define the search result message
-        //$searchResult = "Kết quả cho: category: " . $category .', ward: '. $ward .',street: '. $street;
-        
-        $searchResult = "";
-
-        if (empty($category) && empty($ward) && empty($street)) {
-            $searchResult = "Kết quả cho: Tp Đà Lạt";
-        } else {
-            $searchResult = "Kết quả cho: ";
-        
-            if (!empty($category)) {
-                $searchResult .= $category . " ";
-            }
-        
-            if (!empty($ward)) {
-                $searchResult .= $ward . " ";
-            }
-        
-            if (!empty($street)) {
-                $searchResult .= $street . " ";
-            }
-        
-            $searchResult = rtrim($searchResult);
-        }
-
-        // Pass the properties and search result message to the view
-        return view('frontend_properties_listing', ['properties' => $properties, 'searchResult' => $searchResult]);
+    // Add conditions to query based on search parameters
+    if (!empty($categoryInput)) {
+        $propertiesQuery->orWhere('category_id', $categoryInput);
     }
+
+    if (!empty($wardInput)) {
+        $propertiesQuery->orWhere('ward_code', $wardInput);
+    }
+
+    if (!empty($streetInput)) {
+        $propertiesQuery->orWhere('street_code', $streetInput);
+    }
+
+    if (!empty($id)) {
+        $propertiesQuery->orWhere('id', $id);
+    }
+
+    // Get the list of products based on the query
+    $properties = $propertiesQuery->paginate(6);
+
+    // Define the search result message
+    $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
+
+    // Pass the properties and search result message to the view
+    return view('frontend_properties_listing', compact('properties', 'searchResult'));
+}
+
+private function generateSearchResultMessage($categoryInput, $wardInput, $streetInput)
+{
+    $searchResult = "Kết quả cho: ";
+    
+    if (empty($categoryInput) && empty($wardInput) && empty($streetInput)) {
+        $searchResult .= "Tp Đà Lạt";
+    } else {
+        if (!empty($categoryInput)) {
+            $category = Category::find($categoryInput);
+            if ($category) {
+                $searchResult .= $category->category . " ";
+            }
+        }
+
+        if (!empty($wardInput)) {
+            $ward = LocationsWard::find($wardInput);
+            if ($ward) {
+                $searchResult .= $ward->full_name . " ";
+            }
+        }
+
+        if (!empty($streetInput)) {
+            $street = LocationsStreet::find($streetInput);
+            if ($street) {
+                $searchResult .= $street->street_name . " ";
+            }
+        }
+
+        $searchResult = rtrim($searchResult);
+    }
+
+    return $searchResult;
+}
+
 }
