@@ -79,28 +79,28 @@ class Property extends Model
         $wardName = $this->ward->name ?? '';
 
         // Chuyển đổi tên phường thành định dạng mong muốn
-        $formattedWardName = $this->formatWardName($wardName);
-
-        return $prefix . '_' . $this->id . '_' . $formattedWardName;
+        //$formattedWardName = $this->formatWardName($wardName);
+        //return $prefix . '_' . $this->id . '_' . $formattedWardName;
+        return $prefix . '_' . $this->id;
     }
 
     // Hàm chuyển đổi tên phường thành định dạng mong muốn
-    private function formatWardName($wardName)
-    {
-        // Loại bỏ các khoảng trắng ở đầu và cuối chuỗi
-        $wardName = trim($wardName);
+    // private function formatWardName($wardName)
+    // {
+    //     // Loại bỏ các khoảng trắng ở đầu và cuối chuỗi
+    //     $wardName = trim($wardName);
 
-        // Tách tên phường thành mảng dựa trên khoảng trắng
-        $parts = explode(' ', $wardName);
+    //     // Tách tên phường thành mảng dựa trên khoảng trắng
+    //     $parts = explode(' ', $wardName);
 
-        // Lấy ra hai ký tự đầu tiên của mỗi phần tử trong mảng và kết hợp chúng lại
-        $formattedWardName = '';
-        foreach ($parts as $part) {
-            $formattedWardName .= substr($part, 0, 2);
-        }
+    //     // Lấy ra hai ký tự đầu tiên của mỗi phần tử trong mảng và kết hợp chúng lại
+    //     $formattedWardName = '';
+    //     foreach ($parts as $part) {
+    //         $formattedWardName .= substr($part, 0, 2);
+    //     }
 
-        return $formattedWardName;
-    }
+    //     return $formattedWardName;
+    // }
     //End HuyTBQ
 
     //HuyTBQ: add function get Aera

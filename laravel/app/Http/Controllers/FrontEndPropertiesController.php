@@ -121,8 +121,6 @@ class FrontEndPropertiesController extends Controller
                       ->orWhere('code', 'like', '%' . $text . '%');
             });
         }
-        
-
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
 
