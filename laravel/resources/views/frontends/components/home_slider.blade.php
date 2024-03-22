@@ -12,19 +12,22 @@
             <form action="{{ route('properties.index') }}" method="GET">
                 <div class="main-search-input fl-wrap">
                     <div class="main-search-input-item">
-                        <select name="ward" data-placeholder="All Categories" class="chosen-select">
-                            <option value="">Phường Xã</option>
-                            @foreach ($locationsWards as $locationsWard)
-                                <option value="{{$locationsWard->code}}">{{$locationsWard->full_name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    
-                    <div class="main-search-input-item">
                         <select name="street" data-placeholder="All Categories" class="chosen-select">
                             <option value="">Đường</option>
                             @foreach ($locationsStreets as $locationsStreet)
                                 <option value="{{$locationsStreet->code}}">{{$locationsStreet->street_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="main-search-input-item">
+                        <input type="text" name="street" id="streetInput" class="form-control" placeholder="Đường">
+                    </div>
+                    
+                    <div class="main-search-input-item">
+                        <select name="ward" data-placeholder="All Categories" class="chosen-select">
+                            <option value="">Phường Xã</option>
+                            @foreach ($locationsWards as $locationsWard)
+                                <option value="{{$locationsWard->code}}">{{$locationsWard->full_name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -49,3 +52,25 @@
         </div>
     </div>
 </section>
+<!-- Đưa script xuống cuối trang -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#streetInput").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: "{{ route('autocomplete.street') }}",
+                    dataType: "json",
+                    data: {
+                        term: request.term
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 2 // Số ký tự tối thiểu trước khi suggest
+        });
+    });
+</script>
