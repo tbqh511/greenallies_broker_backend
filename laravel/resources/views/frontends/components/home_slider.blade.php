@@ -20,10 +20,6 @@
                         </select>
                     </div>
                     <div class="main-search-input-item">
-                        <input type="text" name="street" id="streetInput" class="form-control" placeholder="Đường">
-                    </div>
-                    
-                    <div class="main-search-input-item">
                         <select name="ward" data-placeholder="All Categories" class="chosen-select">
                             <option value="">Phường Xã</option>
                             @foreach ($locationsWards as $locationsWard)
@@ -54,7 +50,7 @@
 </section>
 <!-- Đưa script xuống cuối trang -->
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         $("#streetInput").autocomplete({
             source: function(request, response) {
@@ -72,4 +68,4 @@
             minLength: 2 // Số ký tự tối thiểu trước khi suggest
         });
     });
-</script>
+</script> --}}
