@@ -123,10 +123,10 @@ class FrontEndPropertiesController extends Controller
         if (!empty($propertyType)) {
             if ($propertyType === '1') {
                 // Xử lý khi người dùng chọn "Cho Thuê"
-                $propertiesQuery->where('property_type', 1);
+                $propertiesQuery->where('propery_type', 1);
             } elseif ($propertyType === '0') {
                 // Xử lý khi người dùng chọn "Bán"
-                $propertiesQuery->where('property_type', 0);
+                $propertiesQuery->where('propery_type', 0);
             } else {
                 // Xử lý khi người dùng chọn "Cho thuê & Bán"
                 // Không cần thêm điều kiện gì vì đã xử lý các trường hợp này trước đó
