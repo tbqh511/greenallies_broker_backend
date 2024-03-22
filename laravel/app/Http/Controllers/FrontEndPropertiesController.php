@@ -124,7 +124,7 @@ class FrontEndPropertiesController extends Controller
 
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
-        dd($properties);
+        //dd($properties);
 
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
