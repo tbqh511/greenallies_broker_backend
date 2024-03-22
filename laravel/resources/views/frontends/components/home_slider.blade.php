@@ -14,14 +14,14 @@
                     <div class="main-search-input-item">
                         <input type="text" placeholder="What are you looking for?" value=""/>
                     </div>
-                    <div class="main-search-input-item">
+                    {{-- <div class="main-search-input-item">
                         <select name="street" data-placeholder="All Categories" class="chosen-select">
                             <option value="">Đường</option>
                             @foreach ($locationsStreets as $locationsStreet)
                                 <option value="{{$locationsStreet->code}}">{{$locationsStreet->street_name}}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="main-search-input-item">
                         <select name="ward" data-placeholder="All Categories" class="chosen-select">
                             <option value="">Phường Xã</option>
