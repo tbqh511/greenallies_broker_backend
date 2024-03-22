@@ -116,18 +116,10 @@ class FrontEndPropertiesController extends Controller
         }
 
         if (!empty($text)) {
-            // $propertiesQuery->where(function ($query) use ($text) {
-            //     $query->where('code', 'like', '%' . $text . '%')
-            //           ->orWhereHas('street', function ($query) use ($text) {
-            //               $query->where('street_name', 'like', '%' . $text . '%');
-            //           })
-            //           ->orWhereHas('ward', function ($query) use ($text) {
-            //               $query->where('full_name', 'like', '%' . $text . '%');
-            //           })
-            //           ->orWhereHas('category', function ($query) use ($text) {
-            //               $query->where('category', 'like', '%' . $text . '%');
-            //           });
-            // });
+            $propertiesQuery->orWhere(function ($query) use ($text) {
+                $query->where('id', 'like', '%' . $text . '%')
+                      ->orWhere('code', 'like', '%' . $text . '%');
+            });
         }
         
 
