@@ -134,25 +134,25 @@ private function generateSearchResultMessage($categoryInput, $wardInput, $street
         if (!empty($categoryInput)) {
             $category = Category::find($categoryInput);
             if ($category) {
-                $searchResult .= $category->category . " ";
+                $searchResult .= $category->category . ", ";
             }
         }
 
         if (!empty($wardInput)) {
             $ward = LocationsWard::where('code', $wardInput)->first();
             if ($ward) {
-                $searchResult .= $ward->full_name . " ";
+                $searchResult .= $ward->full_name . ", ";
             }
         }
         
         if (!empty($streetInput)) {
             $street = LocationsStreet::where('code', $streetInput)->first();
             if ($street) {
-                $searchResult .= $street->street_name . " ";
+                $searchResult .= $street->street_name . ", ";
             }
         }
 
-        $searchResult = rtrim($searchResult);
+        $searchResult = rtrim($searchResult, ", ");
     }
 
     return $searchResult;
