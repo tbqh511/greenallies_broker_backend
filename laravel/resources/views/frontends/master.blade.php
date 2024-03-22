@@ -57,5 +57,8 @@
     <script src="{{asset('js/scripts.js')}}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOU_API_KEY_HERE&libraries=places"></script>
     <script src="{{asset('js/map-single.js')}}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </body>
 </html>
