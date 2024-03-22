@@ -161,4 +161,20 @@ class FrontEndPropertiesController extends Controller
 
         return $searchResult;
     }
+
+    /**
+     * Get street suggestions for autocomplete.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function autocompleteStreet(Request $request)
+    {
+        $term = $request->input('term');
+
+        // Query the streets based on the search term
+        $streets = LocationsStreet::where('street_name', 'like', '%' . $term . '%')->pluck('street_name');
+
+        return response()->json($streets);
+    }
 }

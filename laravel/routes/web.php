@@ -54,10 +54,11 @@ Route::get('/', function () {
 
 Route::get('/frontend', [FrontEndHomeController::class, 'index']);
 
-//product controller
+//property controller
 Route::get('/property/{id}', [FrontEndPropertiesController::class, 'getPropertyById'])->name('property.showid');
+Route::get('/autocomplete/street', [FrontEndPropertiesController::class, 'autocompleteStreet'])->name('autocomplete.street');
 
-// Route// Route for displaying the detail of a property
+// Route for displaying the detail of a property
 Route::get('/property/detail/{slug}', [FrontEndPropertiesController::class, 'show'])->name('property.show');
 
 // Route for displaying a listing of the properties with search variables
