@@ -12,7 +12,7 @@
             <form action="{{ route('properties.index') }}" method="GET">
                 <div class="main-search-input fl-wrap">
                     <div class="main-search-input-item">
-                        <input type="text" placeholder="What are you looking for?" value=""/>
+                        <input type="text" placeholder="Tìm bằng mã" value=""/>
                     </div>
                     <div class="main-search-input-item">
                         <select name="street" data-placeholder="All Categories" class="chosen-select">
