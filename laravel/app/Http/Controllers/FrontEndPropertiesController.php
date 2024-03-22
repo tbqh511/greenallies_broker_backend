@@ -84,54 +84,57 @@ class FrontEndPropertiesController extends Controller
     }
 
     /**
-     * Display a listing of the products with search variables: category, ward, street, id.
-     */
-    public function index(Request $request)
-    {
-        // Get search parameters
-        $id = $request->input('id');
-        $categoryInput = $request->input('category');
-        $wardInput = $request->input('ward');
-        $streetInput = $request->input('street');
-        $text = $request->input('text');
+ * Display a listing of the products with search variables: category, ward, street, id.
+ */
+public function index(Request $request)
+{
+    // Get search parameters
+    $id = $request->input('id');
+    $categoryInput = $request->input('category');
+    $wardInput = $request->input('ward');
+    $streetInput = $request->input('street');
+    $text = $request->input('text');
 
-        // Query to fetch properties based on search parameters
-        $propertiesQuery = Property::query();
+    // Query to fetch properties based on search parameters
+    $propertiesQuery = Property::query();
 
-        // Add conditions to query based on search parameters
-        if (!empty($categoryInput)) {
-            $propertiesQuery->where('category_id', $categoryInput);
-        }
-
-        if (!empty($wardInput)) {
-            $propertiesQuery->where('ward_code', $wardInput);
-        }
-
-        if (!empty($streetInput)) {
-            $propertiesQuery->where('street_code', $streetInput);
-        }
-
-        if (!empty($id)) {
-            $propertiesQuery->where('id', $id);
-        }
-
-        if (!empty($text)) {
-            $propertiesQuery->where(function ($query) use ($text) {
-                $query->where('id', 'like', '%' . $text . '%')
-                    ->orWhere('code', 'like', '%' . $text . '%');
-            });
-        }
-
-        // Get the list of products based on the query
-        $properties = $propertiesQuery->paginate(6);
-        //dd($properties);
-
-        // Define the search result message
-        $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
-
-        // Pass the properties and search result message to the view
-        return view('frontend_properties_listing', compact('properties', 'searchResult'));
+    // Add conditions to query based on search parameters
+    if (!empty($categoryInput)) {
+        $propertiesQuery->where('category_id', $categoryInput);
     }
+
+    if (!empty($wardInput)) {
+        $propertiesQuery->where('ward_code', $wardInput);
+    }
+
+    if (!empty($streetInput)) {
+        $propertiesQuery->where('street_code', $streetInput);
+    }
+
+    if (!empty($id)) {
+        $propertiesQuery->where('id', $id);
+    }
+
+    if (!empty($text)) {
+        $propertiesQuery->where(function ($query) use ($text) {
+            $query->where('id', 'like', '%' . $text . '%')
+                ->orWhereHas('code', function ($query) use ($text) {
+                    $query->where('code', 'like', '%' . $text . '%');
+                });
+        });
+    }
+
+    // Get the list of products based on the query
+    $properties = $propertiesQuery->paginate(6);
+    //dd($properties);
+
+    // Define the search result message
+    $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
+
+    // Pass the properties and search result message to the view
+    return view('frontend_properties_listing', compact('properties', 'searchResult'));
+}
+
 
 
     private function generateSearchResultMessage($categoryInput, $wardInput, $streetInput)
