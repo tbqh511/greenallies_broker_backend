@@ -13,7 +13,7 @@
                 <div class="main-search-input fl-wrap">
                     <div class="main-search-input-item">
                         <select name="ward" data-placeholder="All Categories" class="chosen-select">
-                            <option>Phường Xã</option>
+                            <option value="">Phường Xã</option>
                             @foreach ($locationsWards as $locationsWard)
                                 <option value="{{$locationsWard->code}}">{{$locationsWard->full_name}}</option>
                             @endforeach
@@ -22,7 +22,7 @@
                     
                     <div class="main-search-input-item">
                         <select name="street" data-placeholder="All Categories" class="chosen-select">
-                            <option>Đường</option>
+                            <option value="">Đường</option>
                             @foreach ($locationsStreets as $locationsStreet)
                                 <option value="{{$locationsStreet->code}}">{{$locationsStreet->street_name}}</option>
                             @endforeach
@@ -30,7 +30,7 @@
                     </div>
                     <div class="main-search-input-item">
                         <select name="category" data-placeholder="All Categories" class="chosen-select no-search-select">
-                            <option>Loại nhà đất</option>
+                            <option value="">Loại nhà đất</option>
                             @foreach ($categories as $categorie)
                             <option value="{{$categorie->id}}">{{$categorie->category}}</option>
                             @endforeach
