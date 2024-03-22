@@ -118,11 +118,10 @@ public function index(Request $request)
     if (!empty($text)) {
         $propertiesQuery->where(function ($query) use ($text) {
             $query->where('id', 'like', '%' . $text . '%')
-                ->orWhereHas('code', function ($query) use ($text) {
-                    $query->where('code', 'like', '%' . $text . '%');
-                });
+                  ->orWhere('code', 'like', '%' . $text . '%');
         });
     }
+    
 
     // Get the list of products based on the query
     $properties = $propertiesQuery->paginate(6);
