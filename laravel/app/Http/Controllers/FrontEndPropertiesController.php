@@ -84,54 +84,52 @@ class FrontEndPropertiesController extends Controller
     }
 
     /**
- * Display a listing of the products with search variables: category, ward, street, id.
- */
-public function index(Request $request)
-{
-    // Get search parameters
-    $id = $request->input('id');
-    $categoryInput = $request->input('category');
-    $wardInput = $request->input('ward');
-    $streetInput = $request->input('street');
-    $text = $request->input('text');
+     * Display a listing of the products with search variables: category, ward, street, id.
+     */
+    public function index(Request $request)
+    {
+        // Get search parameters
+        $id = $request->input('id');
+        $categoryInput = $request->input('category');
+        $wardInput = $request->input('ward');
+        $streetInput = $request->input('street');
+        $text = $request->input('text');
 
-    // Query to fetch properties based on search parameters
-    $propertiesQuery = Property::query();
+        // Query to fetch properties based on search parameters
+        $propertiesQuery = Property::query();
 
-    // Add conditions to query based on search parameters
-    if (!empty($categoryInput)) {
-        $propertiesQuery->where('category_id', $categoryInput);
+        // Add conditions to query based on search parameters
+        if (!empty($categoryInput)) {
+            $propertiesQuery->where('category_id', $categoryInput);
+        }
+
+        if (!empty($wardInput)) {
+            $propertiesQuery->where('ward_code', $wardInput);
+        }
+
+        if (!empty($streetInput)) {
+            $propertiesQuery->where('street_code', $streetInput);
+        }
+
+        if (!empty($text)) {
+            // Tách chuỗi code thành các phần
+            $parts = explode('_', $text);
+            // Lấy id từ phần tử cuối cùng của mảng parts
+            $id = end($parts);
+            dd($id);
+            $propertiesQuery->where('id', $id);
+        }
+
+        // Get the list of products based on the query
+        $properties = $propertiesQuery->paginate(6);
+        //dd($properties);
+
+        // Define the search result message
+        $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
+
+        // Pass the properties and search result message to the view
+        return view('frontend_properties_listing', compact('properties', 'searchResult'));
     }
-
-    if (!empty($wardInput)) {
-        $propertiesQuery->where('ward_code', $wardInput);
-    }
-
-    if (!empty($streetInput)) {
-        $propertiesQuery->where('street_code', $streetInput);
-    }
-
-    if (!empty($id)) {
-        $propertiesQuery->where('id', $id);
-    }
-
-    if (!empty($text)) {
-        $propertiesQuery->where(function ($query) use ($text) {
-            $query->where('id', 'like', '%' . $text . '%');
-        });
-    }
-    
-
-    // Get the list of products based on the query
-    $properties = $propertiesQuery->paginate(6);
-    //dd($properties);
-
-    // Define the search result message
-    $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
-
-    // Pass the properties and search result message to the view
-    return view('frontend_properties_listing', compact('properties', 'searchResult'));
-}
 
 
 
@@ -139,33 +137,33 @@ public function index(Request $request)
     {
         $searchResult = "Kết quả cho: ";
 
-            if (!empty($categoryInput)) {
-                $category = Category::find($categoryInput);
-                if ($category) {
-                    $searchResult .= $category->category . ", ";
-                }
+        if (!empty($categoryInput)) {
+            $category = Category::find($categoryInput);
+            if ($category) {
+                $searchResult .= $category->category . ", ";
             }
+        }
 
-            if (!empty($streetInput)) {
-                $street = LocationsStreet::where('code', $streetInput)->first();
-                if ($street) {
-                    $searchResult .= 'đường ' . $street->street_name . ", ";
-                }
+        if (!empty($streetInput)) {
+            $street = LocationsStreet::where('code', $streetInput)->first();
+            if ($street) {
+                $searchResult .= 'đường ' . $street->street_name . ", ";
             }
+        }
 
-            if (!empty($wardInput)) {
-                $ward = LocationsWard::where('code', $wardInput)->first();
-                if ($ward) {
-                    $searchResult .= $ward->full_name . ", ";
-                }
+        if (!empty($wardInput)) {
+            $ward = LocationsWard::where('code', $wardInput)->first();
+            if ($ward) {
+                $searchResult .= $ward->full_name . ", ";
             }
+        }
 
-            // Loại bỏ ký tự phẩy và khoảng trắng cuối cùng
-            $searchResult = rtrim($searchResult, ", ");
+        // Loại bỏ ký tự phẩy và khoảng trắng cuối cùng
+        $searchResult = rtrim($searchResult, ", ");
 
         // Thêm chuỗi đuôi
         //dd($searchResult );
-        if($searchResult == "Kết quả cho:")
+        if ($searchResult == "Kết quả cho:")
             $searchResult = "Kết quả cho: Tp Đà Lạt";
         else
             $searchResult .= ", Tp Đà Lạt";
