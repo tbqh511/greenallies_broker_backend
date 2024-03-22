@@ -44,106 +44,214 @@
                 <div class="list-searh-input-wrap-title fl-wrap"><i class="far fa-sliders-h"></i><span>Bộ Lọc Tìm
                         Kiếm</span></div>
                 <div class="custom-form fl-wrap">
-                    <form id="searchForm" action="{{ route('properties.index') }}" method="GET">
+                    <div class="row">
+                        <!-- Ô nhập liệu tìm kiếm -->
+                        <div class="col-sm-6">
+                            <div class="listsearch-input-item">
+                                <input type="text" placeholder="Địa chỉ, Tên đường, Tình trạng..." value="" />
+                            </div>
+                        </div>
+                        <!-- Kết thúc ô nhập liệu tìm kiếm -->
+                        <!-- Ô lựa chọn trạng thái -->
+                        <div class="col-sm-3">
+                            <div class="listsearch-input-item">
+                                <select data-placeholder="Tình trạng" class="chosen-select on-radius no-search-select">
+                                    <option>Bất kỳ</option>
+                                    <option {{ request('propery_type')=='1' ? 'selected' : '' }}>Cho thuê</option>
+                                    <option {{ request('propery_type')=='0' ? 'selected' : '' }}>Đang bán</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Kết thúc ô lựa chọn trạng thái -->
+                        <!-- Ô lựa chọn thành phố -->
+                        <div class="col-sm-3">
+                            <div class="listsearch-input-item">
+                                <select data-placeholder="Tất cả thành phố"
+                                    class="chosen-select on-radius no-search-select">
+                                    <option>Tất cả thành phố</option>
+                                    <option>New York</option>
+                                    <option>London</option>
+                                    <option>Paris</option>
+                                    <option>Kiev</option>
+                                    <option>Moscow</option>
+                                    <option>Dubai</option>
+                                    <option>Rome</option>
+                                    <option>Beijing</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Kết thúc ô lựa chọn thành phố -->
+                        <div class="clearfix"></div>
+                        <!-- Ô lựa chọn danh mục -->
+                        <div class="col-sm-4">
+                            <div class="listsearch-input-item">
+                                <select data-placeholder="Danh mục" class="chosen-select on-radius no-search-select">
+                                    <option>Tất cả danh mục</option>
+                                    <option>Nhà</option>
+                                    <option>Căn hộ</option>
+                                    <option>Khách sạn</option>
+                                    <option>Biệt thự</option>
+                                    <option>Văn phòng</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Kết thúc ô lựa chọn danh mục -->
+                        <!-- Ô lựa chọn giá -->
+                        <div class="col-sm-5">
+                            <div class="listsearch-input-item">
+                                <div class="price-rage-item fl-wrap">
+                                    <span class="pr_title">Giá:</span>
+                                    <input type="text" class="price-range-double" data-min="100" data-max="100000"
+                                        name="price-range2" data-step="100" value="1" data-prefix="$">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Kết thúc ô lựa chọn giá -->
+                        <!-- Nút tìm kiếm -->
+                        <div class="col-sm-3">
+                            <div class="listsearch-input-item">
+                                <a href="#" class="btn color-bg fw-btn float-btn small-btn">Tìm kiếm</a>
+                            </div>
+                        </div>
+                        <!-- Kết thúc nút tìm kiếm -->
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="hidden-listing-filter fl-wrap">
                         <div class="row">
-                            <!-- Ô nhập liệu tìm kiếm -->
-                            <div class="col-sm-6">
+                            <!-- listsearch-input-item -->
+                            <div class="col-sm-2">
                                 <div class="listsearch-input-item">
-                                    <input type="text" name="search" placeholder="Địa chỉ, Tên đường, Tình trạng..."
-                                        value="" />
-                                </div>
-                            </div>
-                            <!-- Kết thúc ô nhập liệu tìm kiếm -->
-                            <!-- Ô lựa chọn trạng thái -->
-                            <div class="col-sm-3">
-                                <div class="listsearch-input-item">
-                                    <select name="propery_type" data-placeholder="Tình trạng"
+                                    <label>Số phòng ngủ</label>
+                                    <select data-placeholder="Số phòng ngủ"
                                         class="chosen-select on-radius no-search-select">
-                                        <option>Bất kỳ</option>
-                                        <option {{ request('propery_type')=='1' ? 'selected' : '' }}>Cho thuê</option>
-                                        <option {{ request('propery_type')=='0' ? 'selected' : '' }}>Đang bán</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
                                     </select>
                                 </div>
                             </div>
-                            <!-- Kết thúc ô lựa chọn trạng thái -->
-                            <!-- Ô lựa chọn thành phố -->
-                            <div class="col-sm-3">
+                            <!-- listsearch-input-item end-->
+                            <!-- listsearch-input-item -->
+                            <div class="col-sm-2">
                                 <div class="listsearch-input-item">
-                                    <select name="city" data-placeholder="Tất cả thành phố"
+                                    <label>Số phòng tắm</label>
+                                    <select data-placeholder="Số phòng tắm"
                                         class="chosen-select on-radius no-search-select">
-                                        <option>Tất cả thành phố</option>
-                                        <option>New York</option>
-                                        <option>London</option>
-                                        <option>Paris</option>
-                                        <option>Kiev</option>
-                                        <option>Moscow</option>
-                                        <option>Dubai</option>
-                                        <option>Rome</option>
-                                        <option>Beijing</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
                                     </select>
                                 </div>
                             </div>
-                            <!-- Kết thúc ô lựa chọn thành phố -->
-                            <div class="clearfix"></div>
-                            <!-- Ô lựa chọn danh mục -->
+                            <!-- listsearch-input-item end-->
+                            <!-- listsearch-input-item -->
+                            <div class="col-sm-2">
+                                <div class="listsearch-input-item">
+                                    <label>Số tầng</label>
+                                    <select data-placeholder="Số tầng" class="chosen-select on-radius no-search-select">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- listsearch-input-item end-->
+                            <!-- listsearch-input-item -->
+                            <div class="col-sm-2">
+                                <div class="listsearch-input-item">
+                                    <label>Mã bất động sản</label>
+                                    <input type="text" onClick="this.select()" placeholder="Mã" value="" />
+                                </div>
+                            </div>
+                            <!-- listsearch-input-item end-->
+                            <!-- listsearch-input-item -->
                             <div class="col-sm-4">
                                 <div class="listsearch-input-item">
-                                    <select name="category" data-placeholder="Danh mục"
-                                        class="chosen-select on-radius no-search-select">
-                                        <option>Tất cả danh mục</option>
-                                        <option>Nhà</option>
-                                        <option>Căn hộ</option>
-                                        <option>Khách sạn</option>
-                                        <option>Biệt thự</option>
-                                        <option>Văn phòng</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- Kết thúc ô lựa chọn danh mục -->
-                            <!-- Ô lựa chọn giá -->
-                            <div class="col-sm-5">
-                                <div class="listsearch-input-item">
-                                    <div class="price-rage-item fl-wrap">
-                                        <span class="pr_title">Giá:</span>
-                                        <input type="text" class="price-range-double" data-min="100" data-max="100000"
-                                            name="price-range2" data-step="100" value="1" data-prefix="$">
+                                    <label>Diện tích (ft<sup>2</sup>)</label>
+                                    <div class="price-rage-item pr-nopad fl-wrap">
+                                        <input type="text" class="price-range-double" data-min="1" data-max="1000"
+                                            name="price-range2" data-step="1" value="1" data-prefix="">
                                     </div>
                                 </div>
                             </div>
-                            <!-- Kết thúc ô lựa chọn giá -->
-                            <!-- Nút tìm kiếm -->
-                            <div class="col-sm-3">
-                                <div class="listsearch-input-item">
-                                    <button type="submit" class="btn color-bg fw-btn float-btn small-btn">Tìm
-                                        kiếm</button>
-                                </div>
-                            </div>
-                            <!-- Kết thúc nút tìm kiếm -->
+                            <!-- listsearch-input-item -->
                         </div>
                         <div class="clearfix"></div>
-                        <div class="hidden-listing-filter fl-wrap">
-                            <!-- Các ô lựa chọn khác -->
-                            <!-- ... -->
+                        <!-- listsearch-input-item-->
+                        <div class="listsearch-input-item">
+                            <label>Tiện ích</label>
+                            <div class=" fl-wrap filter-tags">
+                                <ul class="no-list-style">
+                                    <li>
+                                        <input id="check-aa" type="checkbox" name="check">
+                                        <label for="check-aa">Thang máy</label>
+                                    </li>
+                                    <li>
+                                        <input id="check-b" type="checkbox" name="check">
+                                        <label for="check-b">Phòng giặt</label>
+                                    </li>
+                                    <li>
+                                        <input id="check-c" type="checkbox" name="check" checked>
+                                        <label for="check-c">Bếp đầy đủ tiện nghi</label>
+                                    </li>
+                                    <li>
+                                        <input id="check-d" type="checkbox" name="check">
+                                        <label for="check-d">Điều hòa</label>
+                                    </li>
+                                    <li>
+                                        <input id="check-d2" type="checkbox" name="check" checked>
+                                        <label for="check-d2">Bãi đậu xe</label>
+                                    </li>
+                                    <li>
+                                        <input id="check-d3" type="checkbox" name="check" checked>
+                                        <label for="check-d3">Bể bơi</label>
+                                    </li>
+                                    <li>
+                                        <input id="check-d4" type="checkbox" name="check">
+                                        <label for="check-d4">Phòng gym</label>
+                                    </li>
+                                    <li>
+                                        <input id="check-d5" type="checkbox" name="check">
+                                        <label for="check-d5">An ninh</label>
+                                    </li>
+                                    <li>
+                                        <input id="check-d6" type="checkbox" name="check">
+                                        <label for="check-d6">Garage kết nối</label>
+                                    </li>
+                                    <li>
+                                        <input id="check-d7" type="checkbox" name="check">
+                                        <label for="check-d7">Sân sau</label>
+                                    </li>
+                                    <li>
+                                        <input id="check-d8" type="checkbox" name="check">
+                                        <label for="check-d8">Lò sưởi</label>
+                                    </li>
+                                    <li>
+                                        <input id="check-d9" type="checkbox" name="check">
+                                        <label for="check-d9">Bảo vệ cửa sổ</label>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </form>
+                        <!-- listsearch-input-item end-->
+                    </div>
                 </div>
                 <div class="more-filter-option-wrap">
-                    <div class="more-filter-option-btn more-filter-option act-hiddenpanel">
-                        <span>Tìm kiếm nâng cao</span>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="reset-form reset-btn">
-                        <i class="far fa-sync-alt"></i> Đặt lại bộ lọc
-                    </div>
+                    <div class="more-filter-option-btn more-filter-option act-hiddenpanel"> <span>Tìm kiếm nâng
+                            cao</span> <i class="fas fa-caret-down"></i></div>
+                    <div class="reset-form reset-btn"> <i class="far fa-sync-alt"></i> Đặt lại bộ lọc</div>
                 </div>
             </div>
-
             <!-- list-searh-input-wrap end-->
             <!-- list-main-wrap-header-->
             <div class="list-main-wrap-header box-list-header fl-wrap">
                 <!-- list-main-wrap-title-->
                 <div class="list-main-wrap-title">
-                    <h2>{{ $searchResult }}
+                    <h2>{{ $searchResult }} 
                         <strong>{{ $properties->total() }}</strong>
                     </h2>
                 </div>
