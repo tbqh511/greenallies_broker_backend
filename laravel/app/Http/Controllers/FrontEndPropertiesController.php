@@ -87,75 +87,78 @@ class FrontEndPropertiesController extends Controller
      * Display a listing of the products with search variables: category, ward, street, id.
      */
     public function index(Request $request)
-{
-    // Get search parameters
-    $id = $request->input('id');
-    $categoryInput = $request->input('category');
-    $wardInput = $request->input('ward');
-    $streetInput = $request->input('street');
+    {
+        // Get search parameters
+        $id = $request->input('id');
+        $categoryInput = $request->input('category');
+        $wardInput = $request->input('ward');
+        $streetInput = $request->input('street');
 
-    // Query to fetch properties based on search parameters
-    $propertiesQuery = Property::query();
+        // Query to fetch properties based on search parameters
+        $propertiesQuery = Property::query();
 
-    // Add conditions to query based on search parameters
-    if (!empty($categoryInput)) {
-        $propertiesQuery->orWhere('category_id', $categoryInput);
-    }
-
-    if (!empty($wardInput)) {
-        $propertiesQuery->orWhere('ward_code', $wardInput);
-    }
-
-    if (!empty($streetInput)) {
-        $propertiesQuery->orWhere('street_code', $streetInput);
-    }
-
-    if (!empty($id)) {
-        $propertiesQuery->orWhere('id', $id);
-    }
-
-    // Get the list of products based on the query
-    $properties = $propertiesQuery->paginate(6);
-
-    // Define the search result message
-    $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
-
-    // Pass the properties and search result message to the view
-    return view('frontend_properties_listing', compact('properties', 'searchResult'));
-}
-
-private function generateSearchResultMessage($categoryInput, $wardInput, $streetInput)
-{
-    $searchResult = "Kết quả cho: ";
-    
-    if (empty($categoryInput) && empty($wardInput) && empty($streetInput)) {
-        $searchResult .= "Tp Đà Lạt";
-    } else {
+        // Add conditions to query based on search parameters
         if (!empty($categoryInput)) {
-            $category = Category::find($categoryInput);
-            if ($category) {
-                $searchResult .= $category->category . ", ";
-            }
+            $propertiesQuery->orWhere('category_id', $categoryInput);
         }
 
         if (!empty($wardInput)) {
-            $ward = LocationsWard::where('code', $wardInput)->first();
-            if ($ward) {
-                $searchResult .= $ward->full_name . ", ";
-            }
-        }
-        
-        if (!empty($streetInput)) {
-            $street = LocationsStreet::where('code', $streetInput)->first();
-            if ($street) {
-                $searchResult .= $street->street_name . ", ";
-            }
+            $propertiesQuery->orWhere('ward_code', $wardInput);
         }
 
-        $searchResult = rtrim($searchResult, ", ");
+        if (!empty($streetInput)) {
+            $propertiesQuery->orWhere('street_code', $streetInput);
+        }
+
+        if (!empty($id)) {
+            $propertiesQuery->orWhere('id', $id);
+        }
+
+        // Get the list of products based on the query
+        $properties = $propertiesQuery->paginate(6);
+
+        // Define the search result message
+        $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
+
+        // Pass the properties and search result message to the view
+        return view('frontend_properties_listing', compact('properties', 'searchResult'));
     }
 
-    return $searchResult;
-}
+    private function generateSearchResultMessage($categoryInput, $wardInput, $streetInput)
+    {
+        $searchResult = "Kết quả cho: ";
 
+        if (empty($categoryInput) && empty($wardInput) && empty($streetInput)) {
+            $searchResult .= "Tp Đà Lạt";
+        } else {
+            if (!empty($categoryInput)) {
+                $category = Category::find($categoryInput);
+                if ($category) {
+                    $searchResult .= $category->category . ", ";
+                }
+            }
+
+            if (!empty($streetInput)) {
+                $street = LocationsStreet::where('code', $streetInput)->first();
+                if ($street) {
+                    $searchResult .= 'đường ' . $street->street_name . ", ";
+                }
+            }
+
+            if (!empty($wardInput)) {
+                $ward = LocationsWard::where('code', $wardInput)->first();
+                if ($ward) {
+                    $searchResult .= $ward->full_name . ", ";
+                }
+            }
+
+            // Loại bỏ ký tự phẩy và khoảng trắng cuối cùng
+            $searchResult = rtrim($searchResult, ", ");
+        }
+
+        // Thêm chuỗi đuôi
+        $searchResult .= ", Tp Đà Lạt";
+
+        return $searchResult;
+    }
 }
