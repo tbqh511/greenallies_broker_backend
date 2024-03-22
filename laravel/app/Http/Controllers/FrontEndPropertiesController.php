@@ -153,7 +153,7 @@ class FrontEndPropertiesController extends Controller
             $searchResult = rtrim($searchResult, ", ");
 
         // Thêm chuỗi đuôi
-        dd($searchResult == "Kết quả cho: ");
+        dd($searchResult );
         if($searchResult == "Kết quả cho: ")
             $searchResult = "Kết quả cho: Tp Đà Lạt";
         else
