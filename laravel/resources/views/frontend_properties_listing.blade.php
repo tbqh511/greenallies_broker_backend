@@ -56,21 +56,21 @@
                             <!-- Kết thúc ô nhập liệu tìm kiếm -->
                             <!-- Ô lựa chọn trạng thái -->
                             <div class="col-sm-3">
-                                {{-- <div class="listsearch-input-item">
-                                    <select data-placeholder="Tình trạng"
+                                <div class="listsearch-input-item">
+                                    <select name="propery_type" data-placeholder="Tình trạng"
                                         class="chosen-select on-radius no-search-select">
-                                        <option>Bất kỳ</option>
-                                        <option {{ request('propery_type')=='1' ? 'selected' : '' }}>Cho thuê</option>
-                                        <option {{ request('propery_type')=='0' ? 'selected' : '' }}>Đang bán</option>
-                                    </select>
-                                </div> --}}
-                                <div class="main-search-input-item">
-                                    <select name="propery_type" data-placeholder="Tất cả danh mục" class="chosen-select no-search-select">
                                         <option value="">Cho thuê & Bán</option>
                                         <option value="1">Cho Thuê</option>
                                         <option value="0">Bán</option>
                                     </select>
                                 </div>
+                                {{-- <div class="main-search-input-item">
+                                    <select name="propery_type" data-placeholder="Cho thuê & Bán" class="chosen-select no-search-select">
+                                        <option value="">Cho thuê & Bán</option>
+                                        <option value="1">Cho Thuê</option>
+                                        <option value="0">Bán</option>
+                                    </select>
+                                </div> --}}
                             </div>
                             <!-- Kết thúc ô lựa chọn trạng thái -->
                             <!-- Ô lựa chọn thành phố -->
