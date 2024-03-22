@@ -93,43 +93,46 @@ class FrontEndPropertiesController extends Controller
         $categoryInput = $request->input('category');
         $wardInput = $request->input('ward');
         $streetInput = $request->input('street');
-        $text = $request->input('street');
+        $text = $request->input('text');
 
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
 
         // Add conditions to query based on search parameters
         if (!empty($categoryInput)) {
-            $propertiesQuery->orWhere('category_id', $categoryInput);
+            $propertiesQuery->where('category_id', $categoryInput);
         }
 
         if (!empty($wardInput)) {
-            $propertiesQuery->orWhere('ward_code', $wardInput);
+            $propertiesQuery->where('ward_code', $wardInput);
         }
 
         if (!empty($streetInput)) {
-            $propertiesQuery->orWhere('street_code', $streetInput);
+            $propertiesQuery->where('street_code', $streetInput);
         }
 
         if (!empty($id)) {
-            $propertiesQuery->orWhere('id', $id);
+            $propertiesQuery->where('id', $id);
         }
 
         if (!empty($text)) {
-            $propertiesQuery->orWhere(function ($query) use ($text) {
+            $propertiesQuery->where(function ($query) use ($text) {
                 $query->where('id', 'like', '%' . $text . '%')
-                      ->orWhere('code', 'like', '%' . $text . '%');
+                    ->orWhere('code', 'like', '%' . $text . '%');
             });
         }
+
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
         dd($properties);
+
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
 
         // Pass the properties and search result message to the view
         return view('frontend_properties_listing', compact('properties', 'searchResult'));
     }
+
 
     private function generateSearchResultMessage($categoryInput, $wardInput, $streetInput)
     {
