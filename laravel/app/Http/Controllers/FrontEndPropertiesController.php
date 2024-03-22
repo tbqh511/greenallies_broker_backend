@@ -93,6 +93,7 @@ class FrontEndPropertiesController extends Controller
         $categoryInput = $request->input('category');
         $wardInput = $request->input('ward');
         $streetInput = $request->input('street');
+        $text = $request->input('street');
 
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
@@ -112,6 +113,10 @@ class FrontEndPropertiesController extends Controller
 
         if (!empty($id)) {
             $propertiesQuery->orWhere('id', $id);
+        }
+
+        if (!empty($text)) {
+            $propertiesQuery->orWhere('code', 'like', '%' . $text . '%');
         }
 
         // Get the list of products based on the query
