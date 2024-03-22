@@ -94,7 +94,7 @@ class FrontEndPropertiesController extends Controller
         $wardInput = $request->input('ward');
         $streetInput = $request->input('street');
         $text = $request->input('text');
-        $propertyType = $request->input('property_type');
+        $propertyType = $request->input('propery_type');
 
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
