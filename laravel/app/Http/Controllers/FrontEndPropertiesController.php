@@ -128,9 +128,6 @@ class FrontEndPropertiesController extends Controller
     {
         $searchResult = "Kết quả cho: ";
 
-        if (empty($categoryInput) && empty($wardInput) && empty($streetInput)) {
-            $searchResult .= "Tp Đà Lạt";
-        } else {
             if (!empty($categoryInput)) {
                 $category = Category::find($categoryInput);
                 if ($category) {
@@ -154,7 +151,6 @@ class FrontEndPropertiesController extends Controller
 
             // Loại bỏ ký tự phẩy và khoảng trắng cuối cùng
             $searchResult = rtrim($searchResult, ", ");
-        }
 
         // Thêm chuỗi đuôi
         $searchResult .= ", Tp Đà Lạt";
