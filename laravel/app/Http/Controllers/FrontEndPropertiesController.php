@@ -116,7 +116,6 @@ class FrontEndPropertiesController extends Controller
             $parts = explode('_', $text);
             // Lấy id từ phần tử cuối cùng của mảng parts
             $id = end($parts);
-            dd($id);
             $propertiesQuery->where('id', $id);
         }
 
