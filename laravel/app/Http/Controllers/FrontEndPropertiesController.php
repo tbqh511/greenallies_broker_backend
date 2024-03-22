@@ -117,22 +117,29 @@ class FrontEndPropertiesController extends Controller
         $properties = $propertiesQuery->paginate(6);
 
         // Define the search result message
-        $searchResult = "Kết quả cho: ";
+        //$searchResult = "Kết quả cho: category: " . $category .', ward: '. $ward .',street: '. $street;
+        
+        $searchResult = "";
 
-        if (!empty($category)) {
-            $searchResult .= $category . " ";
+        if (empty($category) && empty($ward) && empty($street)) {
+            $searchResult = "Kết quả cho: Tp Đà Lạt";
+        } else {
+            $searchResult = "Kết quả cho: ";
+        
+            if (!empty($category)) {
+                $searchResult .= $category . " ";
+            }
+        
+            if (!empty($ward)) {
+                $searchResult .= $ward . " ";
+            }
+        
+            if (!empty($street)) {
+                $searchResult .= $street . " ";
+            }
+        
+            $searchResult = rtrim($searchResult);
         }
-
-        if (!empty($ward)) {
-            $searchResult .= $ward . " ";
-        }
-
-        if (!empty($street)) {
-            $searchResult .= $street . " ";
-        }
-
-        $searchResult = rtrim($searchResult);
-
 
         // Pass the properties and search result message to the view
         return view('frontend_properties_listing', ['properties' => $properties, 'searchResult' => $searchResult]);
