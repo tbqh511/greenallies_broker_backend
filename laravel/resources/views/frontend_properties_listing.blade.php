@@ -183,12 +183,12 @@
                                 </div>
                                 <!-- listsearch-input-item end-->
                                 <!-- listsearch-input-item -->
-                                <div class="col-sm-2">
+                                {{-- <div class="col-sm-2">
                                     <div class="listsearch-input-item">
                                         <label>Mã bất động sản</label>
                                         <input type="text" onClick="this.select()" placeholder="Mã" value="" />
                                     </div>
-                                </div>
+                                </div> --}}
                                 <!-- listsearch-input-item end-->
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-4">
