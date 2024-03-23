@@ -151,17 +151,20 @@
                         <div class="clearfix"></div>
                         <div class="hidden-listing-filter fl-wrap">
                             <div class="row">
-                                 <!-- listsearch-input-item -->
-                                 <div class="col-sm-4">
+                                <!-- listsearch-input-item -->
+                                <div class="col-sm-2">
                                     <div class="listsearch-input-item">
-                                        <label>Diện tích (m<sup>2</sup>)</label>
-                                        <div class="price-rage-item pr-nopad fl-wrap">
-                                            <input type="text" class="price-range-double" data-min="1" data-max="1000"
-                                                name="price-range2" data-step="1" value="1" data-prefix="">
-                                        </div>
+                                        <label for="legal">Pháp lý</label>
+                                        <select name="legal" class="chosen-select on-radius no-search-select">
+                                            <option value="Sổ xây dựng">Sổ xây dựng</option>
+                                            <option value="Sổ nông nghiệp">Sổ nông nghiệp</option>
+                                            <option value="Sổ phân quyền nông nghiệp">Sổ phân quyền nông nghiệp</option>
+                                            <option value="Sổ phân quyền xây dựng">Sổ phân quyền xây dựng</option>
+                                            <option value="Giấy tay">Giấy tay</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <!-- listsearch-input-item -->
+                                <!-- listsearch-input-item end-->
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-2">
                                     <div class="listsearch-input-item">
@@ -180,6 +183,18 @@
                                     </div>
                                 </div>
                                 <!-- listsearch-input-item end-->
+                                 <!-- listsearch-input-item -->
+                                 <div class="col-sm-4">
+                                    <div class="listsearch-input-item">
+                                        <label>Diện tích (m<sup>2</sup>)</label>
+                                        <div class="price-rage-item pr-nopad fl-wrap">
+                                            <input type="text" class="price-range-double" data-min="1" data-max="1000"
+                                                name="price-range2" data-step="1" value="1" data-prefix="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- listsearch-input-item -->
+                                
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-2">
                                     <div class="listsearch-input-item">
@@ -220,20 +235,7 @@
                                     </div>
                                 </div>
                                 <!-- listsearch-input-item end-->
-                                <!-- listsearch-input-item -->
-                                <div class="col-sm-2">
-                                    <div class="listsearch-input-item">
-                                        <label for="legal">Pháp lý</label>
-                                        <select name="legal" class="chosen-select on-radius no-search-select">
-                                            <option value="Sổ xây dựng">Sổ xây dựng</option>
-                                            <option value="Sổ nông nghiệp">Sổ nông nghiệp</option>
-                                            <option value="Sổ phân quyền nông nghiệp">Sổ phân quyền nông nghiệp</option>
-                                            <option value="Sổ phân quyền xây dựng">Sổ phân quyền xây dựng</option>
-                                            <option value="Giấy tay">Giấy tay</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- listsearch-input-item end-->
+                                
                                 
                                 <!-- listsearch-input-item -->
                                 {{-- <div class="col-sm-2">
