@@ -335,6 +335,17 @@ function initHomeradar() {
     var sliders_init2 = $(".price-range-double");
     sliders_init2.ionRangeSlider({
         type: "double",
+        min: 100000000,
+        max: 1000000000000,
+        from: 100000000, // Giá trị mặc định cho thanh trượt bắt đầu
+        to: 1000000000000, // Giá trị mặc định cho thanh trượt kết thúc
+        grid: true, // Hiển thị lưới giá trị
+        grid_margin: true, // Đặt đường ranh giới cho lưới
+        grid_num: 5, // Số lượng đơn vị lưới
+        prettify_enabled: true, // Kích hoạt việc hiển thị giá trị đẹp mắt
+        prettify_separator: ".", // Đặt phân tách giữa các chữ số
+        postfix: " triệu", // Đặt hậu tố cho giá trị
+        max_postfix: " tỉ" // Đặt hậu tố cho giá trị tối đa
     });
     var sliders = $(".reset-action").find(".price-range");
     $(".reset-btn").on("click", function () {
