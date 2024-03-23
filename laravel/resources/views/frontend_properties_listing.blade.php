@@ -123,7 +123,7 @@
                                     <div class="price-range-item fl-wrap">
                                         <span class="pr_title">Giá:</span>
                                         <input type="text" class="price-range-double" data-min="100000000" data-max="100000000000"
-                                            name="price-range2" data-step="1000000" value="100000000" max_postfix="+" >
+                                            name="price-range2" data-step="1000000000" value="100000000" max_postfix="+" >
                                     </div>
                                 </div>
                             </div>
