@@ -76,17 +76,11 @@
                             <!-- Ô lựa chọn thành phố -->
                             <div class="col-sm-3">
                                 <div class="listsearch-input-item">
-                                    <select data-placeholder="Tất cả thành phố"
-                                        class="chosen-select on-radius no-search-select">
-                                        <option>Tất cả thành phố</option>
-                                        <option>New York</option>
-                                        <option>London</option>
-                                        <option>Paris</option>
-                                        <option>Kiev</option>
-                                        <option>Moscow</option>
-                                        <option>Dubai</option>
-                                        <option>Rome</option>
-                                        <option>Beijing</option>
+                                    <select name="ward" data-placeholder="Tất cả thành phố" class="chosen-select on-radius no-search-select">
+                                        <option value="">Phường Xã</option>
+                                        @foreach ($locationsWards as $locationsWard)
+                                        <option value="{{$locationsWard->code}}">{{$locationsWard->full_name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -95,14 +89,11 @@
                             <!-- Ô lựa chọn danh mục -->
                             <div class="col-sm-4">
                                 <div class="listsearch-input-item">
-                                    <select data-placeholder="Danh mục"
-                                        class="chosen-select on-radius no-search-select">
-                                        <option>Tất cả danh mục</option>
-                                        <option>Nhà</option>
-                                        <option>Căn hộ</option>
-                                        <option>Khách sạn</option>
-                                        <option>Biệt thự</option>
-                                        <option>Văn phòng</option>
+                                    <select name="category" data-placeholder="Loại BDS" class="chosen-select on-radius no-search-select">
+                                        <option value="">Loại BDS</option>
+                                        @foreach ($categories as $categorie)
+                                        <option value="{{$categorie->id}}">{{$categorie->category}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

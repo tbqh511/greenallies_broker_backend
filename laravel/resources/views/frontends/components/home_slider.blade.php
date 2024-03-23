@@ -22,8 +22,8 @@
                         </select>
                     </div>
                     {{-- <div class="main-search-input-item">
-                        <select name="category" data-placeholder="All Categories" class="chosen-select no-search-select">
-                            <option value="">Loại nhà đất</option>
+                        <select name="category" data-placeholder="Loại BDS" class="chosen-select no-search-select">
+                            <option value="">Loại BDS</option>
                             @foreach ($categories as $categorie)
                             <option value="{{$categorie->id}}">{{$categorie->category}}</option>
                             @endforeach
