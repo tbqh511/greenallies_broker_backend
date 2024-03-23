@@ -60,8 +60,8 @@
                                     <select name="propery_type" data-placeholder="Tình trạng"
                                         class="chosen-select on-radius no-search-select">
                                         <option value="">Cho thuê & Bán</option>
-                                        <option value="1">Cho Thuê</option>
                                         <option value="0">Bán</option>
+                                        <option value="1">Cho Thuê</option>
                                     </select>
                                 </div>
                                 {{-- <div class="main-search-input-item">
@@ -120,10 +120,10 @@
                             <!-- Ô lựa chọn giá -->
                             <div class="col-sm-5">
                                 <div class="listsearch-input-item">
-                                    <div class="price-rage-item fl-wrap">
+                                    <div class="price-range-item fl-wrap">
                                         <span class="pr_title">Giá:</span>
-                                        <input type="text" class="price-range-double" data-min="100" data-max="100000"
-                                            name="price-range2" data-step="100" value="1" data-prefix="$">
+                                        <input type="text" class="price-range-double" data-min="100000000" data-max="1000000000000"
+                                            name="price-range2" data-step="1000000" value="100000000" data-prefix="đ">
                                     </div>
                                 </div>
                             </div>
