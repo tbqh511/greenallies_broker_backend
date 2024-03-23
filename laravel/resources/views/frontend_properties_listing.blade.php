@@ -204,7 +204,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <!-- listsearch-input-item-->
-                            <div class="listsearch-input-item">
+                            {{-- <div class="listsearch-input-item">
                                 <label>Tiện ích</label>
                                 <div class=" fl-wrap filter-tags">
                                     <ul class="no-list-style">
@@ -258,7 +258,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- listsearch-input-item end-->
                         </div>
                     </form>
