@@ -354,7 +354,7 @@ function initHomeradar() {
         } else if (n > trie) {
             var formattedPrice = (n / trie).toFixed(0) + ' triệu';
         } else {
-            return n.toLocaleString('vi-VN') + ' đồng';
+            return n + ' đồng';
         }
 
         return formattedPrice;
