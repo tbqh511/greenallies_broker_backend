@@ -165,13 +165,16 @@
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-2">
                                     <div class="listsearch-input-item">
-                                        <label>direction</label>
-                                        <select name='number_floor' data-placeholder="Số tầng"
-                                            class="chosen-select on-radius no-search-select">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
+                                        <label for="direction">Hướng</label>
+                                        <select name='direction' id="direction" data-placeholder="Chọn hướng" class="chosen-select on-radius no-search-select">
+                                            <option value="Đông">Đông</option>
+                                            <option value="Nam">Nam</option>
+                                            <option value="Tây">Tây</option>
+                                            <option value="Bắc">Bắc</option>
+                                            <option value="Đông Nam">Đông Nam</option>
+                                            <option value="Tây Nam">Tây Nam</option>
+                                            <option value="Tây Bắc">Tây Bắc</option>
+                                            <option value="Đông Bắc">Đông Bắc</option>
                                         </select>
                                     </div>
                                 </div>
@@ -182,10 +185,16 @@
                                         <label>Số tầng</label>
                                         <select name='number_floor' data-placeholder="Số tầng"
                                             class="chosen-select on-radius no-search-select">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10+</option>
                                         </select>
                                     </div>
                                 </div>
@@ -196,11 +205,16 @@
                                         <label>Số phòng ngủ</label>
                                         <select name='number_room' data-placeholder="Số phòng ngủ"
                                             class="chosen-select on-radius no-search-select">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10+</option>
                                         </select>
                                     </div>
                                 </div>
