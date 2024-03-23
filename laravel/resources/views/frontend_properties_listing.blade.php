@@ -74,7 +74,7 @@
                             </div>
                             <!-- Kết thúc ô lựa chọn trạng thái -->
                             <!-- Ô lựa chọn thành phố -->
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <div class="listsearch-input-item">
                                     <select name="ward" data-placeholder="Tất cả thành phố" class="chosen-select on-radius no-search-select">
                                         <option value="">Phường Xã</option>
@@ -86,7 +86,7 @@
                             </div>
                             <!-- Kết thúc ô lựa chọn thành phố -->
                             <!-- Ô lựa chọn Duong -->
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <div class="listsearch-input-item">
                                     <select name="street" data-placeholder="All Categories" class="chosen-select">
                                         <option value="">Đường</option>
