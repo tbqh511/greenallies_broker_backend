@@ -332,58 +332,33 @@ function initHomeradar() {
     sliders_init.ionRangeSlider({
         type: "single",
     });
+
     var sliders_init2 = $(".price-range-double");
     sliders_init2.ionRangeSlider({
         type: "double",
         prettify: formattedPrices
     });
+
     // HuyTBQ: function for format prices
-function formattedPrices(n) {
-    // Define constants
-    var ty = 1000000000;
-    var trieu = 1000000;
-    var suffix = "";
-    var formattedPrice = "";
+    function formattedPrices(n) {
+        var ty = 1000000000;
+        var trie = 1000000;
+        var suffix = "";
 
-    // Check property type
-    if (n === 0) {
-        formattedPrice = 'Giá thỏa thuận';
-    } else if (n === 1) {
-        // Check rent duration
-        switch (this.rentduration) {
-            case "Monthly":
-                suffix = ' / tháng';
-                break;
-            case "Daily":
-                suffix = ' / ngày';
-                break;
-            case "Yearly":
-                suffix = ' / năm';
-                break;
-            case "Quarterly":
-                suffix = ' / quý';
-                break;
-            default:
-                // Do nothing
-                break;
+        if (n == 0) {
+            return 'Giá thỏa thuận';
         }
-    } else {
+
         if (n > ty) {
-            if (n % ty === 0) {
-                formattedPrice = number_format(n / ty, 0) + ' tỷ' + suffix;
-            } else {
-                formattedPrice = number_format(n / ty, 1) + ' tỷ' + suffix;
-            }
-        } else if (n > 0) {
-            formattedPrice = number_format(n / trieu, 0) + ' triệu' + suffix;
+            var formattedPrice = (n % ty == 0) ? (n / ty).toFixed(0) + ' tỷ' : (n / ty).toFixed(1) + ' tỷ';
+        } else if (n > trie) {
+            var formattedPrice = (n / trie).toFixed(0) + ' triệu';
         } else {
-            formattedPrice = 'Giá thỏa thuận';
+            return n.toLocaleString('vi-VN') + ' đồng';
         }
+
+        return formattedPrice;
     }
-
-    return formattedPrice;
-}
-
 
     var sliders = $(".reset-action").find(".price-range");
     $(".reset-btn").on("click", function () {
