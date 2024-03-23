@@ -33,7 +33,7 @@
     </div> --}}
     <!--  cart-btn end -->
     <!--  login btn -->
-    <div class="show-reg-form modal-open"><i class="fas fa-user"></i><span>Đăng nhập</span></div>
+    {{-- <div class="show-reg-form modal-open"><i class="fas fa-user"></i><span>Đăng nhập</span></div> --}}
     <!--  login btn  end -->
     <!--  navigation -->
     <div class="nav-holder main-menu">
