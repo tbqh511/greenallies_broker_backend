@@ -88,6 +88,17 @@ class FrontEndPropertiesController extends Controller
      */
     public function index(Request $request)
     {
+        // Get the list of streets in the areas
+        $locationsStreets = LocationsStreet::all();
+
+        // Get the district code from configuration
+        $districtCode = config('location.district_code');
+        // If there's a district code, get the list of wards in that district
+        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->get() : LocationsWard::all();
+
+        // Get the list of product categories
+        $categories = Category::all();
+
         // Get search parameters
         $id = $request->input('id');
         $categoryInput = $request->input('category');
@@ -140,10 +151,8 @@ class FrontEndPropertiesController extends Controller
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
 
         // Pass the properties and search result message to the view
-        return view('frontend_properties_listing', compact('properties', 'searchResult'));
+        return view('frontend_properties_listing', compact('properties', 'searchResult','locationsStreets','locationsWards','categories'));
     }
-
-
 
     private function generateSearchResultMessage($categoryInput, $wardInput, $streetInput)
     {
