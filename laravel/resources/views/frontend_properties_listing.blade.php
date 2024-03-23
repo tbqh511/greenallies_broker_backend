@@ -165,7 +165,7 @@
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-2">
                                     <div class="listsearch-input-item">
-                                        <label>Hướng</label>
+                                        <label>direction</label>
                                         <select name='number_floor' data-placeholder="Số tầng"
                                             class="chosen-select on-radius no-search-select">
                                             <option>1</option>
@@ -208,8 +208,8 @@
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-2">
                                     <div class="listsearch-input-item">
-                                        <label>Số phòng tắm</label>
-                                        <select name='bathroom' data-placeholder="Số phòng tắm"
+                                        <label>Pháp lý</label>
+                                        <select name='legal' data-placeholder="Số phòng tắm"
                                             class="chosen-select on-radius no-search-select">
                                             <option>1</option>
                                             <option>2</option>
