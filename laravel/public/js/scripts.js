@@ -335,18 +335,56 @@ function initHomeradar() {
     var sliders_init2 = $(".price-range-double");
     sliders_init2.ionRangeSlider({
         type: "double",
-        min: 100000000,
-        max: 1000000000000,
-        from: 100000000, // Giá trị mặc định cho thanh trượt bắt đầu
-        to: 1000000000000, // Giá trị mặc định cho thanh trượt kết thúc
-        grid: true, // Hiển thị lưới giá trị
-        grid_margin: true, // Đặt đường ranh giới cho lưới
-        grid_num: 5, // Số lượng đơn vị lưới
-        prettify_enabled: true, // Kích hoạt việc hiển thị giá trị đẹp mắt
-        prettify_separator: ".", // Đặt phân tách giữa các chữ số
-        postfix: " triệu", // Đặt hậu tố cho giá trị
-        max_postfix: " tỉ" // Đặt hậu tố cho giá trị tối đa
+        prettify: formattedPrices
     });
+    // HuyTBQ: function for format prices
+function formattedPrices(n) {
+    // Define constants
+    var ty = 1000000000;
+    var trieu = 1000000;
+    var suffix = "";
+    var formattedPrice = "";
+
+    // Check property type
+    if (n === 0) {
+        formattedPrice = 'Giá thỏa thuận';
+    } else if (n === 1) {
+        // Check rent duration
+        switch (this.rentduration) {
+            case "Monthly":
+                suffix = ' / tháng';
+                break;
+            case "Daily":
+                suffix = ' / ngày';
+                break;
+            case "Yearly":
+                suffix = ' / năm';
+                break;
+            case "Quarterly":
+                suffix = ' / quý';
+                break;
+            default:
+                // Do nothing
+                break;
+        }
+    } else {
+        if (n > ty) {
+            if (n % ty === 0) {
+                formattedPrice = number_format(n / ty, 0) + ' tỷ' + suffix;
+            } else {
+                formattedPrice = number_format(n / ty, 1) + ' tỷ' + suffix;
+            }
+        } else if (n > 0) {
+            formattedPrice = number_format(n / trieu, 0) + ' triệu' + suffix;
+        } else {
+            formattedPrice = 'Giá thỏa thuận';
+        }
+    }
+
+    return formattedPrice;
+}
+
+
     var sliders = $(".reset-action").find(".price-range");
     $(".reset-btn").on("click", function () {
         $(sliders).each(function (index, sliders_init) {
