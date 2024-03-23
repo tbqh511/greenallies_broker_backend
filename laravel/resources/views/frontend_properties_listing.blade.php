@@ -106,7 +106,7 @@
                             </ul> --}}
                             <div class="clearfix"></div>
                             <!-- Ô lựa chọn danh mục -->
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <div class="listsearch-input-item">
                                     <select name="category" data-placeholder="Loại BDS" class="chosen-select on-radius no-search-select">
                                         <option value="">Loại BDS</option>
@@ -118,7 +118,7 @@
                             </div>
                             <!-- Kết thúc ô lựa chọn danh mục -->
                             <!-- Ô lựa chọn giá -->
-                            <div class="col-sm-5">
+                            <div class="col-sm-6">
                                 <div class="listsearch-input-item">
                                     <div class="price-range-item fl-wrap">
                                         <span class="pr_title">Giá:</span>
