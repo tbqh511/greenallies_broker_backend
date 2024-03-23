@@ -336,7 +336,12 @@ function initHomeradar() {
     var sliders_init2 = $(".price-range-double");
     sliders_init2.ionRangeSlider({
         type: "double",
-        prettify: formattedPrices
+        prettify: formattedPrices,
+        skin: "round",
+        grid: true,
+        max_postfix: "+",
+        prefix: "Age: ",
+        postfix: " years"
     });
 
     // HuyTBQ: function for format prices
