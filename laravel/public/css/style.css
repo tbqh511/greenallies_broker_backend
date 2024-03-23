@@ -2090,7 +2090,7 @@ nav li ul a:before , nav li ul a:after {
 }
 .main-search-input-item {
     float: left;
-    width: 50%;
+    width: 33.3%;
     box-sizing: border-box;
     border-left: 1px solid #eee;
     height: 60px;
