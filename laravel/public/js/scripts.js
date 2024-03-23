@@ -340,8 +340,6 @@ function initHomeradar() {
         skin: "round",
         grid: true,
         max_postfix: "+",
-        prefix: "Age: ",
-        postfix: " years"
     });
 
     // HuyTBQ: function for format prices
