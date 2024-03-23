@@ -85,6 +85,18 @@
                                 </div>
                             </div>
                             <!-- Kết thúc ô lựa chọn thành phố -->
+                            <!-- Ô lựa chọn Duong -->
+                            <div class="col-sm-6">
+                                <div class="listsearch-input-item">
+                                    <select name="street" data-placeholder="All Categories" class="chosen-select">
+                                        <option value="">Đường</option>
+                                        @foreach ($locationsStreets as $locationsStreet)
+                                            <option value="{{$locationsStreet->code}}">{{$locationsStreet->street_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Kết thúc ô lựa chọn thành phố -->
                             {{-- <ul class="list">
                                 <li data-value="" class="option selected focus">Phường Xã</li>
                                 <li data-value="24784" class="option">Phường 1</li>
