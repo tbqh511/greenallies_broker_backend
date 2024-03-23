@@ -48,7 +48,7 @@
                         @csrf
                         <div class="row">
                             <!-- Ô nhập liệu tìm kiếm -->
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <div class="listsearch-input-item">
                                     <input name="text" type="text" placeholder="Tìm BDS" value="" />
                                 </div>
@@ -74,7 +74,7 @@
                             </div>
                             <!-- Kết thúc ô lựa chọn trạng thái -->
                             <!-- Ô lựa chọn thành phố -->
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <div class="listsearch-input-item">
                                     <select name="ward" data-placeholder="Tất cả thành phố" class="chosen-select on-radius no-search-select">
                                         <option value="">Phường Xã</option>
@@ -142,6 +142,20 @@
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-2">
                                     <div class="listsearch-input-item">
+                                        <label>Số tầng</label>
+                                        <select data-placeholder="Số tầng"
+                                            class="chosen-select on-radius no-search-select">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- listsearch-input-item end-->
+                                <!-- listsearch-input-item -->
+                                <div class="col-sm-2">
+                                    <div class="listsearch-input-item">
                                         <label>Số phòng ngủ</label>
                                         <select data-placeholder="Số phòng ngủ"
                                             class="chosen-select on-radius no-search-select">
@@ -168,20 +182,7 @@
                                     </div>
                                 </div>
                                 <!-- listsearch-input-item end-->
-                                <!-- listsearch-input-item -->
-                                <div class="col-sm-2">
-                                    <div class="listsearch-input-item">
-                                        <label>Số tầng</label>
-                                        <select data-placeholder="Số tầng"
-                                            class="chosen-select on-radius no-search-select">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- listsearch-input-item end-->
+                                
                                 <!-- listsearch-input-item -->
                                 {{-- <div class="col-sm-2">
                                     <div class="listsearch-input-item">
@@ -193,7 +194,7 @@
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-6">
                                     <div class="listsearch-input-item">
-                                        <label>Diện tích (ft<sup>2</sup>)</label>
+                                        <label>Diện tích (m<sup>2</sup>)</label>
                                         <div class="price-rage-item pr-nopad fl-wrap">
                                             <input type="text" class="price-range-double" data-min="1" data-max="1000"
                                                 name="price-range2" data-step="1" value="1" data-prefix="">
