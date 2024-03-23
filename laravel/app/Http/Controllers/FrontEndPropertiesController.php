@@ -96,8 +96,9 @@ class FrontEndPropertiesController extends Controller
         // If there's a district code, get the list of wards in that district
         $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->get()->sortBy('full_name') : LocationsWard::all();
 
-        // Get the list of product categories
-        $categories = Category::all()->sortBy('category');
+        // Get the list of product categories sorted by category in ascending order
+        $categories = Category::orderBy('category')->get();
+
 
         // Get search parameters
         $id = $request->input('id');
