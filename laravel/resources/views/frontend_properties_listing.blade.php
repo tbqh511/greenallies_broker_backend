@@ -191,7 +191,7 @@
                                 </div> --}}
                                 <!-- listsearch-input-item end-->
                                 <!-- listsearch-input-item -->
-                                <div class="col-sm-4">
+                                <div class="col-sm-6">
                                     <div class="listsearch-input-item">
                                         <label>Diện tích (ft<sup>2</sup>)</label>
                                         <div class="price-rage-item pr-nopad fl-wrap">
