@@ -97,7 +97,7 @@ class FrontEndPropertiesController extends Controller
         $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->get()->sortBy('full_name') : LocationsWard::all();
 
         // Get the list of product categories
-        $categories = Category::all()->sort('category');
+        $categories = Category::all()->sortBy('category');
 
         // Get search parameters
         $id = $request->input('id');
