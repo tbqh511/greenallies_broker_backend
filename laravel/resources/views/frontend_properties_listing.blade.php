@@ -85,6 +85,25 @@
                                 </div>
                             </div>
                             <!-- Kết thúc ô lựa chọn thành phố -->
+                            {{-- <ul class="list">
+                                <li data-value="" class="option selected focus">Phường Xã</li>
+                                <li data-value="24784" class="option">Phường 1</li>
+                                <li data-value="24781" class="option">Phường 2</li>
+                                <li data-value="24802" class="option">Phường 3</li>
+                                <li data-value="24793" class="option">Phường 4</li>
+                                <li data-value="24790" class="option">Phường 5</li>
+                                <li data-value="24787" class="option">Phường 6</li>
+                                <li data-value="24769" class="option">Phường 7</li>
+                                <li data-value="24772" class="option">Phường 8</li>
+                                <li data-value="24778" class="option">Phường 9</li>
+                                <li data-value="24796" class="option">Phường 10</li>
+                                <li data-value="24799" class="option">Phường 11</li>
+                                <li data-value="24775" class="option">Phường 12</li>
+                                <li data-value="24805" class="option">Xã Xuân Thọ</li>
+                                <li data-value="24808" class="option">Xã Tà Nung</li>
+                                <li data-value="24810" class="option">Xã Trạm Hành</li>
+                                <li data-value="24811" class="option">Xã Xuân Trường</li>
+                            </ul> --}}
                             <div class="clearfix"></div>
                             <!-- Ô lựa chọn danh mục -->
                             <div class="col-sm-4">

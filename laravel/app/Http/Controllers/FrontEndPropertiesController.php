@@ -94,7 +94,7 @@ class FrontEndPropertiesController extends Controller
         // Get the district code from configuration
         $districtCode = config('location.district_code');
         // If there's a district code, get the list of wards in that district
-        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->get() : LocationsWard::all();
+        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->get()->sortBy('full_name') : LocationsWard::all();
 
         // Get the list of product categories
         $categories = Category::all();
