@@ -167,6 +167,7 @@
                                     <div class="listsearch-input-item">
                                         <label for="direction">Hướng</label>
                                         <select name='direction' id="direction" data-placeholder="Chọn hướng" class="chosen-select on-radius no-search-select">
+                                            <option value="Đông">Chọn hướng</option>
                                             <option value="Đông">Đông</option>
                                             <option value="Nam">Nam</option>
                                             <option value="Tây">Tây</option>
@@ -222,13 +223,13 @@
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-2">
                                     <div class="listsearch-input-item">
-                                        <label>Pháp lý</label>
-                                        <select name='legal' data-placeholder="Số phòng tắm"
-                                            class="chosen-select on-radius no-search-select">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
+                                        <label for="legal">Pháp lý</label>
+                                        <select name="legal" class="chosen-select on-radius no-search-select">
+                                            <option value="Sổ xây dựng">Sổ xây dựng</option>
+                                            <option value="Sổ nông nghiệp">Sổ nông nghiệp</option>
+                                            <option value="Sổ phân quyền nông nghiệp">Sổ phân quyền nông nghiệp</option>
+                                            <option value="Sổ phân quyền xây dựng">Sổ phân quyền xây dựng</option>
+                                            <option value="Giấy tay">Giấy tay</option>
                                         </select>
                                     </div>
                                 </div>
