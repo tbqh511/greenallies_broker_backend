@@ -37,14 +37,14 @@
                             @endforeach
                         </select>
                     </div> --}}
-                    {{-- <div class="main-search-input-item">
+                    <div class="main-search-input-item">
                         <select name="ward" data-placeholder="All Categories" class="chosen-select">
                             <option value="">Phường Xã</option>
                             @foreach ($locationsWards as $locationsWard)
                                 <option value="{{$locationsWard->code}}">{{$locationsWard->full_name}}</option>
                             @endforeach
                         </select>
-                    </div> --}}
+                    </div>
                     <button type="submit" class="main-search-button color-bg">Tìm kiếm <i class="far fa-search"></i></button>
                 </div>
             </form>
