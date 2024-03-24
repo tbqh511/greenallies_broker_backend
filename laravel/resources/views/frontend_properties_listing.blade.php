@@ -199,7 +199,7 @@
                                     <div class="listsearch-input-item">
                                         <label>Diện tích (m²)</label>
                                         <div class="price-rage-item pr-nopad fl-wrap">
-                                            <input type="text" class="area-range-double" data-min="1" data-max="1000"
+                                            <input name="area" type="text" class="area-range-double" data-min="1" data-max="1000"
                                                 name="price-range2" data-step="10" value="1" data-prefix="">
                                         </div>
                                     </div>
@@ -212,16 +212,16 @@
                                         <label>Số tầng</label>
                                         <select name='number_floor' data-placeholder="Số tầng"
                                             class="chosen-select on-radius no-search-select">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10+</option>
+                                            <option value="1" {{ request()->input('number_floor') == '0' ? 'selected' : ''}}>1</option>
+                                            <option value="2" {{ request()->input('number_floor') == '0' ? 'selected' : ''}}>2</option>
+                                            <option value="3" {{ request()->input('number_floor') == '0' ? 'selected' : ''}}>3</option>
+                                            <option value="4" {{ request()->input('number_floor') == '0' ? 'selected' : ''}}>4</option>
+                                            <option value="5" {{ request()->input('number_floor') == '0' ? 'selected' : ''}}>5</option>
+                                            <option value="6" {{ request()->input('number_floor') == '0' ? 'selected' : ''}}>6</option>
+                                            <option value="7" {{ request()->input('number_floor') == '0' ? 'selected' : ''}}>7</option>
+                                            <option value="8" {{ request()->input('number_floor') == '0' ? 'selected' : ''}}>8</option>
+                                            <option value="9" {{ request()->input('number_floor') == '0' ? 'selected' : ''}}>9</option>
+                                            <option value="10" {{ request()->input('number_floor') == '0' ? 'selected' : ''}}>10+</option>
                                         </select>
                                     </div>
                                 </div>
@@ -232,16 +232,16 @@
                                         <label>Số phòng</label>
                                         <select name='number_room' data-placeholder="Số phòng ngủ"
                                             class="chosen-select on-radius no-search-select">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10+</option>
+                                            <option value="1" {{ request()->input('number_room') == '0' ? 'selected' : ''}}>1</option>
+                                            <option value="2" {{ request()->input('number_room') == '0' ? 'selected' : ''}}>2</option>
+                                            <option value="3" {{ request()->input('number_room') == '0' ? 'selected' : ''}}>3</option>
+                                            <option value="4" {{ request()->input('number_room') == '0' ? 'selected' : ''}}>4</option>
+                                            <option value="5" {{ request()->input('number_room') == '0' ? 'selected' : ''}}>5</option>
+                                            <option value="6" {{ request()->input('number_room') == '0' ? 'selected' : ''}}>6</option>
+                                            <option value="7" {{ request()->input('number_room') == '0' ? 'selected' : ''}}>7</option>
+                                            <option value="8" {{ request()->input('number_room') == '0' ? 'selected' : ''}}>8</option>
+                                            <option value="9" {{ request()->input('number_room') == '0' ? 'selected' : ''}}>9</option>
+                                            <option value="10" {{ request()->input('number_room') == '0' ? 'selected' : ''}}>10+</option>
                                         </select>
                                     </div>
                                 </div>
