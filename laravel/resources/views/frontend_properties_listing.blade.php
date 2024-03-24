@@ -207,26 +207,32 @@
                                 <!-- listsearch-input-item -->
 
                                 <!-- listsearch-input-item -->
-                                @php
-                                $options = [
-                                    'number_floor' => range(1, 10),
-                                    'number_room' => range(1, 10)
-                                ];
-                                @endphp
-                                @foreach ($options as $name => $values)
-                                <div class="col-sm-{{ $name == 'number_floor' ? '1' : '2' }}">
+                                <div class="col-sm-1">
                                     <div class="listsearch-input-item">
-                                        <label>{{ $name == 'number_floor' ? 'Số tầng' : 'Số phòng' }}</label>
-                                        <select name="{{ $name }}" data-placeholder="{{ $name == 'number_floor' ? 'Số tầng' : 'Số phòng ngủ' }}"
-                                            class="chosen-select on-radius no-search-select">
-                                            @foreach ($values as $value)
-                                                <option value="{{ $value }}" {{ request()->input($name) == $value ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                            <option value="10+" {{ request()->input($name) == '10' ? 'selected' : '' }}>10+</option>
+                                        <label>Số tầng</label>
+                                        <select name='number_floor' data-placeholder="Số tầng" class="chosen-select on-radius no-search-select">
+                                            @for ($i = 1; $i <= 10; $i++) <option value="{{ $i }}" {{ request()->input('number_floor') == $i ?
+                                                'selected' : ''}}>
+                                                {{ $i == 10 ? '10+' : $i }}
+                                                </option>
+                                                @endfor
                                         </select>
                                     </div>
                                 </div>
-                                @endforeach
+                                <!-- listsearch-input-item end-->
+                                <!-- listsearch-input-item -->
+                                <div class="col-sm-2">
+                                    <div class="listsearch-input-item">
+                                        <label>Số phòng</label>
+                                        <select name='number_room' data-placeholder="Số phòng ngủ"
+                                            class="chosen-select on-radius no-search-select">
+                                            @for ($i = 1; $i <= 10; $i++)
+                                                <option value="{{ $i }}" {{ request()->input('number_room') == $i ? 'selected' : ''}}>{{ $i }}</option>
+                                            @endfor
+                                            <option value="10" {{ request()->input('number_room') == '10' ? 'selected' : ''}}>10+</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <!-- listsearch-input-item end-->
                                 <!-- listsearch-input-item -->
                                 {{-- <div class="col-sm-2">
@@ -236,7 +242,6 @@
                                     </div>
                                 </div> --}}
                                 <!-- listsearch-input-item end-->
-
                             </div>
                             <div class="clearfix"></div>
                             <!-- listsearch-input-item-->
