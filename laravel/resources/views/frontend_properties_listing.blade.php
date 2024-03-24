@@ -207,47 +207,27 @@
                                 <!-- listsearch-input-item -->
 
                                 <!-- listsearch-input-item -->
-                                <div class="col-sm-1">
+                                @php
+                                $options = [
+                                    'number_floor' => range(1, 10),
+                                    'number_room' => range(1, 10)
+                                ];
+                                @endphp
+                                @foreach ($options as $name => $values)
+                                <div class="col-sm-{{ $name == 'number_floor' ? '1' : '2' }}">
                                     <div class="listsearch-input-item">
-                                        <label>Số tầng</label>
-                                        <select name='number_floor' data-placeholder="Số tầng"
+                                        <label>{{ $name == 'number_floor' ? 'Số tầng' : 'Số phòng' }}</label>
+                                        <select name="{{ $name }}" data-placeholder="{{ $name == 'number_floor' ? 'Số tầng' : 'Số phòng ngủ' }}"
                                             class="chosen-select on-radius no-search-select">
-                                            <option value="1" {{ request()->input('number_floor') == '1' ? 'selected' : ''}}>1</option>
-                                            <option value="2" {{ request()->input('number_floor') == '2' ? 'selected' : ''}}>2</option>
-                                            <option value="3" {{ request()->input('number_floor') == '3' ? 'selected' : ''}}>3</option>
-                                            <option value="4" {{ request()->input('number_floor') == '4' ? 'selected' : ''}}>4</option>
-                                            <option value="5" {{ request()->input('number_floor') == '5' ? 'selected' : ''}}>5</option>
-                                            <option value="6" {{ request()->input('number_floor') == '6' ? 'selected' : ''}}>6</option>
-                                            <option value="7" {{ request()->input('number_floor') == '7' ? 'selected' : ''}}>7</option>
-                                            <option value="8" {{ request()->input('number_floor') == '8' ? 'selected' : ''}}>8</option>
-                                            <option value="9" {{ request()->input('number_floor') == '9' ? 'selected' : ''}}>9</option>
-                                            <option value="10" {{ request()->input('number_floor') == '10' ? 'selected' : ''}}>10+</option>
+                                            @foreach ($values as $value)
+                                                <option value="{{ $value }}" {{ request()->input($name) == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                            <option value="10+" {{ request()->input($name) == '10' ? 'selected' : '' }}>10+</option>
                                         </select>
                                     </div>
                                 </div>
+                                @endforeach
                                 <!-- listsearch-input-item end-->
-                                <!-- listsearch-input-item -->
-                                <div class="col-sm-2">
-                                    <div class="listsearch-input-item">
-                                        <label>Số phòng</label>
-                                        <select name='number_room' data-placeholder="Số phòng ngủ"
-                                            class="chosen-select on-radius no-search-select">
-                                            <option value="1" {{ request()->input('number_room') == '1' ? 'selected' : ''}}>1</option>
-                                            <option value="2" {{ request()->input('number_room') == '2' ? 'selected' : ''}}>2</option>
-                                            <option value="3" {{ request()->input('number_room') == '3' ? 'selected' : ''}}>3</option>
-                                            <option value="4" {{ request()->input('number_room') == '4' ? 'selected' : ''}}>4</option>
-                                            <option value="5" {{ request()->input('number_room') == '5' ? 'selected' : ''}}>5</option>
-                                            <option value="6" {{ request()->input('number_room') == '6' ? 'selected' : ''}}>6</option>
-                                            <option value="7" {{ request()->input('number_room') == '7' ? 'selected' : ''}}>7</option>
-                                            <option value="8" {{ request()->input('number_room') == '8' ? 'selected' : ''}}>8</option>
-                                            <option value="9" {{ request()->input('number_room') == '9' ? 'selected' : ''}}>9</option>
-                                            <option value="10" {{ request()->input('number_room') == '10' ? 'selected' : ''}}>10+</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- listsearch-input-item end-->
-
-
                                 <!-- listsearch-input-item -->
                                 {{-- <div class="col-sm-2">
                                     <div class="listsearch-input-item">
