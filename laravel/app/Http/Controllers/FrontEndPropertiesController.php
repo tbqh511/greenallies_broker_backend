@@ -101,7 +101,11 @@ class FrontEndPropertiesController extends Controller
         // Get the list of product categories sorted by category in ascending order
         $categories = Category::orderBy('category')->get();
 
-
+        $legalsParameter = parameter::where('id',config('global.legal'))->get();
+        if (!empty($legals)){
+            $legals = json_decode($legalsParameter->type_values, true);
+        }
+        
         // Get search parameters
         $id = $request->input('id');
         $categoryInput = $request->input('category');
@@ -149,14 +153,14 @@ class FrontEndPropertiesController extends Controller
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
 
-        $legals = parameter::where('id','13')->get();
-        dd($legals);
+        
+        
 
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
 
         // Pass the properties and search result message to the view
-        return view('frontend_properties_listing', compact('properties', 'searchResult','locationsStreets','locationsWards','categories'));
+        return view('frontend_properties_listing', compact('properties', 'searchResult','locationsStreets','locationsWards','categories','legals'));
     }
 
     private function generateSearchResultMessage($categoryInput, $wardInput, $streetInput)

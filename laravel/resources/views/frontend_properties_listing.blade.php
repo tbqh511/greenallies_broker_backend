@@ -173,14 +173,18 @@
                                         <select name="legal" data-placeholder="Chọn pháp lý"
                                             class="chosen-select on-radius no-search-select">
                                             <option value="">Chọn pháp lý</option>
-                                            <option value="Sổ xây dựng">Sổ xây dựng</option>
+                                            @foreach ($legals as $key => $value) {
+                                                echo "<option value='$key'>$value</option>";
+                                            @endforeach
+                                            {{-- <option value="Sổ xây dựng">Sổ xây dựng</option>
                                             <option value="Sổ nông nghiệp">Sổ nông nghiệp</option>
                                             <option value="Sổ phân quyền nông nghiệp">Sổ phân quyền nông nghiệp</option>
                                             <option value="Sổ phân quyền xây dựng">Sổ phân quyền xây dựng</option>
-                                            <option value="Giấy tay">Giấy tay</option>
+                                            <option value="Giấy tay">Giấy tay</option> --}}
                                         </select>
                                     </div>
                                 </div>
+                                
                                 <!-- listsearch-input-item end-->
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-2">
