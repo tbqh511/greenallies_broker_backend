@@ -152,7 +152,7 @@
                         <div class="hidden-listing-filter fl-wrap">
                             <div class="row">
                                 <!-- listsearch-input-item -->
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                     <div class="listsearch-input-item">
                                         <label for="legal">Pháp lý</label>
                                         <select name="legal" class="chosen-select on-radius no-search-select">
@@ -166,7 +166,7 @@
                                 </div>
                                 <!-- listsearch-input-item end-->
                                 <!-- listsearch-input-item -->
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                     <div class="listsearch-input-item">
                                         <label for="direction">Hướng</label>
                                         <select name='direction' id="direction" data-placeholder="Chọn hướng" class="chosen-select on-radius no-search-select">
@@ -196,7 +196,7 @@
                                 <!-- listsearch-input-item -->
                                 
                                 <!-- listsearch-input-item -->
-                                <div class="col-sm-2">
+                                <div class="col-sm-1">
                                     <div class="listsearch-input-item">
                                         <label>Số tầng</label>
                                         <select name='number_floor' data-placeholder="Số tầng"
@@ -216,7 +216,7 @@
                                 </div>
                                 <!-- listsearch-input-item end-->
                                 <!-- listsearch-input-item -->
-                                <div class="col-sm-2">
+                                <div class="col-sm-1">
                                     <div class="listsearch-input-item">
                                         <label>Số phòng ngủ</label>
                                         <select name='number_room' data-placeholder="Số phòng ngủ"
