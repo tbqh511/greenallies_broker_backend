@@ -50,7 +50,7 @@
                             <!-- Ô nhập liệu tìm kiếm -->
                             <div class="col-sm-3">
                                 <div class="listsearch-input-item">
-                                    <input name="text" type="text" placeholder="Tìm BDS" value="" />
+                                    <input name="text" type="text" placeholder="Tìm BDS" value="{{ request()->input('text') }}" />
                                 </div>
                             </div>
                             <!-- Kết thúc ô nhập liệu tìm kiếm -->
