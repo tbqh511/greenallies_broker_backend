@@ -333,6 +333,21 @@ function initHomeradar() {
         type: "single",
     });
 
+    //HuyTBQ: function for area-range
+    var sliders_init3 = $(".area-range-double");
+    sliders_init3.ionRangeSlider({
+        type: "double",
+        prettify: formattedArea,
+        skin: "round",
+        grid: true,
+        max_postfix: "+",
+    });
+
+    function formattedArea(n) {
+        return n + ' m²';
+    }
+    //End HuyTBQ
+
     var sliders_init2 = $(".price-range-double");
     sliders_init2.ionRangeSlider({
         type: "double",
@@ -342,6 +357,7 @@ function initHomeradar() {
         max_postfix: "+",
     });
 
+    
     // HuyTBQ: function for format prices
     function formattedPrices(n) {
         var ty = 1000000000;

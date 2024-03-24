@@ -188,8 +188,8 @@
                                     <div class="listsearch-input-item">
                                         <label>Diện tích (m<sup>2</sup>)</label>
                                         <div class="price-rage-item pr-nopad fl-wrap">
-                                            <input type="text" class="price-range-double" data-min="1" data-max="1000"
-                                                name="price-range2" data-step="1" value="1" data-prefix="">
+                                            <input type="text" class="area-range-double" data-min="1" data-max="10000"
+                                                name="price-range2" data-step="10" value="1" data-prefix="">
                                         </div>
                                     </div>
                                 </div>
