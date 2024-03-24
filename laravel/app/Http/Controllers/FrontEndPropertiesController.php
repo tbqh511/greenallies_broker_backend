@@ -110,14 +110,19 @@ class FrontEndPropertiesController extends Controller
         $directions = $directionsParameter->type_values;
 
         // Get search parameters
-        $id = $request->input('id');
-        $categoryInput = $request->input('category');
+        $idInput = $request->input('_token');
+        $textInput = $request->input('text');
+        $propertyTypeInput = $request->input('propery_type');
         $wardInput = $request->input('ward');
         $streetInput = $request->input('street');
-        $text = $request->input('text');
-        $propertyType = $request->input('propery_type');
+        $categoryInput = $request->input('category');
+        $priceRangeInput = $request->input('price-range2');
+        $legalInput = $request->input('legal');
+        $directionInput = $request->input('direction');
+        $areaInput = $request->input('area');
+        $numberFloorInput = $request->input('number_floor');
+        $numberRoomInput = $request->input('number_room');
 
-        
 
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
@@ -135,19 +140,19 @@ class FrontEndPropertiesController extends Controller
             $propertiesQuery->where('street_code', $streetInput);
         }
 
-        if (!empty($text)) {
+        if (!empty($textInput)) {
             // Tách chuỗi code thành các phần
-            $parts = explode('_', $text);
+            $parts = explode('_', $textInput);
             // Lấy id từ phần tử cuối cùng của mảng parts
-            $id = end($parts);
-            $propertiesQuery->where('id', $id);
+            $idInput = end($parts);
+            $propertiesQuery->where('id', $idInput);
         }
 
-        if (!empty($propertyType)) {
-            if ($propertyType === '1') {
+        if (!empty($propertyTypeInput)) {
+            if ($propertyTypeInput === '1') {
                 // Xử lý khi người dùng chọn "Cho Thuê"
                 $propertiesQuery->where('propery_type', 1);
-            } elseif ($propertyType === '0') {
+            } elseif ($propertyTypeInput === '0') {
                 // Xử lý khi người dùng chọn "Bán"
                 $propertiesQuery->where('propery_type', 0);
             } else {
