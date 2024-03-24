@@ -191,13 +191,13 @@ class FrontEndPropertiesController extends Controller
         if (!empty($legalInput)) {
             $properties = Property::whereHas('assignParameter', function ($query) use ($legalInput) {
                 $query->where('parameter_id', config('global.legal'))
-                    ->where('value', $legalInput);
+                    ->where('value', 'Sổ');
             })->get();
         }
 
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
-        dd($properties[0]->$legalInput);
+        dd($legalInput);
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
 
