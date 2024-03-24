@@ -174,7 +174,7 @@
                                             class="chosen-select on-radius no-search-select">
                                             <option value="">Chọn pháp lý</option>
                                             @foreach ($legals as $key => $value) {
-                                                echo "<option value='$key'>$value</option>";
+                                                echo "<option value='{{$key}}'>{{$value}}</option>";
                                             @endforeach
                                             {{-- <option value="Sổ xây dựng">Sổ xây dựng</option>
                                             <option value="Sổ nông nghiệp">Sổ nông nghiệp</option>
