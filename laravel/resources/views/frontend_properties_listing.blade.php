@@ -186,7 +186,7 @@
                                         <label for="direction">Hướng</label>
                                         <select name='direction' id="direction" data-placeholder="Chọn hướng"
                                             class="chosen-select on-radius no-search-select">
-                                            <option value="" {{ Request::input('direction')=='' ? 'selected' : '' }}>Chọn hướng</option>
+                                            <option value="" >Chọn hướng</option>
                                             @foreach ($directions as $key => $value)
                                             <option value="{{ $key }}" {{ Request::input('direction')==$value ? 'selected' : '' }}>{{ $value }}</option>
                                             @endforeach
