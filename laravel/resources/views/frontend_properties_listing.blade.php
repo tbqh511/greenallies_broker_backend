@@ -171,7 +171,7 @@
                                     <div class="listsearch-input-item">
                                         <label for="legal">Pháp lý</label>
                                         <select name="legal" data-placeholder="Chọn pháp lý" class="chosen-select on-radius no-search-select">
-                                            <option value="" {{ Request::input('legal')=='' ? 'selected' : '' }}>Chọn pháp lý</option>
+                                            <option value="" selected>Chọn pháp lý</option>
                                             @foreach ($legals as $key => $value)
                                             <option value="{{ $value }}" {{ Request::input('legal')==$key ? 'selected' : '' }}>{{ $value }}</option>
                                             @endforeach
