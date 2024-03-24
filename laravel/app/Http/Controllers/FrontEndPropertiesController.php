@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\parameter;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Models\LocationsStreet;
 use App\Models\LocationsWard;
 use App\Models\ProductType;
 use App\Models\Product;
+use PHPUnit\Framework\MockObject\Rule\Parameters;
 
 class FrontEndPropertiesController extends Controller
 {
@@ -146,7 +148,9 @@ class FrontEndPropertiesController extends Controller
         }
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
-        //dd($properties);
+
+        $legals = parameter::where('id','13')->get();
+        dd($legals);
 
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
