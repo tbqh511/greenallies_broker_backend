@@ -102,8 +102,8 @@ class FrontEndPropertiesController extends Controller
         $categories = Category::orderBy('category')->get();
 
         $legals = [];
-        $legalsParameter = parameter::where('id',config('global.legal'))->get();
-        if (!empty($legals)){
+        $legalsParameter = Parameter::find(config('global.legal')); // Sử dụng find thay vì get để lấy một bản ghi cụ thể
+        if ($legalsParameter) {
             $legals = json_decode($legalsParameter->type_values, true);
         }
         
