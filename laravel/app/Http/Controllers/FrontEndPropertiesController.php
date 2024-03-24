@@ -117,8 +117,8 @@ class FrontEndPropertiesController extends Controller
         $textInput = $request->input('text');
         $propertyTypeInput = $request->input('propery_type');
         $priceRangeInput = $request->input('price-range2');
-
         $legalInput = $request->input('legal');
+        
         $directionInput = $request->input('direction');
         $areaInput = $request->input('area');
         $numberFloorInput = $request->input('number_floor');
@@ -188,9 +188,16 @@ class FrontEndPropertiesController extends Controller
             }
         }
 
+        if (!empty($legalInput)) {
+            $properties = Property::whereHas('assignParameter', function ($query) use ($legalInput) {
+                $query->where('parameter_id', config('global.legal'))
+                    ->where('value', $legalInput);
+            })->get();
+        }
+
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
-
+        dd($properties);
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
 
