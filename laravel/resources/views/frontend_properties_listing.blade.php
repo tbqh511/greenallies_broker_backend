@@ -50,7 +50,8 @@
                             <!-- Ô nhập liệu tìm kiếm -->
                             <div class="col-sm-3">
                                 <div class="listsearch-input-item">
-                                    <input name="text" type="text" placeholder="Tìm BDS" value="{{ request()->input('text') }}" />
+                                    <input name="text" type="text" placeholder="Tìm BDS"
+                                        value="{{ request()->input('text') }}" />
                                 </div>
                             </div>
                             <!-- Kết thúc ô nhập liệu tìm kiếm -->
@@ -60,12 +61,14 @@
                                     <select name="propery_type" data-placeholder="Tình trạng"
                                         class="chosen-select on-radius no-search-select">
                                         <option value="">Cho thuê & Bán</option>
-                                        <option value="0">Bán</option>
-                                        <option value="1">Cho Thuê</option>
+                                        <option value="0" {{ request()->input('propery_type') == '0' ? 'selected' : ''}}>Bán</option>
+                                        <option value="1" {{ request()->input('propery_type') == '1' ? 'selected' : ''}}>Cho Thuê</option>
                                     </select>
                                 </div>
+
                                 {{-- <div class="main-search-input-item">
-                                    <select name="propery_type" data-placeholder="Cho thuê & Bán" class="chosen-select no-search-select">
+                                    <select name="propery_type" data-placeholder="Cho thuê & Bán"
+                                        class="chosen-select no-search-select">
                                         <option value="">Cho thuê & Bán</option>
                                         <option value="1">Cho Thuê</option>
                                         <option value="0">Bán</option>
@@ -79,11 +82,15 @@
                                     <select name="ward" data-placeholder="Tất cả thành phố" class="chosen-select on-radius no-search-select">
                                         <option value="">Phường Xã</option>
                                         @foreach ($locationsWards as $locationsWard)
-                                        <option value="{{$locationsWard->code}}">{{$locationsWard->full_name}}</option>
+                                            <option value="{{$locationsWard->code}}" 
+                                                {{ request()->input('ward') == $locationsWard->code ? 'selected' : '' }}>
+                                                {{$locationsWard->full_name}}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
+                            
                             <!-- Kết thúc ô lựa chọn thành phố -->
                             <!-- Ô lựa chọn Duong -->
                             <div class="col-sm-3">
@@ -91,11 +98,14 @@
                                     <select name="street" data-placeholder="All Categories" class="chosen-select">
                                         <option value="">Đường</option>
                                         @foreach ($locationsStreets as $locationsStreet)
-                                            <option value="{{$locationsStreet->code}}">{{$locationsStreet->street_name}}</option>
+                                            <option value="{{$locationsStreet->code}}" {{ request()->input('street') == $locationsStreet->code ? 'selected' : '' }}>
+                                                {{$locationsStreet->street_name}}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
+                            
                             <!-- Kết thúc ô lựa chọn thành phố -->
                             {{-- <ul class="list">
                                 <li data-value="" class="option selected focus">Phường Xã</li>
@@ -123,7 +133,10 @@
                                     <select name="category" data-placeholder="Loại BDS" class="chosen-select on-radius no-search-select">
                                         <option value="">Loại BDS</option>
                                         @foreach ($categories as $categorie)
-                                        <option value="{{$categorie->id}}">{{$categorie->category}}</option>
+                                            <option value="{{ $categorie->id }}" 
+                                                    {{ request()->input('category') == $categorie->id ? 'selected' : '' }}>
+                                                {{ $categorie->category }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -134,8 +147,9 @@
                                 <div class="listsearch-input-item">
                                     <div class="price-range-item fl-wrap">
                                         <span class="pr_title">Giá:</span>
-                                        <input type="text" class="price-range-double" data-min="100000000" data-max="50000000000"
-                                            name="price-range2" data-step="1000000000" value="100000000" max_postfix="+" >
+                                        <input type="text" class="price-range-double" data-min="100000000"
+                                            data-max="50000000000" name="price-range2" data-step="1000000000"
+                                            value="{{ request()->input('price-range2') }}" max_postfix="+">
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +157,8 @@
                             <!-- Nút tìm kiếm -->
                             <div class="col-sm-3">
                                 <div class="listsearch-input-item">
-                                    <button type="submit" class="btn color-bg fw-btn float-btn small-btn">Tìm kiếm</button>
+                                    <button type="submit" class="btn color-bg fw-btn float-btn small-btn">Tìm
+                                        kiếm</button>
                                 </div>
                             </div>
                             <!-- Kết thúc nút tìm kiếm -->
@@ -155,7 +170,8 @@
                                 <div class="col-sm-3">
                                     <div class="listsearch-input-item">
                                         <label for="legal">Pháp lý</label>
-                                        <select name="legal" data-placeholder="Chọn pháp lý" class="chosen-select on-radius no-search-select">
+                                        <select name="legal" data-placeholder="Chọn pháp lý"
+                                            class="chosen-select on-radius no-search-select">
                                             <option value="">Chọn pháp lý</option>
                                             <option value="Sổ xây dựng">Sổ xây dựng</option>
                                             <option value="Sổ nông nghiệp">Sổ nông nghiệp</option>
@@ -170,7 +186,8 @@
                                 <div class="col-sm-2">
                                     <div class="listsearch-input-item">
                                         <label for="direction">Hướng</label>
-                                        <select name='direction' id="direction" data-placeholder="Chọn hướng" class="chosen-select on-radius no-search-select">
+                                        <select name='direction' id="direction" data-placeholder="Chọn hướng"
+                                            class="chosen-select on-radius no-search-select">
                                             <option value="">Chọn hướng</option>
                                             <option value="Đông">Đông</option>
                                             <option value="Nam">Nam</option>
@@ -184,8 +201,8 @@
                                     </div>
                                 </div>
                                 <!-- listsearch-input-item end-->
-                                 <!-- listsearch-input-item -->
-                                 <div class="col-sm-4">
+                                <!-- listsearch-input-item -->
+                                <div class="col-sm-4">
                                     <div class="listsearch-input-item">
                                         <label>Diện tích (m²)</label>
                                         <div class="price-rage-item pr-nopad fl-wrap">
@@ -195,7 +212,7 @@
                                     </div>
                                 </div>
                                 <!-- listsearch-input-item -->
-                                
+
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-1">
                                     <div class="listsearch-input-item">
@@ -236,8 +253,8 @@
                                     </div>
                                 </div>
                                 <!-- listsearch-input-item end-->
-                                
-                                
+
+
                                 <!-- listsearch-input-item -->
                                 {{-- <div class="col-sm-2">
                                     <div class="listsearch-input-item">
@@ -246,7 +263,7 @@
                                     </div>
                                 </div> --}}
                                 <!-- listsearch-input-item end-->
-                               
+
                             </div>
                             <div class="clearfix"></div>
                             <!-- listsearch-input-item-->
