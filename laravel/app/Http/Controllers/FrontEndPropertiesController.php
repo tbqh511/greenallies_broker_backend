@@ -154,20 +154,21 @@ class FrontEndPropertiesController extends Controller
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
 
-        //dd($legalsParameter->type_values);
-        // Kiểm tra xem $legalsParameter có tồn tại và có dữ liệu không
-        if ($legalsParameter && $legalsParameter->isNotEmpty()) {
-            // Duyệt qua mỗi phần tử trong collection và truy cập thuộc tính type_values
-            foreach ($legalsParameter as $legalParameter) {
-                if ($legalParameter->type_values) {
-                    dd($legalParameter->type_values);
-                }
-            }
-        } else {
-            // Xử lý khi không có dữ liệu trong $legalsParameter hoặc $legalsParameter không tồn tại
-            // Ví dụ:
-            dd('Không có dữ liệu hoặc $legalsParameter không tồn tại.');
-        }
+        dd($legals);
+        // dd($legalParameter->type_values);
+        // // Kiểm tra xem $legalsParameter có tồn tại và có dữ liệu không
+        // if ($legalsParameter && $legalsParameter->isNotEmpty()) {
+        //     // Duyệt qua mỗi phần tử trong collection và truy cập thuộc tính type_values
+        //     foreach ($legalsParameter as $legalParameter) {
+        //         if ($legalParameter->type_values) {
+        //             dd($legalParameter->type_values);
+        //         }
+        //     }
+        // } else {
+        //     // Xử lý khi không có dữ liệu trong $legalsParameter hoặc $legalsParameter không tồn tại
+        //     // Ví dụ:
+        //     dd('Không có dữ liệu hoặc $legalsParameter không tồn tại.');
+        // }
         
 
         // Define the search result message
