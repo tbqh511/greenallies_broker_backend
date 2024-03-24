@@ -101,11 +101,14 @@ class FrontEndPropertiesController extends Controller
         // Get the list of product categories sorted by category in ascending order
         $categories = Category::orderBy('category')->get();
 
-        
+        // get the list legals of properties         
         $legalsParameter = Parameter::find(config('global.legal')); // Lấy bản ghi theo config
         $legals = $legalsParameter->type_values;
 
-        
+        // get the list directions of properties         
+        $directionsParameter = Parameter::find(config('global.direction')); // Lấy bản ghi theo config
+        $directions = $directionsParameter->type_values;
+
         // Get search parameters
         $id = $request->input('id');
         $categoryInput = $request->input('category');
@@ -174,7 +177,7 @@ class FrontEndPropertiesController extends Controller
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
 
         // Pass the properties and search result message to the view
-        return view('frontend_properties_listing', compact('properties', 'searchResult','locationsStreets','locationsWards','categories','legals'));
+        return view('frontend_properties_listing', compact('properties', 'searchResult','locationsStreets','locationsWards','categories','legals','directions'));
     }
 
     private function generateSearchResultMessage($categoryInput, $wardInput, $streetInput)

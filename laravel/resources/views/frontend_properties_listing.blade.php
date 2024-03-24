@@ -176,11 +176,6 @@
                                             @foreach ($legals as $key => $value) {
                                                 echo "<option value='{{$key}}'>{{$value}}</option>";
                                             @endforeach
-                                            {{-- <option value="Sổ xây dựng">Sổ xây dựng</option>
-                                            <option value="Sổ nông nghiệp">Sổ nông nghiệp</option>
-                                            <option value="Sổ phân quyền nông nghiệp">Sổ phân quyền nông nghiệp</option>
-                                            <option value="Sổ phân quyền xây dựng">Sổ phân quyền xây dựng</option>
-                                            <option value="Giấy tay">Giấy tay</option> --}}
                                         </select>
                                     </div>
                                 </div>
@@ -192,14 +187,9 @@
                                         <select name='direction' id="direction" data-placeholder="Chọn hướng"
                                             class="chosen-select on-radius no-search-select">
                                             <option value="">Chọn hướng</option>
-                                            <option value="Đông">Đông</option>
-                                            <option value="Nam">Nam</option>
-                                            <option value="Tây">Tây</option>
-                                            <option value="Bắc">Bắc</option>
-                                            <option value="Đông Nam">Đông Nam</option>
-                                            <option value="Tây Nam">Tây Nam</option>
-                                            <option value="Tây Bắc">Tây Bắc</option>
-                                            <option value="Đông Bắc">Đông Bắc</option>
+                                            @foreach ($directions as $key => $value) {
+                                                echo "<option value='{{$key}}'>{{$value}}</option>";
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
