@@ -101,17 +101,9 @@ class FrontEndPropertiesController extends Controller
         // Get the list of product categories sorted by category in ascending order
         $categories = Category::orderBy('category')->get();
 
-        $legals = [];
+        
         $legalsParameter = Parameter::find(config('global.legal')); // Lấy bản ghi theo config
-        if ($legalsParameter) {
-            // Kiểm tra nếu $legalsParameter->type_values là một chuỗi JSON hợp lệ trước khi decode
-            if (is_string($legalsParameter->type_values)) {
-                $legals = json_decode($legalsParameter->type_values, true);
-            } else {
-                // Xử lý nếu không phải chuỗi JSON hợp lệ
-                // Ví dụ: Ghi log hoặc thông báo lỗi
-            }
-        }
+        $legals = $legalsParameter->type_values;
 
         
         // Get search parameters
@@ -161,7 +153,7 @@ class FrontEndPropertiesController extends Controller
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
 
-        dd($legalsParameter->type_values);
+        //dd($legalsParameter->type_values);
         // dd($legalParameter->type_values);
         // // Kiểm tra xem $legalsParameter có tồn tại và có dữ liệu không
         // if ($legalsParameter && $legalsParameter->isNotEmpty()) {
