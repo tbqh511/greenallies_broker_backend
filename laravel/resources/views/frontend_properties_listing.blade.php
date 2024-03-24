@@ -166,7 +166,7 @@
                                 </div>
                                 <!-- listsearch-input-item end-->
                                 <!-- listsearch-input-item -->
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <div class="listsearch-input-item">
                                         <label for="direction">Hướng</label>
                                         <select name='direction' id="direction" data-placeholder="Chọn hướng" class="chosen-select on-radius no-search-select">
@@ -216,9 +216,9 @@
                                 </div>
                                 <!-- listsearch-input-item end-->
                                 <!-- listsearch-input-item -->
-                                <div class="col-sm-1">
+                                <div class="col-sm-2">
                                     <div class="listsearch-input-item">
-                                        <label>Số phòng ngủ</label>
+                                        <label>Số phòng</label>
                                         <select name='number_room' data-placeholder="Số phòng ngủ"
                                             class="chosen-select on-radius no-search-select">
                                             <option value="1">1</option>
