@@ -191,7 +191,7 @@ class FrontEndPropertiesController extends Controller
         if (!empty($legalInput)) {
             $properties = Property::whereHas('assignParameter', function ($query) use ($legalInput) {
                 $query->where('parameter_id', config('global.legal'))
-                    ->where('value', 'Sổ');
+                    ->where('value', $legalInput);
             })->get();
         }
 
