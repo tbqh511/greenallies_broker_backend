@@ -154,7 +154,7 @@ class FrontEndPropertiesController extends Controller
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
 
-        
+        dd(config('global.legal'));
         
 
         // Define the search result message
