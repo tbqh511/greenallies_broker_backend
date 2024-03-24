@@ -20,6 +20,8 @@ return [
     "JSON_PATH" => '/json',
 
     //HuyTBQ: Parameter for properties on properties card
+    'max_price' => '50000000000',
+
     'code_title' => 'Mã BDS',
 
     'area_title' => 'Diện tích',
