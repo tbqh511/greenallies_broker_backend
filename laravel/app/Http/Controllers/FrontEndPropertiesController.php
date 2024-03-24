@@ -117,6 +117,8 @@ class FrontEndPropertiesController extends Controller
         $text = $request->input('text');
         $propertyType = $request->input('propery_type');
 
+        
+
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
 
