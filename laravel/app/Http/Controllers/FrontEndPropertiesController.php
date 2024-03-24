@@ -161,7 +161,7 @@ class FrontEndPropertiesController extends Controller
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
 
-        dd($legals);
+        dd($legalsParameter->type_values);
         // dd($legalParameter->type_values);
         // // Kiểm tra xem $legalsParameter có tồn tại và có dữ liệu không
         // if ($legalsParameter && $legalsParameter->isNotEmpty()) {
