@@ -116,15 +116,14 @@ class FrontEndPropertiesController extends Controller
         $streetInput = $request->input('street');
         $textInput = $request->input('text');
         $propertyTypeInput = $request->input('propery_type');
-
         $priceRangeInput = $request->input('price-range2');
+        
         $legalInput = $request->input('legal');
         $directionInput = $request->input('direction');
         $areaInput = $request->input('area');
         $numberFloorInput = $request->input('number_floor');
         $numberRoomInput = $request->input('number_room');
 
-        dd($priceRangeInput);
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
         // Add conditions to query based on search parameters
