@@ -101,6 +101,7 @@ class FrontEndPropertiesController extends Controller
         // Get the list of product categories sorted by category in ascending order
         $categories = Category::orderBy('category')->get();
 
+        $legals = [];
         $legalsParameter = parameter::where('id',config('global.legal'))->get();
         if (!empty($legals)){
             $legals = json_decode($legalsParameter->type_values, true);
