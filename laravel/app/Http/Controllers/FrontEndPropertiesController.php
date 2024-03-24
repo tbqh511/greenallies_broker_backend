@@ -118,8 +118,8 @@ class FrontEndPropertiesController extends Controller
         $propertyTypeInput = $request->input('propery_type');
         $priceRangeInput = $request->input('price-range2');
         $legalInput = $request->input('legal');
-        
         $directionInput = $request->input('direction');
+
         $areaInput = $request->input('area');
         $numberFloorInput = $request->input('number_floor');
         $numberRoomInput = $request->input('number_room');
@@ -197,7 +197,8 @@ class FrontEndPropertiesController extends Controller
 
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
-        dd($legalInput);
+        dd($legalInput,$directionInput);
+        
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
 
