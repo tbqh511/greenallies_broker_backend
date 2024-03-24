@@ -171,7 +171,7 @@
                                     <div class="listsearch-input-item">
                                         <label for="legal">Pháp lý</label>
                                         <select name="legal" data-placeholder="Chọn pháp lý" class="chosen-select on-radius no-search-select">
-                                            <option value="">Chọn pháp lý</option>
+                                            <option value="" {{ Request::input('legal')=='' ? 'selected' : '' }}>Chọn pháp lý</option>
                                             @foreach ($legals as $key => $value)
                                             <option value="{{ $value }}" {{ Request::input('legal')==$key ? 'selected' : '' }}>{{ $value }}</option>
                                             @endforeach
@@ -186,7 +186,7 @@
                                         <label for="direction">Hướng</label>
                                         <select name='direction' id="direction" data-placeholder="Chọn hướng"
                                             class="chosen-select on-radius no-search-select">
-                                            <option value="">Chọn hướng</option>
+                                            <option value="" {{ Request::input('direction')=='' ? 'selected' : '' }}s>Chọn hướng</option>
                                             @foreach ($directions as $key => $value)
                                             <option value="{{ $key }}" {{ Request::input('direction')==$key ? 'selected' : '' }}>{{ $value }}</option>
                                             @endforeach
