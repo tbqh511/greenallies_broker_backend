@@ -170,16 +170,16 @@
                                 <div class="col-sm-3">
                                     <div class="listsearch-input-item">
                                         <label for="legal">Pháp lý</label>
-                                        <select name="legal" data-placeholder="Chọn pháp lý"
-                                            class="chosen-select on-radius no-search-select">
+                                        <select name="legal" data-placeholder="Chọn pháp lý" class="chosen-select on-radius no-search-select">
                                             <option value="">Chọn pháp lý</option>
-                                            @foreach ($legals as $key => $value) {
-                                                echo "<option value='{{$key}}'>{{$value}}</option>";
+                                            @foreach ($legals as $key => $value)
+                                            <option value="{{ $key }}" {{ Request::input('legal')==$key ? 'selected' : '' }}>{{ $value }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <!-- listsearch-input-item end-->
+
                                 <!-- listsearch-input-item -->
                                 <div class="col-sm-2">
                                     <div class="listsearch-input-item">
@@ -187,8 +187,8 @@
                                         <select name='direction' id="direction" data-placeholder="Chọn hướng"
                                             class="chosen-select on-radius no-search-select">
                                             <option value="">Chọn hướng</option>
-                                            @foreach ($directions as $key => $value) {
-                                                echo "<option value='{{$key}}'>{{$value}}</option>";
+                                            @foreach ($directions as $key => $value)
+                                            <option value="{{ $key }}" {{ Request::input('direction')==$key ? 'selected' : '' }}>{{ $value }}</option>
                                             @endforeach
                                         </select>
                                     </div>
