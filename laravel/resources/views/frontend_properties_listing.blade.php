@@ -155,7 +155,8 @@
                                 <div class="col-sm-3">
                                     <div class="listsearch-input-item">
                                         <label for="legal">Pháp lý</label>
-                                        <select name="legal" class="chosen-select on-radius no-search-select">
+                                        <select name="legal" data-placeholder="Chọn pháp lý" class="chosen-select on-radius no-search-select">
+                                            <option value="">Chọn pháp lý</option>
                                             <option value="Sổ xây dựng">Sổ xây dựng</option>
                                             <option value="Sổ nông nghiệp">Sổ nông nghiệp</option>
                                             <option value="Sổ phân quyền nông nghiệp">Sổ phân quyền nông nghiệp</option>
@@ -170,7 +171,7 @@
                                     <div class="listsearch-input-item">
                                         <label for="direction">Hướng</label>
                                         <select name='direction' id="direction" data-placeholder="Chọn hướng" class="chosen-select on-radius no-search-select">
-                                            <option value="Đông">Chọn hướng</option>
+                                            <option value="">Chọn hướng</option>
                                             <option value="Đông">Đông</option>
                                             <option value="Nam">Nam</option>
                                             <option value="Tây">Tây</option>
