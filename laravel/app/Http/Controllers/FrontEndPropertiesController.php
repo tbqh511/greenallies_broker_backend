@@ -111,22 +111,21 @@ class FrontEndPropertiesController extends Controller
 
         // Get search parameters
         $idInput = $request->input('_token');
-        $textInput = $request->input('text');
-        $propertyTypeInput = $request->input('propery_type');
+        $categoryInput = $request->input('category');
         $wardInput = $request->input('ward');
         $streetInput = $request->input('street');
-        $categoryInput = $request->input('category');
+        $textInput = $request->input('text');
+        $propertyTypeInput = $request->input('propery_type');
+
         $priceRangeInput = $request->input('price-range2');
         $legalInput = $request->input('legal');
         $directionInput = $request->input('direction');
         $areaInput = $request->input('area');
         $numberFloorInput = $request->input('number_floor');
         $numberRoomInput = $request->input('number_room');
-
-
+        dd($priceRangeInput);
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
-
         // Add conditions to query based on search parameters
         if (!empty($categoryInput)) {
             $propertiesQuery->where('category_id', $categoryInput);
