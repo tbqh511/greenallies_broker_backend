@@ -102,10 +102,17 @@ class FrontEndPropertiesController extends Controller
         $categories = Category::orderBy('category')->get();
 
         $legals = [];
-        $legalsParameter = Parameter::find(config('global.legal')); // Sử dụng find thay vì get để lấy một bản ghi cụ thể
+        $legalsParameter = Parameter::find(config('global.legal')); // Lấy bản ghi theo config
         if ($legalsParameter) {
-            $legals = json_decode($legalsParameter->type_values, true);
+            // Kiểm tra nếu $legalsParameter->type_values là một chuỗi JSON hợp lệ trước khi decode
+            if (is_string($legalsParameter->type_values)) {
+                $legals = json_decode($legalsParameter->type_values, true);
+            } else {
+                // Xử lý nếu không phải chuỗi JSON hợp lệ
+                // Ví dụ: Ghi log hoặc thông báo lỗi
+            }
         }
+
         
         // Get search parameters
         $id = $request->input('id');
