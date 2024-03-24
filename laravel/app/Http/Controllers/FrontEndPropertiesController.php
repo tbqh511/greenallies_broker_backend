@@ -117,7 +117,7 @@ class FrontEndPropertiesController extends Controller
         $textInput = $request->input('text');
         $propertyTypeInput = $request->input('propery_type');
         $priceRangeInput = $request->input('price-range2');
-        
+
         $legalInput = $request->input('legal');
         $directionInput = $request->input('direction');
         $areaInput = $request->input('area');
@@ -181,6 +181,7 @@ class FrontEndPropertiesController extends Controller
             if ($maxPrice == config('global.max_price')) {
                 // Truy vấn các bất động sản có giá lớn hơn $minPrice
                 $propertiesQuery->where('price', '>', $minPrice);
+                dd($minPrice);
             } else {
                 // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
                 $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
