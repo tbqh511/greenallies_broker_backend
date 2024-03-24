@@ -173,7 +173,7 @@
                                         <select name="legal" data-placeholder="Chọn pháp lý" class="chosen-select on-radius no-search-select">
                                             <option value="">Chọn pháp lý</option>
                                             @foreach ($legals as $key => $value)
-                                            <option value="{{ $key }}" {{ Request::input('legal')==$key ? 'selected' : '' }}>{{ $value }}</option>
+                                            <option value="{{ $value }}" {{ Request::input('legal')==$key ? 'selected' : '' }}>{{ $value }}</option>
                                             @endforeach
                                         </select>
                                     </div>
