@@ -154,8 +154,7 @@ class FrontEndPropertiesController extends Controller
             // Tách chuỗi code thành các phần
             $parts = explode('_', $textInput);
             // Lấy id từ phần tử cuối cùng của mảng parts
-            $idInput = end($parts);
-            $propertiesQuery->where('id', $idInput);
+            $propertiesQuery->where('id', end($parts));
         }
 
         if (!empty($propertyTypeInput)) {
@@ -249,15 +248,36 @@ class FrontEndPropertiesController extends Controller
         //dd($areaInput, $numberFloorInput, $numberFloorInput);
 
         // Define the search result message
-        $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
+        $searchResult = $this->generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput);
 
         // Pass the properties and search result message to the view
         return view('frontend_properties_listing', compact('properties', 'searchResult', 'locationsStreets', 'locationsWards', 'categories', 'legals', 'directions'));
     }
 
-    private function generateSearchResultMessage($categoryInput, $wardInput, $streetInput)
+    private function generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput)
     {
-        $searchResult = "Kết quả cho: ";
+        $searchResult = "Kết quả cho: \"";
+
+        // $textInput = $request->input('text');
+        if (!empty($textInput)) {
+            $searchResult .= "Tìm \"".$textInput."\", ";
+        }
+
+        //$propertyTypeInput = $request->input('propery_type');
+        if (!empty($propertyTypeInput)) {
+            if($propertyTypeInput == 0) 
+                $searchResult .= "Bán, ";
+            else
+                $searchResult .= "Cho thuê, ";
+        }
+        dd( $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus);
+        // $priceRangeInput = $request->input('price-range2');
+        // $legalInput = $request->input('legal');
+        // $directionInput = $request->input('direction');
+        // $areaInput = $request->input('area');
+        // $numberFloorInput = $request->input('number_floor');
+        // $numberRoomInput = $request->input('number_room');
+        // $sortStatus = $request->input('sort_status');
 
         if (!empty($categoryInput)) {
             $category = Category::find($categoryInput);
@@ -280,15 +300,19 @@ class FrontEndPropertiesController extends Controller
             }
         }
 
+        
+        
+        
+
         // Loại bỏ ký tự phẩy và khoảng trắng cuối cùng
         $searchResult = rtrim($searchResult, ", ");
 
         // Thêm chuỗi đuôi
         //dd($searchResult );
-        if ($searchResult == "Kết quả cho:")
-            $searchResult = "Kết quả cho: Tp Đà Lạt";
+        if ($searchResult == "Kết quả cho:\"")
+            $searchResult = "Kết quả cho: \"Tp Đà Lạt\"";
         else
-            $searchResult .= ", Tp Đà Lạt";
+            $searchResult .= ", Tp Đà Lạt\"";
 
         return $searchResult;
     }

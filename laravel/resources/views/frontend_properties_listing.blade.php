@@ -336,10 +336,11 @@
                 <!-- list-main-wrap-opt-->
                 <div class="list-main-wrap-opt">
                     <!-- price-opt-->
+                    <!-- price-opt-->
                     <div class="price-opt">
                         <span class="price-opt-title">Sắp xếp theo:</span>
                         <div class="listsearch-input-item">
-                            <select name="sort_status" data-placeholder="Phổ biến" class="chosen-select no-search-select">
+                            <select name="sort_status" class="chosen-select no-search-select">
                                 <option value="">Bình thường</option>
                                 <option value="view_count" {{ Request::input('sort_status') == 'view_count' ? 'selected' : '' }}>Phổ biến</option>
                                 {{-- <option>Điểm đánh giá trung bình</option> --}}
