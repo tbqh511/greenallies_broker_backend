@@ -238,7 +238,7 @@
     </div>
     <!-- top-search-content end -->					
     <!-- col-list-wrap -->
-    <div class="col-list-wrap gray-bg ">
+    <div class="col-list-wrap gray-bg three-columns-grid  ">
         <div class="col-list-wrap_opt fl-wrap">
             <div class="show-hidden-filter col-list-wrap_opt_btn color-bg">Show Filters</div>
             <div class="show-hidden-map not-vis_lap col-list-wrap_opt_btn color-bg">Show Map</div>
