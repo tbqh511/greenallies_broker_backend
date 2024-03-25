@@ -148,10 +148,10 @@ class FrontEndPropertiesController extends Controller
         }
 
         if (!empty($propertyTypeInput)) {
-            if ($propertyTypeInput === '1') {
+            if ($propertyTypeInput == '1') {
                 // Xử lý khi người dùng chọn "Cho Thuê"
                 $propertiesQuery->where('propery_type', 1);
-            } elseif ($propertyTypeInput === '0') {
+            } elseif ($propertyTypeInput == '0') {
                 // Xử lý khi người dùng chọn "Bán"
                 $propertiesQuery->where('propery_type', 0);
             } else {
@@ -171,9 +171,9 @@ class FrontEndPropertiesController extends Controller
             $minPrice = intval($minPrice);
             $maxPrice = intval($maxPrice);
         
-            dd($maxPrice === config('global.max_price'),$minPrice,$maxPrice,config('global.max_price'),$maxPrice == config('global.max_price'));
+            //dd($maxPrice == config('global.max_price'),$minPrice,$maxPrice,config('global.max_price'),$maxPrice == config('global.max_price'));
             // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
-            if ($maxPrice === config('global.max_price')) {
+            if ($maxPrice == config('global.max_price')) {
                 // Truy vấn các bất động sản có giá lớn hơn hoặc bằng $minPrice
                 $propertiesQuery->where('price', '>', $minPrice);
             } else {
@@ -238,11 +238,11 @@ class FrontEndPropertiesController extends Controller
             }
         }
 
-        if ($sortStatus === 'price_asc') {
+        if ($sortStatus == 'price_asc') {
             $propertiesQuery->orderBy('price', 'asc');
-        } elseif ($sortStatus === 'price_desc') {
+        } elseif ($sortStatus == 'price_desc') {
             $propertiesQuery->orderBy('price', 'desc');
-        } elseif ($sortStatus === 'view_count') {
+        } elseif ($sortStatus == 'view_count') {
             $propertiesQuery->orderBy('total_click', 'desc');
         }
 
@@ -352,11 +352,11 @@ class FrontEndPropertiesController extends Controller
         // }
         // // $sortStatus = $request->input('sort_status');
         // if (!empty($sortStatus)) {
-        //     if ($sortStatus === 'view_count') {
+        //     if ($sortStatus == 'view_count') {
         //         $searchResult .= "Sắp xếp theo độ phổ biến, ";
-        //     } elseif ($sortStatus === 'price_asc') {
+        //     } elseif ($sortStatus == 'price_asc') {
         //         $searchResult .= "Sắp xếp theo giá: thấp đến cao, ";
-        //     } elseif ($sortStatus === 'price_desc') {
+        //     } elseif ($sortStatus == 'price_desc') {
         //         $searchResult .= "Sắp xếp theo giá: cao đến thấp, ";
         //     }
         // }
