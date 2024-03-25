@@ -181,8 +181,8 @@ class FrontEndPropertiesController extends Controller
             $maxPrice = intval($maxPrice);
         
             // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
-            if ($maxPrice == config('global.max_price')) {
-                // Truy vấn các bất động sản có giá lớn hơn $minPrice
+            if ($maxPrice === config('global.max_price')) {
+                // Truy vấn các bất động sản có giá lớn hơn hoặc bằng $minPrice
                 $propertiesQuery->where('price', '>=', $minPrice);
             } else {
                 // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
@@ -190,6 +190,21 @@ class FrontEndPropertiesController extends Controller
             }
         }
         
+        if (!empty($areaInput)) {
+            // Tách giá trị range diện tích thành mảng
+            $areaRange = explode(';', $areaInput);
+            $minArea = $areaRange[0];
+            $maxArea = $areaRange[1];
+        
+            // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng diện tích
+            if ($maxArea == config('global.max_area')) {
+                // Truy vấn các bất động sản có diện tích lớn hơn $minArea
+                $propertiesQuery->where('area', '>', $minArea);
+            } else {
+                // Truy vấn các bất động sản trong khoảng diện tích từ $minArea đến $maxArea
+                $propertiesQuery->whereBetween('area', [$minArea, $maxArea]);
+            }
+        }
 
         if (!empty($legalInput)) {
             $propertiesQuery->whereHas('assignParameter', function ($query) use ($legalInput) {
@@ -205,20 +220,7 @@ class FrontEndPropertiesController extends Controller
             });
         }
 
-        if (!empty($areaInput)) {
-            // Tách giá trị range diện tích thành mảng
-            $areaRange = explode(';', $areaInput);
-            $minArea = $areaRange[0];
-            $maxArea = $areaRange[1];
-
-            if ($maxArea == config('global.max_area')) {
-                // Truy vấn các bất động sản có giá lớn hơn $minPrice
-                $propertiesQuery->where('price', '>', $minArea);
-            } else {
-                // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
-                $propertiesQuery->whereBetween('price', [$minArea, $maxArea]);
-            }
-        }
+        
 
         if (!empty($numberFloorInput)) {
             if ($numberRoomInput != "0") {
@@ -253,7 +255,7 @@ class FrontEndPropertiesController extends Controller
         $properties = $propertiesQuery->paginate(6);
 
         //dd($areaInput, $numberFloorInput, $numberFloorInput);
-
+        dd($properties[0]->area);
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput);
 
