@@ -285,7 +285,7 @@ class FrontEndPropertiesController extends Controller
         }
         // $directionInput = $request->input('direction');
         if (!empty($directionInput)) {
-            $searchResult .= config('global.direction_title').": \'".$directionInput."\", ";
+            $searchResult .= config('global.direction_title').": ".$directionInput.", ";
         }
 
         if (!empty($categoryInput)) {
