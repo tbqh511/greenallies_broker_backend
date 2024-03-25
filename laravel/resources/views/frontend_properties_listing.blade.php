@@ -206,7 +206,7 @@
                                 <!-- listsearch-input-item -->
 
                                 <!-- listsearch-input-item -->
-                                <div class="col-sm-1">
+                                <div class="col-sm-2">
                                     <div class="listsearch-input-item">
                                         <label>Số tầng</label>
                                         <select name='number_floor' data-placeholder="Số tầng" class="chosen-select on-radius no-search-select">
