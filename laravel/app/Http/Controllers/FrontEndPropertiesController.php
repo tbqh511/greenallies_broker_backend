@@ -250,9 +250,11 @@ class FrontEndPropertiesController extends Controller
 
         //Only get active properties
 
-        // Get the list of products based on the query
-        $propertiesQuery->where('status','1');
-        $properties = $propertiesQuery->paginate(3);
+        // Lấy các tham số tìm kiếm
+        $searchParams = $request->except('_token', 'page');
+        // Lấy danh sách bất động sản dựa trên truy vấn
+        $properties = $propertiesQuery->where('status', '1')->paginate(3)->appends($searchParams);
+
 
         //dd($areaInput, $numberFloorInput, $numberFloorInput);
         
