@@ -256,7 +256,7 @@ class FrontEndPropertiesController extends Controller
 
     private function generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput)
     {
-        $searchResult = "Kết quả cho: \"";
+        $searchResult = "Kết quả cho:\"";
 
         // $textInput = $request->input('text');
         if (!empty($textInput)) {
@@ -271,19 +271,7 @@ class FrontEndPropertiesController extends Controller
                 $searchResult .= "Cho thuê, ";
         }
 
-        // // $priceRangeInput = $request->input('price-range2');
-        // if (!empty($priceRangeInput)) {
-        //     // Tách giá trị thành mảng các khoảng giá
-        //     $priceRanges = explode(';', $priceRangeInput);
-        //     // Lấy giá trị tối thiểu và tối đa của khoảng giá
-        //     $minPrice = $priceRanges[0];
-        //     $maxPrice = $priceRanges[1];
-        //     if($maxPrice == config('global.max_price'))
-        //         $searchResult .= config('global.max_price').": cao hơn ".$minPrice;
-        //     else
-        //         $searchResult .= config('global.max_price').": \"\"".$minPrice." - ".$maxPrice."\"\", ";
-        // }
-        // $legalInput = $request->input('legal');
+        
         if (!empty($legalInput)) {
             $searchResult .= config('global.legal_title').": ".$legalInput."\", ";
         }
@@ -291,37 +279,7 @@ class FrontEndPropertiesController extends Controller
         if (!empty($directionInput)) {
             $searchResult .= config('global.direction_title').": \'".$directionInput."\", ";
         }
-        // // $areaInput = $request->input('area');
-        // if (!empty($areaInput)) {
-        //     // Tách giá trị thành mảng các khoảng giá
-        //     $areaRanges = explode(';', $areaInput);
-        //     // Lấy giá trị tối thiểu và tối đa của khoảng giá
-        //     $minArea = $areaRanges[0];
-        //     $maxArea = $areaRanges[1];
-
-        //     if($maxArea == config('global.max_area'))
-        //         $searchResult .= config('global.area_title').": lớn hơn". $minArea;
-        //     else
-        //         $searchResult .= config('global.area_title').": \"\"".$minArea." - ".$maxArea."\"\", ";
-        // }
-        // // $numberFloorInput = $request->input('number_floor');
-        // if (!empty($numberFloorInput)) {
-        //     $searchResult .=  config('global.number_floor_title').": \'".$numberFloorInput."\", ";
-        // }
-        // // $numberRoomInput = $request->input('number_room');
-        // if (!empty($numberRoomInput)) {
-        //     $searchResult .=  config('global.number_room_title').": \'".$numberRoomInput."\", ";
-        // }
-        // // $sortStatus = $request->input('sort_status');
-        // if (!empty($sortStatus)) {
-        //     if ($sortStatus === 'view_count') {
-        //         $searchResult .= "Sắp xếp theo độ phổ biến, ";
-        //     } elseif ($sortStatus === 'price_asc') {
-        //         $searchResult .= "Sắp xếp theo giá: thấp đến cao, ";
-        //     } elseif ($sortStatus === 'price_desc') {
-        //         $searchResult .= "Sắp xếp theo giá: cao đến thấp, ";
-        //     }
-        // }
+        
 
 
         if (!empty($categoryInput)) {
@@ -356,6 +314,51 @@ class FrontEndPropertiesController extends Controller
             $searchResult .= ", Tp Đà Lạt\"";
 
         return $searchResult;
+        
+        // // $priceRangeInput = $request->input('price-range2');
+        // if (!empty($priceRangeInput)) {
+        //     // Tách giá trị thành mảng các khoảng giá
+        //     $priceRanges = explode(';', $priceRangeInput);
+        //     // Lấy giá trị tối thiểu và tối đa của khoảng giá
+        //     $minPrice = $priceRanges[0];
+        //     $maxPrice = $priceRanges[1];
+        //     if($maxPrice == config('global.max_price'))
+        //         $searchResult .= config('global.max_price').": cao hơn ".$minPrice;
+        //     else
+        //         $searchResult .= config('global.max_price').": \"\"".$minPrice." - ".$maxPrice."\"\", ";
+        // }
+        // $legalInput = $request->input('legal');
+
+        // // $areaInput = $request->input('area');
+        // if (!empty($areaInput)) {
+        //     // Tách giá trị thành mảng các khoảng giá
+        //     $areaRanges = explode(';', $areaInput);
+        //     // Lấy giá trị tối thiểu và tối đa của khoảng giá
+        //     $minArea = $areaRanges[0];
+        //     $maxArea = $areaRanges[1];
+        //     if($maxArea == config('global.max_area'))
+        //         $searchResult .= config('global.area_title').": lớn hơn". $minArea;
+        //     else
+        //         $searchResult .= config('global.area_title').": \"\"".$minArea." - ".$maxArea."\"\", ";
+        // }
+        // // $numberFloorInput = $request->input('number_floor');
+        // if (!empty($numberFloorInput)) {
+        //     $searchResult .=  config('global.number_floor_title').": \'".$numberFloorInput."\", ";
+        // }
+        // // $numberRoomInput = $request->input('number_room');
+        // if (!empty($numberRoomInput)) {
+        //     $searchResult .=  config('global.number_room_title').": \'".$numberRoomInput."\", ";
+        // }
+        // // $sortStatus = $request->input('sort_status');
+        // if (!empty($sortStatus)) {
+        //     if ($sortStatus === 'view_count') {
+        //         $searchResult .= "Sắp xếp theo độ phổ biến, ";
+        //     } elseif ($sortStatus === 'price_asc') {
+        //         $searchResult .= "Sắp xếp theo giá: thấp đến cao, ";
+        //     } elseif ($sortStatus === 'price_desc') {
+        //         $searchResult .= "Sắp xếp theo giá: cao đến thấp, ";
+        //     }
+        // }
     }
 
     /**
