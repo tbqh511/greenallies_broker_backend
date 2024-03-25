@@ -61,8 +61,10 @@
                                     <select name="propery_type" data-placeholder="Tình trạng"
                                         class="chosen-select on-radius no-search-select">
                                         <option value="">Cho thuê & Bán</option>
-                                        <option value="0" {{ request()->input('propery_type') == '0' ? 'selected' : ''}}>Bán</option>
-                                        <option value="1" {{ request()->input('propery_type') == '1' ? 'selected' : ''}}>Cho Thuê</option>
+                                        <option value="0" {{ request()->input('propery_type') == '0' ? 'selected' :
+                                            ''}}>Bán</option>
+                                        <option value="1" {{ request()->input('propery_type') == '1' ? 'selected' :
+                                            ''}}>Cho Thuê</option>
                                     </select>
                                 </div>
 
@@ -79,18 +81,19 @@
                             <!-- Ô lựa chọn thành phố -->
                             <div class="col-sm-3">
                                 <div class="listsearch-input-item">
-                                    <select name="ward" data-placeholder="Tất cả thành phố" class="chosen-select on-radius no-search-select">
+                                    <select name="ward" data-placeholder="Tất cả thành phố"
+                                        class="chosen-select on-radius no-search-select">
                                         <option value="">Phường Xã</option>
                                         @foreach ($locationsWards as $locationsWard)
-                                            <option value="{{$locationsWard->code}}" 
-                                                {{ request()->input('ward') == $locationsWard->code ? 'selected' : '' }}>
-                                                {{$locationsWard->full_name}}
-                                            </option>
+                                        <option value="{{$locationsWard->code}}" {{ request()->input('ward') ==
+                                            $locationsWard->code ? 'selected' : '' }}>
+                                            {{$locationsWard->full_name}}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <!-- Kết thúc ô lựa chọn thành phố -->
                             <!-- Ô lựa chọn Duong -->
                             <div class="col-sm-3">
@@ -98,14 +101,15 @@
                                     <select name="street" data-placeholder="All Categories" class="chosen-select">
                                         <option value="">Đường</option>
                                         @foreach ($locationsStreets as $locationsStreet)
-                                            <option value="{{$locationsStreet->code}}" {{ request()->input('street') == $locationsStreet->code ? 'selected' : '' }}>
-                                                {{$locationsStreet->street_name}}
-                                            </option>
+                                        <option value="{{$locationsStreet->code}}" {{ request()->input('street') ==
+                                            $locationsStreet->code ? 'selected' : '' }}>
+                                            {{$locationsStreet->street_name}}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <!-- Kết thúc ô lựa chọn thành phố -->
                             {{-- <ul class="list">
                                 <li data-value="" class="option selected focus">Phường Xã</li>
@@ -130,13 +134,14 @@
                             <!-- Ô lựa chọn danh mục -->
                             <div class="col-sm-3">
                                 <div class="listsearch-input-item">
-                                    <select name="category" data-placeholder="Loại BDS" class="chosen-select on-radius no-search-select">
+                                    <select name="category" data-placeholder="Loại BDS"
+                                        class="chosen-select on-radius no-search-select">
                                         <option value="">Loại BDS</option>
                                         @foreach ($categories as $categorie)
-                                            <option value="{{ $categorie->id }}" 
-                                                    {{ request()->input('category') == $categorie->id ? 'selected' : '' }}>
-                                                {{ $categorie->category }}
-                                            </option>
+                                        <option value="{{ $categorie->id }}" {{ request()->input('category') ==
+                                            $categorie->id ? 'selected' : '' }}>
+                                            {{ $categorie->category }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -170,10 +175,12 @@
                                 <div class="col-sm-3">
                                     <div class="listsearch-input-item">
                                         <label for="legal">Pháp lý</label>
-                                        <select name="legal" data-placeholder="Chọn pháp lý" class="chosen-select on-radius no-search-select">
-                                            <option value="" >Chọn pháp lý</option>
+                                        <select name="legal" data-placeholder="Chọn pháp lý"
+                                            class="chosen-select on-radius no-search-select">
+                                            <option value="">Chọn pháp lý</option>
                                             @foreach ($legals as $key => $value)
-                                            <option value="{{ $value }}" {{ Request::input('legal')== $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            <option value="{{ $value }}" {{ Request::input('legal')==$value ? 'selected'
+                                                : '' }}>{{ $value }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -184,10 +191,12 @@
                                 <div class="col-sm-2">
                                     <div class="listsearch-input-item">
                                         <label for="direction">Hướng</label>
-                                        <select name='direction' data-placeholder="Chọn hướng" class="chosen-select on-radius no-search-select">
-                                            <option value="" >Chọn hướng</option>
+                                        <select name='direction' data-placeholder="Chọn hướng"
+                                            class="chosen-select on-radius no-search-select">
+                                            <option value="">Chọn hướng</option>
                                             @foreach ($directions as $key => $value)
-                                            <option value="{{ $value }}" {{ Request::input('direction')==$value ? 'selected' : '' }}>{{ $value }}</option>
+                                            <option value="{{ $value }}" {{ Request::input('direction')==$value
+                                                ? 'selected' : '' }}>{{ $value }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -198,8 +207,9 @@
                                     <div class="listsearch-input-item">
                                         <label>Diện tích (m²)</label>
                                         <div class="price-rage-item pr-nopad fl-wrap">
-                                            <input name="area" type="text" class="area-range-double" data-min="1" data-max="1000"
-                                                name="price-range2" data-step="10" value="1" data-prefix="">
+                                            <input name="area" type="text" class="area-range-double" data-min="1"
+                                                data-max="1000" data-step="10" value="1"
+                                                data-prefix="" value="{{ request()->input('area') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -209,9 +219,11 @@
                                 <div class="col-sm-2">
                                     <div class="listsearch-input-item">
                                         <label>Số tầng</label>
-                                        <select name='number_floor' data-placeholder="Số tầng" class="chosen-select on-radius no-search-select">
-                                            <option value="0" >Chọn số tầng</option>
-                                            @for ($i = 1; $i <= 10; $i++) <option value="{{ $i }}" {{ request()->input('number_floor') == $i ?
+                                        <select name='number_floor' data-placeholder="Số tầng"
+                                            class="chosen-select on-radius no-search-select">
+                                            <option value="0">Chọn số tầng</option>
+                                            @for ($i = 1; $i <= 10; $i++) <option value="{{ $i }}" {{ request()->
+                                                input('number_floor') == $i ?
                                                 'selected' : ''}}>
                                                 {{ $i == 10 ? '10+' : $i }}
                                                 </option>
@@ -226,11 +238,12 @@
                                         <label>Số phòng</label>
                                         <select name='number_room' data-placeholder="Số phòng ngủ"
                                             class="chosen-select on-radius no-search-select">
-                                            <option value="0" >Chọn số phòng</option>
-                                            @for ($i = 1; $i <= 10; $i++)
-                                                <option value="{{ $i }}" {{ request()->input('number_room') == $i ? 'selected' : ''}}>{{ $i }}</option>
-                                            @endfor
-                                            <option value="10" {{ request()->input('number_room') == '10' ? 'selected' : ''}}>10+</option>
+                                            <option value="0">Chọn số phòng</option>
+                                            @for ($i = 1; $i <= 10; $i++) <option value="{{ $i }}" {{ request()->
+                                                input('number_room') == $i ? 'selected' : ''}}>{{ $i }}</option>
+                                                @endfor
+                                                <option value="10" {{ request()->input('number_room') == '10' ?
+                                                    'selected' : ''}}>10+</option>
                                         </select>
                                     </div>
                                 </div>
