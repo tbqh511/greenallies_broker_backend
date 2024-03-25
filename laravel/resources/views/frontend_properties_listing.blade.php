@@ -194,7 +194,7 @@
                                 </div>
                                 <!-- listsearch-input-item end-->
                                 <!-- listsearch-input-item -->
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <div class="listsearch-input-item">
                                         <label>Diện tích (m²)</label>
                                         <div class="price-rage-item pr-nopad fl-wrap">
