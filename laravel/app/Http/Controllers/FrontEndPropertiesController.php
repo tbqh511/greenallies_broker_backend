@@ -119,7 +119,6 @@ class FrontEndPropertiesController extends Controller
         $priceRangeInput = $request->input('price-range2');
         $legalInput = $request->input('legal');
         $directionInput = $request->input('direction');
-
         $areaInput = $request->input('area');
         $numberFloorInput = $request->input('number_floor');
         $numberRoomInput = $request->input('number_room');
@@ -202,10 +201,22 @@ class FrontEndPropertiesController extends Controller
             });
         }
 
+        if (!empty($areaInput)) {
+            
+        }
+
+        if (!empty($numberFloorInput)) {
+            
+        }
+
+        if (!empty($numberRoomInput)) {
+            
+        }
+
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
         
-        //dd($legalInput,$directionInput);
+        dd($areaInput,$numberFloorInput,$numberFloorInput);
         
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
