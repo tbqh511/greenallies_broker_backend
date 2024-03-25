@@ -343,6 +343,18 @@ function initHomeradar() {
         max_postfix: "+",
     });
 
+    //HuyTBQ: reset filter button
+    $(document).ready(function() {
+        // Bắt sự kiện click cho phần tử có class reset-form reset-btn
+        $('.reset-form.reset-btn').on('click', function() {
+            // Đặt lại giá trị của tất cả các input trong form
+            $('input[type="text"], input[type="number"], input[type="checkbox"], select').val('');
+            // Đặt lại giá trị của tất cả các select có class chosen-select
+            $('.chosen-select').val('').trigger('chosen:updated');
+        });
+    });
+    
+
     function formattedArea(n) {
         return n + ' m²';
     }
