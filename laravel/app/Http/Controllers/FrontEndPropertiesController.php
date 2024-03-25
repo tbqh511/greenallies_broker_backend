@@ -193,7 +193,7 @@ class FrontEndPropertiesController extends Controller
                     ->where('value', $legalInput);
             });
         }
-        
+
         if (!empty($directionInput)) {
             $propertiesQuery->whereHas('assignParameter', function ($query) use ($directionInput) {
                 $query->where('parameter_id', config('global.direction'))
@@ -206,7 +206,7 @@ class FrontEndPropertiesController extends Controller
             $areaRange = explode(';', $areaInput);
             $minArea = $areaRange[0];
             $maxArea = $areaRange[1];
-            
+
             if ($maxArea == config('global.max_area')) {
                 // Truy vấn các bất động sản có giá lớn hơn $minPrice
                 $propertiesQuery->where('price', '>', $minArea);
@@ -215,27 +215,30 @@ class FrontEndPropertiesController extends Controller
                 $propertiesQuery->whereBetween('price', [$minArea, $maxArea]);
             }
         }
-        
+
         if (!empty($numberFloorInput)) {
-            $propertiesQuery->whereHas('assignParameter', function ($query) use ($numberFloorInput) {
-                $query->where('parameter_id', config('global.number_floor'))
-                    ->where('value', $numberFloorInput);
-            });
+            if ($numberRoomInput != "0") {
+                $propertiesQuery->whereHas('assignParameter', function ($query) use ($numberFloorInput) {
+                    $query->where('parameter_id', config('global.number_floor'))
+                        ->where('value', $numberFloorInput);
+                });
+            }
         }
-        
+
         if (!empty($numberRoomInput)) {
-            if($numberRoomInput != 0)
-            $propertiesQuery->whereHas('assignParameter', function ($query) use ($numberRoomInput) {
-                $query->where('parameter_id', config('global.number_room'))
-                    ->where('value', $numberRoomInput);
-            });
+            if ($numberRoomInput != "0") {
+                $propertiesQuery->whereHas('assignParameter', function ($query) use ($numberRoomInput) {
+                    $query->where('parameter_id', config('global.number_room'))
+                        ->where('value', $numberRoomInput);
+                });
+            }
         }
 
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
-        
-        dd($areaInput,$numberFloorInput,$numberFloorInput);
-        
+
+        //dd($areaInput, $numberFloorInput, $numberFloorInput);
+
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
 
