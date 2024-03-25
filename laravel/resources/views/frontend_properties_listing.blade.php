@@ -208,8 +208,7 @@
                                         <label>Diện tích (m²)</label>
                                         <div class="price-rage-item pr-nopad fl-wrap">
                                             <input name="area" type="text" class="area-range-double" data-min="1"
-                                                data-max="1000" data-step="10" value="1"
-                                                data-prefix="" value="{{ request()->input('area') }}">
+                                                data-max="1000" data-step="10" data-prefix="" value="{{ request()->input('area') }}">
                                         </div>
                                     </div>
                                 </div>
