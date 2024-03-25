@@ -224,6 +224,7 @@ class FrontEndPropertiesController extends Controller
         }
         
         if (!empty($numberRoomInput)) {
+            if($numberRoomInput != 0)
             $propertiesQuery->whereHas('assignParameter', function ($query) use ($numberRoomInput) {
                 $query->where('parameter_id', config('global.number_room'))
                     ->where('value', $numberRoomInput);
@@ -233,7 +234,7 @@ class FrontEndPropertiesController extends Controller
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
         
-        //dd($areaInput,$numberFloorInput,$numberFloorInput);
+        dd($areaInput,$numberFloorInput,$numberFloorInput);
         
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
