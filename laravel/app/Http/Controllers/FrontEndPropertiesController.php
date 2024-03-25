@@ -189,23 +189,23 @@ class FrontEndPropertiesController extends Controller
         }
 
         if (!empty($legalInput)) {
-            $properties = Property::whereHas('assignParameter', function ($query) use ($legalInput) {
+            $propertiesQuery->whereHas('assignParameter', function ($query) use ($legalInput) {
                 $query->where('parameter_id', config('global.legal'))
                     ->where('value', $legalInput);
-            })->get();
+            });
         }
-
+        
         if (!empty($directionInput)) {
-            $properties = Property::whereHas('assignParameter', function ($query) use ($directionInput) {
+            $propertiesQuery->whereHas('assignParameter', function ($query) use ($directionInput) {
                 $query->where('parameter_id', config('global.direction'))
                     ->where('value', $directionInput);
-            })->get();
+            });
         }
 
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
         
-        dd($legalInput,$directionInput);
+        //dd($legalInput,$directionInput);
         
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($categoryInput, $wardInput, $streetInput);
