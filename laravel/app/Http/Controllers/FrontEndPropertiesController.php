@@ -281,7 +281,7 @@ class FrontEndPropertiesController extends Controller
         }
         
         if (!empty($legalInput)) {
-            $searchResult .= config('global.legal_title').": ".$legalInput."\", ";
+            $searchResult .= config('global.legal_title').": ".$legalInput.", ";
         }
         // $directionInput = $request->input('direction');
         if (!empty($directionInput)) {
