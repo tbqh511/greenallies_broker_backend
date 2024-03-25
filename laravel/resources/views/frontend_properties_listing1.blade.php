@@ -407,5 +407,3 @@
     </section>
     <div class="limit-box fl-wrap"></div>
 </div>
-<!-- end content -->
-@endsection
