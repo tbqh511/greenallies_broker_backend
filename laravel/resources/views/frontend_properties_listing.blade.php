@@ -395,15 +395,18 @@
                 @else
                 <a href="#" class="nextposts-link disabled"><i class="fa fa-caret-right"></i></a>
                 @endif --}}
+                <!-- Thêm lớp CSS mới cho các liên kết phân trang -->
+                <!-- Thêm lớp CSS mới cho các liên kết phân trang -->
                 <a href="{{ $properties->previousPageUrl() }}" class="prevposts-link paging-link"><i class="fa fa-caret-left"></i></a>
-                    @foreach ($properties->getUrlRange(1, $properties->lastPage()) as $page => $url)
+                @foreach ($properties->getUrlRange(1, $properties->lastPage()) as $page => $url)
                     @if ($page == $properties->currentPage())
-                    <a href="#" class="current-page">{{ $page }}</a>
+                        <a href="#" class="current-page">{{ $page }}</a>
                     @else
-                    <a href="{{ $url }}" class="paging-link">{{ $page }}</a>
+                        <a href="{{ $url }}" class="paging-link">{{ $page }}</a>
                     @endif
-                    @endforeach
-                    <a href="{{ $properties->nextPageUrl() }}" class="nextposts-link paging-link"><i class="fa fa-caret-right"></i></a>
+                @endforeach
+                <a href="{{ $properties->nextPageUrl() }}" class="nextposts-link paging-link"><i class="fa fa-caret-right"></i></a>
+
             </div>
             <!-- pagination end-->
         </div>
