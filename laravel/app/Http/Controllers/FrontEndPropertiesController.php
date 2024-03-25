@@ -122,6 +122,7 @@ class FrontEndPropertiesController extends Controller
         $areaInput = $request->input('area');
         $numberFloorInput = $request->input('number_floor');
         $numberRoomInput = $request->input('number_room');
+        $sortStatus = $request->input('sort_status');
 
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
@@ -232,6 +233,14 @@ class FrontEndPropertiesController extends Controller
                         ->where('value', $numberRoomInput);
                 });
             }
+        }
+
+        if ($sortStatus === 'price_asc') {
+            $propertiesQuery->orderBy('price', 'asc');
+        } elseif ($sortStatus === 'price_desc') {
+            $propertiesQuery->orderBy('price', 'desc');
+        } elseif ($sortStatus === 'view_count') {
+            $propertiesQuery->orderBy('total_click', 'desc');
         }
 
         // Get the list of products based on the query
