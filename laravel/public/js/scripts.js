@@ -356,29 +356,30 @@ function initHomeradar() {
         });
     });
     //HuyTBQ: Filter by sort_status
-    $$(document).ready(function() {
+    $(document).ready(function() {
         // Bắt sự kiện thay đổi giá trị của select
         $('select[name="sort_status"]').on('change', function() {
             // Lấy giá trị được chọn
             var selectedValue = $(this).val();
             // Lấy URL hiện tại
             var currentUrl = window.location.href;
-            // Kiểm tra xem URL đã chứa tham số sort hay chưa
-            if (currentUrl.indexOf('sort=') !== -1) {
-                // Nếu đã tồn tại tham số sort, thay đổi giá trị của nó
-                var regex = /(\?|&)sort=[^&]+/;
-                var newUrl = currentUrl.replace(regex, '$1sort=' + selectedValue);
+            // Kiểm tra xem URL đã chứa tham số sort_status hay chưa
+            if (currentUrl.indexOf('sort_status=') !== -1) {
+                // Nếu đã tồn tại tham số sort_status, thay đổi giá trị của nó
+                var regex = /(\?|&)sort_status=[^&]+/;
+                var newUrl = currentUrl.replace(regex, '$1sort_status=' + selectedValue);
                 // Chuyển hướng đến URL mới
                 window.location.href = newUrl;
             } else {
-                // Nếu chưa tồn tại tham số sort, thêm mới tham số sort vào URL
+                // Nếu chưa tồn tại tham số sort_status, thêm mới tham số sort_status vào URL
                 var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
-                var newUrl = currentUrl + separator + 'sort=' + selectedValue;
+                var newUrl = currentUrl + separator + 'sort_status=' + selectedValue;
                 // Chuyển hướng đến URL mới
                 window.location.href = newUrl;
             }
         });
     });
+    
     
 
     function formattedArea(n) {
