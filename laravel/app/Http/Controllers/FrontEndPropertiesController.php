@@ -183,7 +183,7 @@ class FrontEndPropertiesController extends Controller
             // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
             if ($maxPrice === config('global.max_price')) {
                 // Truy vấn các bất động sản có giá lớn hơn hoặc bằng $minPrice
-                $propertiesQuery->where('price', '>=', $minPrice);
+                $propertiesQuery->where('price', '>', $minPrice);
             } else {
                 // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
                 $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
@@ -261,7 +261,7 @@ class FrontEndPropertiesController extends Controller
         $properties = $propertiesQuery->paginate(6);
 
         //dd($areaInput, $numberFloorInput, $numberFloorInput);
-        //dd($properties[0]->area);
+        dd($properties[0]->price);
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput);
 
