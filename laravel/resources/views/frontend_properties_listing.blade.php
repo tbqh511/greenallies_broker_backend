@@ -375,61 +375,28 @@
             <!-- listing-item-wrap end-->
             <!-- pagination-->
             <div class="pagination">
-                {{-- @if ($properties->onFirstPage())
+                @if ($properties->onFirstPage())
                 <a href="#" class="prevposts-link disabled"><i class="fa fa-caret-left"></i></a>
                 @else
-                <a href="{{ $properties->previousPageUrl() }}" class="prevposts-link"><i
-                        class="fa fa-caret-left"></i></a>
+                    <a href="{{ $properties->url($properties->currentPage() - 1) }}" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
                 @endif
 
-                @foreach ($properties->getUrlRange(1, $properties->lastPage()) as $page => $url)
-                @if ($page == $properties->currentPage())
-                <a href="#" class="current-page">{{ $page }}</a>
-                @else
-                <a href="{{ $url }}">{{ $page }}</a>
-                @endif
-                @endforeach
-
-                @if ($properties->hasMorePages())
-                <a href="{{ $properties->nextPageUrl() }}" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
-                @else
-                <a href="#" class="nextposts-link disabled"><i class="fa fa-caret-right"></i></a>
-                @endif --}}
-                <!-- Thêm lớp CSS mới cho các liên kết phân trang -->
-                <!-- Thêm lớp CSS mới cho các liên kết phân trang -->
-                <a href="{{ $properties->previousPageUrl() }}" class="prevposts-link paging-link"><i class="fa fa-caret-left"></i></a>
                 @foreach ($properties->getUrlRange(1, $properties->lastPage()) as $page => $url)
                     @if ($page == $properties->currentPage())
                         <a href="#" class="current-page">{{ $page }}</a>
                     @else
-                        <a href="{{ $url }}" class="paging-link">{{ $page }}</a>
+                        <a href="{{ $url }}">{{ $page }}</a>
                     @endif
                 @endforeach
-                <a href="{{ $properties->nextPageUrl() }}" class="nextposts-link paging-link"><i class="fa fa-caret-right"></i></a>
 
+                @if ($properties->hasMorePages())
+                    <a href="{{ $properties->url($properties->currentPage() + 1) }}" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
+                @else
+                    <a href="#" class="nextposts-link disabled"><i class="fa fa-caret-right"></i></a>
+                @endif
             </div>
             <!-- pagination end-->
         </div>
     </section>
     <div class="limit-box fl-wrap"></div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const pagingLinks = document.querySelectorAll('.paging-link');
-        pagingLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const url = new URL(this.href);
-                const params = new URLSearchParams(url.search);
-                // Lấy các tham số từ URL hiện tại và thêm chúng vào URL mới
-                const currentParams = new URLSearchParams(window.location.search);
-                currentParams.forEach((value, key) => {
-                    params.append(key, value);
-                });
-                window.location.href = url.pathname + '?' + params.toString();
-            });
-        });
-    });
-</script>
-<!-- content end -->
-@endsection
