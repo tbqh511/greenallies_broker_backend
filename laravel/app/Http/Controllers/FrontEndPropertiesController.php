@@ -181,7 +181,7 @@ class FrontEndPropertiesController extends Controller
             if ($maxPrice == config('global.max_price')) {
                 // Truy vấn các bất động sản có giá lớn hơn $minPrice
                 $propertiesQuery->where('price', '>', $minPrice);
-                dd(config('global.max_price'),$maxPrice,$minPrice,$maxPrice == config('global.max_price'));
+                dd(config('global.max_price'),$maxPrice,$minPrice,$maxPrice == config('global.max_price'),$propertiesQuery);
             } else {
                 // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
                 $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
