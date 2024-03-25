@@ -85,6 +85,8 @@ class FrontEndPropertiesController extends Controller
         ]);
     }
 
+
+
     /**
      * Display a listing of the products with search variables: category, ward, street, id.
      */
@@ -101,267 +103,133 @@ class FrontEndPropertiesController extends Controller
         // Get the list of product categories sorted by category in ascending order
         $categories = Category::orderBy('category')->get();
 
-        // get the list legals of properties         
+        // Get the list legals of properties         
         $legalsParameter = Parameter::find(config('global.legal')); // Lấy bản ghi theo config
         $legals = $legalsParameter->type_values;
 
-        // get the list directions of properties         
+        // Get the list directions of properties         
         $directionsParameter = Parameter::find(config('global.direction')); // Lấy bản ghi theo config
         $directions = $directionsParameter->type_values;
 
         // Get search parameters
-        $idInput = $request->input('_token');
-        $categoryInput = $request->input('category');
-        $wardInput = $request->input('ward');
-        $streetInput = $request->input('street');
-        $textInput = $request->input('text');
-        $propertyTypeInput = $request->input('propery_type');
-        $priceRangeInput = $request->input('price-range2');
-        $legalInput = $request->input('legal');
-        $directionInput = $request->input('direction');
-        $areaInput = $request->input('area');
-        $numberFloorInput = $request->input('number_floor');
-        $numberRoomInput = $request->input('number_room');
-        $sortStatus = $request->input('sort_status');
+        $searchParams = $request->only(['_token', 'category', 'ward', 'street', 'text', 'propery_type', 'price-range2', 'legal', 'direction', 'area', 'number_floor', 'number_room', 'sort_status']);
 
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
+
         // Add conditions to query based on search parameters
-        if (!empty($priceRangeInput)) {
-            // Tách giá trị thành mảng các khoảng giá
-            $priceRanges = explode(';', $priceRangeInput);
-            // Lấy giá trị tối thiểu và tối đa của khoảng giá
-            $minPrice = $priceRanges[0];
-            $maxPrice = $priceRanges[1];
-            // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
-            $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
-        }
-
-
-        if (!empty($categoryInput)) {
-            $propertiesQuery->where('category_id', $categoryInput);
-        }
-
-        if (!empty($wardInput)) {
-            $propertiesQuery->where('ward_code', $wardInput);
-        }
-
-        if (!empty($streetInput)) {
-            $propertiesQuery->where('street_code', $streetInput);
-        }
-
-        if (!empty($textInput)) {
-            // Tách chuỗi code thành các phần
-            $parts = explode('_', $textInput);
-            // Lấy id từ phần tử cuối cùng của mảng parts
-            $propertiesQuery->where('id', end($parts));
-        }
-
-        if (!empty($propertyTypeInput)) {
-            if ($propertyTypeInput === '1') {
-                // Xử lý khi người dùng chọn "Cho Thuê"
-                $propertiesQuery->where('propery_type', 1);
-            } elseif ($propertyTypeInput === '0') {
-                // Xử lý khi người dùng chọn "Bán"
-                $propertiesQuery->where('propery_type', 0);
-            } else {
-                // Xử lý khi người dùng chọn "Cho thuê & Bán"
-                // Không cần thêm điều kiện gì vì đã xử lý các trường hợp này trước đó
-            }
-        }
-
-        if (!empty($priceRangeInput)) {
-            // Tách giá trị thành mảng các khoảng giá
-            $priceRanges = explode(';', $priceRangeInput);
-            // Lấy giá trị tối thiểu và tối đa của khoảng giá
-            $minPrice = $priceRanges[0];
-            $maxPrice = $priceRanges[1];
-
-            // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
-            if ($maxPrice == config('global.max_price')) {
-                // Truy vấn các bất động sản có giá lớn hơn $minPrice
-                $propertiesQuery->where('price', '>', $minPrice);
-            } else {
-                // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
-                $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
-            }
-        }
-
-        if (!empty($legalInput)) {
-            $propertiesQuery->whereHas('assignParameter', function ($query) use ($legalInput) {
-                $query->where('parameter_id', config('global.legal'))
-                    ->where('value', $legalInput);
-            });
-        }
-
-        if (!empty($directionInput)) {
-            $propertiesQuery->whereHas('assignParameter', function ($query) use ($directionInput) {
-                $query->where('parameter_id', config('global.direction'))
-                    ->where('value', $directionInput);
-            });
-        }
-
-        if (!empty($areaInput)) {
-            // Tách giá trị range diện tích thành mảng
-            $areaRange = explode(';', $areaInput);
-            $minArea = $areaRange[0];
-            $maxArea = $areaRange[1];
-
-            if ($maxArea == config('global.max_area')) {
-                // Truy vấn các bất động sản có giá lớn hơn $minPrice
-                $propertiesQuery->where('price', '>', $minArea);
-            } else {
-                // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
-                $propertiesQuery->whereBetween('price', [$minArea, $maxArea]);
-            }
-        }
-
-        if (!empty($numberFloorInput)) {
-            if ($numberRoomInput != "0") {
-                $propertiesQuery->whereHas('assignParameter', function ($query) use ($numberFloorInput) {
-                    $query->where('parameter_id', config('global.number_floor'))
-                        ->where('value', $numberFloorInput);
-                });
-            }
-        }
-
-        if (!empty($numberRoomInput)) {
-            if ($numberRoomInput != "0") {
-                $propertiesQuery->whereHas('assignParameter', function ($query) use ($numberRoomInput) {
-                    $query->where('parameter_id', config('global.number_room'))
-                        ->where('value', $numberRoomInput);
-                });
-            }
-        }
-
-        if ($sortStatus === 'price_asc') {
-            $propertiesQuery->orderBy('price', 'asc');
-        } elseif ($sortStatus === 'price_desc') {
-            $propertiesQuery->orderBy('price', 'desc');
-        } elseif ($sortStatus === 'view_count') {
-            $propertiesQuery->orderBy('total_click', 'desc');
-        }
+        $this->applyPropertySearchFilters($propertiesQuery, $searchParams);
 
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
 
-        //dd($areaInput, $numberFloorInput, $numberFloorInput);
-
         // Define the search result message
-        $searchResult = $this->generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput);
+        $searchResult = $this->generateSearchResultMessage($searchParams);
 
         // Pass the properties and search result message to the view
         return view('frontend_properties_listing', compact('properties', 'searchResult', 'locationsStreets', 'locationsWards', 'categories', 'legals', 'directions'));
     }
 
-    private function generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput)
+    private function applyPropertySearchFilters($query, $searchParams)
+    {
+        foreach ($searchParams as $paramName => $paramValue) {
+            switch ($paramName) {
+                case 'price-range2':
+                    if (!empty($paramValue)) {
+                        $priceRanges = explode(';', $paramValue);
+                        $query->whereBetween('price', $priceRanges);
+                    }
+                    break;
+                case 'propery_type':
+                    if (!empty($paramValue)) {
+                        $query->where('propery_type', $paramValue);
+                    }
+                    break;
+                case 'legal':
+                case 'direction':
+                    if (!empty($paramValue)) {
+                        $query->whereHas('assignParameter', function ($query) use ($paramName, $paramValue) {
+                            $query->where('parameter_id', config('global.' . $paramName))
+                                ->where('value', $paramValue);
+                        });
+                    }
+                    break;
+                case 'area':
+                    if (!empty($paramValue)) {
+                        $areaRanges = explode(';', $paramValue);
+                        $query->whereBetween('area', $areaRanges);
+                    }
+                    break;
+                case 'number_floor':
+                case 'number_room':
+                    if (!empty($paramValue) && $paramValue != '0') {
+                        $query->whereHas('assignParameter', function ($query) use ($paramName, $paramValue) {
+                            $query->where('parameter_id', config('global.' . $paramName))
+                                ->where('value', $paramValue);
+                        });
+                    }
+                    break;
+                case 'sort_status':
+                    if (!empty($paramValue)) {
+                        switch ($paramValue) {
+                            case 'price_asc':
+                                $query->orderBy('price', 'asc');
+                                break;
+                            case 'price_desc':
+                                $query->orderBy('price', 'desc');
+                                break;
+                            case 'view_count':
+                                $query->orderBy('total_click', 'desc');
+                                break;
+                        }
+                    }
+                    break;
+                default:
+                    if (!empty($paramValue)) {
+                        $query->where($paramName, $paramValue);
+                    }
+                    break;
+            }
+        }
+    }
+
+    private function generateSearchResultMessage($searchParams)
     {
         $searchResult = "Kết quả cho: \"";
 
-        // $textInput = $request->input('text');
-        if (!empty($textInput)) {
-            $searchResult .= "Tìm \"".$textInput."\", ";
+        $text = $searchParams['text'] ?? null;
+        if (!empty($text)) {
+            $searchResult .= "Tìm \"$text\", ";
         }
 
-        //$propertyTypeInput = $request->input('propery_type');
-        if (!empty($propertyTypeInput)) {
-            if($propertyTypeInput == 0) 
-                $searchResult .= "Bán, ";
-            else
-                $searchResult .= "Cho thuê, ";
+        $propertyType = $searchParams['propery_type'] ?? null;
+        if (!empty($propertyType)) {
+            $searchResult .= ($propertyType == 0) ? "Bán, " : "Cho thuê, ";
         }
 
-        // // $priceRangeInput = $request->input('price-range2');
-        // if (!empty($priceRangeInput)) {
-        //     // Tách giá trị thành mảng các khoảng giá
-        //     $priceRanges = explode(';', $priceRangeInput);
-        //     // Lấy giá trị tối thiểu và tối đa của khoảng giá
-        //     $minPrice = $priceRanges[0];
-        //     $maxPrice = $priceRanges[1];
-        //     if($maxPrice == config('global.max_price'))
-        //         $searchResult .= config('global.max_price').": cao hơn ".$minPrice;
-        //     else
-        //         $searchResult .= config('global.max_price').": \"\"".$minPrice." - ".$maxPrice."\"\", ";
-        // }
-        // $legalInput = $request->input('legal');
-        if (!empty($legalInput)) {
-
-            $searchResult .= config('global.legal_title').": \'".$legalInput."\", ";
-        }
-        // $directionInput = $request->input('direction');
-        if (!empty($directionInput)) {
-            $searchResult .= config('global.direction_title').": \'".$directionInput."\", ";
-        }
-        // // $areaInput = $request->input('area');
-        // if (!empty($areaInput)) {
-        //     // Tách giá trị thành mảng các khoảng giá
-        //     $areaRanges = explode(';', $areaInput);
-        //     // Lấy giá trị tối thiểu và tối đa của khoảng giá
-        //     $minArea = $areaRanges[0];
-        //     $maxArea = $areaRanges[1];
-
-        //     if($maxArea == config('global.max_area'))
-        //         $searchResult .= config('global.area_title').": lớn hơn". $minArea;
-        //     else
-        //         $searchResult .= config('global.area_title').": \"\"".$minArea." - ".$maxArea."\"\", ";
-        // }
-        // // $numberFloorInput = $request->input('number_floor');
-        // if (!empty($numberFloorInput)) {
-        //     $searchResult .=  config('global.number_floor_title').": \'".$numberFloorInput."\", ";
-        // }
-        // // $numberRoomInput = $request->input('number_room');
-        // if (!empty($numberRoomInput)) {
-        //     $searchResult .=  config('global.number_room_title').": \'".$numberRoomInput."\", ";
-        // }
-        // // $sortStatus = $request->input('sort_status');
-        // if (!empty($sortStatus)) {
-        //     if ($sortStatus === 'view_count') {
-        //         $searchResult .= "Sắp xếp theo độ phổ biến, ";
-        //     } elseif ($sortStatus === 'price_asc') {
-        //         $searchResult .= "Sắp xếp theo giá: thấp đến cao, ";
-        //     } elseif ($sortStatus === 'price_desc') {
-        //         $searchResult .= "Sắp xếp theo giá: cao đến thấp, ";
-        //     }
-        // }
-
-
-        if (!empty($categoryInput)) {
-            $category = Category::find($categoryInput);
-            if ($category) {
-                $searchResult .= $category->category . ", ";
-            }
+        $legal = $searchParams['legal'] ?? null;
+        if (!empty($legal)) {
+            $searchResult .= config('global.legal_title') . ": '$legal', ";
         }
 
-        if (!empty($streetInput)) {
-            $street = LocationsStreet::where('code', $streetInput)->first();
-            if ($street) {
-                $searchResult .= 'đường ' . $street->street_name . ", ";
-            }
+        $direction = $searchParams['direction'] ?? null;
+        if (!empty($direction)) {
+            $searchResult .= config('global.direction_title') . ": '$direction', ";
         }
 
-        if (!empty($wardInput)) {
-            $ward = LocationsWard::where('code', $wardInput)->first();
-            if ($ward) {
-                $searchResult .= $ward->full_name . ", ";
-            }
-        }
-
-        
-        
-        
-
-        // Loại bỏ ký tự phẩy và khoảng trắng cuối cùng
+        // Remove the last comma and space
         $searchResult = rtrim($searchResult, ", ");
 
-        // Thêm chuỗi đuôi
-        //dd($searchResult );
-        if ($searchResult == "Kết quả cho:\"")
+        // Append the city
+        if ($searchResult == "Kết quả cho:\"") {
             $searchResult = "Kết quả cho: \"Tp Đà Lạt\"";
-        else
+        } else {
             $searchResult .= ", Tp Đà Lạt\"";
+        }
 
         return $searchResult;
     }
+
 
     /**
      * Get street suggestions for autocomplete.
@@ -378,4 +246,277 @@ class FrontEndPropertiesController extends Controller
 
         return response()->json($streets);
     }
+    // /**
+    //  * Display a listing of the products with search variables: category, ward, street, id.
+    //  */
+    // public function index(Request $request)
+    // {
+    //     // Get the list of streets in the areas
+    //     $locationsStreets = LocationsStreet::all();
+
+    //     // Get the district code from configuration
+    //     $districtCode = config('location.district_code');
+    //     // If there's a district code, get the list of wards in that district
+    //     $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->get()->sortBy('full_name') : LocationsWard::all();
+
+    //     // Get the list of product categories sorted by category in ascending order
+    //     $categories = Category::orderBy('category')->get();
+
+    //     // get the list legals of properties         
+    //     $legalsParameter = Parameter::find(config('global.legal')); // Lấy bản ghi theo config
+    //     $legals = $legalsParameter->type_values;
+
+    //     // get the list directions of properties         
+    //     $directionsParameter = Parameter::find(config('global.direction')); // Lấy bản ghi theo config
+    //     $directions = $directionsParameter->type_values;
+
+    //     // Get search parameters
+    //     $idInput = $request->input('_token');
+    //     $categoryInput = $request->input('category');
+    //     $wardInput = $request->input('ward');
+    //     $streetInput = $request->input('street');
+    //     $textInput = $request->input('text');
+    //     $propertyTypeInput = $request->input('propery_type');
+    //     $priceRangeInput = $request->input('price-range2');
+    //     $legalInput = $request->input('legal');
+    //     $directionInput = $request->input('direction');
+    //     $areaInput = $request->input('area');
+    //     $numberFloorInput = $request->input('number_floor');
+    //     $numberRoomInput = $request->input('number_room');
+    //     $sortStatus = $request->input('sort_status');
+
+    //     // Query to fetch properties based on search parameters
+    //     $propertiesQuery = Property::query();
+    //     // Add conditions to query based on search parameters
+    //     if (!empty($priceRangeInput)) {
+    //         // Tách giá trị thành mảng các khoảng giá
+    //         $priceRanges = explode(';', $priceRangeInput);
+    //         // Lấy giá trị tối thiểu và tối đa của khoảng giá
+    //         $minPrice = $priceRanges[0];
+    //         $maxPrice = $priceRanges[1];
+    //         // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
+    //         $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
+    //     }
+
+
+    //     if (!empty($categoryInput)) {
+    //         $propertiesQuery->where('category_id', $categoryInput);
+    //     }
+
+    //     if (!empty($wardInput)) {
+    //         $propertiesQuery->where('ward_code', $wardInput);
+    //     }
+
+    //     if (!empty($streetInput)) {
+    //         $propertiesQuery->where('street_code', $streetInput);
+    //     }
+
+    //     if (!empty($textInput)) {
+    //         // Tách chuỗi code thành các phần
+    //         $parts = explode('_', $textInput);
+    //         // Lấy id từ phần tử cuối cùng của mảng parts
+    //         $propertiesQuery->where('id', end($parts));
+    //     }
+
+    //     if (!empty($propertyTypeInput)) {
+    //         if ($propertyTypeInput === '1') {
+    //             // Xử lý khi người dùng chọn "Cho Thuê"
+    //             $propertiesQuery->where('propery_type', 1);
+    //         } elseif ($propertyTypeInput === '0') {
+    //             // Xử lý khi người dùng chọn "Bán"
+    //             $propertiesQuery->where('propery_type', 0);
+    //         } else {
+    //             // Xử lý khi người dùng chọn "Cho thuê & Bán"
+    //             // Không cần thêm điều kiện gì vì đã xử lý các trường hợp này trước đó
+    //         }
+    //     }
+
+    //     if (!empty($priceRangeInput)) {
+    //         // Tách giá trị thành mảng các khoảng giá
+    //         $priceRanges = explode(';', $priceRangeInput);
+    //         // Lấy giá trị tối thiểu và tối đa của khoảng giá
+    //         $minPrice = $priceRanges[0];
+    //         $maxPrice = $priceRanges[1];
+
+    //         // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
+    //         if ($maxPrice == config('global.max_price')) {
+    //             // Truy vấn các bất động sản có giá lớn hơn $minPrice
+    //             $propertiesQuery->where('price', '>', $minPrice);
+    //         } else {
+    //             // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
+    //             $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
+    //         }
+    //     }
+
+    //     if (!empty($legalInput)) {
+    //         $propertiesQuery->whereHas('assignParameter', function ($query) use ($legalInput) {
+    //             $query->where('parameter_id', config('global.legal'))
+    //                 ->where('value', $legalInput);
+    //         });
+    //     }
+
+    //     if (!empty($directionInput)) {
+    //         $propertiesQuery->whereHas('assignParameter', function ($query) use ($directionInput) {
+    //             $query->where('parameter_id', config('global.direction'))
+    //                 ->where('value', $directionInput);
+    //         });
+    //     }
+
+    //     if (!empty($areaInput)) {
+    //         // Tách giá trị range diện tích thành mảng
+    //         $areaRange = explode(';', $areaInput);
+    //         $minArea = $areaRange[0];
+    //         $maxArea = $areaRange[1];
+
+    //         if ($maxArea == config('global.max_area')) {
+    //             // Truy vấn các bất động sản có giá lớn hơn $minPrice
+    //             $propertiesQuery->where('price', '>', $minArea);
+    //         } else {
+    //             // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
+    //             $propertiesQuery->whereBetween('price', [$minArea, $maxArea]);
+    //         }
+    //     }
+
+    //     if (!empty($numberFloorInput)) {
+    //         if ($numberRoomInput != "0") {
+    //             $propertiesQuery->whereHas('assignParameter', function ($query) use ($numberFloorInput) {
+    //                 $query->where('parameter_id', config('global.number_floor'))
+    //                     ->where('value', $numberFloorInput);
+    //             });
+    //         }
+    //     }
+
+    //     if (!empty($numberRoomInput)) {
+    //         if ($numberRoomInput != "0") {
+    //             $propertiesQuery->whereHas('assignParameter', function ($query) use ($numberRoomInput) {
+    //                 $query->where('parameter_id', config('global.number_room'))
+    //                     ->where('value', $numberRoomInput);
+    //             });
+    //         }
+    //     }
+
+    //     if ($sortStatus === 'price_asc') {
+    //         $propertiesQuery->orderBy('price', 'asc');
+    //     } elseif ($sortStatus === 'price_desc') {
+    //         $propertiesQuery->orderBy('price', 'desc');
+    //     } elseif ($sortStatus === 'view_count') {
+    //         $propertiesQuery->orderBy('total_click', 'desc');
+    //     }
+
+    //     // Get the list of products based on the query
+    //     $properties = $propertiesQuery->paginate(6);
+
+    //     //dd($areaInput, $numberFloorInput, $numberFloorInput);
+
+    //     // Define the search result message
+    //     $searchResult = $this->generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput);
+
+    //     // Pass the properties and search result message to the view
+    //     return view('frontend_properties_listing', compact('properties', 'searchResult', 'locationsStreets', 'locationsWards', 'categories', 'legals', 'directions'));
+    // }
+
+    // private function generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput)
+    // {
+    //     $searchResult = "Kết quả cho: \"";
+
+    //     // $textInput = $request->input('text');
+    //     if (!empty($textInput)) {
+    //         $searchResult .= "Tìm \"".$textInput."\", ";
+    //     }
+
+    //     //$propertyTypeInput = $request->input('propery_type');
+    //     if (!empty($propertyTypeInput)) {
+    //         if($propertyTypeInput == 0) 
+    //             $searchResult .= "Bán, ";
+    //         else
+    //             $searchResult .= "Cho thuê, ";
+    //     }
+
+    //     // // $priceRangeInput = $request->input('price-range2');
+    //     // if (!empty($priceRangeInput)) {
+    //     //     // Tách giá trị thành mảng các khoảng giá
+    //     //     $priceRanges = explode(';', $priceRangeInput);
+    //     //     // Lấy giá trị tối thiểu và tối đa của khoảng giá
+    //     //     $minPrice = $priceRanges[0];
+    //     //     $maxPrice = $priceRanges[1];
+    //     //     if($maxPrice == config('global.max_price'))
+    //     //         $searchResult .= config('global.max_price').": cao hơn ".$minPrice;
+    //     //     else
+    //     //         $searchResult .= config('global.max_price').": \"\"".$minPrice." - ".$maxPrice."\"\", ";
+    //     // }
+    //     // $legalInput = $request->input('legal');
+    //     if (!empty($legalInput)) {
+
+    //         $searchResult .= config('global.legal_title').": \'".$legalInput."\", ";
+    //     }
+    //     // $directionInput = $request->input('direction');
+    //     if (!empty($directionInput)) {
+    //         $searchResult .= config('global.direction_title').": \'".$directionInput."\", ";
+    //     }
+    //     // // $areaInput = $request->input('area');
+    //     // if (!empty($areaInput)) {
+    //     //     // Tách giá trị thành mảng các khoảng giá
+    //     //     $areaRanges = explode(';', $areaInput);
+    //     //     // Lấy giá trị tối thiểu và tối đa của khoảng giá
+    //     //     $minArea = $areaRanges[0];
+    //     //     $maxArea = $areaRanges[1];
+
+    //     //     if($maxArea == config('global.max_area'))
+    //     //         $searchResult .= config('global.area_title').": lớn hơn". $minArea;
+    //     //     else
+    //     //         $searchResult .= config('global.area_title').": \"\"".$minArea." - ".$maxArea."\"\", ";
+    //     // }
+    //     // // $numberFloorInput = $request->input('number_floor');
+    //     // if (!empty($numberFloorInput)) {
+    //     //     $searchResult .=  config('global.number_floor_title').": \'".$numberFloorInput."\", ";
+    //     // }
+    //     // // $numberRoomInput = $request->input('number_room');
+    //     // if (!empty($numberRoomInput)) {
+    //     //     $searchResult .=  config('global.number_room_title').": \'".$numberRoomInput."\", ";
+    //     // }
+    //     // // $sortStatus = $request->input('sort_status');
+    //     // if (!empty($sortStatus)) {
+    //     //     if ($sortStatus === 'view_count') {
+    //     //         $searchResult .= "Sắp xếp theo độ phổ biến, ";
+    //     //     } elseif ($sortStatus === 'price_asc') {
+    //     //         $searchResult .= "Sắp xếp theo giá: thấp đến cao, ";
+    //     //     } elseif ($sortStatus === 'price_desc') {
+    //     //         $searchResult .= "Sắp xếp theo giá: cao đến thấp, ";
+    //     //     }
+    //     // }
+
+
+    //     if (!empty($categoryInput)) {
+    //         $category = Category::find($categoryInput);
+    //         if ($category) {
+    //             $searchResult .= $category->category . ", ";
+    //         }
+    //     }
+
+    //     if (!empty($streetInput)) {
+    //         $street = LocationsStreet::where('code', $streetInput)->first();
+    //         if ($street) {
+    //             $searchResult .= 'đường ' . $street->street_name . ", ";
+    //         }
+    //     }
+
+    //     if (!empty($wardInput)) {
+    //         $ward = LocationsWard::where('code', $wardInput)->first();
+    //         if ($ward) {
+    //             $searchResult .= $ward->full_name . ", ";
+    //         }
+    //     }
+
+    //     // Loại bỏ ký tự phẩy và khoảng trắng cuối cùng
+    //     $searchResult = rtrim($searchResult, ", ");
+
+    //     // Thêm chuỗi đuôi
+    //     //dd($searchResult );
+    //     if ($searchResult == "Kết quả cho:\"")
+    //         $searchResult = "Kết quả cho: \"Tp Đà Lạt\"";
+    //     else
+    //         $searchResult .= ", Tp Đà Lạt\"";
+
+    //     return $searchResult;
+    // }
 }
