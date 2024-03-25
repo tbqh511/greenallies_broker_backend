@@ -210,6 +210,7 @@
                                     <div class="listsearch-input-item">
                                         <label>Số tầng</label>
                                         <select name='number_floor' data-placeholder="Số tầng" class="chosen-select on-radius no-search-select">
+                                            <option value="0" >Chọn số tầng</option>
                                             @for ($i = 1; $i <= 10; $i++) <option value="{{ $i }}" {{ request()->input('number_floor') == $i ?
                                                 'selected' : ''}}>
                                                 {{ $i == 10 ? '10+' : $i }}
@@ -225,6 +226,7 @@
                                         <label>Số phòng</label>
                                         <select name='number_room' data-placeholder="Số phòng ngủ"
                                             class="chosen-select on-radius no-search-select">
+                                            <option value="0" >Chọn số phòng</option>
                                             @for ($i = 1; $i <= 10; $i++)
                                                 <option value="{{ $i }}" {{ request()->input('number_room') == $i ? 'selected' : ''}}>{{ $i }}</option>
                                             @endfor
