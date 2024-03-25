@@ -127,15 +127,6 @@ class FrontEndPropertiesController extends Controller
         // Query to fetch properties based on search parameters
         $propertiesQuery = Property::query();
         // Add conditions to query based on search parameters
-        if (!empty($priceRangeInput)) {
-            // Tách giá trị thành mảng các khoảng giá
-            $priceRanges = explode(';', $priceRangeInput);
-            // Lấy giá trị tối thiểu và tối đa của khoảng giá
-            $minPrice = $priceRanges[0];
-            $maxPrice = $priceRanges[1];
-            // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
-            $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
-        }
 
         if (!empty($categoryInput)) {
             $propertiesQuery->where('category_id', $categoryInput);
@@ -169,26 +160,26 @@ class FrontEndPropertiesController extends Controller
             }
         }
 
-        // if (!empty($priceRangeInput)) {
-        //     // Tách giá trị thành mảng các khoảng giá
-        //     $priceRanges = explode(';', $priceRangeInput);
-        //     // Lấy giá trị tối thiểu và tối đa của khoảng giá
-        //     $minPrice = $priceRanges[0];
-        //     $maxPrice = $priceRanges[1];
+        if (!empty($priceRangeInput)) {
+            // Tách giá trị thành mảng các khoảng giá
+            $priceRanges = explode(';', $priceRangeInput);
+            // Lấy giá trị tối thiểu và tối đa của khoảng giá
+            $minPrice = $priceRanges[0];
+            $maxPrice = $priceRanges[1];
         
-        //     // Đảm bảo giá trị của $minPrice và $maxPrice là số nguyên
-        //     $minPrice = intval($minPrice);
-        //     $maxPrice = intval($maxPrice);
+            // Đảm bảo giá trị của $minPrice và $maxPrice là số nguyên
+            $minPrice = intval($minPrice);
+            $maxPrice = intval($maxPrice);
         
-        //     // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
-        //     if ($maxPrice === config('global.max_price')) {
-        //         // Truy vấn các bất động sản có giá lớn hơn hoặc bằng $minPrice
-        //         $propertiesQuery->where('price', '>', $minPrice);
-        //     } else {
-        //         // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
-        //         $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
-        //     }
-        // }
+            // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
+            if ($maxPrice === config('global.max_price')) {
+                // Truy vấn các bất động sản có giá lớn hơn hoặc bằng $minPrice
+                $propertiesQuery->where('price', '>', $minPrice);
+            } else {
+                // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
+                $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
+            }
+        }
         
         if (!empty($areaInput)) {
             // Tách giá trị range diện tích thành mảng
