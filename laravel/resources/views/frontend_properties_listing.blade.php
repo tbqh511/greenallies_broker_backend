@@ -339,8 +339,8 @@
                     <div class="price-opt">
                         <span class="price-opt-title">Sắp xếp theo:</span>
                         <div class="listsearch-input-item">
-                            <select data-placeholder="Phổ biến" class="chosen-select no-search-select">
-                                <option>Phổ biến</option>
+                            <select name="sort_status" data-placeholder="Phổ biến" class="chosen-select no-search-select">
+                                <option value "">Phổ biến</option>
                                 <option>Điểm đánh giá trung bình</option>
                                 <option>Giá: thấp đến cao</option>
                                 <option>Giá: cao đến thấp</option>

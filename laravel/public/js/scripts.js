@@ -355,7 +355,22 @@ function initHomeradar() {
             $('#searchForm').submit();
         });
     });
-    
+    //HuyTBQ: Filter by sort_status
+    $(document).ready(function() {
+        // Bắt sự kiện thay đổi giá trị của select
+        $('select[name="sort_status"]').on('change', function() {
+            // Lấy giá trị được chọn
+            var selectedValue = $(this).val();
+            // Lấy URL hiện tại
+            var currentUrl = window.location.href;
+            // Kiểm tra xem URL đã chứa tham số hay chưa
+            var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
+            // Thêm hoặc cập nhật tham số sắp xếp vào URL
+            var newUrl = currentUrl + separator + 'sort=' + selectedValue;
+            // Chuyển hướng đến URL mới
+            window.location.href = newUrl;
+        });
+    });
 
     function formattedArea(n) {
         return n + ' m²';
