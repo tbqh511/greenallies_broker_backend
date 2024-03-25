@@ -245,6 +245,7 @@ class FrontEndPropertiesController extends Controller
         //Only get active properties
 
         // Get the list of products based on the query
+        $propertiesQuery->where('status','1');
         $properties = $propertiesQuery->paginate(6);
 
         //dd($areaInput, $numberFloorInput, $numberFloorInput);
