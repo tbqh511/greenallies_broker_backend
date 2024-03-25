@@ -171,7 +171,7 @@ class FrontEndPropertiesController extends Controller
             $minPrice = intval($minPrice);
             $maxPrice = intval($maxPrice);
         
-            dd($maxPrice === config('global.max_price'));
+            dd($maxPrice === config('global.max_price'),$minPrice,$maxPrice);
             // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
             if ($maxPrice === config('global.max_price')) {
                 // Truy vấn các bất động sản có giá lớn hơn hoặc bằng $minPrice
