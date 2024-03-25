@@ -175,18 +175,21 @@ class FrontEndPropertiesController extends Controller
             // Lấy giá trị tối thiểu và tối đa của khoảng giá
             $minPrice = $priceRanges[0];
             $maxPrice = $priceRanges[1];
-
-            
+        
+            // Đảm bảo giá trị của $minPrice và $maxPrice là số nguyên
+            $minPrice = intval($minPrice);
+            $maxPrice = intval($maxPrice);
+        
             // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
             if ($maxPrice == config('global.max_price')) {
                 // Truy vấn các bất động sản có giá lớn hơn $minPrice
-                $propertiesQuery->where('price', '>', $minPrice);
-                dd(config('global.max_price'),$maxPrice,$minPrice,$maxPrice == config('global.max_price'),$propertiesQuery);
+                $propertiesQuery->where('price', '>=', $minPrice);
             } else {
                 // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
                 $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
             }
         }
+        
 
         if (!empty($legalInput)) {
             $propertiesQuery->whereHas('assignParameter', function ($query) use ($legalInput) {
