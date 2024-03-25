@@ -137,7 +137,6 @@ class FrontEndPropertiesController extends Controller
             $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
         }
 
-
         if (!empty($categoryInput)) {
             $propertiesQuery->where('category_id', $categoryInput);
         }
@@ -181,6 +180,7 @@ class FrontEndPropertiesController extends Controller
             if ($maxPrice == config('global.max_price')) {
                 // Truy vấn các bất động sản có giá lớn hơn $minPrice
                 $propertiesQuery->where('price', '>', $minPrice);
+                dd($maxPrice);
             } else {
                 // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
                 $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
