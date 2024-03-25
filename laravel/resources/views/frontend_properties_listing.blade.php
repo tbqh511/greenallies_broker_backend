@@ -138,7 +138,7 @@
                                         class="chosen-select on-radius no-search-select">
                                         <option value="">Loại BDS</option>
                                         @foreach ($categories as $categorie)
-                                        <option value="{{ $categorie->category }}" {{ request()->input('category') == $categorie->id ? 'selected' : '' }}>
+                                        <option value="{{ $categorie->category }}" {{ request()->input('category') == $categorie->category ? 'selected' : '' }}>
                                             {{ $categorie->category }}
                                         </option>
                                         @endforeach
