@@ -351,6 +351,8 @@ function initHomeradar() {
             $('input[type="text"], input[type="number"], input[type="checkbox"], select').val('');
             // Đặt lại giá trị của tất cả các select có class chosen-select
             $('.chosen-select').val('').trigger('chosen:updated');
+            // Gửi form khi hoàn tất đặt lại giá trị
+            $('#searchForm').submit();
         });
     });
     
