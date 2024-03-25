@@ -153,7 +153,7 @@
                                     <div class="price-range-item fl-wrap">
                                         <span class="pr_title">Giá:</span>
                                         <input type="text" class="price-range-double" data-min="100000000"
-                                            data-max="50000000000" name="price-range2" data-step="1000000000"
+                                            data-max="{{config('global.max_price')}}" name="price-range2" data-step="1000000000"
                                             value="{{ request()->input('price-range2') }}" max_postfix="+">
                                     </div>
                                 </div>

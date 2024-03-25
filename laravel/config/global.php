@@ -20,10 +20,7 @@ return [
     "JSON_PATH" => '/json',
 
     //HuyTBQ: Parameter for properties on properties card
-    'max_price' => '50000000000',
-
     'code_title' => 'Mã BDS',
-
     'area_title' => 'Diện tích',
     'area' => '15',
     'max_area' => '1000',
@@ -31,7 +28,7 @@ return [
     'number_floor'=>'18',
     'number_room_title'=>'Số phòng',
     'number_room'=>'19',
-
+    
     'legal_title' => 'Pháp lý',
     'legal' => '13',
     'direction_title' => 'Hướng',
@@ -40,6 +37,7 @@ return [
     'road_width' => '10',
     'price_m2_title' => 'Giá m2',
     'price_m2' => '16',
+    'max_price' => '50000000000',
     'bathroom_title' => 'Nhà vệ sinh',
     'bathroom' => '4',
     'garage_title' => 'Gara đổ xe - chỗ đậu xe',
