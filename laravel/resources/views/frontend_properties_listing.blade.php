@@ -340,11 +340,11 @@
                         <span class="price-opt-title">Sắp xếp theo:</span>
                         <div class="listsearch-input-item">
                             <select name="sort_status" data-placeholder="Phổ biến" class="chosen-select no-search-select">
-                                <option value = "">Bình thường</option>
-                                <option value = "view_count">Phổ biến</option>
+                                <option value="">Bình thường</option>
+                                <option value="view_count" {{ Request::input('sort_status') == 'view_count' ? 'selected' : '' }}>Phổ biến</option>
                                 {{-- <option>Điểm đánh giá trung bình</option> --}}
-                                <option value = "price_asc">Giá: thấp đến cao</option>
-                                <option value = "price_desc">Giá: cao đến thấp</option>
+                                <option value="price_asc" {{ Request::input('sort_status') == 'price_asc' ? 'selected' : '' }}>Giá: thấp đến cao</option>
+                                <option value="price_desc" {{ Request::input('sort_status') == 'price_desc' ? 'selected' : '' }}>Giá: cao đến thấp</option>
                             </select>
                         </div>
                     </div>
