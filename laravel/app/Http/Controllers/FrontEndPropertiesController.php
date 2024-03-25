@@ -270,14 +270,42 @@ class FrontEndPropertiesController extends Controller
             else
                 $searchResult .= "Cho thuê, ";
         }
+
         dd( $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus);
         // $priceRangeInput = $request->input('price-range2');
+        if (!empty($priceRangeInput)) {
+            // Tách giá trị thành mảng các khoảng giá
+            $priceRanges = explode(';', $priceRangeInput);
+            // Lấy giá trị tối thiểu và tối đa của khoảng giá
+            $minPrice = $priceRanges[0];
+            $maxPrice = $priceRanges[1];
+
+            $searchResult .= "Mức giá: \"\"".$minPrice." - ".$maxPrice."\"\", ";
+        }
         // $legalInput = $request->input('legal');
+        if (!empty($legalInput)) {
+            $searchResult .= "";
+        }
         // $directionInput = $request->input('direction');
+        if (!empty($directionInput)) {
+            $searchResult .= "";
+        }
         // $areaInput = $request->input('area');
+        if (!empty($areaInput)) {
+            $searchResult .= "";
+        }
         // $numberFloorInput = $request->input('number_floor');
+        if (!empty($numberFloorInput)) {
+            $searchResult .= "";
+        }
         // $numberRoomInput = $request->input('number_room');
+        if (!empty($numberRoomInput)) {
+            $searchResult .= "";
+        }
         // $sortStatus = $request->input('sort_status');
+        if (!empty($sortStatus)) {
+            $searchResult .= "";
+        }
 
         if (!empty($categoryInput)) {
             $category = Category::find($categoryInput);
