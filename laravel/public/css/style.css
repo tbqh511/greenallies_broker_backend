@@ -2661,7 +2661,7 @@ section.single-par2  .scroll-down-wrap{
 }
 .col-list-wrap{
 	position: relative;
-    width: 100%;
+    width: 850px;
     float: right;
 	padding-top: 120px;
     min-height: 100vh;

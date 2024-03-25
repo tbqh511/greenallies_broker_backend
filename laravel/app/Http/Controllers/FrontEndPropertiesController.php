@@ -260,7 +260,7 @@ class FrontEndPropertiesController extends Controller
         $searchResult = $this->generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput);
 
         // Pass the properties and search result message to the view
-        return view('frontend_properties_listing1', compact('properties', 'searchResult', 'locationsStreets', 'locationsWards', 'categories', 'legals', 'directions'));
+        return view('frontend_properties_listing', compact('properties', 'searchResult', 'locationsStreets', 'locationsWards', 'categories', 'legals', 'directions'));
     }
 
     private function generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput)
