@@ -22,6 +22,7 @@ return [
     //HuyTBQ: Parameter for properties on properties card
     'code_title' => 'Mã BDS',
     'area_title' => 'Diện tích',
+    'price_range_title'=> 'Mức giá',
     'area' => '15',
     'max_area' => '1000',
     'number_floor_title'=>'Số tầng',

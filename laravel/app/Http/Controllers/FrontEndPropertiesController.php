@@ -199,10 +199,16 @@ class FrontEndPropertiesController extends Controller
             // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng diện tích
             if ($maxArea == config('global.max_area')) {
                 // Truy vấn các bất động sản có diện tích lớn hơn $minArea
-                $propertiesQuery->where('area', '>', $minArea);
+                $propertiesQuery->whereHas('assignParameter', function ($query) use ($minArea) {
+                    $query->where('parameter_id', config('global.area'))
+                        ->where('value', '>', $minArea);
+                });
             } else {
                 // Truy vấn các bất động sản trong khoảng diện tích từ $minArea đến $maxArea
-                $propertiesQuery->whereBetween('area', [$minArea, $maxArea]);
+                $propertiesQuery->whereHas('assignParameter', function ($query) use ($minArea, $maxArea) {
+                    $query->where('parameter_id', config('global.area'))
+                          ->whereBetween('value', [$minArea, $maxArea]);
+                });
             }
         }
 
@@ -255,7 +261,7 @@ class FrontEndPropertiesController extends Controller
         $properties = $propertiesQuery->paginate(6);
 
         //dd($areaInput, $numberFloorInput, $numberFloorInput);
-        dd($properties[0]->area);
+        //dd($properties[0]->area);
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput);
 
