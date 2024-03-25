@@ -289,10 +289,7 @@ class FrontEndPropertiesController extends Controller
         }
 
         if (!empty($categoryInput)) {
-            $category = Category::find($categoryInput);
-            if ($category) {
-                $searchResult .= $category->category . ", ";
-            }
+                $searchResult .= "Loại BDS: ".$categoryInput. ", ";
         }
 
         if (!empty($streetInput)) {
