@@ -26,6 +26,7 @@ return [
 
     'area_title' => 'Diện tích',
     'area' => '15',
+    'max_area' => '1000',
     'number_floor_title'=>'Số tầng',
     'number_floor'=>'18',
     'number_room_title'=>'Số phòng',

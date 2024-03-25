@@ -202,15 +202,32 @@ class FrontEndPropertiesController extends Controller
         }
 
         if (!empty($areaInput)) {
+            // Tách giá trị range diện tích thành mảng
+            $areaRange = explode(';', $areaInput);
+            $minArea = $areaRange[0];
+            $maxArea = $areaRange[1];
             
+            if ($maxArea == config('global.max_area')) {
+                // Truy vấn các bất động sản có giá lớn hơn $minPrice
+                $propertiesQuery->where('price', '>', $minArea);
+            } else {
+                // Truy vấn các bất động sản trong khoảng giá từ $minPrice đến $maxPrice
+                $propertiesQuery->whereBetween('price', [$minArea, $maxArea]);
+            }
         }
-
+        
         if (!empty($numberFloorInput)) {
-            
+            $propertiesQuery->whereHas('assignParameter', function ($query) use ($numberFloorInput) {
+                $query->where('parameter_id', config('global.number_floor'))
+                    ->where('value', $numberFloorInput);
+            });
         }
-
+        
         if (!empty($numberRoomInput)) {
-            
+            $propertiesQuery->whereHas('assignParameter', function ($query) use ($numberRoomInput) {
+                $query->where('parameter_id', config('global.number_room'))
+                    ->where('value', $numberRoomInput);
+            });
         }
 
         // Get the list of products based on the query
