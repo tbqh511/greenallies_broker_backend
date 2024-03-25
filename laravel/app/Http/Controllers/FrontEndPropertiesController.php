@@ -129,7 +129,7 @@ class FrontEndPropertiesController extends Controller
         // Add conditions to query based on search parameters
 
         if (!empty($categoryInput)) {
-            $propertiesQuery->where('category_id', $categoryInput);
+            $propertiesQuery->where('category.category', $categoryInput);
         }
 
         if (!empty($wardInput)) {
