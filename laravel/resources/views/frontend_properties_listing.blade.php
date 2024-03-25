@@ -349,7 +349,7 @@
                     </div>
                     <!-- price-opt end-->
                     <!-- price-opt-->
-                    <div class="grid-opt">
+                    {{-- <div class="grid-opt">
                         <ul class="no-list-style">
                             <li class="grid-opt_act"><span class="two-col-grid act-grid-opt tolt"
                                     data-microtip-position="bottom" data-tooltip="Xem dạng lưới"><i
@@ -357,7 +357,7 @@
                             <li class="grid-opt_act"><span class="one-col-grid tolt" data-microtip-position="bottom"
                                     data-tooltip="Xem dạng danh sách"><i class="far fa-list"></i></span></li>
                         </ul>
-                    </div>
+                    </div> --}}
                     <!-- price-opt end-->
                 </div>
                 <!-- list-main-wrap-opt end-->
