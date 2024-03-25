@@ -395,7 +395,6 @@
                 @else
                 <a href="#" class="nextposts-link disabled"><i class="fa fa-caret-right"></i></a>
                 @endif  --}}
-
             </div>
             <!-- pagination end-->
         </div>
