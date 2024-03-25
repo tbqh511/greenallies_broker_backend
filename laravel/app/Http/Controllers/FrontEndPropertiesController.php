@@ -242,6 +242,8 @@ class FrontEndPropertiesController extends Controller
             $propertiesQuery->orderBy('total_click', 'desc');
         }
 
+        //Only get active properties
+
         // Get the list of products based on the query
         $properties = $propertiesQuery->paginate(6);
 
@@ -270,7 +272,6 @@ class FrontEndPropertiesController extends Controller
             else
                 $searchResult .= "Cho thuê, ";
         }
-
         
         if (!empty($legalInput)) {
             $searchResult .= config('global.legal_title').": ".$legalInput."\", ";
@@ -279,8 +280,6 @@ class FrontEndPropertiesController extends Controller
         if (!empty($directionInput)) {
             $searchResult .= config('global.direction_title').": \'".$directionInput."\", ";
         }
-        
-
 
         if (!empty($categoryInput)) {
             $category = Category::find($categoryInput);
@@ -302,10 +301,8 @@ class FrontEndPropertiesController extends Controller
                 $searchResult .= $ward->full_name . ", ";
             }
         }
-
         // Loại bỏ ký tự phẩy và khoảng trắng cuối cùng
         $searchResult = rtrim($searchResult, ", ");
-
         // Thêm chuỗi đuôi
         //dd($searchResult );
         if ($searchResult == "Kết quả cho:\"")
@@ -314,7 +311,6 @@ class FrontEndPropertiesController extends Controller
             $searchResult .= ", Tp Đà Lạt\"";
 
         return $searchResult;
-        
         // // $priceRangeInput = $request->input('price-range2');
         // if (!empty($priceRangeInput)) {
         //     // Tách giá trị thành mảng các khoảng giá
