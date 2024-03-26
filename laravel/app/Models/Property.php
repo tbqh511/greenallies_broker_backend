@@ -306,6 +306,19 @@ class Property extends Model
     }
     //End HuyTBQ
 
+    public function getFormattedPriceM2Attribute()
+    {
+        // Kiểm tra nếu diện tích bằng 0 hoặc không có diện tích
+        if ($this->area == 0 || $this->area == null) {
+            return 'Chưa xác định';
+        }
+
+        // Tính giá trị price_m2
+        $priceM2 = $this->price / $this->area;
+
+        // Định dạng giá trị price_m2
+        return number_format($priceM2, 2);
+    }
 
     //End HuyTBQ
     //HuyTBQ: add function get title
