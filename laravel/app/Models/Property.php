@@ -305,7 +305,7 @@ class Property extends Model
         return $formattedPrice;
     }
     //End HuyTBQ
-
+    //HuyTBQ: add function get format price m2
     public function getFormattedPriceM2Attribute()
     {
         // Kiểm tra nếu diện tích bằng 0 hoặc không có diện tích
@@ -317,7 +317,21 @@ class Property extends Model
         $priceM2 = $this->price / $this->area;
 
         // Định dạng giá trị price_m2
-        return number_format($priceM2, 2);
+        $ty = 1000000000;
+        $trieu = 1000000;
+        if ($priceM2 > $ty) {
+            if ($priceM2 % $ty == 0) {
+                $formattedPriceM2 = number_format($priceM2 / $ty, 0) . ' tỷ/m²';
+            } else {
+                $formattedPriceM2 = number_format($priceM2 / $ty, 1) . ' tỷ/m²';
+            }
+        } elseif ($priceM2 > 0) {
+            $formattedPriceM2 = number_format($priceM2 / $trieu, 0) . ' triệu/m²';
+        } else {
+            $formattedPriceM2 = 'Giá thỏa thuận';
+        }
+
+        return $formattedPriceM2;
     }
 
     //End HuyTBQ
