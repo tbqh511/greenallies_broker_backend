@@ -203,7 +203,7 @@
                                             </li>
                                             @endif
                                             @if($property->formatted_price_m2)
-                                            <li><span>{{config('global.price_m2_title')}}:</span>{{ $property->formatted_price_m2}} /m²
+                                            <li><span>{{config('global.price_m2_title')}}:</span>{{ $property->formatted_price_m2}}
                                             </li>
                                             @endif
                                             @if($property->number_floor)
