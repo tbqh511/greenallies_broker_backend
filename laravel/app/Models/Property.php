@@ -326,7 +326,7 @@ class Property extends Model
                 $formattedPriceM2 = number_format($priceM2 / $ty, 1) . ' tỷ/m²';
             }
         } elseif ($priceM2 > 0) {
-            $formattedPriceM2 = number_format($priceM2 / $trieu, 0) . ' triệu/m²';
+            $formattedPriceM2 = number_format($priceM2 / $trieu, 1) . ' triệu/m²';
         } else {
             $formattedPriceM2 = 'Giá thỏa thuận';
         }
