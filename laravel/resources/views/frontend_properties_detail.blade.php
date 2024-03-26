@@ -199,11 +199,11 @@
                                             </li>
                                             @endif
                                             @if($property->road_width)
-                                            <li><span>{{config('global.road_width_title')}}:</span>{{$property->road_width}}
+                                            <li><span>{{config('global.road_width_title')}}:</span>{{$property->road_width}} m
                                             </li>
                                             @endif
                                             @if($property->price_m2)
-                                            <li><span>{{config('global.price_m2_title')}}:</span>{{$property->price_m2}}
+                                            <li><span>{{config('global.price_m2_title')}}:</span>{{ $property->price/$property->area}} /m²
                                             </li>
                                             @endif
                                             @if($property->number_floor)
