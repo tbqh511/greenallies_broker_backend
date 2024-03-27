@@ -350,7 +350,8 @@ class Property extends Model
     //HuyTBQ: add function get title
     public function getCountPropertiesByAgentAttribute()
     {
-        return Property::where('added_by', $this->id)->get()->count();
+        $agentId = $this->added_by;
+        return Property::where('added_by', $agentId)->get()->count();
     }
     //End HuyTBQ
 
