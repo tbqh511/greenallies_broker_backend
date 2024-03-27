@@ -1,6 +1,6 @@
 <header class="main-header">
     <!--  logo  -->
-    <div class="logo-holder"><a href="/home"><img src="{{asset('images/logo.svg')}}" alt="Đà Lạt Bất Động Sản"></a></div>
+    <div class="logo-holder"><a href="/frontend"><img src="{{asset('images/logo.svg')}}" alt="Đà Lạt Bất Động Sản"></a></div>
     <!-- logo end  -->
     <!-- nav-button-wrap-->
     <div class="nav-button-wrap color-bg nvminit">
