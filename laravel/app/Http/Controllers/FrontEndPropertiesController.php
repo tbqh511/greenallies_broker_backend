@@ -253,7 +253,7 @@ class FrontEndPropertiesController extends Controller
         // Lấy các tham số tìm kiếm
         $searchParams = $request->except('_token', 'page');
         // Lấy danh sách bất động sản dựa trên truy vấn
-        $properties = $propertiesQuery->where('status', '1')->paginate(9)->appends($searchParams);
+        $properties = $propertiesQuery->where('status', '1')->paginate(6)->appends($searchParams);
 
 
         //dd($areaInput, $numberFloorInput, $numberFloorInput);
