@@ -1,7 +1,7 @@
 <div class="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">
     <div class="container">
         <div class="breadcrumbs-list">
-            <a href="{{ route('index') }}">Trang chủ</a> 
+            <a href="{{ route('index') }}">{{$title}}</a> 
             {{-- <span>Mới nhất</span> --}}
         </div>
         {{-- <div class="share-holder hid-share">

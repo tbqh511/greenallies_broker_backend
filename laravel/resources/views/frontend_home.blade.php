@@ -6,7 +6,7 @@
     @include('frontends.components.home_slider',['locationsStreets' => $locationsStreets, 'locationsWards' => $locationsWards, 'categories' => $categories])
     <!--  section  end-->
     <!-- breadcrumbs-->
-    @include('frontends.components.home_breadcrumb')
+    @include('frontends.components.home_breadcrumb',['title'=>"Trang chủ"])
     <!-- breadcrumbs end -->
     <!-- section -->
     @include('frontends.components.home_products_grid', ['newestProducts'=> $newestProducts])
