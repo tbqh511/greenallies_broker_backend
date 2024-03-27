@@ -59,7 +59,7 @@
     @include('frontends.components.home_breadcrumb', [
     'title'=>'BDS',
     'nodes'=> [
-    ['title' => 'Trang chủ', 'url' => $route('index')],
+    ['title' => 'Trang chủ', 'url' => route('index')],
     ['title' => 'phường', 'url' => '#'],
     ['title' => 'đường', 'url' => '#'],
     ]
