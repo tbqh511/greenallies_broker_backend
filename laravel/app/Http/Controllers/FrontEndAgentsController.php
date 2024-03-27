@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\LocationsWard;
 use Illuminate\Http\Request;
 
 class FrontEndAgentsController extends Controller
@@ -40,10 +41,17 @@ class FrontEndAgentsController extends Controller
         //     'newestProperties' => $newestProperties,
         // ]);
 
+        // Get the district code from configuration
+        $districtCode = config('location.district_code');
+        // If there's a district code, get the list of wards in that district
+        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->get()->sortBy('full_name') : LocationsWard::all();
+
+
         $categories = Category::orderBy('category')->get();
 
         return view('frontend_agents_detail',[
             'categories' => $categories,
+            'locationsWards' => $locationsWards,
         ]);
     }
 
