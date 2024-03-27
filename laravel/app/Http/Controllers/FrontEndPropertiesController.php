@@ -161,6 +161,7 @@ class FrontEndPropertiesController extends Controller
             } else {
                 // Xử lý khi người dùng chọn "Cho thuê & Bán"
                 // Không cần thêm điều kiện gì vì đã xử lý các trường hợp này trước đó
+                dd($propertyTypeInput);
             }
         }
 
