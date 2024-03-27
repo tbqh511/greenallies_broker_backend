@@ -163,8 +163,9 @@ class FrontEndPropertiesController extends Controller
                 // Không cần thêm điều kiện gì vì đã xử lý các trường hợp này trước đó
                 dd($propertyTypeInput);
             }
+            dd($propertyTypeInput);
         }
-        dd($propertyTypeInput);
+        
 
         if (!empty($priceRangeInput)) {
             // Tách giá trị thành mảng các khoảng giá
