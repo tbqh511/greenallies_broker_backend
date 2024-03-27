@@ -608,7 +608,7 @@
                                         <img src="{{ $property->agent->profile ?? 'images/avatar/1.jpg' }}" alt="">
                                     </div>
                                     <div class="profile-widget-header-title">
-                                        @if(isset($property->agent->id))
+                                        @if(isset($property->added_by))
                                         <h4><a href="{{ route('agent.showid', ['id' => $property->added_by]) }}">{{
                                                 $property->agent->name ?? 'Unknown' }}</a></h4>
                                         @endif
