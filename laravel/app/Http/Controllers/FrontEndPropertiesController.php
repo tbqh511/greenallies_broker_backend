@@ -77,7 +77,6 @@ class FrontEndPropertiesController extends Controller
 
         //dd(Property::where('added_by', '2')->get()->count());
 
-
         // Return the property detail view with the necessary data
         return view('frontend_properties_detail', [
             'property' => $property,
