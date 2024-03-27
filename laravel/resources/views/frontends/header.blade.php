@@ -125,7 +125,7 @@
         <div class="custom-form">
             <form method="GET" name="registerform" action="{{ route('properties.index') }}">
                 <label>Tìm BDS </label>
-                <input type="text" placeholder="Đường, Phường, Xã" value="" id="123" />
+                <input name="text" type="text" placeholder="Tìm BDS" value="{{ request()->input('text') }}" />
 
                 <label>Cho thuê & Bán</label>
                 <select name="propery_type" data-placeholder="Tình trạng" class="chosen-select on-radius no-search-select">
@@ -136,30 +136,26 @@
                         ''}}>Cho Thuê</option>
                 </select>
 
-                <label>Loại nhà đất</label>
-                <select data-placeholder="Categories" class="chosen-select on-radius no-search-select">
-                    <option>Tất cả nhà đất</option>
-                    <option>Nhà bán</option>
-                    <option>Nhà riêng</option>
-                    <option>Nhà biệt thự</option>
-                    <option>Đất bán</option>
-                    <option>Căn hộ chung cư</option>
-                </select>
-                <select data-placeholder="Categories" class="chosen-select on-radius no-search-select">
-                    <option>Tất cả nhà đất</option>
-                    <option>Nhà bán</option>
-                    <option>Nhà riêng</option>
-                    <option>Nhà biệt thự</option>
-                    <option>Đất bán</option>
-                    <option>Căn hộ chung cư</option>
+                <label>Loại BDS</label>
+                <select name="category" data-placeholder="Loại BDS" class="chosen-select on-radius no-search-select">
+                    <option value="">Loại BDS</option>
+                    @foreach ($categories as $categorie)
+                    <option value="{{ $categorie->category }}" {{ request()->input('category') ==
+                        $categorie->category ? 'selected' : '' }}>
+                        {{ $categorie->category }}
+                    </option>
+                    @endforeach
                 </select>
                 <label style="margin-top:10px;">Mức giá</label>
-                <div class="price-rage-item fl-wrap">
-                    <input type="text" class="price-range" data-min="100" data-max="100000" name="price-range1"
-                        data-step="1" value="1" data-prefix="$">
+                <div class="price-range-item fl-wrap">
+                    <span class="pr_title">Giá:</span>
+                    <input type="text" class="price-range-double" data-min="100000000"
+                        data-max="{{config('global.max_price')}}" name="price-range2"
+                        data-step="100000000" value="{{ request()->input('price-range2') }}"
+                        max_postfix="+">
                 </div>
-                <button onclick="location.href='/nha-ban'" type="button" class="btn float-btn color-bg"><i
-                        class="fal fa-search"></i> Tìm kiếm</button>
+                <button type="submit" class="btn color-bg fw-btn float-btn small-btn">Tìm
+                    kiếm</button>
             </form>
         </div>
     </div>
