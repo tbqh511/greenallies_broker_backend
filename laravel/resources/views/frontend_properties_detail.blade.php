@@ -605,7 +605,7 @@
                                 </div> --}}
                                 <div class="profile-widget-card">
                                     <div class="profile-widget-image">
-                                        <img src="{{ $property->agent->profile ?? 'images/avatar/1.jpg' }}" alt="">
+                                        <img src="{{$property->agent ? ($property->agent->profile ? $property->agent->profile : 'https://dalatbds.com/images/users/1693209486.1303.jpg'):'https://dalatbds.com/images/users/1693209486.1303.jpg'}}" alt="Đà Lạt BDS">
                                     </div>
                                     <div class="profile-widget-header-title">
                                         @if(isset($property->added_by))
