@@ -1,6 +1,7 @@
 <header class="main-header">
     <!--  logo  -->
-    <div class="logo-holder"><a href="{{ route('index')}}"><img src="{{asset('images/logo.svg')}}" alt="Đà Lạt Bất Động Sản"></a></div>
+    <div class="logo-holder"><a href="{{ route('index')}}"><img src="{{asset('images/logo.svg')}}"
+                alt="Đà Lạt Bất Động Sản"></a></div>
     <!-- logo end  -->
     <!-- nav-button-wrap-->
     <div class="nav-button-wrap color-bg nvminit">
@@ -122,17 +123,28 @@
             </div>
         </div> --}}
         <div class="custom-form">
-            <form method="post" name="registerform">
-                <label>Tìm nhanh </label>
+            <form method="GET" name="registerform" action="{{ route('properties.index') }}">
+                <label>Tìm BDS </label>
                 <input type="text" placeholder="Đường, Phường, Xã" value="" id="123" />
+
+                <label>Cho thuê & Bán</label>
+                <select name="propery_type" data-placeholder="Tình trạng"
+                    class="chosen-select on-radius no-search-select">
+                    <option value="">Cho thuê & Bán</option>
+                    <option value="0" {{ request()->input('propery_type') == '0' ? 'selected' :
+                        ''}}>Bán</option>
+                    <option value="1" {{ request()->input('propery_type') == '1' ? 'selected' :
+                        ''}}>Cho Thuê</option>
+                </select>
+
                 <label>Loại nhà đất</label>
                 <select data-placeholder="Categories" class="chosen-select on-radius no-search-select">
                     <option>Tất cả nhà đất</option>
-                        <option>Nhà bán</option>
-                        <option>Nhà riêng</option>
-                        <option>Nhà biệt thự</option>
-                        <option>Đất bán</option>
-                        <option>Căn hộ chung cư</option>
+                    <option>Nhà bán</option>
+                    <option>Nhà riêng</option>
+                    <option>Nhà biệt thự</option>
+                    <option>Đất bán</option>
+                    <option>Căn hộ chung cư</option>
                 </select>
                 <label style="margin-top:10px;">Mức giá</label>
                 <div class="price-rage-item fl-wrap">

@@ -67,7 +67,6 @@
                                             ''}}>Cho Thuê</option>
                                     </select>
                                 </div>
-
                                 {{-- <div class="main-search-input-item">
                                     <select name="propery_type" data-placeholder="Cho thuê & Bán"
                                         class="chosen-select no-search-select">
