@@ -257,7 +257,7 @@ class FrontEndPropertiesController extends Controller
 
 
         //dd($areaInput, $numberFloorInput, $numberFloorInput);
-        dd($propertyTypeInput);
+        //dd($propertyTypeInput);
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput);
 
