@@ -165,7 +165,7 @@ class FrontEndPropertiesController extends Controller
             }
             
         }
-        dd($propertyTypeInput,!empty($propertyTypeInput));
+        dd($propertyTypeInput,!empty($propertyTypeInput),isset($propertyTypeInput));
 
         if (!empty($priceRangeInput)) {
             // Tách giá trị thành mảng các khoảng giá
