@@ -43,10 +43,10 @@
                     <a href="/frontend" class="act-link">Trang chủ <i class="fa"></i></a>
                 </li>
                 <li>
-                    <a href="{{ route('properties.index', ['property_type' => 0]) }}">Nhà bán <i class="fa "></i></a>
+                    <a href="{{ route('properties.index', ['property_type' => 0]) }}">Bán <i class="fa "></i></a>
                 </li>
                 <li>
-                    <a href="{{ route('properties.index', ['property_type' => 1]) }}">Đất bán <i class="fa "></i></a>
+                    <a href="{{ route('properties.index', ['property_type' => 1]) }}">Cho thuê <i class="fa "></i></a>
                 </li>
                 {{-- <li>
                     <a href="#">Listings <i class="fa fa-caret-down"></i></a>
