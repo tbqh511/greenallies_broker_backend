@@ -32,6 +32,11 @@ class FrontEndPropertiesController extends Controller
     {
         $categories = Category::orderBy('category')->get();
 
+        // Get the district code from configuration
+        $districtCode = config('location.district_code');
+        // If there's a district code, get the list of wards in that district
+        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->get()->sortBy('full_name') : LocationsWard::all();
+
         // Fetch the property based on the ID
         $property = Property::findOrFail($id);
         //dd($property);
@@ -85,6 +90,7 @@ class FrontEndPropertiesController extends Controller
             'relatedProducts' => $relatedProducts,
             'highlightedProducts' => $highlightedProducts,
             'categories' => $categories,
+            'locationsWards' => $locationsWards,
         ]);
     }
 

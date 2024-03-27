@@ -79,7 +79,7 @@
                             <!-- Ô lựa chọn thành phố -->
                             <div class="col-sm-3">
                                 <div class="listsearch-input-item">
-                                    <select name="ward" data-placeholder="Tất cả thành phố"
+                                    <select name="ward" data-placeholder="Phường Xã"
                                         class="chosen-select on-radius no-search-select">
                                         <option value="">Phường Xã</option>
                                         @foreach ($locationsWards as $locationsWard)

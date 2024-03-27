@@ -124,18 +124,6 @@
         </div> --}}
         <div class="custom-form">
             <form method="GET" name="registerform" action="{{ route('properties.index') }}">
-                <label>Tìm BDS </label>
-                <input name="text" type="text" placeholder="Tìm BDS" value="{{ request()->input('text') }}" />
-
-                <label>Cho thuê & Bán</label>
-                <select name="propery_type" data-placeholder="Tình trạng" class="chosen-select on-radius no-search-select">
-                    <option value="">Cho thuê & Bán</option>
-                    <option value="0" {{ request()->input('propery_type') == '0' ? 'selected' :
-                        ''}}>Bán</option>
-                    <option value="1" {{ request()->input('propery_type') == '1' ? 'selected' :
-                        ''}}>Cho Thuê</option>
-                </select>
-
                 <label>Loại BDS</label>
                 <select name="category" data-placeholder="Loại BDS" class="chosen-select on-radius no-search-select">
                     <option value="">Loại BDS</option>
@@ -146,13 +134,26 @@
                     </option>
                     @endforeach
                 </select>
+                <label>BDS Phướng / Xã</label>
+                <select name="ward" data-placeholder="Phường Xã" class="chosen-select on-radius no-search-select">
+                    <option value="">Phường Xã</option>
+                    @foreach ($locationsWards as $locationsWard)
+                    <option value="{{$locationsWard->code}}" {{ request()->input('ward') ==
+                        $locationsWard->code ? 'selected' : '' }}>
+                        {{$locationsWard->full_name}}
+                    </option>
+                @endforeach
+                </select>
                 <label style="margin-top:10px;">Mức giá</label>
                 <div class="price-range-item fl-wrap">
                     <input name="price-range2" type="text" class="price-range-double" data-min="100000000"
-                        data-max="{{config('global.max_price')}}" 
-                        data-step="100000000" value="{{ request()->input('price-range2') }}"
-                        max_postfix="+">
+                        data-max="{{config('global.max_price')}}" data-step="100000000"
+                        value="{{ request()->input('price-range2') }}" max_postfix="+">
                 </div>
+
+
+                <label>Tìm mã BDS </label>
+                <input name="text" type="text" placeholder="Tìm BDS" value="{{ request()->input('text') }}" />
                 <button type="submit" class="btn color-bg fw-btn float-btn small-btn">Tìm
                     kiếm</button>
             </form>
