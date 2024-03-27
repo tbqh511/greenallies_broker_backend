@@ -124,6 +124,16 @@
         </div> --}}
         <div class="custom-form">
             <form method="GET" name="registerform" action="{{ route('properties.index') }}">
+                <label>Cho thuê & Bán</label>
+                <select name="street" data-placeholder="All Categories" class="chosen-select">
+                    <option value="">Đường</option>
+                    @foreach ($locationsStreets as $locationsStreet)
+                    <option value="{{$locationsStreet->code}}" {{ request()->input('street') ==
+                        $locationsStreet->code ? 'selected' : '' }}>
+                        {{$locationsStreet->street_name}}
+                    </option>
+                    @endforeach
+                </select>
                 <label>Loại BDS</label>
                 <select name="category" data-placeholder="Loại BDS" class="chosen-select on-radius no-search-select">
                     <option value="">Loại BDS</option>
