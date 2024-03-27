@@ -148,9 +148,8 @@
                 </select>
                 <label style="margin-top:10px;">Mức giá</label>
                 <div class="price-range-item fl-wrap">
-                    <span class="pr_title">Giá:</span>
-                    <input type="text" class="price-range-double" data-min="100000000"
-                        data-max="{{config('global.max_price')}}" name="price-range2"
+                    <input name="price-range2" type="text" class="price-range-double" data-min="100000000"
+                        data-max="{{config('global.max_price')}}" 
                         data-step="100000000" value="{{ request()->input('price-range2') }}"
                         max_postfix="+">
                 </div>
