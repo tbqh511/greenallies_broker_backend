@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class FrontEndAgentsController extends Controller
@@ -38,7 +39,12 @@ class FrontEndAgentsController extends Controller
         //     'property' => $property,
         //     'newestProperties' => $newestProperties,
         // ]);
-        return view('frontend_agents_detail');
+
+        $categories = Category::orderBy('category')->get();
+
+        return view('frontend_agents_detail',[
+            'categories' => $categories,
+        ]);
     }
 
     /**
