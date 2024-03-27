@@ -57,13 +57,15 @@
     </section>
     <!-- breadcrumbs-->
     @include('frontends.components.home_breadcrumb', [
-    'title'=>'BDS',
-    'nodes'=> [
+    'title' => 'BDS',
+    'nodes' => [
     ['title' => 'Trang chủ', 'url' => route('index')],
-    ['title' => properties->ward->full_name, 'url' => route('properties.index',['ward'=>$property->ward_code])],
-    ['title' => properties->street->street_name, 'url' => route('properties.index',['street'=>$property->street_code])],
+    ['title' => $property->ward->full_name, 'url' => route('properties.index', ['ward' => $property->ward_code])],
+    ['title' => $property->street->street_name, 'url' => route('properties.index', ['street' =>
+    $property->street_code])],
     ]
     ])
+
     <!-- breadcrumbs end -->
     <div class="gray-bg small-padding fl-wrap">
         <div class="container">
