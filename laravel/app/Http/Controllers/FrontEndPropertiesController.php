@@ -153,19 +153,19 @@ class FrontEndPropertiesController extends Controller
             if ($propertyTypeInput == '1') {
                 // Xử lý khi người dùng chọn "Cho Thuê"
                 $propertiesQuery->where('propery_type', 1);
-                dd($propertyTypeInput);
+                
             } elseif ($propertyTypeInput == '0') {
                 // Xử lý khi người dùng chọn "Bán"
                 $propertiesQuery->where('propery_type', 0);
-                dd($propertyTypeInput);
+                
             } else {
                 // Xử lý khi người dùng chọn "Cho thuê & Bán"
                 // Không cần thêm điều kiện gì vì đã xử lý các trường hợp này trước đó
-                dd($propertyTypeInput);
+                
             }
-            dd($propertyTypeInput);
+            
         }
-        
+        dd($propertyTypeInput,empty($propertyTypeInput));
 
         if (!empty($priceRangeInput)) {
             // Tách giá trị thành mảng các khoảng giá
