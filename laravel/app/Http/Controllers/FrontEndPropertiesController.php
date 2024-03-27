@@ -30,6 +30,8 @@ class FrontEndPropertiesController extends Controller
      */
     public function getPropertyById(int $id)
     {
+        $categories = Category::orderBy('category')->get();
+
         // Fetch the property based on the ID
         $property = Property::findOrFail($id);
         //dd($property);
@@ -82,6 +84,7 @@ class FrontEndPropertiesController extends Controller
             'property' => $property,
             'relatedProducts' => $relatedProducts,
             'highlightedProducts' => $highlightedProducts,
+            'categories' => $categories,
         ]);
     }
 
