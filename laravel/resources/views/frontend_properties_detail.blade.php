@@ -56,7 +56,9 @@
         </div>
     </section>
     <!-- breadcrumbs-->
-    @include('frontends.components.home_breadcrumb')
+    @include('frontends.components.home_breadcrumb', [
+        'title'=>'BDS'
+    ])
     <!-- breadcrumbs end -->
     <div class="gray-bg small-padding fl-wrap">
         <div class="container">
