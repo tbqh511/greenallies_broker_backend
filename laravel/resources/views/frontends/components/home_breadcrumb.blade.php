@@ -1,7 +1,7 @@
 <div class="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">
     <div class="container">
         <div class="breadcrumbs-list">
-            <a href="{{ route('index') }}">Home</a>
+            {{-- <a href="{{ route('index') }}">Home</a> --}}
             {{-- <a href="#">Agency</a> --}}
             @if(isset($title))
             <span>{{ $title }}</span>
