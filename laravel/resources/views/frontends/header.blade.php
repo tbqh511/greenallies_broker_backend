@@ -128,8 +128,7 @@
                 <input type="text" placeholder="Đường, Phường, Xã" value="" id="123" />
 
                 <label>Cho thuê & Bán</label>
-                <select name="propery_type" data-placeholder="Tình trạng"
-                    class="chosen-select on-radius no-search-select">
+                <select name="propery_type" data-placeholder="Tình trạng" class="chosen-select on-radius no-search-select">
                     <option value="">Cho thuê & Bán</option>
                     <option value="0" {{ request()->input('propery_type') == '0' ? 'selected' :
                         ''}}>Bán</option>
@@ -138,6 +137,14 @@
                 </select>
 
                 <label>Loại nhà đất</label>
+                <select data-placeholder="Categories" class="chosen-select on-radius no-search-select">
+                    <option>Tất cả nhà đất</option>
+                    <option>Nhà bán</option>
+                    <option>Nhà riêng</option>
+                    <option>Nhà biệt thự</option>
+                    <option>Đất bán</option>
+                    <option>Căn hộ chung cư</option>
+                </select>
                 <select data-placeholder="Categories" class="chosen-select on-radius no-search-select">
                     <option>Tất cả nhà đất</option>
                     <option>Nhà bán</option>
