@@ -52,7 +52,7 @@ Route::get('/', function () {
     return view('coming_soon');
 });
 
-Route::get('/frontend', [FrontEndHomeController::class, 'index']);
+Route::get('/frontend', [FrontEndHomeController::class, 'index'])->name('index');
 
 //property controller
 Route::get('/property/{id}', [FrontEndPropertiesController::class, 'getPropertyById'])->name('property.showid');
