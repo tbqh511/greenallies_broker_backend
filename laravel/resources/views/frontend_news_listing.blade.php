@@ -21,7 +21,12 @@
     </section>
     <!--  section  end-->
     <!-- breadcrumbs-->
-    @include('frontends.components.home_breadcrumb',['title'=>"Trang chủ"])
+    @include('frontends.components.home_breadcrumb', [
+    'title' => 'Wiki BDS',
+    'nodes' => [
+            ['title' => 'Trang chủ', 'url' => route('index')],
+        ]
+    ])
     <!-- breadcrumbs end -->
     <!-- col-list-wrap -->
     <div class="gray-bg small-padding fl-wrap">
