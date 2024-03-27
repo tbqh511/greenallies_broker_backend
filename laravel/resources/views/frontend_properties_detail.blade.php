@@ -60,8 +60,8 @@
     'title'=>'BDS',
     'nodes'=> [
     ['title' => 'Trang chủ', 'url' => route('index')],
-    ['title' => 'phường', 'url' => route('properties.index',['ward'=>$property->ward_code])],
-    ['title' => 'đường', 'url' => route('properties.index',['street'=>$property->street_code])],
+    ['title' => $properties->ward->full_name, 'url' => route('properties.index',['ward'=>$property->ward_code])],
+    ['title' => $properties->street->street_name, 'url' => route('properties.index',['street'=>$property->street_code])],
     ]
     ])
     <!-- breadcrumbs end -->
