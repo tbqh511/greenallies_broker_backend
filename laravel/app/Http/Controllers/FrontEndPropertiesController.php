@@ -63,7 +63,7 @@ class FrontEndPropertiesController extends Controller
             ->take($limit)
             ->get();
 
-        // Set parameters for the product query
+        // Set parameters for highlighted Products
         $limit = 5;
         $sort = 'total_click'; // Sắp xếp theo số lượt click
         $order = 'DESC';
@@ -71,6 +71,7 @@ class FrontEndPropertiesController extends Controller
         $highlightedProducts = Property::orderBy($sort, $order)
             ->take($limit)
             ->get();
+
         // Tăng giá trị của cột total_click
         $property->increment('total_click');
 
@@ -168,11 +169,11 @@ class FrontEndPropertiesController extends Controller
             // Lấy giá trị tối thiểu và tối đa của khoảng giá
             $minPrice = $priceRanges[0];
             $maxPrice = $priceRanges[1];
-        
+
             // Đảm bảo giá trị của $minPrice và $maxPrice là số nguyên
             $minPrice = intval($minPrice);
             $maxPrice = intval($maxPrice);
-        
+
             //dd($maxPrice == config('global.max_price'),$minPrice,$maxPrice,config('global.max_price'),$maxPrice == config('global.max_price'));
             // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng giá
             if ($maxPrice == config('global.max_price')) {
@@ -183,13 +184,13 @@ class FrontEndPropertiesController extends Controller
                 $propertiesQuery->whereBetween('price', [$minPrice, $maxPrice]);
             }
         }
-        
+
         if (!empty($areaInput)) {
             // Tách giá trị range diện tích thành mảng
             $areaRange = explode(';', $areaInput);
             $minArea = $areaRange[0];
             $maxArea = $areaRange[1];
-        
+
             // Thêm điều kiện vào truy vấn để lấy các bất động sản trong khoảng diện tích
             if ($maxArea == config('global.max_area')) {
                 // Truy vấn các bất động sản có diện tích lớn hơn $minArea
@@ -201,7 +202,7 @@ class FrontEndPropertiesController extends Controller
                 // Truy vấn các bất động sản trong khoảng diện tích từ $minArea đến $maxArea
                 $propertiesQuery->whereHas('assignParameter', function ($query) use ($minArea, $maxArea) {
                     $query->where('parameter_id', config('global.area'))
-                          ->whereBetween('value', [$minArea, $maxArea]);
+                        ->whereBetween('value', [$minArea, $maxArea]);
                 });
             }
         }
@@ -220,7 +221,7 @@ class FrontEndPropertiesController extends Controller
             });
         }
 
-        
+
 
         if (!empty($numberFloorInput)) {
             if ($numberRoomInput != "0") {
@@ -257,7 +258,7 @@ class FrontEndPropertiesController extends Controller
 
 
         //dd($areaInput, $numberFloorInput, $numberFloorInput);
-        
+
         // Define the search result message
         $searchResult = $this->generateSearchResultMessage($textInput, $propertyTypeInput, $priceRangeInput, $legalInput, $directionInput, $areaInput, $numberFloorInput, $numberRoomInput, $sortStatus, $categoryInput, $wardInput, $streetInput);
 
@@ -271,27 +272,27 @@ class FrontEndPropertiesController extends Controller
 
         // $textInput = $request->input('text');
         if (!empty($textInput)) {
-            $searchResult .= "Tìm \"".$textInput."\", ";
+            $searchResult .= "Tìm \"" . $textInput . "\", ";
         }
 
         //$propertyTypeInput = $request->input('propery_type');
         if (!empty($propertyTypeInput)) {
-            if($propertyTypeInput == 0) 
+            if ($propertyTypeInput == 0)
                 $searchResult .= "Bán, ";
             else
                 $searchResult .= "Cho thuê, ";
         }
-        
+
         if (!empty($legalInput)) {
-            $searchResult .= config('global.legal_title').": ".$legalInput."\", ";
+            $searchResult .= config('global.legal_title') . ": " . $legalInput . "\", ";
         }
         // $directionInput = $request->input('direction');
         if (!empty($directionInput)) {
-            $searchResult .= config('global.direction_title').": ".$directionInput.", ";
+            $searchResult .= config('global.direction_title') . ": " . $directionInput . ", ";
         }
 
         if (!empty($categoryInput)) {
-                $searchResult .= "Loại BDS: ".$categoryInput. ", ";
+            $searchResult .= "Loại BDS: " . $categoryInput . ", ";
         }
 
         if (!empty($streetInput)) {
@@ -378,5 +379,4 @@ class FrontEndPropertiesController extends Controller
 
         return response()->json($streets);
     }
-    
 }
