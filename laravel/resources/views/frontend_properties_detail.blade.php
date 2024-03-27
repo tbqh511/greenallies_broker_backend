@@ -57,7 +57,12 @@
     </section>
     <!-- breadcrumbs-->
     @include('frontends.components.home_breadcrumb', [
-        'title'=>'BDS'
+    'title'=>'BDS',
+    'nodes'=> [
+    ['title' => 'Trang chủ', 'url' => $route('index')],
+    ['title' => 'phường', 'url' => '#'],
+    ['title' => 'đường', 'url' => '#'],
+    ]
     ])
     <!-- breadcrumbs end -->
     <div class="gray-bg small-padding fl-wrap">
@@ -201,11 +206,13 @@
                                             </li>
                                             @endif
                                             @if($property->road_width)
-                                            <li><span>{{config('global.road_width_title')}}:</span>{{$property->road_width}} m
+                                            <li><span>{{config('global.road_width_title')}}:</span>{{$property->road_width}}
+                                                m
                                             </li>
                                             @endif
                                             @if($property->formatted_price_m2)
-                                            <li><span>{{config('global.price_m2_title')}}:</span>{{ $property->formatted_price_m2}}
+                                            <li><span>{{config('global.price_m2_title')}}:</span>{{
+                                                $property->formatted_price_m2}}
                                             </li>
                                             @endif
                                             @if($property->number_floor)
@@ -624,7 +631,8 @@
                                     </ul>
                                 </div>
                                 <div class="profile-widget-footer fl-wrap">
-                                    <a href="{{ route('agent.showid', ['id' => $property->added_by]) }}" class="btn float-btn color-bg small-btn">Xem Hồ sơ</a>
+                                    <a href="{{ route('agent.showid', ['id' => $property->added_by]) }}"
+                                        class="btn float-btn color-bg small-btn">Xem Hồ sơ</a>
                                     <a href="#sec-contact" class="custom-scroll-link tolt" data-microtip-position="left"
                                         data-tooltip="Xem Bất động sản"><i class="fal fa-paper-plane"></i></a>
                                 </div>
