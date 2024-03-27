@@ -17,17 +17,7 @@
     </section>
     <!--  section  end-->
     <!-- breadcrumbs-->
-    <div class="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">
-        <div class="container">
-            <div class="breadcrumbs-list">
-                <a href="#">Home</a><a href="#">Agency</a> <span>Agents</span>
-            </div>
-            <div class="share-holder hid-share">
-                <a href="#" class="share-btn showshare sfcs">  <i class="fas fa-share-alt"></i>  Share   </a>
-                <div class="share-container  isShare"></div>
-            </div>
-        </div>
-    </div>
+    @include('frontends.components.home_breadcrumb',['title'=>"Trang chủ"])
     <!-- breadcrumbs end -->
     <!-- col-list-wrap -->
     <section class="gray-bg small-padding ">

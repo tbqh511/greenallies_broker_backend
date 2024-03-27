@@ -21,7 +21,7 @@
     </section>
     <!--  section  end-->
     <!-- breadcrumbs-->
-    @include('frontends.components.home_breadcrumb')
+    @include('frontends.components.home_breadcrumb',['title'=>"Trang chủ"])
     <!-- breadcrumbs end -->
     <!-- col-list-wrap -->
     <div class="gray-bg small-padding fl-wrap">

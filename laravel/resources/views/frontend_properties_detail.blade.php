@@ -65,7 +65,6 @@
     $property->street_code])],
     ]
     ])
-
     <!-- breadcrumbs end -->
     <div class="gray-bg small-padding fl-wrap">
         <div class="container">
