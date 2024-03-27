@@ -3,7 +3,7 @@
         <div class="breadcrumbs-list">
             {{-- <a href="{{ route('index') }}">Home</a> --}}
             {{-- <a href="#">Agency</a> --}}
-            @if(isset($title))
+            @if(isset($nodes))
             @foreach($nodes as $node)
             <a href="{{ $node['url'] }}">{{ $node['title'] }}</a>
             @endforeach
