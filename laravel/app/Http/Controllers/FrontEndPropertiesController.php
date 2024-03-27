@@ -90,6 +90,7 @@ class FrontEndPropertiesController extends Controller
             'relatedProducts' => $relatedProducts,
             'highlightedProducts' => $highlightedProducts,
             'categories' => $categories,
+            'locationsWards' => $locationsWards,
         ]);
     }
 
