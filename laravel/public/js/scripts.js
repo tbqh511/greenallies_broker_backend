@@ -780,11 +780,7 @@ function initHomeradar() {
     $('input[name="dates"]').on('cancel.daterangepicker', function (ev, picker) {
         $(this).val('');
     });
-<<<<<<< HEAD
-    $(".show-list-wrap-search").on("touchend", function (e) {
-=======
     $(".show-list-wrap-search").on("click", function (e) {
->>>>>>> parent of 2e595799 (1)
         $(".lws_mobile").slideToggle(400);
         $(this).toggleClass("slsw_vis");
     });
