@@ -650,6 +650,7 @@ function initHomeradar() {
             var ww2 = $(window).width();
             var displayStyle = (ww2 > 1084) ? "block" : "none";
             $(".lws_mobile , .list-searh-input-wrap").css("display", displayStyle);
+            executed = true; 
         }
     }
     csselem();
