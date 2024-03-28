@@ -652,7 +652,8 @@ function initHomeradar() {
             });
         } else {
             $(".lws_mobile , .list-searh-input-wrap").css({
-                display: "none"
+                //display: "none"
+                display: "block"
             });
         }
     }
