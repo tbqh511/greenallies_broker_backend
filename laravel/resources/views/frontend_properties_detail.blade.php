@@ -610,7 +610,7 @@
                                     <div class="profile-widget-header-title">
                                         @if(isset($property->added_by))
                                         <h4><a href="{{ route('agent.showid', ['id' => $property->added_by]) }}">{{
-                                                $property->agent->name ?? 'Dalat BDS' }}</a></h4>
+                                                $property->agent->name ?? 'Unknown' }}</a></h4>
                                         @endif
                                         <div class="clearfix"></div>
                                         <div class="pwh_counter"><span>{{ $property->count_properties_by_agent ?? 0
