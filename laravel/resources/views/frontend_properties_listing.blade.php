@@ -50,7 +50,8 @@
                             <!-- Ô nhập liệu tìm kiếm -->
                             <div class="col-sm-3">
                                 <div class="listsearch-input-item">
-                                    <input name="text" type="text" placeholder="Tìm BDS" value="{{ request()->input('text') }}" />
+                                    <input name="text" type="text" placeholder="Tìm BDS"
+                                        value="{{ request()->input('text') }}" />
                                 </div>
                             </div>
                             <!-- Kết thúc ô nhập liệu tìm kiếm -->
@@ -382,7 +383,8 @@
                 @if ($properties->onFirstPage())
                 <a href="#" class="prevposts-link disabled"><i class="fa fa-caret-left"></i></a>
                 @else
-                <a href="{{ $properties->previousPageUrl() }}" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
+                <a href="{{ $properties->previousPageUrl() }}" class="prevposts-link"><i
+                        class="fa fa-caret-left"></i></a>
                 @endif
 
                 @foreach ($properties->getUrlRange(1, $properties->lastPage()) as $page => $url)
@@ -401,26 +403,27 @@
             </div> --}}
             <div class="pagination">
                 @if ($properties->previousPageUrl())
-                    <a href="{{ $properties->previousPageUrl() }}" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
+                <a href="{{ $properties->previousPageUrl() }}" class="prevposts-link"><i
+                        class="fa fa-caret-left"></i></a>
                 @else
-                    <a href="#" class="prevposts-link disabled"><i class="fa fa-caret-left"></i></a>
+                <a href="#" class="prevposts-link disabled"><i class="fa fa-caret-left"></i></a>
                 @endif
-            
+
                 @foreach ($properties->getUrlRange(1, $properties->lastPage()) as $page => $url)
-                    @if ($page == $properties->currentPage())
-                        <a href="#" class="current-page">{{ $page }}</a>
-                    @else
-                        <a href="{{ $url }}">{{ $page }}</a>
-                    @endif
-                @endforeach
-            
-                @if ($properties->nextPageUrl())
-                    <a href="{{ $properties->nextPageUrl() }}" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
+                @if ($page == $properties->currentPage())
+                <a href="#" class="current-page">{{ $page }}</a>
                 @else
-                    <a href="#" class="nextposts-link disabled"><i class="fa fa-caret-right"></i></a>
+                <a href="{{ $url }}">{{ $page }}</a>
+                @endif
+                @endforeach
+
+                @if ($properties->nextPageUrl())
+                <a href="{{ $properties->nextPageUrl() }}" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
+                @else
+                <a href="#" class="nextposts-link disabled"><i class="fa fa-caret-right"></i></a>
                 @endif
             </div>
-            
+
             <!-- pagination end-->
         </div>
     </section>
