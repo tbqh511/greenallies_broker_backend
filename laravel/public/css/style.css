@@ -6664,6 +6664,18 @@ section.single-par2  .scroll-down-wrap{
 .lws_mobile {
 	display: block
 }
+/* HuyTBQ: Test */
+.lws_mobile1 {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease; /* Sử dụng transition CSS */
+}
+
+.lws_mobile1.active {
+    height: auto; /* Thay đổi chiều cao để hiển thị nội dung */
+}
+/* HuyTBQ: End Test */
+
 .mob-nav-content-btn {
 	padding: 13px 0;
 	border-radius: 4px;
