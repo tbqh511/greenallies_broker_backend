@@ -646,14 +646,14 @@ function initHomeradar() {
             height: $(".hero-slider").outerHeight(true)
         });
         var ww2 = $(window).width();
+        
         if (ww2 > 1084) {
             $(".lws_mobile , .list-searh-input-wrap").css({
                 display: "block"
             });
         } else {
             $(".lws_mobile , .list-searh-input-wrap").css({
-                //display: "none"
-                display: "block"
+                display: "none"
             });
         }
     }
@@ -784,11 +784,6 @@ function initHomeradar() {
     $(".show-list-wrap-search").on("click", function (e) {
         $(".lws_mobile").slideToggle(400);
         $(this).toggleClass("slsw_vis");
-    });
-
-    $(".show-list-wrap-search1").on("click", function (e) {
-        $(".lws_mobile1").slideToggle(400);
-        $(this).toggleClass("slsw_vis1");
     });
     $(".listing-item").matchHeight({});
     $(".one-column-grid-wrap .listing-item").addClass("has_one_column");
