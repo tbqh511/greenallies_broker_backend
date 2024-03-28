@@ -781,7 +781,7 @@ function initHomeradar() {
         $(this).val('');
     });
     $(".show-list-wrap-search").on("click", function (e) {
-        $(".lws_mobile").slideDown(400);
+        $(".lws_mobile").slideUp(400);
         $(this).toggleClass("slsw_vis");
     });
     $(".listing-item").matchHeight({});
