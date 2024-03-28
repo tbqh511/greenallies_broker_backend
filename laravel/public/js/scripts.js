@@ -780,8 +780,8 @@ function initHomeradar() {
     $('input[name="dates"]').on('cancel.daterangepicker', function (ev, picker) {
         $(this).val('');
     });
-    $(".show-list-wrap-search").on("touchstart", function (e) {
-        $(".lws_mobile").slideToggle(400);
+    $(".show-list-wrap-search").on("touchend", function (e) {
+        $(".lws_mobile").toggle(400);
         $(this).toggleClass("slsw_vis");
     });
     $(".listing-item").matchHeight({});
