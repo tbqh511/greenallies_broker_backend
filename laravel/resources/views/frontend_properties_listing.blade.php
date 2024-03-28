@@ -327,7 +327,7 @@
 
             <div class="mob-nav-content-btn  color-bg show-list-wrap-search1 ntm fl-wrap">Tìm kiếm thêm</div>
              <!-- list-searh-input-wrap-->
-             <div class="list-searh-input-wrap1 box_list-searh-input-wrap1 lws_mobile1 fl-wrap1">
+             <div class="list-searh-input-wrap box_list-searh-input-wrap1 lws_mobile1 fl-wrap1">
                 <div class="list-searh-input-wrap-title fl-wrap"><i class="far fa-sliders-h"></i><span>Bộ Lọc Tìm
                         Kiếm</span></div>
                 <div class="custom-form fl-wrap">
