@@ -23,7 +23,8 @@ class FrontEndHomeController extends Controller
         // Get the district code from configuration
         $districtCode = config('location.district_code');
         // If there's a district code, get the list of wards in that district
-        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->orderBy('full_name')->get() : LocationsWard::orderBy('full_name')->get();
+        //$locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->orderBy('full_name')->get() : LocationsWard::orderBy('full_name')->get();
+        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->orderByRaw("CAST(SUBSTRING_INDEX(`full_name`, ' ', -1) AS UNSIGNED)")->get() : LocationsWard::orderByRaw("CAST(SUBSTRING_INDEX(`full_name`, ' ', -1) AS UNSIGNED)")->get();
 
         // Get the list of product categories
         $categories = Category::all();
