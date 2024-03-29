@@ -9,9 +9,9 @@
         </div>
         <div class="half-carousel-conatiner">
             <div class="half-carousel fl-wrap full-height">
-                @foreach(range(1, 6) as $index)
+                @foreach($locationsWards as $locationsWard)
                 <!--slick-item -->
-                @include('frontends.components.home_explore_stick')
+                @include('frontends.components.home_explore_stick',['locationsWard'=>$locationsWard])
                 <!--slick-item end -->
                 @endforeach
             </div>

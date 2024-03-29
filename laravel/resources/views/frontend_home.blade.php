@@ -15,7 +15,7 @@
     @include('frontends.components.home_about_wrap')
     <!-- section end-->
     <!-- section  -->
-    @include('frontends.components.home_explore_place')
+    @include('frontends.components.home_explore_place',['locationsWards' => $locationsWards])
     <!--section end-->
     <!-- section -->
     @include('frontends.components.home_agent_list')
