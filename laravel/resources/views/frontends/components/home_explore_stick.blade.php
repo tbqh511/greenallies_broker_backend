@@ -5,7 +5,7 @@
         </div>
         <div class="half-carousel-content">
             <a href="{{ route('properties.index', ['ward' => $locationsWard->code]) }}" class="hc-counter small-btn color-bg">{{ $locationsWard->properties_count }} BĐS đang giao dịch</a>
-            <h3><a href="listing.html">{{$locationsWard->full_name}}</a></h3>
+            <h3><a href="{{ route('properties.index', ['ward' => $locationsWard->code]) }}">{{$locationsWard->full_name}}</a></h3>
         </div>
     </div>
 </div>
