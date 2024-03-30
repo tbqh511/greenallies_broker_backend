@@ -25,8 +25,14 @@ class FrontEndHomeController extends Controller
         // If there's a district code, get the list of wards in that district
         //$locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->orderBy('full_name')->get() : LocationsWard::orderBy('full_name')->get();
         //$locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->orderByRaw("CAST(SUBSTRING_INDEX(`full_name`, ' ', -1) AS UNSIGNED)")->get() : LocationsWard::orderByRaw("CAST(SUBSTRING_INDEX(`full_name`, ' ', -1) AS UNSIGNED)")->get();
-        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->orderByRaw("CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), full_name")->get() : LocationsWard::orderByRaw("CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), full_name")->get();
-
+        //$locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->orderByRaw("CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), full_name")->get() : LocationsWard::orderByRaw("CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), full_name")->get();
+        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->orderByRaw("CASE 
+        WHEN full_name LIKE 'phường%' THEN 1 
+        WHEN full_name LIKE 'Xã%' THEN 2 
+        ELSE 3 END, full_name")->get() : LocationsWard::orderByRaw("CASE 
+        WHEN full_name LIKE 'phường%' THEN 1 
+        WHEN full_name LIKE 'Xã%' THEN 2 
+        ELSE 3 END, full_name")->get();
 
         // Get the list of product categories
         $categories = Category::all();
