@@ -12,7 +12,7 @@ class LocationsWard extends Model
     // Định nghĩa mối quan hệ one-to-many với bảng Property
     public function properties()
     {
-        return $this->hasMany('\App\Models\Property', 'ward_code', 'ward_code');
+        return $this->hasMany('\App\Models\Property', 'ward_code', 'code');
     }
 
     // Định nghĩa accessor để lấy số lượng bất động sản trong mỗi phường
