@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,7 +20,6 @@ class Property extends Model
         'street_code',
         'ward_code',
         'host_id',
-
         'title',
         'description',
         'address',
