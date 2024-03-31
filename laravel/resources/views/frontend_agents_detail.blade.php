@@ -72,8 +72,9 @@
                     <div class="content-tabs-wrap tabs-act fl-wrap">
                         <div class="content-tabs fl-wrap">
                             <ul class="tabs-menu fl-wrap no-list-style">
-                                <li class="current"><a href="#tab-listing">Danh sách BDS</a></li>
-                                {{-- <li><a href="#tab-reviews">Nhận xét</a></li> --}}
+                                <li class="current">Danh sách BDS</li>
+                                {{-- <li class="current"><a href="#tab-listing">Danh sách BDS</a></li>
+                                <li><a href="#tab-reviews">Nhận xét</a></li> --}}
                             </ul>
                         </div>
                         
