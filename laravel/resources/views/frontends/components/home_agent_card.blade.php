@@ -26,8 +26,8 @@
                     <h4><a href="{{route('agent.showid',['id'=> $agent->id])}}">{{$agent->name}}</a></h4>
                     <h5><a href="{{route('agent.showid',['id'=> $agent->id])}}">Thổ địa Đà lat BDS</a></h5>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar
-                    neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p>
+                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar
+                    neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p> --}}
                 <div class="geodir-category-footer fl-wrap">
                     <a href="{{route('agent.showid',['id'=> $agent->id])}}" class="btn float-btn color-bg small-btn">Xem hồ sơ</a>
                     {{-- <a href="mailto:yourmail@email.com" class="tolt ftr-btn" data-microtip-position="left"
