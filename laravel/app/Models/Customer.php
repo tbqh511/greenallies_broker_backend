@@ -94,4 +94,3 @@ class Customer extends Authenticatable implements JWTSubject
         return $wards;
     }
 }
-
