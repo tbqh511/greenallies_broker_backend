@@ -64,7 +64,8 @@ class Customer extends Authenticatable implements JWTSubject
 
     public function getCustomerTotalPostAttribute()
     {
-        return Property::where('added_by', $this->id)->get()->count();
+        //return Property::where('added_by', $this->id)->get()->count();
+        return $this->property()->count();
     }
     public function favourite()
     {
@@ -82,9 +83,7 @@ class Customer extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Usertokens::class, 'customer_id');
     }
-
     //HuyTBQ: get list locationsWards
-    
     public function getAgentWardsAttribute()
     {
         // Lấy danh sách các ward mà đại lý quản lý
