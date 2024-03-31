@@ -3,7 +3,7 @@
     <div class="listing-item">
         <article class="geodir-category-listing fl-wrap">
             <div class="geodir-category-img fl-wrap  agent_card">
-                <a href="agent-single.html" class="geodir-category-img_item">
+                <a href="{{route('agent.showid',['id'=> $agent->id])}}" class="geodir-category-img_item">
                     <img src="https://i.pravatar.cc/395" alt="">
                     <ul class="list-single-opt_header_cat">
                         <li><span class="cat-opt color-bg">{{$agent->customer_total_post}} listings</span></li>
