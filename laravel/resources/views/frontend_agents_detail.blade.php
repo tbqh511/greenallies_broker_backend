@@ -51,7 +51,7 @@
                         <!-- list-single-main-item -->
                         <div class="list-single-main-item fl-wrap">
                             <div class="list-single-main-item-title">
-                                <h3>Về Đại Lý Này</h3>
+                                <h3>Đối tác Đà Lạt BDS</h3>
                             </div>
                             <div class="list-single-main-item_content fl-wrap">
                                 <p>Vivamus vel lacus lacinia, condimentum nunc non, iaculis diam. Proin in mollis augue, eget fermentum quam. Donec semper purus ut ante tempus gravida. Quisque et ante orci. Sed venenatis turpis mi, non varius justo scelerisque id. Maecenas fermentum nunc sed maximus efficitur. Pellentesque nec turpis viverra, cursus ex porta, porttitor odio. In gravida ante nec eleifend commodo. Cras gravida interdum nisl, vel venenatis nisl consectetur ut. Duis in erat quis dui imperdiet pretium et eu purus. Fusce purus ex, placerat et eros quis, lacinia tempor ligula. </p>
