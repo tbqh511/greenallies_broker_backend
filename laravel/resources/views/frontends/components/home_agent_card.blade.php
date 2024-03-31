@@ -4,7 +4,7 @@
         <article class="geodir-category-listing fl-wrap">
             <div class="geodir-category-img fl-wrap  agent_card">
                 <a href="{{route('agent.showid',['id'=> $agent->id])}}" class="geodir-category-img_item">
-                    <img src="https://i.pravatar.cc/395" alt="">
+                    <img src="{{$agent->profile}}" alt="Thổ địa Đà lat BDS">
                     <ul class="list-single-opt_header_cat">
                         <li><span class="cat-opt color-bg">{{$agent->customer_total_post}} listings</span></li>
                     </ul>
