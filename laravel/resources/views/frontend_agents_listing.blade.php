@@ -7,8 +7,8 @@
     <section class="parallax-section single-par color-bg">
         <div class="container">
             <div class="section-title center-align big-title">
-                <h2><span>List of Our Agents</span></h2>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec tincidunt arcu, sit amet fermentum sem.</h4>
+                <h2><span>Danh Sách Các đối tác của Đà Lạt BDS</span></h2>
+                <h4>Kết nối ước mơ - Đà Lạt BDS: Nơi hội tụ của sự đam mê và thành công!</h4>
             </div>
         </div>
         <div class="pwh_bg"></div>
@@ -32,9 +32,9 @@
                     <!-- list-main-wrap-header-->
                     <div class="list-main-wrap-header box-list-header fl-wrap">
                         <!-- list-main-wrap-title-->
-                        <div class="list-main-wrap-title">
+                        {{-- <div class="list-main-wrap-title">
                             <h2>Results For : <span>New York Agents </span><strong>26</strong></h2>
-                        </div>
+                        </div> --}}
                         <!-- list-main-wrap-title end-->
                         <!-- list-main-wrap-opt-->
                         <div class="list-main-wrap-opt">

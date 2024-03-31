@@ -38,8 +38,6 @@ class FrontEndAgentsController extends Controller
         ]);
     }
 
-
-
     /**
      * Display a listing of the properties with search variables: category, ward, street, id.
      */
