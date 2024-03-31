@@ -54,8 +54,8 @@
                                 <h3>Đối tác Đà Lạt BDS</h3>
                             </div>
                             <div class="list-single-main-item_content fl-wrap">
-                                <p>Vivamus vel lacus lacinia, condimentum nunc non, iaculis diam. Proin in mollis augue, eget fermentum quam. Donec semper purus ut ante tempus gravida. Quisque et ante orci. Sed venenatis turpis mi, non varius justo scelerisque id. Maecenas fermentum nunc sed maximus efficitur. Pellentesque nec turpis viverra, cursus ex porta, porttitor odio. In gravida ante nec eleifend commodo. Cras gravida interdum nisl, vel venenatis nisl consectetur ut. Duis in erat quis dui imperdiet pretium et eu purus. Fusce purus ex, placerat et eros quis, lacinia tempor ligula. </p>
-                                <p>Placerat in egestas erat imperdiet sed euismod. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Quam viverra orci sagittis eu volutpat odio facilisis. Sit amet massa vitae tortor condimentum lacinia. Lacus vestibulum sed arcu non odio. Sodales ut eu sem integer vitae justo. Amet tellus cras adipiscing enim eu turpis egestas.</p>
+                                <p>Đà Lạt BDS hân hạnh chào đón đối tác vào hành trình khám phá thị trường bất động sản phát triển của Đà Lạt.</p>
+                                <p>Với một nền tảng linh hoạt và các dịch vụ chuyên nghiệp, chúng tôi cam kết mang lại trải nghiệm tuyệt vời và cơ hội kinh doanh đáng giá cho bạn. Hãy cùng nhau tạo ra những thành công mới và phát triển bền vững trong ngành bất động sản Đà Lạt!</p>
                                 <div class="list-single-tags fl-wrap tags-stylwrap" style="margin-top: 20px;">
                                     <span>Khu Vực Dịch Vụ:</span>
                                     @foreach($agent->agentWards as $agentWard)
