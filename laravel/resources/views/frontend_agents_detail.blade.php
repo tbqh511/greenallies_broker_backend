@@ -23,7 +23,7 @@
                             <a href="#"> <i class="fas fa-exclamation-triangle"></i> Báo cáo </a>
                         </div>
                         <div class="bg-wrap bg-parallax-wrap-gradien">
-                            <div class="bg"  data-bg="images/bg/1.jpg"></div>
+                            <div class="bg"  data-bg="{{ asset('images/bg/1.jpg') }}"></div>
                         </div>
                         <div class="card-info-media">
                             <div class="bg"  data-bg="{{$agent->profile}}"></div>

@@ -1,6 +1,6 @@
 <section class="hero-section hero-section_dec" data-scrollax-parent="true">
     <div class="bg-wrap">
-        <div class="bg par-elem" data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+        <div class="bg par-elem" data-bg="{{ asset('images/bg/1.jpg') }}" data-scrollax="properties: { translateY: '30%' }"></div>
     </div>
     <div class="overlay"></div>
     <div class="container">
