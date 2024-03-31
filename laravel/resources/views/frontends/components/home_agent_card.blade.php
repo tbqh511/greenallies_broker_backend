@@ -29,7 +29,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar
                     neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p>
                 <div class="geodir-category-footer fl-wrap">
-                    <a href="agent-single.html" class="btn float-btn color-bg small-btn">Xem hồ sơ</a>
+                    <a href="{{route('agent.showid',['id'=> $agent->id])}}" class="btn float-btn color-bg small-btn">Xem hồ sơ</a>
                     {{-- <a href="mailto:yourmail@email.com" class="tolt ftr-btn" data-microtip-position="left"
                         data-tooltip="Write Message"><i class="fal fa-envelope"></i></a>
                     <a href="tel:123-456-7890" class="tolt ftr-btn" data-microtip-position="left"
