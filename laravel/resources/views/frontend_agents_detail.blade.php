@@ -69,11 +69,11 @@
                     </div>
                     
                     <!-- content-tabs-wrap -->
-                    {{-- <div class="content-tabs-wrap tabs-act fl-wrap">
+                    <div class="content-tabs-wrap tabs-act fl-wrap">
                         <div class="content-tabs fl-wrap">
                             <ul class="tabs-menu fl-wrap no-list-style">
                                 <li class="current"><a href="#tab-listing">  Danh sách  </a></li>
-                                <li><a href="#tab-reviews">Nhận xét</a></li>
+                                {{-- <li><a href="#tab-reviews">Nhận xét</a></li> --}}
                             </ul>
                         </div>
                         
@@ -118,7 +118,7 @@
                             </div>
                             <!--tab  end-->
                             <!--tab -->
-                            <div class="tab">
+                            {{-- <div class="tab">
                                 <div id="tab-reviews" class="tab-content">
                                     <div class="list-single-main-container fl-wrap" style="margin-top: 30px;">
                                         <!-- list-single-main-item -->
@@ -222,11 +222,11 @@
                                         <!-- list-single-main-item end -->             										
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--tab end-->							
                         </div>
                         <!--tabs end-->  
-                    </div> --}}
+                    </div>
                     <!-- content-tabs-wrap end -->
                 </div>
                 <!-- col-md 8 end -->
