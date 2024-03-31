@@ -133,9 +133,9 @@ class FrontEndPropertiesController extends Controller
         $numberRoomInput = $request->input('number_room');
         $sortStatus = $request->input('sort_status');
 
-        // Query to fetch properties based on search parameters
+        // Query to fetch properties based on search pndiarameters
         $propertiesQuery = Property::query();
-        // Add conditions to query based on search parameters
+        // Add cotions to query based on search parameters
 
         if (!empty($categoryInput)) {
             $propertiesQuery->whereHas('category', function ($query) use ($categoryInput) {
