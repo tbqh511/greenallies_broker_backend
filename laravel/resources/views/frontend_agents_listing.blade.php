@@ -58,7 +58,7 @@
                     <!-- listing-item-wrap-->
                     <div class="listing-item-container  box-list_ic fl-wrap">
                         <!--  agent card item -->
-                        @foreach ($properties as $property)
+                        @foreach ($agents as $agent)
                         <div class="listing-item">
                             <article class="geodir-category-listing fl-wrap">
                                 <div class="geodir-category-img fl-wrap  agent_card">
@@ -259,7 +259,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!--box-widget end -->
                 </div>
                 <!-- search sidebar end-->
