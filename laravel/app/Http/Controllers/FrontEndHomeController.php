@@ -38,6 +38,7 @@ class FrontEndHomeController extends Controller
         // Get list top agent
         $agents = Customer::withCount('property')->orderBy('property_count', 'desc')->get();
 
+
         // Set parameters for the product query
         $offset = 0;
         $limit = 6;

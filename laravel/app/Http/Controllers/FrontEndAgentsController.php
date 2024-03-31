@@ -75,7 +75,7 @@ class FrontEndAgentsController extends Controller
 
         return view('frontend_agents_listing',[
             'categories'=> $categories,
-            'locationsWards ' => $locationsWards ,
+            'locationsWards' => $locationsWards,
         ]);
     }
 }
