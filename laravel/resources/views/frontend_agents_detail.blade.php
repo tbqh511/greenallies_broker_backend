@@ -32,7 +32,7 @@
                             <div class="agent_card-title fl-wrap">
                                 <h4> {{$agent->name}} </h4>
                                 <div class="geodir-category-location fl-wrap">
-                                    <h5><a href="agency-single.html">Công Ty Bất Động Sản Mavers</a></h5>
+                                    <h5><a href="agency-single.html">Mạng lưới thổ Đà Lạt BDS</a></h5>
                                     <div class="listing-rating card-popup-rainingvis" data-starrating2="4"><span class="re_stars-title">Tốt</span></div>
                                 </div>
                             </div>
