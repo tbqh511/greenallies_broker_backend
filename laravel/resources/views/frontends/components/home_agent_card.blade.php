@@ -24,7 +24,7 @@
                         class="fal fa-user-check"></i></div>
                 <div class="agent_card-title fl-wrap">
                     <h4><a href="agent-single.html">{{$agent->name}}</a></h4>
-                    <h5><a href="agency-single.html">CondorHome RealEstate agency</a></h5>
+                    <h5><a href="agency-single.html">Thổ địa Đà lat BDS</a></h5>
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar
                     neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p>

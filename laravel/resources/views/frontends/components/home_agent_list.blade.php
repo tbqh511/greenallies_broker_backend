@@ -3,7 +3,7 @@
         <!-- section-title -->
         <div class="section-title st-center fl-wrap">
             <h4>Mạng lưới thổ địa Đà Lạt BDS</h4>
-            <h2>Thổ địa Xuất Sắc</h2>
+            <h2>Đối Tác Xuất Sắc</h2>
         </div>
         <!-- section-title end -->
         <div class="clearfix"></div>

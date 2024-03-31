@@ -46,7 +46,6 @@ class FrontEndAgentsController extends Controller
         // If there's a district code, get the list of wards in that district
         $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->get()->sortBy('full_name') : LocationsWard::all();
 
-
         $categories = Category::orderBy('category')->get();
 
         return view('frontend_agents_detail',[
@@ -60,36 +59,8 @@ class FrontEndAgentsController extends Controller
      */
     public function index(Request $request)
     {
-        // // Get search parameters
-        // $category = $request->input('category');
-        // $ward = $request->input('ward');
-        // $street = $request->input('street');
-        // $id = $request->input('id');
-
-        // // Query to fetch properties based on search parameters
-        // $propertiesQuery = Property::query();
-
-        // if ($category) {
-        //     $propertiesQuery->where('category_id', $category);
-        // }
-
-        // if ($ward) {
-        //     $propertiesQuery->where('ward_id', $ward);
-        // }
-
-        // if ($street) {
-        //     $propertiesQuery->where('street_id', $street);
-        // }
-
-        // if ($id) {
-        //     $propertiesQuery->where('id', $id);
-        // }
-
-        // // Get the list of properties based on the query
-        // $properties = $propertiesQuery->paginate(6);
-
-        // // Return the property list view with the necessary data
-        // return view('frontend_properties_listing', ['properties' => $properties]);
+        // Get the list of product categories
+        $categories = Category::all();
 
          return view('frontend_agents_listing');
     }
