@@ -68,14 +68,14 @@
                                             <li><span class="cat-opt color-bg">4 listings</span></li>
                                         </ul>
                                     </a>
-                                    <div class="agent-card-social fl-wrap">
+                                    {{-- <div class="agent-card-social fl-wrap">
                                         <ul>
                                             <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                             <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
                                             <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                             <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
                                         </ul>
-                                    </div>
+                                    </div> --}}
                                     <div class="listing-rating card-popup-rainingvis" data-starrating2="4"><span
                                             class="re_stars-title">Good</span></div>
                                 </div>
@@ -86,8 +86,8 @@
                                         <h4><a href="agent-single.html">Andy Sposty</a></h4>
                                         <h5><a href="agency-single.html">Mavers RealEstate agency</a></h5>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar
-                                        neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p>
+                                    {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar
+                                        neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p> --}}
                                     <div class="geodir-category-footer fl-wrap">
                                         <a href="agent-single.html" class="btn float-btn color-bg small-btn">View
                                             Profile</a>
