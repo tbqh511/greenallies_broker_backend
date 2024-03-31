@@ -18,10 +18,10 @@
                 <div class="col-md-8">
                     <div class="card-info smpar fl-wrap">
                         <div class="box-widget-menu-btn smact"><i class="far fa-ellipsis-h"></i></div>
-                        <div class="show-more-snopt-tooltip bxwt">
+                        {{-- <div class="show-more-snopt-tooltip bxwt">
                             <a href="#"> <i class="fas fa-comment-alt"></i> Viết nhận xét</a>
                             <a href="#"> <i class="fas fa-exclamation-triangle"></i> Báo cáo </a>
-                        </div>
+                        </div> --}}
                         <div class="bg-wrap bg-parallax-wrap-gradien">
                             <div class="bg"  data-bg="{{ asset('images/bg/1.jpg') }}"></div>
                         </div>
@@ -69,7 +69,7 @@
                     </div>
                     
                     <!-- content-tabs-wrap -->
-                    <div class="content-tabs-wrap tabs-act fl-wrap">
+                    {{-- <div class="content-tabs-wrap tabs-act fl-wrap">
                         <div class="content-tabs fl-wrap">
                             <ul class="tabs-menu fl-wrap no-list-style">
                                 <li class="current"><a href="#tab-listing">  Danh sách  </a></li>
@@ -226,7 +226,7 @@
                             <!--tab end-->							
                         </div>
                         <!--tabs end-->  
-                    </div>
+                    </div> --}}
                     <!-- content-tabs-wrap end -->
                 </div>
                 <!-- col-md 8 end -->
