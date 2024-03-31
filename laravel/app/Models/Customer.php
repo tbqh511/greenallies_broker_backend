@@ -82,5 +82,15 @@ class Customer extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Usertokens::class, 'customer_id');
     }
+
+    //HuyTBQ: get list locationsWards
+    
+    public function getAgentWardsAttribute()
+    {
+        // Lấy danh sách các ward mà đại lý quản lý
+        return $this->property()->distinct()->pluck('ward_code')->map(function ($wardCode) {
+            return LocationsWard::where('code', $wardCode)->first();
+        });
+    }
 }
 

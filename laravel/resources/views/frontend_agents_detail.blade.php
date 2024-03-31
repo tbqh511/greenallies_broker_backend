@@ -58,10 +58,9 @@
                                 <p>Placerat in egestas erat imperdiet sed euismod. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Quam viverra orci sagittis eu volutpat odio facilisis. Sit amet massa vitae tortor condimentum lacinia. Lacus vestibulum sed arcu non odio. Sodales ut eu sem integer vitae justo. Amet tellus cras adipiscing enim eu turpis egestas.</p>
                                 <div class="list-single-tags fl-wrap tags-stylwrap" style="margin-top: 20px;">
                                     <span>Khu Vực Dịch Vụ:</span>
-                                    <a href="#">London</a>
-                                    <a href="#">NewYork</a>
-                                    <a href="#">Rome</a>
-                                    <a href="#">Dubai</a>
+                                    @foreach($agent->agentWards as $agentWard)
+                                        <a href="{{route('property.showid', ['ward'=>$agentWard->code])}}">$agentWard->full_name</a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
