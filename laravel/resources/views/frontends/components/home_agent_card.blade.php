@@ -10,11 +10,11 @@
                     </ul>
                 </a>
                 <div class="agent-card-social fl-wrap">
-                    <ul>
+                    {{-- <ul>
                         <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
+                    </ul> --}}
                 </div>
                 <div class="listing-rating card-popup-rainingvis" data-starrating2="5"><span
                         class="re_stars-title">Excellent</span></div>

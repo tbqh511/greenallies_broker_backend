@@ -9,9 +9,9 @@
         <div class="clearfix"></div>
         <div class="listing-carousel-wrapper lc_hero carousel-wrap fl-wrap">
             <div class="listing-carousel carousel ">
-                @foreach(range(1, 6) as $index)
+                @foreach($agents as $agent)
                 <!-- slick-slide-item -->
-                @include('frontends.components.home_agent_card')
+                @include('frontends.components.home_agent_card',['agent' => $agent])
                 <!-- slick-slide-item end-->
                 @endforeach
             </div>
