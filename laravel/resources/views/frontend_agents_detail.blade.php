@@ -19,44 +19,45 @@
                     <div class="card-info smpar fl-wrap">
                         <div class="box-widget-menu-btn smact"><i class="far fa-ellipsis-h"></i></div>
                         <div class="show-more-snopt-tooltip bxwt">
-                            <a href="#"> <i class="fas fa-comment-alt"></i> Write a review</a>
-                            <a href="#"> <i class="fas fa-exclamation-triangle"></i> Report </a>
+                            <a href="#"> <i class="fas fa-comment-alt"></i> Viết nhận xét</a>
+                            <a href="#"> <i class="fas fa-exclamation-triangle"></i> Báo cáo </a>
                         </div>
                         <div class="bg-wrap bg-parallax-wrap-gradien">
                             <div class="bg"  data-bg="images/bg/1.jpg"></div>
                         </div>
                         <div class="card-info-media">
-                            <div class="bg"  data-bg="images/agency/agent/1.jpg"></div>
+                            <div class="bg"  data-bg="{{$agent->profile}}"></div>
                         </div>
                         <div class="card-info-content">
                             <div class="agent_card-title fl-wrap">
                                 <h4> {{$agent->name}} </h4>
                                 <div class="geodir-category-location fl-wrap">
-                                    <h5><a href="agency-single.html">Mavers RealEstate Agency</a></h5>
-                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="4"><span class="re_stars-title">Good</span></div>
+                                    <h5><a href="agency-single.html">Công Ty Bất Động Sản Mavers</a></h5>
+                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="4"><span class="re_stars-title">Tốt</span></div>
                                 </div>
                             </div>
                             <div class="list-single-stats">
                                 <ul class="no-list-style">
-                                    <li><span class="viewed-counter"><i class="fas fa-eye"></i> Viewed -  156 </span></li>
-                                    <li><span class="bookmark-counter"><i class="fas fa-comment-alt"></i> Reviews -  4 </span></li>
-                                    <li><span class="bookmark-counter"><i class="fas fa-sitemap"></i> Listings -  6 </span></li>
+                                    <li><span class="viewed-counter"><i class="fas fa-eye"></i> Lượt xem -  156 </span></li>
+                                    <li><span class="bookmark-counter"><i class="fas fa-comment-alt"></i> Nhận xét -  4 </span></li>
+                                    <li><span class="bookmark-counter"><i class="fas fa-sitemap"></i> Danh sách -  6 </span></li>
                                 </ul>
                             </div>
-                            <div class="card-verified tolt" data-microtip-position="left" data-tooltip="Verified"><i class="fal fa-user-check"></i></div>
+                            <div class="card-verified tolt" data-microtip-position="left" data-tooltip="Đã xác minh"><i class="fal fa-user-check"></i></div>
                         </div>
                     </div>
+                    
                     <div class="list-single-main-container fl-wrap">
                         <!-- list-single-main-item -->
                         <div class="list-single-main-item fl-wrap">
                             <div class="list-single-main-item-title">
-                                <h3>About This Agent</h3>
+                                <h3>Về Đại Lý Này</h3>
                             </div>
                             <div class="list-single-main-item_content fl-wrap">
-                                <p>Vivamus vel lacus lacinia, condimentum nunc non, iaculis diam. Proin in mollis augue, eget fermentum quam. Donec semper purus ut ante tempus gravida. Quisque et ante orci. Sed venenatis turpis mi, non varius justo scelerisque id. Maecenas fermentum nunc sed maximus efficitur. Pellentesque nec turpis viverra, cursus ex porta, porttitor odio. In gravida ante nec eleifend commodo. Cras gravida interdum nisl, vel venenatis nisl consectetur ut. Duis in erat quis dui imperdiet pretium et eu purus. Fusce purus ex, placerat et eros quis, lacinia tempor ligula.  </p>
+                                <p>Vivamus vel lacus lacinia, condimentum nunc non, iaculis diam. Proin in mollis augue, eget fermentum quam. Donec semper purus ut ante tempus gravida. Quisque et ante orci. Sed venenatis turpis mi, non varius justo scelerisque id. Maecenas fermentum nunc sed maximus efficitur. Pellentesque nec turpis viverra, cursus ex porta, porttitor odio. In gravida ante nec eleifend commodo. Cras gravida interdum nisl, vel venenatis nisl consectetur ut. Duis in erat quis dui imperdiet pretium et eu purus. Fusce purus ex, placerat et eros quis, lacinia tempor ligula. </p>
                                 <p>Placerat in egestas erat imperdiet sed euismod. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Quam viverra orci sagittis eu volutpat odio facilisis. Sit amet massa vitae tortor condimentum lacinia. Lacus vestibulum sed arcu non odio. Sodales ut eu sem integer vitae justo. Amet tellus cras adipiscing enim eu turpis egestas.</p>
                                 <div class="list-single-tags fl-wrap tags-stylwrap" style="margin-top: 20px;">
-                                    <span>Service Areas:</span>
+                                    <span>Khu Vực Dịch Vụ:</span>
                                     <a href="#">London</a>
                                     <a href="#">NewYork</a>
                                     <a href="#">Rome</a>
@@ -64,16 +65,18 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- list-single-main-item end -->             						
+                        <!-- list-single-main-item end -->              
                     </div>
+                    
                     <!-- content-tabs-wrap -->
                     <div class="content-tabs-wrap tabs-act fl-wrap">
                         <div class="content-tabs fl-wrap">
                             <ul class="tabs-menu fl-wrap no-list-style">
-                                <li class="current"><a href="#tab-listing">  Listing  </a></li>
-                                <li><a href="#tab-reviews">Reviews</a></li>
+                                <li class="current"><a href="#tab-listing">  Danh sách  </a></li>
+                                <li><a href="#tab-reviews">Nhận xét</a></li>
                             </ul>
                         </div>
+                        
                         <!--tabs -->                       
                         <div class="tabs-container">
                             <!--tab -->
@@ -81,177 +84,34 @@
                                 <div id="tab-listing" class="tab-content first-tab">
                                     <!-- listing-item-wrap-->
                                     <div class="listing-item-container one-column-grid-wrap  box-list_ic fl-wrap">
+                                        @foreach($properties as $productItem )
                                         <!-- listing-item -->
-                                        <div class="listing-item">
-                                            <article class="geodir-category-listing fl-wrap">
-                                                <div class="geodir-category-img fl-wrap">
-                                                    <a href="listing-single.html" class="geodir-category-img_item">
-                                                        <img src="images/all/1.jpg" alt="">
-                                                        <div class="overlay"></div>
-                                                    </a>
-                                                    <div class="geodir-category-location">
-                                                        <a href="#" class="single-map-item tolt" data-newlatitude="40.72956781" data-newlongitude="-73.99726866"   data-microtip-position="top-left" data-tooltip="On the map"><i class="fas fa-map-marker-alt"></i> <span>  70 Bright St New York, USA</span></a>
-                                                    </div>
-                                                    <ul class="list-single-opt_header_cat">
-                                                        <li><a href="#" class="cat-opt blue-bg">Sale</a></li>
-                                                        <li><a href="#" class="cat-opt color-bg">Apartment</a></li>
-                                                    </ul>
-                                                    <a href="#" class="geodir_save-btn tolt" data-microtip-position="left" data-tooltip="Save"><span><i class="fal fa-heart"></i></span></a>
-                                                    <a href="#" class="compare-btn tolt" data-microtip-position="left" data-tooltip="Compare"><span><i class="fal fa-random"></i></span></a>
-                                                    <div class="geodir-category-listing_media-list">
-                                                        <span><i class="fas fa-camera"></i> 8</span>
-                                                    </div>
-                                                </div>
-                                                <div class="geodir-category-content fl-wrap">
-                                                    <h3 class="title-sin_item"><a href="listing-single.html">Gorgeous House For Sale</a></h3>
-                                                    <div class="geodir-category-content_price">$ 600,000</div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p>
-                                                    <div class="geodir-category-content-details">
-                                                        <ul>
-                                                            <li><i class="fal fa-bed"></i><span>3</span></li>
-                                                            <li><i class="fal fa-bath"></i><span>2</span></li>
-                                                            <li><i class="fal fa-cube"></i><span>450 ft2</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="geodir-category-footer fl-wrap">
-                                                        <a href="agent-single.html" class="gcf-company"><img src="images/avatar/1.jpg" alt=""><span>By Liza Rose</span></a>
-                                                        <div class="listing-rating card-popup-rainingvis tolt" data-microtip-position="top" data-tooltip="Good" data-starrating2="4"></div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <!-- listing-item end-->	
-                                        <!-- listing-item -->
-                                        <div class="listing-item">
-                                            <article class="geodir-category-listing fl-wrap">
-                                                <div class="geodir-category-img fl-wrap">
-                                                    <a href="listing-single.html" class="geodir-category-img_item">
-                                                        <img src="images/all/1.jpg" alt="">
-                                                        <div class="overlay"></div>
-                                                    </a>
-                                                    <div class="geodir-category-location">
-                                                        <a href="#" class="single-map-item tolt" data-newlatitude="40.88496706" data-newlongitude="-73.88191222" data-microtip-position="top-left" data-tooltip="On the map"><i class="fas fa-map-marker-alt"></i> <span>  40 Journal Square  , NJ, USA</span></a>												
-                                                    </div>
-                                                    <ul class="list-single-opt_header_cat">
-                                                        <li><a href="#" class="cat-opt blue-bg">Sale</a></li>
-                                                        <li><a href="#" class="cat-opt color-bg">Apartment</a></li>
-                                                    </ul>
-                                                    <a href="#" class="geodir_save-btn tolt" data-microtip-position="left" data-tooltip="Save"><span><i class="fal fa-heart"></i></span></a>
-                                                    <a href="#" class="compare-btn tolt" data-microtip-position="left" data-tooltip="Compare"><span><i class="fal fa-random"></i></span></a>
-                                                    <div class="geodir-category-listing_media-list">
-                                                        <span><i class="fas fa-camera"></i> 47</span>
-                                                    </div>
-                                                </div>
-                                                <div class="geodir-category-content fl-wrap">
-                                                    <h3 class="title-sin_item"><a href="listing-single.html">Luxury Family Home</a></h3>
-                                                    <div class="geodir-category-content_price">$ 320,000</div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p>
-                                                    <div class="geodir-category-content-details">
-                                                        <ul>
-                                                            <li><i class="fal fa-bed"></i><span>4</span></li>
-                                                            <li><i class="fal fa-bath"></i><span>2</span></li>
-                                                            <li><i class="fal fa-cube"></i><span>460 ft2</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="geodir-category-footer fl-wrap">
-                                                        <a href="agent-single.html" class="gcf-company"><img src="images/avatar/1.jpg" alt=""><span>By Anna Lips</span></a>
-                                                        <div class="listing-rating card-popup-rainingvis tolt" data-microtip-position="top" data-tooltip="Excellent" data-starrating2="5"></div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <!-- listing-item end-->	
-                                        <!-- listing-item -->
-                                        <div class="listing-item">
-                                            <article class="geodir-category-listing fl-wrap">
-                                                <div class="geodir-category-img fl-wrap">
-                                                    <a href="listing-single.html" class="geodir-category-img_item">
-                                                        <img src="images/all/1.jpg" alt="">
-                                                        <div class="overlay"></div>
-                                                    </a>
-                                                    <div class="geodir-category-location">
-                                                        <a href="#" class="single-map-item tolt" data-newlatitude="40.94982541" data-newlongitude="-73.84357452" data-microtip-position="top-left" data-tooltip="On the map"><i class="fas fa-map-marker-alt"></i> <span> 34-42 Montgomery St , NY, USA</span></a>													
-                                                    </div>
-                                                    <ul class="list-single-opt_header_cat">
-                                                        <li><a href="#" class="cat-opt blue-bg">Rent</a></li>
-                                                        <li><a href="#" class="cat-opt color-bg">House</a></li>
-                                                    </ul>
-                                                    <a href="#" class="geodir_save-btn tolt" data-microtip-position="left" data-tooltip="Save"><span><i class="fal fa-heart"></i></span></a>
-                                                    <a href="#" class="compare-btn tolt" data-microtip-position="left" data-tooltip="Compare"><span><i class="fal fa-random"></i></span></a>
-                                                    <div class="geodir-category-listing_media-list">
-                                                        <span><i class="fas fa-camera"></i> 4</span>
-                                                    </div>
-                                                </div>
-                                                <div class="geodir-category-content fl-wrap">
-                                                    <h3 class="title-sin_item"><a href="listing-single.html">Family House for Rent</a></h3>
-                                                    <div class="geodir-category-content_price">$ 700 / per month</div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p>
-                                                    <div class="geodir-category-content-details">
-                                                        <ul>
-                                                            <li><i class="fal fa-bed"></i><span>2</span></li>
-                                                            <li><i class="fal fa-bath"></i><span>1</span></li>
-                                                            <li><i class="fal fa-cube"></i><span>220 ft2</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="geodir-category-footer fl-wrap">
-                                                        <a href="agent-single.html" class="gcf-company"><img src="images/avatar/1.jpg" alt=""><span>By Mark Frosty</span></a>
-                                                        <div class="listing-rating card-popup-rainingvis tolt" data-microtip-position="top" data-tooltip="Good" data-starrating2="4"></div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <!-- listing-item end-->							
-                                        <!-- listing-item -->
-                                        <div class="listing-item">
-                                            <article class="geodir-category-listing fl-wrap">
-                                                <div class="geodir-category-img fl-wrap">
-                                                    <a href="listing-single.html" class="geodir-category-img_item">
-                                                        <img src="images/all/1.jpg" alt="">
-                                                        <div class="overlay"></div>
-                                                    </a>
-                                                    <div class="geodir-category-location">
-                                                        <a href="#" class="single-map-item tolt" data-newlatitude="40.72228267" data-newlongitude="-73.99246214" data-microtip-position="top-left" data-tooltip="On the map"><i class="fas fa-map-marker-alt"></i> <span> W 85th St, New York, USA</span></a>												
-                                                    </div>
-                                                    <ul class="list-single-opt_header_cat">
-                                                        <li><a href="#" class="cat-opt blue-bg">Sale</a></li>
-                                                        <li><a href="#" class="cat-opt color-bg">Apartment</a></li>
-                                                    </ul>
-                                                    <a href="#" class="geodir_save-btn tolt" data-microtip-position="left" data-tooltip="Save"><span><i class="fal fa-heart"></i></span></a>
-                                                    <a href="#" class="compare-btn tolt" data-microtip-position="left" data-tooltip="Compare"><span><i class="fal fa-random"></i></span></a>
-                                                    <div class="geodir-category-listing_media-list">
-                                                        <span><i class="fas fa-camera"></i> 13</span>
-                                                    </div>
-                                                </div>
-                                                <div class="geodir-category-content fl-wrap">
-                                                    <h3 class="title-sin_item"><a href="listing-single.html">Contemporary Apartment</a></h3>
-                                                    <div class="geodir-category-content_price">$ 1,600,000</div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p>
-                                                    <div class="geodir-category-content-details">
-                                                        <ul>
-                                                            <li><i class="fal fa-bed"></i><span>4</span></li>
-                                                            <li><i class="fal fa-bath"></i><span>1</span></li>
-                                                            <li><i class="fal fa-cube"></i><span>550 ft2</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="geodir-category-footer fl-wrap">
-                                                        <a href="agent-single.html" class="gcf-company"><img src="images/avatar/1.jpg" alt=""><span>By Bill Trust</span></a>
-                                                        <div class="listing-rating card-popup-rainingvis tolt" data-microtip-position="top" data-tooltip="Excellent
-                                                            " data-starrating2="5"></div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <!-- listing-item end-->								
+                                        @include('frontends.components.product_card',['productCard'=>$productItem ])
+                                        <!-- listing-item end-->
+                                        @endforeach
                                     </div>
                                     <!-- listing-item-wrap end-->
                                     <!-- pagination-->
                                     <div class="pagination">
-                                        <a href="#" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
-                                        <a href="#" >1</a>
-                                        <a href="#" class="current-page">2</a>
-                                        <a href="#">3</a>
-                                        <a href="#">4</a>
-                                        <a href="#" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
+                                        @if ($properties->previousPageUrl())
+                                            <a href="{{ $properties->previousPageUrl() }}" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
+                                        @else
+                                            <a href="#" class="prevposts-link disabled"><i class="fa fa-caret-left"></i></a>
+                                        @endif
+                                    
+                                        @foreach ($properties->getUrlRange(1, $properties->lastPage()) as $page => $url)
+                                            @if ($page == $properties->currentPage())
+                                                <a href="#" class="current-page">{{ $page }}</a>
+                                            @else
+                                                <a href="{{ $url }}">{{ $page }}</a>
+                                            @endif
+                                        @endforeach
+                                    
+                                        @if ($properties->nextPageUrl())
+                                            <a href="{{ $properties->nextPageUrl() }}" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
+                                        @else
+                                            <a href="#" class="nextposts-link disabled"><i class="fa fa-caret-right"></i></a>
+                                        @endif
                                     </div>
                                     <!-- pagination end-->						
                                 </div>
@@ -373,7 +233,7 @@
                 <!--  sidebar-->
                 <div class="col-md-4">
                     <!--box-widget-->
-                    <div class="box-widget bwt-first fl-wrap">
+                    {{-- <div class="box-widget bwt-first fl-wrap">
                         <div class="box-widget-title fl-wrap box-widget-title-color color-bg no-top-margin">Agent Contacts</div>
                         <div class="box-widget-content fl-wrap">
                             <div class="contats-list clm fl-wrap">
@@ -396,7 +256,7 @@
                                 <a href="#sec-contact" class="custom-scroll-link tolt csls" data-microtip-position="left" data-tooltip="Write Message"><i class="fal fa-paper-plane"></i></a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!--box-widget end --> 									
                     <!--box-widget-->
                     <div class="box-widget fl-wrap">
