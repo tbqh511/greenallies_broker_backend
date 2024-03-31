@@ -59,6 +59,17 @@ class FrontEndAgentsController extends Controller
      */
     public function index(Request $request)
     {
+        // Get the district code from configuration
+        $districtCode = config('location.district_code');
+        // If there's a district code, get the list of wards in that district
+        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->orderByRaw("CASE 
+        WHEN full_name LIKE 'phường%' THEN 1 
+        WHEN full_name LIKE 'Xã%' THEN 2 
+        ELSE 3 END, CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), full_name")->get() : LocationsWard::orderByRaw("CASE 
+        WHEN full_name LIKE 'phường%' THEN 1 
+        WHEN full_name LIKE 'Xã%' THEN 2 
+        ELSE 3 END, CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), full_name")->get();
+
         // Get the list of product categories
         $categories = Category::all();
 
