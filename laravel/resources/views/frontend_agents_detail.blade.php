@@ -259,7 +259,7 @@
                     </div> --}}
                     <!--box-widget end --> 									
                     <!--box-widget-->
-                    <div class="box-widget fl-wrap">
+                    <div class="box- bwt-first fl-wrap">
                         <div class="box-widget-fixed-init fl-wrap" id="sec-contact">
                             <div class="box-widget-title fl-wrap box-widget-title-color color-bg no-top-margin">Get In Touch</div>
                             <div class="box-widget-content fl-wrap">
