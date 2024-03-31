@@ -35,7 +35,7 @@
                         </div>
                         <div class="card-info-content">
                             <div class="agent_card-title fl-wrap">
-                                <h4> Andy Sposty </h4>
+                                <h4> {{$agent->name}} </h4>
                                 <div class="geodir-category-location fl-wrap">
                                     <h5><a href="agency-single.html">Mavers RealEstate Agency</a></h5>
                                     <div class="listing-rating card-popup-rainingvis" data-starrating2="4"><span class="re_stars-title">Good</span></div>
