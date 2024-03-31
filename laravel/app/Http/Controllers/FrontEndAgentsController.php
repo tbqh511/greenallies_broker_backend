@@ -57,7 +57,10 @@ class FrontEndAgentsController extends Controller
         // Get the list of product categories
         $categories = Category::all();
 
-        $agents = Customer::orderByDesc('customer_total_post')->limit(5)->get();
+        //$agents = Customer::orderByDesc('customer_total_post')->limit(5)->get();
+
+        $agents = Customer::orderByDesc('customertotalpost')->limit(5)->get();
+
 
         return view('frontend_agents_listing',[
             'agents' => $agents,
