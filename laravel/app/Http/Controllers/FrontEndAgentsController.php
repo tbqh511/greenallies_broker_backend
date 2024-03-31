@@ -58,8 +58,8 @@ class FrontEndAgentsController extends Controller
         $categories = Category::all();
 
         //$agents = Customer::orderByDesc('customer_total_post')->limit(5)->get();
-        $agentsQuery = Property::where('added_by', $id)->where('status', '1');
-        $agents = Customer::orderByDesc('customertotalpost')->limit(5)->get();
+
+        $agents = Customer::limit(5)->get();
 
         return view('frontend_agents_listing',[
             'agents' => $agents,
