@@ -265,7 +265,6 @@ class FrontEndPropertiesController extends Controller
         // Lấy danh sách bất động sản dựa trên truy vấn
         $properties = $propertiesQuery->where('status', '1')->paginate(6)->appends($searchParams);
 
-
         //dd($areaInput, $numberFloorInput, $numberFloorInput);
         //dd($propertyTypeInput);
         // Define the search result message
