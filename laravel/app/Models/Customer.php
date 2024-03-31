@@ -92,7 +92,7 @@ class Customer extends Authenticatable implements JWTSubject
 
         // Lấy danh sách các LocationWard tương ứng với các ward_code
         $wards = LocationsWard::whereIn('code', $wardCodes)->get();
-
+        dd($wards);
         return $wards;
     }
 }
