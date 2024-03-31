@@ -62,6 +62,8 @@ class FrontEndAgentsController extends Controller
         // Get the list of product categories
         $categories = Category::all();
 
-         return view('frontend_agents_listing');
+         return view('frontend_agents_listing',[
+            'categories'=> $categories,
+         ]);
     }
 }
