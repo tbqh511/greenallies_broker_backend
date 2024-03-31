@@ -6,7 +6,7 @@
                 <a href="agent-single.html" class="geodir-category-img_item">
                     <img src="https://i.pravatar.cc/395" alt="">
                     <ul class="list-single-opt_header_cat">
-                        <li><span class="cat-opt color-bg">4 listings</span></li>
+                        <li><span class="cat-opt color-bg">{{$agent->customer_total_post}} listings</span></li>
                     </ul>
                 </a>
                 <div class="agent-card-social fl-wrap">
@@ -23,7 +23,7 @@
                 <div class="card-verified tolt" data-microtip-position="left" data-tooltip="Verified"><i
                         class="fal fa-user-check"></i></div>
                 <div class="agent_card-title fl-wrap">
-                    <h4><a href="agent-single.html">Anna Lips</a></h4>
+                    <h4><a href="agent-single.html">{{$agent->name}}</a></h4>
                     <h5><a href="agency-single.html">CondorHome RealEstate agency</a></h5>
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar

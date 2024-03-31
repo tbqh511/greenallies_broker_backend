@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Customer;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Models\LocationsStreet;
@@ -31,9 +32,11 @@ class FrontEndHomeController extends Controller
         WHEN full_name LIKE 'Xã%' THEN 2 
         ELSE 3 END, CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), full_name")->get();
 
-
         // Get the list of product categories
         $categories = Category::all();
+
+        // Get list top agent
+        $agents = Customer::withCount('property')->orderBy('property_count', 'desc')->get();
 
         // Set parameters for the product query
         $offset = 0;
@@ -73,6 +76,7 @@ class FrontEndHomeController extends Controller
             'locationsWards' => $locationsWards,
             'categories' => $categories,
             'newestProducts' => $newestProducts,
+            'agents' => $agents,
         ]);
     }
 
