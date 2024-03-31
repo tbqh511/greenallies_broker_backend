@@ -40,13 +40,13 @@
                         <div class="list-main-wrap-opt">
                             <!-- price-opt-->
                             <div class="price-opt">
-                                <span class="price-opt-title">Sort   by:</span>
+                                <span class="price-opt-title">Sắp xếp theo:</span>
                                 <div class="listsearch-input-item">
-                                    <select data-placeholder="Popularity" class="chosen-select no-search-select" >
-                                        <option>Popularity</option>
-                                        <option>Average rating</option>
-                                        <option>Name: A-Z</option>
-                                        <option>Name: Z-A</option>
+                                    <select data-placeholder="Phổ biến" class="chosen-select no-search-select">
+                                        <option>Phổ biến</option>
+                                        <option>Đánh giá trung bình</option>
+                                        <option>Tên: A-Z</option>
+                                        <option>Tên: Z-A</option>
                                     </select>
                                 </div>
                             </div>
@@ -289,19 +289,20 @@
                 <!-- col-md 8 end -->
                 <!-- search sidebar-->
                 <div class="col-md-4">
-                    <div class="list-searh-input-wrap-title fl-wrap"><i class="far fa-sliders-h"></i><span>Search Agent</span></div>
+                    <div class="list-searh-input-wrap-title fl-wrap"><i class="far fa-sliders-h"></i><span>Tìm Kiếm Đối Tác</span></div>
+
                     <div class="block-box fl-wrap search-sb" id="filters-column">
-                        <!-- listsearch-input-item -->
+                        <!-- Mục nhập từ khóa -->
                         <div class="listsearch-input-item">
-                            <label>Keywords</label>
-                            <input type="text" onClick="this.select()" placeholder="Name , agency..." value=""/>										
+                            <label>Từ khóa</label>
+                            <input type="text" onClick="this.select()" placeholder="Tên, đại lý..." value=""/>
                         </div>
-                        <!-- listsearch-input-item end-->
-                        <!-- listsearch-input-item -->
+                        <!-- Kết thúc mục nhập từ khóa -->
+                        <!-- Mục nhập thành phố -->
                         <div class="listsearch-input-item">
-                            <label>Cities</label>
-                            <select data-placeholder="All Cities" class="chosen-select on-radius no-search-select" >
-                                <option>All Cities</option>
+                            <label>Thành phố</label>
+                            <select data-placeholder="Tất cả thành phố" class="chosen-select on-radius no-search-select" >
+                                <option>Tất cả thành phố</option>
                                 <option>New York</option>
                                 <option>London</option>
                                 <option>Paris</option>
@@ -312,90 +313,97 @@
                                 <option>Beijing</option>
                             </select>
                         </div>
-                        <!-- listsearch-input-item end-->											
-                        <!-- listsearch-input-item -->
+                        <!-- Kết thúc mục nhập thành phố -->
+                        <!-- Mục nhập khoảng giá -->
                         <div class="listsearch-input-item">
                             <div class="price-rage-item fl-wrap">
-                                <span class="pr_title">Rating:</span>
+                                <span class="pr_title">Đánh giá:</span>
                                 <input type="text" class="price-range-double" data-min="1" data-max="5"  name="price-range2"  data-step="1" value="1" data-prefix="*">
                             </div>
                         </div>
-                        <!-- listsearch-input-item end-->
+                        <!-- Kết thúc mục nhập khoảng giá -->
                         <div class="msotw_footer">
-                            <a href="#" class="btn small-btn float-btn color-bg">Search Agents</a>
-                            <div class="reset-form reset-btn"> <i class="far fa-sync-alt"></i> Reset Filters</div>
+                            <a href="#" class="btn small-btn float-btn color-bg">Tìm Kiếm Đại Lý</a>
+                            <div class="reset-form reset-btn"> <i class="far fa-sync-alt"></i> Đặt lại bộ lọc</div>
                         </div>
                     </div>
+                    
                     <!--box-widget-->
                     <div class="box-widget fl-wrap">
-                        <div class="box-widget-title fl-wrap">Featured Agents</div>
+                        <div class="box-widget-title fl-wrap">Đối Tác Nổi Bật</div>
                         <div class="box-widget-content fl-wrap">
                             <!--widget-posts-->
-                            <div class="widget-posts  fl-wrap">
+                            <div class="widget-posts fl-wrap">
                                 <ul class="no-list-style">
                                     <li>
-                                        <div class="widget-posts-img"><a href="agent-single.html"><img src="images/agency/agent/1.jpg" alt=""></a>  
+                                        <div class="widget-posts-img">
+                                            <a href="agent-single.html"><img src="images/agency/agent/1.jpg" alt=""></a>
                                         </div>
                                         <div class="widget-posts-descr agent-post_descr">
                                             <h4><a href="agent-single.html">Liza Rose</a></h4>
-                                            <div class="agent-post_descr_counter fl-wrap"><span>21</span> Property Listings</div>
+                                            <div class="agent-post_descr_counter fl-wrap"><span>21</span> Danh Sách Bất Động Sản</div>
                                             <div class="listing-rating card-popup-rainingvis" data-starrating2="4"> </div>
-                                            <a href="mailto:yourmail@email.com" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Write Message"><i class="fal fa-envelope"></i></a>
-                                            <a href="tel:123-456-7890" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Call Now"><i class="fal fa-phone"></i></a>									
+                                            <a href="mailto:yourmail@email.com" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Gửi Tin Nhắn"><i class="fal fa-envelope"></i></a>
+                                            <a href="tel:123-456-7890" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Gọi Ngay"><i class="fal fa-phone"></i></a>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="widget-posts-img"><a href="agent-single.html"><img src="images/agency/agent/1.jpg" alt=""></a>  
+                                        <div class="widget-posts-img">
+                                            <a href="agent-single.html"><img src="images/agency/agent/1.jpg" alt=""></a>
                                         </div>
                                         <div class="widget-posts-descr agent-post_descr">
                                             <h4><a href="agent-single.html">Martin Smith</a></h4>
-                                            <div class="agent-post_descr_counter fl-wrap"><span>5</span> Property Listings</div>
+                                            <div class="agent-post_descr_counter fl-wrap"><span>5</span> Danh Sách Bất Động Sản</div>
                                             <div class="listing-rating card-popup-rainingvis" data-starrating2="5"> </div>
-                                            <a href="mailto:yourmail@email.com" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Write Message"><i class="fal fa-envelope"></i></a>
-                                            <a href="tel:123-456-7890" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Call Now"><i class="fal fa-phone"></i></a> 										 
+                                            <a href="mailto:yourmail@email.com" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Gửi Tin Nhắn"><i class="fal fa-envelope"></i></a>
+                                            <a href="tel:123-456-7890" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Gọi Ngay"><i class="fal fa-phone"></i></a>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="widget-posts-img"><a href="agent-single.html"><img src="images/agency/agent/1.jpg" alt=""></a>  
+                                        <div class="widget-posts-img">
+                                            <a href="agent-single.html"><img src="images/agency/agent/1.jpg" alt=""></a>
                                         </div>
                                         <div class="widget-posts-descr agent-post_descr">
                                             <h4><a href="agent-single.html">Andy Sposty</a></h4>
-                                            <div class="agent-post_descr_counter fl-wrap"><span>10</span> Property Listings</div>
+                                            <div class="agent-post_descr_counter fl-wrap"><span>10</span> Danh Sách Bất Động Sản</div>
                                             <div class="listing-rating card-popup-rainingvis" data-starrating2="4"> </div>
-                                            <a href="mailto:yourmail@email.com" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Write Message"><i class="fal fa-envelope"></i></a>
-                                            <a href="tel:123-456-7890" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Call Now"><i class="fal fa-phone"></i></a>										 
+                                            <a href="mailto:yourmail@email.com" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Gửi Tin Nhắn"><i class="fal fa-envelope"></i></a>
+                                            <a href="tel:123-456-7890" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Gọi Ngay"><i class="fal fa-phone"></i></a>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="widget-posts-img"><a href="agent-single.html"><img src="images/agency/agent/1.jpg" alt=""></a>  
+                                        <div class="widget-posts-img">
+                                            <a href="agent-single.html"><img src="images/agency/agent/1.jpg" alt=""></a>
                                         </div>
                                         <div class="widget-posts-descr agent-post_descr">
                                             <h4><a href="agent-single.html">Anna Lips</a></h4>
-                                            <div class="agent-post_descr_counter fl-wrap"><span>12</span> Property Listings</div>
+                                            <div class="agent-post_descr_counter fl-wrap"><span>12</span> Danh Sách Bất Động Sản</div>
                                             <div class="listing-rating card-popup-rainingvis" data-starrating2="5"> </div>
-                                            <a href="mailto:yourmail@email.com" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Write Message"><i class="fal fa-envelope"></i></a>
-                                            <a href="tel:123-456-7890" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Call Now"><i class="fal fa-phone"></i></a> 										 
+                                            <a href="mailto:yourmail@email.com" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Gửi Tin Nhắn"><i class="fal fa-envelope"></i></a>
+                                            <a href="tel:123-456-7890" class="tolt ftr-btn" data-microtip-position="top-left" data-tooltip="Gọi Ngay"><i class="fal fa-phone"></i></a>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
-                            <!-- widget-posts end-->                                                           
-                            <a href="listing.html" class="btn float-btn color-bg small-btn">View All Agents</a>
+                            <!-- widget-posts end-->
+                            <a href="listing.html" class="btn float-btn color-bg small-btn">Xem Tất Cả Đại Lý</a>
                         </div>
                     </div>
+                    
                     <!--box-widget end --> 
                     <!--box-widget-->
                     <div class="box-widget fl-wrap">
                         <div class="banner-widget fl-wrap">
                             <div class="bg-wrap bg-parallax-wrap-gradien">
-                                <div class="bg  "  data-bg="images/all/blog/1.jpg"></div>
+                                <div class="bg" data-bg="images/all/blog/1.jpg"></div>
                             </div>
                             <div class="banner-widget_content">
-                                <h5>Do you want to join our real estate network?</h5>
-                                <a href="#" class="btn float-btn color-bg small-btn">Become an Agent</a>
+                                <h5>Bạn muốn tham gia mạng lưới bất động sản của chúng tôi?</h5>
+                                <a href="#" class="btn float-btn color-bg small-btn">Trở thành Đại lý</a>
                             </div>
                         </div>
                     </div>
+                    
                     <!--box-widget end --> 									
                 </div>
                 <!-- search sidebar end-->								
