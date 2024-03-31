@@ -53,7 +53,6 @@ class FrontEndAgentsController extends Controller
         WHEN full_name LIKE 'phường%' THEN 1 
         WHEN full_name LIKE 'Xã%' THEN 2 
         ELSE 3 END, CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), full_name")->get();
-
         // Get the list of product categories
         $categories = Category::all();
 

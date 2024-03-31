@@ -52,7 +52,7 @@
             </div>
             <div class="geodir-category-footer fl-wrap">
                 <a href="{{ route('agent.showid', ['id' => $productCard->added_by]) }}" class="gcf-company">
-                        <img src="{{$productCard->agent->profile}}" alt="Đà Lạt BDS">
+                        <img src="{{$productCard->agent ? ($productCard->agent->profile ? $productCard->agent->profile : 'https://dalatbds.com/images/users/1693209486.1303.png'):'https://dalatbds.com/images/users/1693209486.1303.png'}}" alt="Đà Lạt BDS">
                         
                         <span>{{ $productCard->agent ? ($productCard->agent->name ?: 'Đà Lạt BDS') : 'Đà Lạt BDS' }}</span>
                     </a>
