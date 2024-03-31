@@ -261,16 +261,16 @@
                     <!--box-widget-->
                     <div class="box- bwt-first fl-wrap">
                         <div class="box-widget-fixed-init fl-wrap" id="sec-contact">
-                            <div class="box-widget-title fl-wrap box-widget-title-color color-bg no-top-margin">Get In Touch</div>
+                            <div class="box-widget-title fl-wrap box-widget-title-color color-bg no-top-margin">Liên hệ</div>
                             <div class="box-widget-content fl-wrap">
                                 <div class="custom-form">
-                                    <form method="post"  name="contact-property-form">
-                                        <label>Your name* <span class="dec-icon"><i class="fas fa-user"></i></span></label>
-                                        <input   name="phone" type="text"    onClick="this.select()" value="">
-                                        <label>Your mail  * <span class="dec-icon"><i class="fas fa-envelope"></i></span></label>
-                                        <input   name="mail" type="text"    onClick="this.select()" value="">      
-                                        <textarea cols="40" rows="3" placeholder="Your Message:" style="height: 150px"></textarea>
-                                        <button type="submit" class="btn float-btn color-bg fw-btn"> Send</button>
+                                    <form method="post" name="contact-property-form">
+                                        <label>Tên của bạn* <span class="dec-icon"><i class="fas fa-user"></i></span></label>
+                                        <input name="phone" type="text" onClick="this.select()" value="">
+                                        <label>Email của bạn* <span class="dec-icon"><i class="fas fa-envelope"></i></span></label>
+                                        <input name="mail" type="text" onClick="this.select()" value="">      
+                                        <textarea cols="40" rows="3" placeholder="Tin nhắn của bạn:" style="height: 150px"></textarea>
+                                        <button type="submit" class="btn float-btn color-bg fw-btn"> Gửi</button>
                                     </form>
                                 </div>
                             </div>
