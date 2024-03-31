@@ -59,7 +59,7 @@
                                 <div class="list-single-tags fl-wrap tags-stylwrap" style="margin-top: 20px;">
                                     <span>Khu Vực Dịch Vụ:</span>
                                     @foreach($agent->agentWards as $agentWard)
-                                        <a href="{{route('property.index', ['ward'=>$agentWard->code])}}">$agentWard->full_name</a>
+                                        <a href="{{route('properties.index', ['ward'=>$agentWard->code])}}">$agentWard->full_name</a>
                                     @endforeach
                                 </div>
                             </div>
