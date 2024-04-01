@@ -21,7 +21,7 @@
     @include('frontends.components.home_agent_list',['agents' => $agents])
     <!-- section end-->
     <!-- section -->
-    @include('frontends.components.home_report_info')
+    @include('frontends.components.home_report_info',['infos' => $infos])
     <!-- section end-->
     <!-- section -->
     @include('frontends.components.home_client_say')

@@ -1,54 +1,20 @@
 <section class="color-bg small-padding">
     <div class="container">
         <div class="main-facts fl-wrap">
+            @@foreach ($infos as $infos)
             <!-- inline-facts  -->
             <div class="inline-facts-wrap">
                 <div class="inline-facts">
                     <div class="milestone-counter">
                         <div class="stats animaper">
-                            <div class="num" data-content="0" data-num="578">0</div>
+                            <div class="num" data-content="0" data-num="578">{{$info->value}}</div>
                         </div>
                     </div>
-                    <h6>Bất động sản</h6>
+                    <h6>{{$info->title}}</h6>
                 </div>
             </div>
-            <!-- inline-facts end -->
-            <!-- inline-facts  -->
-            <div class="inline-facts-wrap">
-                <div class="inline-facts">
-                    <div class="milestone-counter">
-                        <div class="stats animaper">
-                            <div class="num" data-content="0" data-num="12168">0</div>
-                        </div>
-                    </div>
-                    <h6>Đối tác</h6>
-                </div>
-            </div>
-            <!-- inline-facts end -->
-            <!-- inline-facts  -->
-            <div class="inline-facts-wrap">
-                <div class="inline-facts">
-                    <div class="milestone-counter">
-                        <div class="stats animaper">
-                            <div class="num" data-content="0" data-num="2172">0</div>
-                        </div>
-                    </div>
-                    <h6>Khách hàng hài lòng</h6>
-                </div>
-            </div>
-            <!-- inline-facts end -->
-            <!-- inline-facts  -->
-            <div class="inline-facts-wrap">
-                <div class="inline-facts">
-                    <div class="milestone-counter">
-                        <div class="stats animaper">
-                            <div class="num" data-content="0" data-num="732">0</div>
-                        </div>
-                    </div>
-                    <h6>Bất động sản mới trong tuần</h6>
-                </div>
-            </div>
-            <!-- inline-facts end -->
+            <!-- inline-facts end -->    
+            @endforeach
         </div>
     </div>
     <div class="svg-bg">

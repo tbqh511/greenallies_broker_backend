@@ -62,6 +62,29 @@ class FrontEndHomeController extends Controller
             ->take($limit)
             ->get();
 
+        //get info for homepage
+        $infos= [
+            [
+                'title' => 'Bất động sản',
+                'value' => 30
+            ],
+            [
+                'title' => 'Đối tác',
+                'value' => 12168
+            ],
+            [
+                'title' => 'Khách hàng hài lòng',
+                'value' => 2172
+            ],
+            [
+                'title' => 'Khách hàng hài lòng',
+                'value' => 2172
+            ],
+            // Các cặp title và value khác có thể thêm vào đây
+        ];
+        
+
+
         //dd($newestProducts[0]->parameters[0]->pivot->pivot_value);
         //dd($newestProducts[0]->parameters[0]->pivot->value);
         // $valueOfParameterId15 = $newestProducts[0]->parameters->where('name', config('global.area'))->first()->pivot->value;
@@ -71,6 +94,8 @@ class FrontEndHomeController extends Controller
         //dd(config('global.number_floor'));
         //dd($newestProducts);
         
+
+
         // Return the frontend_home view with the necessary data
         return view('frontend_home', [
             'locationsStreets' => $locationsStreets,
@@ -78,6 +103,7 @@ class FrontEndHomeController extends Controller
             'categories' => $categories,
             'newestProducts' => $newestProducts,
             'agents' => $agents,
+            'infos' => $infos,
         ]);
     }
 
