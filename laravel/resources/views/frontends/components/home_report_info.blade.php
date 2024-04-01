@@ -7,7 +7,7 @@
                 <div class="inline-facts">
                     <div class="milestone-counter">
                         <div class="stats animaper">
-                            <div class="num" data-content="0" data-num="578">{{$info['value']}}</div>
+                            <div class="num" data-content="0" data-num="{{$info['value']}}">{{$info['value']}}</div>
                         </div>
                     </div>
                     <h6>{{$info['title']}}</h6>

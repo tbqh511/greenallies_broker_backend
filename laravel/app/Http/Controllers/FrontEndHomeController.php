@@ -67,7 +67,7 @@ class FrontEndHomeController extends Controller
         //get info for homepage
         $infos= [
             [
-                'title' => 'Bất động sảns',
+                'title' => 'Bất động sản',
                 'value' => Property::count()
             ],
             [
