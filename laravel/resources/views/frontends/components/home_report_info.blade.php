@@ -1,25 +1,25 @@
 <section class="color-bg small-padding">
     <div class="container">
         <div class="main-facts fl-wrap">
-            @foreach ($infos as $infos)
+            @foreach ($infos as $info)
             <!-- inline-facts  -->
             <div class="inline-facts-wrap">
                 <div class="inline-facts">
                     <div class="milestone-counter">
                         <div class="stats animaper">
-                            <div class="num" data-content="0" data-num="578">{{$info->value}}</div>
+                            <div class="num" data-content="0" data-num="578">{{$info['value']}}</div>
                         </div>
                     </div>
-                    <h6>{{$info->title}}</h6>
+                    <h6>{{$info['title']}}</h6>
                 </div>
             </div>
-            <!-- inline-facts end -->    
+            <!-- inline-facts end -->
             @endforeach
         </div>
     </div>
     <div class="svg-bg">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-            y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
             <defs>
                 <lineargradient id="bg">
                     <stop offset="0%" style="stop-color:rgba(255, 255, 255, 0.6)"></stop>
