@@ -79,7 +79,7 @@ class FrontEndHomeController extends Controller
             ],
             [
                 'title' => 'Bất động sản mới trong tuần',
-                'value' => 2172
+                'value' => Property::where('created_at', '>=', Carbon::now()->subDays(7))->count()
             ],
             // Các cặp title và value khác có thể thêm vào đây
         ];
