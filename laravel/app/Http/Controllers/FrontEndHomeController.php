@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\CrmHost;
 use App\Models\Customer;
 use App\Models\Property;
 use Illuminate\Http\Request;
@@ -66,18 +67,18 @@ class FrontEndHomeController extends Controller
         $infos= [
             [
                 'title' => 'Bất động sản',
-                'value' => 30
+                'value' => Property::count()
             ],
             [
                 'title' => 'Đối tác',
-                'value' => 12168
+                'value' => Customer::count()
             ],
             [
                 'title' => 'Khách hàng hài lòng',
-                'value' => 2172
+                'value' => CrmHost::count()
             ],
             [
-                'title' => 'Khách hàng hài lòng',
+                'title' => 'Bất động sản mới trong tuần',
                 'value' => 2172
             ],
             // Các cặp title và value khác có thể thêm vào đây
