@@ -1,7 +1,7 @@
 <section class="color-bg small-padding">
     <div class="container">
         <div class="main-facts fl-wrap">
-            @@foreach ($infos as $infos)
+            @foreach ($infos as $infos)
             <!-- inline-facts  -->
             <div class="inline-facts-wrap">
                 <div class="inline-facts">
