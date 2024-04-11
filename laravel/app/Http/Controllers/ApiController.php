@@ -2653,7 +2653,7 @@ class ApiController extends Controller
     {
         $districtCode = config('location.district_code');
 
-        $result = LocationsWard::select('code', 'full_name')
+        $result = LocationsWard::select('code', 'full_name','full_name_en','district_code','administrative_unit_id')
             ->whereNotNull('district_code')
             ->where('district_code', $districtCode)
             ->get();
@@ -2675,6 +2675,32 @@ class ApiController extends Controller
     //* END :: get_locations_wards   *//
     //* START :: get_streets   *//
     public function get_locations_streets(Request $request)
+    {
+        $districtCode = config('location.district_code');
+
+        $result = LocationsStreet::select('code', 'street_name','district_code','ward_code')
+            ->whereNotNull('district_code')
+            ->where('district_code', $districtCode)
+            ->get();
+
+        $total = $result->count();
+
+        if (!$result->isEmpty()) {
+            $response['error'] = false;
+            $response['message'] = "Data Fetch Successfully";
+            $response['total'] = $total;
+            $response['data'] = $result;
+        } else {
+            $response['error'] = false;
+            $response['message'] = "No data found!";
+            $response['data'] = [];
+        }
+        return response()->json($response);
+    }
+    //* END :: get_streets   *//
+
+    //* START :: get_streets   *//
+    public function get_crm_hosts(Request $request)
     {
         $districtCode = config('location.district_code');
 
