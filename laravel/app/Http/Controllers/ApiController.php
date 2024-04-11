@@ -2477,7 +2477,7 @@ class ApiController extends Controller
         }
         $response['category_data'] = $cat_arr;
         $propertiesByCity = Property::groupBy('city')
-            ->select('city', \DB::raw('count(*) as count'))
+            ->select('city', DB::raw('count(*) as count'))
             ->orderBy('count', 'DESC')->get();
 
         foreach ($propertiesByCity as $city) {
