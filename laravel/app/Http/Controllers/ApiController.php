@@ -1091,7 +1091,6 @@ class ApiController extends Controller
                             $facilities->property_id = $request->id;
                             $facilities->distance = $value['distance'];
                             $facilities->save();
-
                         }
                     }
                     $property->update();
@@ -1125,10 +1124,6 @@ class ApiController extends Controller
 
                             $gallary_images->delete();
                         }
-
-
-
-
                     }
                     if ($request->hasfile('gallery_images')) {
 
@@ -1143,10 +1138,7 @@ class ApiController extends Controller
 
 
                             ]);
-
-
                         }
-
                     }
 
                     /// END :: UPLOAD GALLERY IMAGE
@@ -2242,8 +2234,7 @@ class ApiController extends Controller
                 foreach ($user_data as $user) {
                     array_push($fcm_id, $user->fcm_id);
                 }
-            }
-            ;
+            };
             $customer = Customer::select('fcm_id', 'name')->find($request->sender_id);
 
             // print_r($fcm_id);
@@ -2653,12 +2644,19 @@ class ApiController extends Controller
     {
         $districtCode = config('location.district_code');
 
-        $result = LocationsWard::select('code', 'full_name','full_name_en','district_code','administrative_unit_id')
+
+        $result = LocationsWard::select('code', 'full_name', 'full_name_en', 'district_code', 'administrative_unit_id')
             ->whereNotNull('district_code')
             ->where('district_code', $districtCode)
+            ->orderByRaw("CASE 
+                            WHEN full_name LIKE 'phường%' THEN 1 
+                            WHEN full_name LIKE 'Xã%' THEN 2 
+                            ELSE 3 END, 
+                          CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), 
+                          full_name")
             ->get();
 
-        $total = $result->count();
+            $total = $result->count();
 
         if (!$result->isEmpty()) {
             $response['error'] = false;
@@ -2678,7 +2676,7 @@ class ApiController extends Controller
     {
         $districtCode = config('location.district_code');
 
-        $result = LocationsStreet::select('code', 'street_name','district_code','ward_code')
+        $result = LocationsStreet::select('code', 'street_name', 'district_code', 'ward_code')
             ->whereNotNull('district_code')
             ->where('district_code', $districtCode)
             ->get();
