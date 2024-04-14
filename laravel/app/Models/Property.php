@@ -292,7 +292,7 @@ class Property extends Model
 
         return $formattedPrice;
     }
-
+    
     //End HuyTBQ
     //HuyTBQ: add function get format price m2
     public function getFormattedPriceM2Attribute()
