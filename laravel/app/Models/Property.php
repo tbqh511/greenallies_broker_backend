@@ -253,21 +253,10 @@ class Property extends Model
         $price = $this->price;
         $ty = 1000000000;
         $trieu = 1000000;
-        $suffix ="";
-        if ($this->propery_type == 0) {
-            if ($price > $ty) {
-                if ($price % $ty == 0) {
-                    $formattedPrice = number_format($price / $ty, 0) . ' tỷ';
-                } else {
-                    $formattedPrice = number_format($price / $ty, 1) . ' tỷ';
-                }
-            } elseif ($price > 0) {
-                $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
-            } else {
-                $formattedPrice = 'Giá thỏa thuận';
-            }
-        } elseif ($this->propery_type == 1) {
-            // Check rent duration
+        $suffix = "";
+
+        // Check property type and set suffix accordingly
+        if ($this->propery_type == 1) {
             switch ($this->rentduration) {
                 case "Monthly":
                     $suffix = ' / tháng';
@@ -285,25 +274,25 @@ class Property extends Model
                     // Do nothing
                     break;
             }
-            if ($price > $ty) {
-                if ($price % $ty == 0) {
-                    $formattedPrice = number_format($price / $ty, 0) . ' tỷ'.$suffix;
-                } else {
-                    $formattedPrice = number_format($price / $ty, 1) . ' tỷ'.$suffix;
-                }
-            } elseif ($price > 0) {
-                $formattedPrice = number_format($price / $trieu, 0) . ' triệu'.$suffix;
-            } else {
-                $formattedPrice = 'Giá thỏa thuận';
-            }
-            
-            
+        }
+
+        // Calculate formatted price
+        if ($price > $ty) {
+            $formattedPrice = number_format($price / $ty, ($price % $ty == 0) ? 0 : 1) . ' tỷ';
+        } elseif ($price > 0) {
+            $formattedPrice = number_format($price / $trieu, 0) . ' triệu';
         } else {
             $formattedPrice = 'Giá thỏa thuận';
         }
 
+        // Append suffix if applicable
+        if ($suffix !== "") {
+            $formattedPrice .= $suffix;
+        }
+
         return $formattedPrice;
     }
+
     //End HuyTBQ
     //HuyTBQ: add function get format price m2
     public function getFormattedPriceM2Attribute()
