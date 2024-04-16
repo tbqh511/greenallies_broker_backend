@@ -48,11 +48,11 @@ use Illuminate\Support\Facades\Artisan;
 
 
 //HuyTBQ: Route for Frontend Page
-Route::get('/', function () {
-    return view('coming_soon');
-});
+// Route::get('/', function () {
+//     return view('coming_soon');
+// });
 
-Route::get('/frontend', [FrontEndHomeController::class, 'index'])->name('index');
+Route::get('/', [FrontEndHomeController::class, 'index'])->name('index');
 
 //property controller
 Route::get('/property/{id}', [FrontEndPropertiesController::class, 'getPropertyById'])->name('property.showid');
