@@ -684,7 +684,7 @@ class ApiController extends Controller
         $validator = Validator::make($request->all(), [
             // HuyTBQ: Disable packeage modules
             //'package_id' => 'required',
-            'title_image' => 'required|file|max:3000|mimes:jpeg,png,jpg',
+            //'title_image' => 'required|file|max:3000|mimes:jpeg,png,jpg',
         ]);
 
         if (!$validator->fails()) {
