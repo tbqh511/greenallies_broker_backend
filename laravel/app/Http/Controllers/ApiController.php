@@ -682,7 +682,8 @@ class ApiController extends Controller
     public function post_property(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'package_id' => 'required',
+            // HuyTBQ: Disable packeage modules
+            //'package_id' => 'required',
             'title_image' => 'required|file|max:3000|mimes:jpeg,png,jpg',
         ]);
 
@@ -1970,8 +1971,8 @@ class ApiController extends Controller
     public function get_limits(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            
             'id' => 'required',
-
         ]);
         if (!$validator->fails()) {
             $payload = JWTAuth::getPayload($this->bearerToken($request));
