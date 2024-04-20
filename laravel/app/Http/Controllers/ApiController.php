@@ -795,7 +795,7 @@ class ApiController extends Controller
                     } else {
                         $Saveproperty->threeD_image = '';
                     }
-                    // print_r(json_encode($request->parameters));
+                    print_r(json_encode($request->parameters));
                     $Saveproperty->save();
                     $package->used_limit_for_property
                         = $package->used_limit_for_property + 1;
