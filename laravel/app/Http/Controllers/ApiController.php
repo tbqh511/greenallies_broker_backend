@@ -6,6 +6,7 @@ use App\Models\Advertisement;
 use App\Models\Article;
 use App\Models\AssignParameters;
 use App\Models\Category;
+use App\Models\CrmHost;
 use App\Models\Customer;
 use App\Models\Favourite;
 
@@ -736,6 +737,30 @@ class ApiController extends Controller
                     if (!is_dir($destinationPath)) {
                         mkdir($destinationPath, 0777, true);
                     }
+                    //HuyTBQ: Add host module
+                    // Extract host information from request
+                    $hostName = $request->host_name;
+                    $hostGender = $request->host_gender;
+                    $hostContact = $request->host_contact;
+                    $hostAbout = $request->host_about;
+
+                    // Check if a CRM Host with the provided contact exists
+                    $existingHost = CrmHost::where('contact', $hostContact)->first();
+
+                    // If a CRM Host with the same contact exists, use it
+                    if ($existingHost) {
+                        $crmHost = $existingHost;
+                    } else {
+                        // Otherwise, create a new CRM Host record
+                        $crmHost = CrmHost::create([
+                            'name' => $hostName,
+                            'gender' => $hostGender,
+                            'contact' => $hostContact,
+                            'about' => $hostAbout,
+                            // Add other fields as needed
+                        ]);
+                    }
+
                     $Saveproperty = new Property();
                     $Saveproperty->category_id = $request->category_id;
 
@@ -795,7 +820,12 @@ class ApiController extends Controller
                     } else {
                         $Saveproperty->threeD_image = '';
                     }
-                    print_r(json_encode($request->parameters));
+                    
+                    
+                    //HuyTBQ: Assign CRM Host ID to the property
+                    $Saveproperty->host_id = $crmHost->id;
+                    
+                    //print_r(json_encode($request->parameters));
                     $Saveproperty->save();
                     $package->used_limit_for_property
                         = $package->used_limit_for_property + 1;
