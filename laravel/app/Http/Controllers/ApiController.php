@@ -745,20 +745,18 @@ class ApiController extends Controller
                     $hostAbout = $request->host_about;
 
                     // Check if a CRM Host with the provided contact exists
-                    $existingHost = CrmHost::where('contact', $hostContact)->first();
+                    // Tìm CRM Host với liên hệ tương tự nếu tồn tại
+                    $crmHost = CrmHost::firstOrNew(['contact' => $hostContact], [
+                        'name' => $hostName,
+                        'gender' => $hostGender,
+                        'contact' => $hostContact,
+                        'about' => $hostAbout,
+                        // Thêm các trường khác nếu cần
+                    ]);
 
-                    // If a CRM Host with the same contact exists, use it
-                    if ($existingHost) {
-                        $crmHost = $existingHost;
-                    } else {
-                        // Otherwise, create a new CRM Host record
-                        $crmHost = CrmHost::create([
-                            'name' => $hostName,
-                            'gender' => $hostGender,
-                            'contact' => $hostContact,
-                            'about' => $hostAbout,
-                            // Add other fields as needed
-                        ]);
+                    // Lưu CRM Host vào cơ sở dữ liệu nếu nó chưa tồn tại
+                    if (!$crmHost->exists) {
+                        $crmHost->save();
                     }
 
                     $Saveproperty = new Property();
@@ -781,12 +779,9 @@ class ApiController extends Controller
 
 
                     //HuyTBQ: add address columns for properites table
-                    $Saveproperty->street_code = $request->street_code;
-                    $Saveproperty->ward_code = $request->ward_code;
-                    $Saveproperty->street_number = $request->street_number;
-                    $Saveproperty->host_id = $request->host_id;
-
-
+                    $Saveproperty->street_code = (isset($request->street_code)) ? $request->street_code : ''; 
+                    $Saveproperty->ward_code = (isset($request->ward_code)) ? $request->ward_code : '';  
+                    $Saveproperty->street_number =  (isset($request->street_number)) ? $request->street_number : ''; 
 
                     $Saveproperty->added_by = $current_user;
                     $Saveproperty->status = (isset($request->status)) ? $request->status : 0;
@@ -796,8 +791,6 @@ class ApiController extends Controller
 
                     $Saveproperty->post_type = 1;
                     if ($request->hasFile('title_image')) {
-
-
                         $profile = $request->file('title_image');
                         $imageName = microtime(true) . "." . $profile->getClientOriginalExtension();
                         $profile->move($destinationPath, $imageName);
