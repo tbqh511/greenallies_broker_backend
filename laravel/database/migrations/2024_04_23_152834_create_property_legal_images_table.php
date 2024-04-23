@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('property_legal_images', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->text('image');
+            $table->bigInteger('propertys_id')->unsigned();
+            $table->foreign('propertys_id')->references('id')->on('propertys')->onDelete('cascade');
         });
     }
 
