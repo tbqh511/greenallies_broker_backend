@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/qymxlvghhosting/public_html/villatel.com.vn
+    - /bin/cp -R * $DEPLOYPATH
