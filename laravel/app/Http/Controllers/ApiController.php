@@ -19,7 +19,6 @@ use App\Models\Package;
 use App\Models\parameter;
 use App\Models\Property;
 use App\Models\PropertyImages;
-use App\Models\PropertyLegalImage;
 use App\Models\PropertysInquiry;
 use App\Models\Setting;
 use App\Models\Slider;
@@ -902,24 +901,7 @@ class ApiController extends Controller
                             $gallary_image->save();
                         }
                     }
-                    //HuyTbq: Add legal module
-                    if ($request->hasfile('legal_images')) {
 
-
-                        foreach ($request->file('legal_images') as $file) {
-
-
-                            $name = time() . rand(1, 100) . '.' . $file->extension();
-                            $file->move($destinationPath, $name);
-
-                            //Create PropertyLegalImages
-                            $gallary_legal_image = new PropertyLegalImage();
-                            $gallary_legal_image->image = $name;
-                            $gallary_legal_image->propertys_id = $Saveproperty->id;
-
-                            $gallary_legal_image->save();
-                        }
-                    }    
                     /// END :: UPLOAD GALLERY IMAGE
 
                     $result = Property::with('customer')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->where('id', $Saveproperty->id)->get();
