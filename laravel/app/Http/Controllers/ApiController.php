@@ -19,6 +19,7 @@ use App\Models\Package;
 use App\Models\parameter;
 use App\Models\Property;
 use App\Models\PropertyImages;
+use App\Models\PropertyLegalImage;
 use App\Models\PropertysInquiry;
 use App\Models\Setting;
 use App\Models\Slider;
@@ -895,6 +896,23 @@ class ApiController extends Controller
                             $file->move($destinationPath, $name);
 
                             $gallary_image = new PropertyImages();
+                            $gallary_image->image = $name;
+                            $gallary_image->propertys_id = $Saveproperty->id;
+
+                            $gallary_image->save();
+                        }
+                    }
+
+                    if ($request->hasfile('legal_images')) {
+
+
+                        foreach ($request->file('legal_images') as $file) {
+
+
+                            $name = time() . rand(1, 100) . '.' . $file->extension();
+                            $file->move($destinationPath, $name);
+
+                            $gallary_image = new PropertyLegalImage();
                             $gallary_image->image = $name;
                             $gallary_image->propertys_id = $Saveproperty->id;
 
