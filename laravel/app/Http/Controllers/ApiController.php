@@ -912,11 +912,11 @@ class ApiController extends Controller
                             $name = time() . rand(1, 100) . '.' . $file->extension();
                             $file->move($destinationPath, $name);
 
-                            $gallary_image = new PropertyLegalImage();
-                            $gallary_image->image = $name;
-                            $gallary_image->propertys_id = $Saveproperty->id;
+                            $gallary_legal_image = new PropertyLegalImage();
+                            $gallary_legal_image->image = $name;
+                            $gallary_legal_image->propertys_id = $Saveproperty->id;
 
-                            $gallary_image->save();
+                            $gallary_legal_image->save();
                         }
                     }
 
