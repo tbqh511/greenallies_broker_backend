@@ -94,7 +94,7 @@ class FrontEndHomeController extends Controller
 
         //dd($newestProducts[2]->number_floor);
         //dd(config('global.number_floor'));
-        //dd($newestProducts);
+        dd($newestProducts);
         
 
 

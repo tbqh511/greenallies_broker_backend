@@ -661,7 +661,7 @@ class ApiController extends Controller
 
         $result = $property->skip($offset)->take($limit)->get();
 
-        dd(DB::getQueryLog());
+        //dd(DB::getQueryLog());
 
 
         if (!$result->isEmpty()) {
