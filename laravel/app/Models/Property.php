@@ -32,6 +32,7 @@ class Property extends Model
         'state',
         'status',
         'total_click',
+        'rentduration',
         'latitude',
         'longitude'
 
