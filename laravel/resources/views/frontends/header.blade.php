@@ -135,22 +135,32 @@
                 <label>Loại BDS</label>
                 <select name="category" data-placeholder="Loại BDS" class="chosen-select on-radius no-search-select">
                     <option value="">Loại BDS</option>
+                    @isset($categories)
                     @foreach ($categories as $categorie)
-                    <option value="{{ $categorie->category }}" {{ request()->input('category') ==
-                        $categorie->category ? 'selected' : '' }}>
+                    <option value="{{ $categorie->category }}" {{ request()->input('category') == $categorie->category ? 'selected' : ''
+                        }}>
                         {{ $categorie->category }}
                     </option>
                     @endforeach
+                    @else
+                    <!-- Xử lý trường hợp biến $categories không tồn tại hoặc là null -->
+                    <option value="" disabled>Không có dữ liệu</option>
+                    @endisset
                 </select>
+                
                 <label>BDS Phướng / Xã</label>
                 <select name="ward" data-placeholder="Phường Xã" class="chosen-select on-radius no-search-select">
                     <option value="">Phường Xã</option>
+                    @isset($locationsWards)
                     @foreach ($locationsWards as $locationsWard)
-                    <option value="{{$locationsWard->code}}" {{ request()->input('ward') ==
-                        $locationsWard->code ? 'selected' : '' }}>
+                    <option value="{{$locationsWard->code}}" {{ request()->input('ward') == $locationsWard->code ? 'selected' : '' }}>
                         {{$locationsWard->full_name}}
                     </option>
-                @endforeach
+                    @endforeach
+                    @else
+                    <!-- Xử lý trường hợp biến $locationsWards không tồn tại hoặc là null -->
+                    <option value="" disabled>Không có dữ liệu</option>
+                    @endisset
                 </select>
                 <label style="margin-top:10px;">Mức giá</label>
                 <div class="price-range-item fl-wrap">
