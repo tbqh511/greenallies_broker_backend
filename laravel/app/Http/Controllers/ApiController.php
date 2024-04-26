@@ -512,7 +512,7 @@ class ApiController extends Controller
         $ward_code = $request->ward_code;
         $host_id = $request->host_id;
 
-        
+
 
         if (isset($street_number)) {
             $property = $property->where('street_number', $street_number);
@@ -661,7 +661,7 @@ class ApiController extends Controller
 
         $result = $property->skip($offset)->take($limit)->get();
 
-        // dd(DB::getQueryLog());
+        dd(DB::getQueryLog());
 
 
         if (!$result->isEmpty()) {
