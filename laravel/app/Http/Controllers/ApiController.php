@@ -732,6 +732,7 @@ class ApiController extends Controller
                     $validator = Validator::make($request->all(), [
                         'userid' => 'required',
                         'category_id' => 'required'
+                        
                     ]);
 
 
@@ -741,6 +742,8 @@ class ApiController extends Controller
                         mkdir($destinationPath, 0777, true);
                     }
                     //HuyTBQ: Add host module
+
+                    
                     // Extract host information from request
                     $hostName = $request->host_name;
                     $hostGender = $request->host_gender;
