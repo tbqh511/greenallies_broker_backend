@@ -487,7 +487,7 @@ class ApiController extends Controller
         $payload = JWTAuth::getPayload($this->bearerToken($request));
         $current_user = ($payload['customer_id']);
         DB::enableQueryLog();
-        $property = Property::with('customer')->with('user')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->with('ward')->with('street')->with('host:id, gender,name,contact');
+        $property = Property::with('customer')->with('user')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->with('ward')->with('street')->with('host');
 
 
         $property_type = $request->property_type; //0 : Buy 1:Rent
