@@ -404,7 +404,7 @@ class Property extends Model
         return $data;
     }
 
-    public function getLegalimagesAttribute()
+    public function getLegalImagesAttribute()
     {
         $data = PropertyLegalImage::select('id', 'image')->where('propertys_id', $this->id)->get();
 
