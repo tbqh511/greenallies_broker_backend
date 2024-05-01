@@ -43,7 +43,8 @@ class Property extends Model
     ];
 
     protected $appends = [
-        'gallery'
+        'gallery',
+        'legal_images'
     ];
 
     //HuyTBQ: Start add address coloumns for propertys table
@@ -392,6 +393,20 @@ class Property extends Model
     public function getGalleryAttribute()
     {
         $data = PropertyImages::select('id', 'image')->where('propertys_id', $this->id)->get();
+
+
+        foreach ($data as $item) {
+            if ($item['image'] != '') {
+                $item['image'] = $item['image'];
+                $item['image_url'] = ($item['image'] != '') ? url('') . config('global.IMG_PATH') . config('global.PROPERTY_GALLERY_IMG_PATH') . $this->id . "/" . $item['image'] : '';
+            }
+        }
+        return $data;
+    }
+
+    public function getLegalImagesAttribute()
+    {
+        $data = PropertyLegalImage::select('id', 'image')->where('propertys_id', $this->id)->get();
 
 
         foreach ($data as $item) {

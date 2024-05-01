@@ -10,8 +10,6 @@ class PropertyLegalImage extends Model
     use HasFactory;
     protected $table ='property_legal_images';
 
-    protected $fillable = ['image', 'propertys_id'];
-
     public function property()
     {
         return $this->belongsTo(Property::class, 'propertys_id');
