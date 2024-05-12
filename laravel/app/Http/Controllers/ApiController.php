@@ -506,7 +506,7 @@ class ApiController extends Controller
         $furnished = $request->furnished;
         $parameter_id = $request->parameter_id;
 
-        //HuyTBQ: Add address columns for propertys table 
+        //HuyTBQ: Add address columns for propertys table
         $street_number = $request->street_number;
         $street_code = $request->street_code;
         $ward_code = $request->ward_code;
@@ -732,7 +732,7 @@ class ApiController extends Controller
                     $validator = Validator::make($request->all(), [
                         'userid' => 'required',
                         'category_id' => 'required'
-                        
+
                     ]);
 
 
@@ -743,7 +743,7 @@ class ApiController extends Controller
                     }
                     //HuyTBQ: Add host module
 
-                    
+
                     // Extract host information from request
                     $hostName = $request->host_name;
                     $hostGender = $request->host_gender;
@@ -785,9 +785,9 @@ class ApiController extends Controller
 
 
                     //HuyTBQ: add address columns for properites table
-                    $Saveproperty->street_code = (isset($request->street_code)) ? $request->street_code : ''; 
-                    $Saveproperty->ward_code = (isset($request->ward_code)) ? $request->ward_code : '';  
-                    $Saveproperty->street_number =  (isset($request->street_number)) ? $request->street_number : ''; 
+                    $Saveproperty->street_code = (isset($request->street_code)) ? $request->street_code : '';
+                    $Saveproperty->ward_code = (isset($request->ward_code)) ? $request->ward_code : '';
+                    $Saveproperty->street_number =  (isset($request->street_number)) ? $request->street_number : '';
 
                     $Saveproperty->added_by = $current_user;
                     $Saveproperty->status = (isset($request->status)) ? $request->status : 0;
@@ -819,11 +819,11 @@ class ApiController extends Controller
                     } else {
                         $Saveproperty->threeD_image = '';
                     }
-                    
-                    
+
+
                     //HuyTBQ: Assign CRM Host ID to the property
                     $Saveproperty->host_id = $crmHost->id;
-                    
+
                     //print_r(json_encode($request->parameters));
                     $Saveproperty->save();
                     $package->used_limit_for_property
@@ -1836,7 +1836,7 @@ class ApiController extends Controller
 
         $payload = JWTAuth::getPayload($this->bearerToken($request));
         $current_user = ($payload['customer_id']);
-        \DB::enableQueryLog(); // Enable query log
+        DB::enableQueryLog(); // Enable query log
 
 
         $favourite = Favourite::where('user_id', $current_user)->select('property_id')->get();
@@ -1980,7 +1980,7 @@ class ApiController extends Controller
 
         $payload = JWTAuth::getPayload($this->bearerToken($request));
         $current_user = ($payload['customer_id']);
-        \DB::enableQueryLog(); // Enable query log
+        DB::enableQueryLog(); // Enable query log
 
 
         $favourite = InterestedUser::where('customer_id', $current_user)->select('property_id')->get();
@@ -2017,7 +2017,7 @@ class ApiController extends Controller
     public function get_limits(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            
+
             'id' => 'required',
         ]);
         if (!$validator->fails()) {
@@ -2549,7 +2549,7 @@ class ApiController extends Controller
             }
         ])
             ->groupBy('added_by')
-            ->select('added_by', \DB::raw('count(*) as count'))->skip($offset)->take($limit)
+            ->select('added_by', DB::raw('count(*) as count'))->skip($offset)->take($limit)
             ->get();
         foreach ($propertiesByAgent as $agent) {
             if (count($agent->customer)) {
@@ -2695,11 +2695,11 @@ class ApiController extends Controller
         $result = LocationsWard::select('code', 'full_name', 'full_name_en', 'district_code', 'administrative_unit_id')
             ->whereNotNull('district_code')
             ->where('district_code', $districtCode)
-            ->orderByRaw("CASE 
-                            WHEN full_name LIKE 'phường%' THEN 1 
-                            WHEN full_name LIKE 'Xã%' THEN 2 
-                            ELSE 3 END, 
-                          CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), 
+            ->orderByRaw("CASE
+                            WHEN full_name LIKE 'phường%' THEN 1
+                            WHEN full_name LIKE 'Xã%' THEN 2
+                            ELSE 3 END,
+                          CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED),
                           full_name")
             ->get();
 
@@ -2747,25 +2747,28 @@ class ApiController extends Controller
     //* START :: get_streets   *//
     public function get_crm_hosts(Request $request)
     {
-        $districtCode = config('location.district_code');
+        $validator = Validator::make($request->all(), [
+            'host_id' => 'required',
+        ]);
 
-        $result = LocationsStreet::select('code', 'street_name')
-            ->whereNotNull('district_code')
-            ->where('district_code', $districtCode)
-            ->get();
+        if (!$validator->fails()) {
+            $id = $request->host_id;
 
-        $total = $result->count();
+            $host = CrmHost::find($id);
+            if (!empty($host)) {
 
-        if (!$result->isEmpty()) {
-            $response['error'] = false;
-            $response['message'] = "Data Fetch Successfully";
-            $response['total'] = $total;
-            $response['data'] = $result;
+                $response['error'] = false;
+                $response['data'] = $host;
+            } else {
+                $response['error'] = false;
+                $response['message'] = "No data found!";
+                $response['data'] = [];
+            }
         } else {
-            $response['error'] = false;
-            $response['message'] = "No data found!";
-            $response['data'] = [];
+            $response['error'] = true;
+            $response['message'] = "Please fill all data and Submit";
         }
+
         return response()->json($response);
     }
     //* END :: get_streets   *//
