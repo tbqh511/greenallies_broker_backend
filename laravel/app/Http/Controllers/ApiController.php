@@ -2744,7 +2744,7 @@ class ApiController extends Controller
     }
     //* END :: get_streets   *//
 
-    //* START :: get_streets   *//
+    //* START :: get_crm_Host   *//
     public function get_crm_hosts(Request $request)
     {
         $validator = Validator::make($request->all(), [
