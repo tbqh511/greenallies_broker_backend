@@ -741,9 +741,7 @@ class ApiController extends Controller
                     if (!is_dir($destinationPath)) {
                         mkdir($destinationPath, 0777, true);
                     }
-                    //HuyTBQ: Add host module
-
-
+                    /// START :: HuyTBQ: Add host module
                     // Extract host information from request
                     $hostName = $request->host_name;
                     $hostGender = $request->host_gender;
@@ -764,6 +762,7 @@ class ApiController extends Controller
                     if (!$crmHost->exists) {
                         $crmHost->save();
                     }
+                    /// END :: HuyTBQ: Add host module
 
                     $Saveproperty = new Property();
                     $Saveproperty->category_id = $request->category_id;
@@ -1140,6 +1139,32 @@ class ApiController extends Controller
                             $facilities->save();
                         }
                     }
+
+                    /// START :: HuyTBQ : Update host module
+                    $hostId = $request->host_id;
+                    $hostName = $request->host_name;
+                    $hostGender = $request->host_gender;
+                    $hostContact = $request->host_contact;
+                    $hostAbout = $request->host_about;
+                    // Find or create a CRM Host with the provided contact
+                    $crmHost = CrmHost::firstOrNew(['id' => $hostId]);
+                    // Update host information if it exists
+                    if ($crmHost->exists) {
+                        $crmHost->contact = $hostContact;
+                        $crmHost->name = $hostName;
+                        $crmHost->gender = $hostGender;
+                        $crmHost->about = $hostAbout;
+                    } else {
+                        // Otherwise, create a new CRM Host
+                        $crmHost->name = $hostName;
+                        $crmHost->gender = $hostGender;
+                        $crmHost->contact = $hostContact;
+                        $crmHost->about = $hostAbout;
+                        // Add other fields if needed
+                    }
+                    // Save CRM Host to the database
+                    $crmHost->save();
+                    /// END :: HuyTBQ : Update host module
                     $property->update();
                     $update_property = Property::with('customer')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->where('id', $request->id)->get();
 
@@ -2744,7 +2769,7 @@ class ApiController extends Controller
     }
     //* END :: get_streets   *//
 
-    //* START :: get_crm_Host   *//
+    //* START :: get_crm_host   *//
     public function get_crm_hosts(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -2771,5 +2796,5 @@ class ApiController extends Controller
 
         return response()->json($response);
     }
-    //* END :: get_streets   *//
+    //* END :: get_crm_host   *//
 }
