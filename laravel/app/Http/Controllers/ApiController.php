@@ -1171,35 +1171,47 @@ class ApiController extends Controller
                     if (!is_dir($destinationPath)) {
                         mkdir($destinationPath, 0777, true);
                     }
+
+                    //gallery images
                     if ($request->remove_gallery_images) {
-
-
-
                         foreach ($request->remove_gallery_images as $key => $value) {
-
                             $gallary_images = PropertyImages::find($value);
-
-
                             if (file_exists(public_path('images') . config('global.PROPERTY_GALLERY_IMG_PATH') . $gallary_images->propertys_id . '/' . $gallary_images->image)) {
 
                                 unlink(public_path('images') . config('global.PROPERTY_GALLERY_IMG_PATH') . $gallary_images->propertys_id . '/' . $gallary_images->image);
                             }
-
                             $gallary_images->delete();
                         }
                     }
                     if ($request->hasfile('gallery_images')) {
-
-
                         foreach ($request->file('gallery_images') as $file) {
                             $name = time() . rand(1, 100) . '.' . $file->extension();
                             $file->move($destinationPath, $name);
-
                             PropertyImages::create([
                                 'image' => $name,
                                 'propertys_id' => $property->id,
+                            ]);
+                        }
+                    }
 
-
+                    //HuyTBQ: add for update properties
+                    // legal images
+                    if ($request->remove_legal_images) {
+                        foreach ($request->remove_legal_images as $key => $value) {
+                            $legal_images = PropertyLegalImage::find($value);
+                            if (file_exists(public_path('images') . config('global.PROPERTY_GALLERY_IMG_PATH') . $legal_images->propertys_id . '/' . $legal_images->image)) {
+                                unlink(public_path('images') . config('global.PROPERTY_GALLERY_IMG_PATH') . $legal_images->propertys_id . '/' . $legal_images->image);
+                            }
+                            $legal_images->delete();
+                        }
+                    }
+                    if ($request->hasfile('legal_images')) {
+                        foreach ($request->file('legal_images') as $file) {
+                            $name = time() . rand(1, 100) . '.' . $file->extension();
+                            $file->move($destinationPath, $name);
+                            PropertyLegalImage::create([
+                                'image' => $name,
+                                'propertys_id' => $property->id,
                             ]);
                         }
                     }
