@@ -356,6 +356,7 @@ function get_property_details($result, $current_user = NULL)
         $tempRow['threeD_image'] = $row->threeD_image;
 
         $tempRow['post_created'] = $row->created_at->diffForHumans();
+        $tempRow['legal_images'] = $row->legalImages;
         $tempRow['gallery'] = $row->gallery;
         $tempRow['total_view'] = $row->total_click;
         $tempRow['status'] = $row->status;
@@ -467,15 +468,15 @@ function get_property_details($result, $current_user = NULL)
                     }else{
                          $value = url('') . config('global.IMG_PATH') . config('global.PARAMETER_IMG_PATH') . '/' .  $res->pivot->value;
                     }
-                       
-                   
+
+
                 } else {
                     if($res->pivot->value=="null"){
                          $value = "";
                     }else{
                          $value = $res->pivot->value;
                     }
-                                       
+
                 }
             }
 

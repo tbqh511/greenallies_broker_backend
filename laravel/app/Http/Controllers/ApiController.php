@@ -911,8 +911,6 @@ class ApiController extends Controller
 
 
                         foreach ($request->file('legal_images') as $file) {
-
-
                             $name = time() . rand(1, 100) . '.' . $file->extension();
                             $file->move($destinationPath, $name);
 
@@ -1149,19 +1147,12 @@ class ApiController extends Controller
                     // Find or create a CRM Host with the provided contact
                     $crmHost = CrmHost::firstOrNew(['id' => $hostId]);
                     // Update host information if it exists
-                    if ($crmHost->exists) {
-                        $crmHost->contact = $hostContact;
-                        $crmHost->name = $hostName;
-                        $crmHost->gender = $hostGender;
-                        $crmHost->about = $hostAbout;
-                    } else {
-                        // Otherwise, create a new CRM Host
-                        $crmHost->name = $hostName;
-                        $crmHost->gender = $hostGender;
-                        $crmHost->contact = $hostContact;
-                        $crmHost->about = $hostAbout;
-                        // Add other fields if needed
-                    }
+                    // Otherwise, create a new CRM Host
+                    $crmHost->name = $hostName;
+                    $crmHost->gender = $hostGender;
+                    $crmHost->contact = $hostContact;
+                    $crmHost->about = $hostAbout;
+                    // Add other fields if needed
                     // Save CRM Host to the database
                     $crmHost->save();
                     /// END :: HuyTBQ : Update host module
