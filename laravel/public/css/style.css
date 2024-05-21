@@ -567,8 +567,10 @@ blockquote p {
 }
 .widget-posts-img img {
 	width:100%;
-	height:auto;
+	height:80px;
 	border-radius:4px;
+	object-fit:cover;
+	object-position:center;
 }
 .widget-posts-descr h4 {
 	text-align:left;
