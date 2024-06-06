@@ -1138,6 +1138,9 @@ class ApiController extends Controller
                         }
                     }
 
+                    if (isset($request->property_type)) {
+                        $property->property_type = $request->property_type;
+                    }
                     /// START :: HuyTBQ : Update host module
                     $hostId = $request->host_id;
                     $hostName = $request->host_name;
@@ -1221,7 +1224,7 @@ class ApiController extends Controller
                     $current_user = ($payload['customer_id']);
                     $property_details = get_property_details($update_property, $current_user);
                     $response['error'] = false;
-                    $response['message'] = 'Property Update Succssfully';
+                    $response['message'] = 'Property Update Successfully';
                     $response['data'] = $property_details;
                 } elseif ($action_type == 1) {
                     if ($property->delete()) {
