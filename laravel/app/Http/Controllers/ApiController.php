@@ -1137,10 +1137,19 @@ class ApiController extends Controller
                             $facilities->save();
                         }
                     }
-
+                    /// START :: HuyTBQ : Update property type
                     if (isset($request->property_type)) {
-                        $property->property_type = $request->property_type;
+                        if ($request->propery_type == "sell") {
+                            $property->property_type = 0;
+                        } elseif ($request->propery_type == "rent") {
+                            $property->property_type = 1;
+                        } elseif ($request->propery_type == "sold") {
+                            $property->property_type = 2;
+                        } elseif ($request->propery_type == "Rented") {
+                            $property->property_type = 3;
+                        }
                     }
+                    /// END :: HuyTBQ : Update property type
                     /// START :: HuyTBQ : Update host module
                     $hostId = $request->host_id;
                     $hostName = $request->host_name;
