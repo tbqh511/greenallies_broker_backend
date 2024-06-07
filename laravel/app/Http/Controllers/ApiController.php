@@ -1139,11 +1139,11 @@ class ApiController extends Controller
                     }
                     /// START :: HuyTBQ : Update property type
                     if (isset($request->property_type)) {
-                        if ($request->propery_type == "sell") {
+                        if ($request->propery_type == "Sell") {
                             $property->property_type = 0;
-                        } elseif ($request->propery_type == "rent") {
+                        } elseif ($request->propery_type == "Rent") {
                             $property->property_type = 1;
-                        } elseif ($request->propery_type == "sold") {
+                        } elseif ($request->propery_type == "Sold") {
                             $property->property_type = 2;
                         } elseif ($request->propery_type == "Rented") {
                             $property->property_type = 3;
@@ -1894,11 +1894,11 @@ class ApiController extends Controller
         if (!$result->isEmpty()) {
             $result->transform(function ($property) {
                 if ($property->propery_type == 0) {
-                    $property->propery_type = "Rell";
+                    $property->propery_type = "Sell";
                 } elseif ($property->propery_type == 1) {
                     $property->propery_type = "Rent";
                 } elseif ($property->propery_type == 2) {
-                    $property->propery_type = "sold";
+                    $property->propery_type = "Sold";
                 } elseif ($property->propery_type == 3) {
                     $property->propery_type = "Rented";
                 }
@@ -2503,7 +2503,7 @@ class ApiController extends Controller
                     } elseif ($row->propery_type == 1) {
                         $tempRow['property_type'] = "Rent";
                     } elseif ($row->propery_type == 2) {
-                        $tempRow['property_type'] = "sold";
+                        $tempRow['property_type'] = "Sold";
                     } elseif ($row->propery_type == 3) {
                         $tempRow['property_type'] = "Rented";
                     }
