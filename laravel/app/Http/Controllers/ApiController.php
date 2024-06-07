@@ -1138,17 +1138,18 @@ class ApiController extends Controller
                         }
                     }
                     /// START :: HuyTBQ : Update property type
-                    if (isset($request->property_type)) {
-                        if ($request->propery_type == 'Sell') {
-                            $property->property_type = 0;
-                        } elseif ($request->propery_type == 'Rent') {
-                            $property->property_type = 1;
-                        } elseif ($request->propery_type == 'Sold') {
-                            $property->property_type = 2;
-                        } elseif ($request->propery_type == 'Rented') {
-                            $property->property_type = 3;
-                        }
-                    }
+                    $property->property_type = 1;
+                    // if (isset($request->property_type)) {
+                    //     if ($request->propery_type == 'Sell') {
+                    //         $property->property_type = 0;
+                    //     } elseif ($request->propery_type == 'Rent') {
+                    //         $property->property_type = 1;
+                    //     } elseif ($request->propery_type == 'Sold') {
+                    //         $property->property_type = 2;
+                    //     } elseif ($request->propery_type == 'Rented') {
+                    //         $property->property_type = 3;
+                    //     }
+                    // }
                     /// END :: HuyTBQ : Update property type
                     /// START :: HuyTBQ : Update host module
                     $hostId = $request->host_id;
