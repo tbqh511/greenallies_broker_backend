@@ -1138,7 +1138,7 @@ class ApiController extends Controller
                         }
                     }
                     /// START :: HuyTBQ : Update property type
-                    $property->propery_type = 1;
+                    // $property->propery_type = 1;
                     // if (isset($request->property_type)) {
                     //     if ($request->propery_type == 'Sell') {
                     //         $property->property_type = 0;
