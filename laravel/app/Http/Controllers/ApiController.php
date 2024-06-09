@@ -731,7 +731,7 @@ class ApiController extends Controller
 
                     $validator = Validator::make($request->all(), [
                         'userid' => 'required',
-                        'category_id' => 'required'
+                        'category_id' => 'required',
 
                     ]);
 
@@ -772,8 +772,8 @@ class ApiController extends Controller
                     $Saveproperty->address = $request->address;
                     $Saveproperty->client_address = (isset($request->client_address)) ? $request->client_address : '';
 
-                    $Saveproperty->propery_type = $request->property_type;
-                    $Saveproperty->price = $request->price;
+                    $Saveproperty->propery_type = (isset($request->property_type)) ? $request->property_type : 0;
+                    $Saveproperty->price = (isset($request->price)) ? $request->price :0 ;
 
                     $Saveproperty->country = (isset($request->country)) ? $request->country : '';
                     $Saveproperty->state = (isset($request->state)) ? $request->state : '';
@@ -1138,18 +1138,17 @@ class ApiController extends Controller
                         }
                     }
                     /// START :: HuyTBQ : Update property type
-                    // $property->propery_type = 1;
-                    // if (isset($request->property_type)) {
-                    //     if ($request->propery_type == 'Sell') {
-                    //         $property->property_type = 0;
-                    //     } elseif ($request->propery_type == 'Rent') {
-                    //         $property->property_type = 1;
-                    //     } elseif ($request->propery_type == 'Sold') {
-                    //         $property->property_type = 2;
-                    //     } elseif ($request->propery_type == 'Rented') {
-                    //         $property->property_type = 3;
-                    //     }
-                    // }
+                    if (isset($request->property_type)) {
+                        if ($request->propery_type == 'Sell') {
+                            $property->propery_type = 0;
+                        } elseif ($request->propery_type == 'Rent') {
+                            $property->propery_type = 1;
+                        } elseif ($request->propery_type == 'Sold') {
+                            $property->propery_type = 2;
+                        } elseif ($request->propery_type == 'Rented') {
+                            $property->propery_type = 3;
+                        }
+                    }
                     /// END :: HuyTBQ : Update property type
                     /// START :: HuyTBQ : Update host module
                     $hostId = $request->host_id;
