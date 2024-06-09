@@ -1149,6 +1149,8 @@ class ApiController extends Controller
                             $property->propery_type = 3;
                         }
                     }
+                    //HuyTBQ: test
+                    $property->propery_type = 1;
                     /// END :: HuyTBQ : Update property type
                     /// START :: HuyTBQ : Update host module
                     $hostId = $request->host_id;
