@@ -744,6 +744,7 @@ class ComposerStaticInit7ab17bdf98ae5ac37bbde1e561f9415f
         'App\\Models\\Payments' => __DIR__ . '/../..' . '/app/Models/Payments.php',
         'App\\Models\\Property' => __DIR__ . '/../..' . '/app/Models/Property.php',
         'App\\Models\\PropertyImages' => __DIR__ . '/../..' . '/app/Models/PropertyImages.php',
+        'App\\Models\\PropertyLegalImage' => __DIR__ . '/../..' . '/app/Models/PropertyLegalImage.php',
         'App\\Models\\PropertysInquiry' => __DIR__ . '/../..' . '/app/Models/PropertysInquiry.php',
         'App\\Models\\Setting' => __DIR__ . '/../..' . '/app/Models/Setting.php',
         'App\\Models\\Slider' => __DIR__ . '/../..' . '/app/Models/Slider.php',

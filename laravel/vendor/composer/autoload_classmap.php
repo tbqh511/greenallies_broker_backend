@@ -79,6 +79,7 @@ return array(
     'App\\Models\\Payments' => $baseDir . '/app/Models/Payments.php',
     'App\\Models\\Property' => $baseDir . '/app/Models/Property.php',
     'App\\Models\\PropertyImages' => $baseDir . '/app/Models/PropertyImages.php',
+    'App\\Models\\PropertyLegalImage' => $baseDir . '/app/Models/PropertyLegalImage.php',
     'App\\Models\\PropertysInquiry' => $baseDir . '/app/Models/PropertysInquiry.php',
     'App\\Models\\Setting' => $baseDir . '/app/Models/Setting.php',
     'App\\Models\\Slider' => $baseDir . '/app/Models/Slider.php',
