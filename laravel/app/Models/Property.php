@@ -294,7 +294,7 @@ class Property extends Model
 
         return $formattedPrice;
     }
-    
+
     //End HuyTBQ
     //HuyTBQ: add function get format price m2
     public function getFormattedPriceM2Attribute()
@@ -366,7 +366,9 @@ class Property extends Model
 
     public function parameters()
     {
-        return $this->belongsToMany(parameter::class, 'assign_parameters', 'modal_id', 'parameter_id')->withPivot('value');
+        return $this->belongsToMany(parameter::class, 'assign_parameters', 'modal_id', 'parameter_id')
+                    ->withPivot('value')
+                    ->orderBy('parameters.order');
     }
     public function assignfacilities()
     {
