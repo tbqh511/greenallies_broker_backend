@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('propertys', function (Blueprint $table) {
-            if (!Schema::hasColumn('propertys', 'commission')) {
+
                 $table->double('commission', 15, 8)->nullable()->comment('Commission for property');
-            }
+
         });
     }
 
@@ -28,9 +28,9 @@ return new class extends Migration
     public function down()
     {
         Schema::table('propertys', function (Blueprint $table) {
-            if (Schema::hasColumn('propertys', 'commission')) {
+
                 $table->dropColumn('commission');
-            }
+
         });
     }
 };
