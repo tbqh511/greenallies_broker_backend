@@ -788,7 +788,7 @@ class ApiController extends Controller
                     $Saveproperty->ward_code = (isset($request->ward_code)) ? $request->ward_code : '';
                     $Saveproperty->street_number =  (isset($request->street_number)) ? $request->street_number : '';
                     //HuyTBQ: add commission columns for properites table
-                    $Saveproperty->commission = (isset($request->commission)) ? $request->commission : '';
+                    $Saveproperty->commission = (isset($request->commission)) ? $request->commission :0 ;
 
                     $Saveproperty->added_by = $current_user;
                     $Saveproperty->status = (isset($request->status)) ? $request->status : 0;
