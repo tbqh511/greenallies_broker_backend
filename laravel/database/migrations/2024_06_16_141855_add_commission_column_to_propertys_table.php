@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('propertys', function (Blueprint $table) {
 
-                $table->double('commission', 15, 8)->nullable()->comment('Commission for property');
+                $table->double('commission')->default(0)->comment('Commission for property');
 
         });
     }
