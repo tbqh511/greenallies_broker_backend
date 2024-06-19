@@ -20,6 +20,7 @@ class Property extends Model
         'street_code',
         'ward_code',
         'host_id',
+        'commission',
         'title',
         'description',
         'address',
