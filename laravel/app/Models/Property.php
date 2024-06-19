@@ -21,6 +21,7 @@ class Property extends Model
         'ward_code',
         'host_id',
         'commission',
+
         'title',
         'description',
         'address',
