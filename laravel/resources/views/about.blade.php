@@ -79,20 +79,14 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div class="about-title fl-wrap">
-                            <h2>Our Company <span>Story</span></h2>
-                            <h4>Check video presentation to find out more about us .</h4>
+                            <h2>Hành trình  <h4>Dalatbds</h4></h2>
+                            <h4>Nâng tầm giá trị bất động sản Đà Lạt.</h4>
                         </div>
-                        <p>Ut euismod ultricies sollicitudin. Curabitur sed dapibus nulla. Nulla eget iaculis lectus.
-                            Mauris ac maximus neque. Nam in mauris quis libero sodales eleifend. Morbi varius, nulla sit
-                            amet rutrum elementum, est elit finibus tellus, ut tristique elit risus at metus.</p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla
-                            finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus
-                            suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla
-                            diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a
-                            consequat purus viverra.
-                        </p>
-                        <a href="#" class="btn small-btn float-btn color-bg">Read More</a>
+                        <p>Dalatbds không chỉ đơn thuần là một nền tảng công nghệ, mà còn là minh chứng cho sự nỗ lực không ngừng nghỉ trong việc kiến tạo một thị trường bất động sản minh bạch, hiệu quả và bền vững tại Đà Lạt.</p>
+                        <p>Chúng tôi hiểu rằng, mỗi giao dịch bất động sản đều chứa đựng những kỳ vọng và giá trị to lớn. Chính vì vậy, Dalatbds ra đời với sứ mệnh đồng hành cùng quý khách hàng, từ chủ sở hữu bất động sản đến các chuyên gia môi giới, trên mọi chặng đường từ đăng tin, định giá, kết nối đối tác đến hỗ trợ pháp lý chuyên sâu.</p>
+                        <p>Với nền tảng công nghệ tiên tiến, kết hợp cùng đội ngũ chuyên gia giàu kinh nghiệm và am hiểu thị trường, Dalatbds không ngừng cải tiến để mang đến những trải nghiệm vượt trội, đáp ứng tối đa nhu cầu của quý khách hàng. Mỗi tính năng trên nền tảng đều được phát triển dựa trên sự thấu hiểu sâu sắc về thị trường và mong muốn của quý khách.</p>
+                        <h3>Dalatbds - Không chỉ là một nền tảng, mà còn là cam kết về chất lượng, sự tin cậy và đồng hành lâu dài, góp phần nâng tầm giá trị bất động sản Đà Lạt.</h3>
+                        {{-- <a href="#" class="btn small-btn float-btn color-bg">Read More</a> --}}
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-6">
