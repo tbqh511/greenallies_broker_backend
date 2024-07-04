@@ -89,15 +89,8 @@
                 <li>
                     <a href="{{ route('agents.index') }}">Đối tác</a>
                 </li> --}}
-                <li>
-                    <a href="#">Pages <i class="fa fa-caret-down"></i></a>
-                    <!--second level -->
-                    <ul>
-                        <li><a href="{{ url('/dalatbds') }}">About</a></li>
-                        <li><a href="{{ url('/lien-he') }}">Contacts</a></li>
-                    </ul>
-                    <!--second level end-->
-                </li>
+                <li><a href="{{ url('/dalatbds') }}">Dalat BDS</a></li>
+                <li><a href="{{ url('/lien-he') }}">Liên hệ</a></li>
             </ul>
         </nav>
     </div>
