@@ -79,7 +79,7 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div class="about-title fl-wrap">
-                            <h2>Hành trình  <h4>Dalatbds</h4></h2>
+                            <h2>Hành trình  <span>Dalatbds</span></h2>
                             <h4>Nâng tầm giá trị bất động sản Đà Lạt.</h4>
                         </div>
                         <p>Dalatbds không chỉ đơn thuần là một nền tảng công nghệ, mà còn là minh chứng cho sự nỗ lực không ngừng nghỉ trong việc kiến tạo một thị trường bất động sản minh bạch, hiệu quả và bền vững tại Đà Lạt.</p>
