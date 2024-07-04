@@ -41,7 +41,7 @@
         <nav>
             <ul class="no-list-style">
                 <li>
-                    <a href="/frontend" class="act-link">Trang chủ <i class="fa"></i></a>
+                    <a href="/" class="act-link">Trang chủ <i class="fa"></i></a>
                 </li>
                 <li>
                     <a href="{{ route('properties.index', ['propery_type' => 0]) }}">Bán <i class="fa "></i></a>
@@ -89,7 +89,7 @@
                 <li>
                     <a href="{{ route('agents.index') }}">Đối tác</a>
                 </li> --}}
-                <li><a href="{{ url('/dalatbds') }}">Dalat BDS</a></li>
+                <li><a href="{{ url('/dalatbds') }}">Đà Lạt BDS</a></li>
                 <li><a href="{{ url('/lien-he') }}">Liên hệ</a></li>
             </ul>
         </nav>

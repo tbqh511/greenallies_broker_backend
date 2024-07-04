@@ -8,15 +8,14 @@
         </div>
         <div class="container">
             <div class="section-title center-align big-title">
-                <h2><span>About Us</span></h2>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec tincidunt arcu, sit amet fermentum
-                    sem.</h4>
+                <h2><span>Đà Lạt BDS</span></h2>
+                <h4>Điểm đến tin cậy cho mọi nhu cầu bất động sản tại Đà Lạt.</h4>
             </div>
             <div class="scroll-down-wrap">
                 <div class="mousey">
                     <div class="scroller"></div>
                 </div>
-                <span>Scroll Down To Discover</span>
+                <span>Kéo xuống để khám phá</span>
             </div>
         </div>
     </section>
@@ -25,10 +24,10 @@
     <div class="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">
         <div class="container">
             <div class="breadcrumbs-list">
-                <a href="#">Home</a> <span>About</span>
+                <a href="/">Trang chủ</a> <span>Đà Lạt BDS</span>
             </div>
             <div class="share-holder hid-share">
-                <a href="#" class="share-btn showshare sfcs"> <i class="fas fa-share-alt"></i> Share </a>
+                <a href="#" class="share-btn showshare sfcs"> <i class="fas fa-share-alt"></i> Chia sẻ </a>
                 <div class="share-container  isShare"></div>
             </div>
         </div>
@@ -42,10 +41,9 @@
                 <div class="col-md-4">
                     <div class="services-item fl-wrap">
                         <i class="fal fa-headset"></i>
-                        <h4>24 Hours Support <span>01</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla
-                            finibus lobortis pulvinar.</p>
-                        <a href="#" class="serv-link">Read more</a>
+                        <h4>Thông tin minh bạch <span>01</span></h4>
+                        <p>Cung cấp thông tin thị trường bất động sản Đà Lạt chính xác, đáng tin cậy, giúp bạn đưa ra quyết định đầu tư sáng suốt.</p>
+                        {{-- <a href="#" class="serv-link">Read more</a> --}}
                     </div>
                 </div>
                 <!-- services-item  end-->
@@ -53,10 +51,9 @@
                 <div class="col-md-4">
                     <div class="services-item fl-wrap">
                         <i class="fal fa-users-cog"></i>
-                        <h4>User Admin Panel <span>02</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla
-                            finibus lobortis pulvinar.</p>
-                        <a href="#" class="serv-link">Read more</a>
+                        <h4>Công nghệ tiên tiến <span>02</span></h4>
+                        <p>Ứng dụng công nghệ hiện đại, mang đến trải nghiệm tìm kiếm, giao dịch bất động sản nhanh chóng, thuận tiện và an toàn.</p>
+                        {{-- <a href="#" class="serv-link">Read more</a> --}}
                     </div>
                 </div>
                 <!-- services-item  end-->
@@ -64,10 +61,9 @@
                 <div class="col-md-4">
                     <div class="services-item fl-wrap">
                         <i class="fal fa-phone-laptop"></i>
-                        <h4>Mobile Friendly <span>03</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla
-                            finibus lobortis pulvinar.</p>
-                        <a href="#" class="serv-link">Read more</a>
+                        <h4>Đồng hành tin cậy <span>03</span></h4>
+                        <p>Đội ngũ chuyên gia giàu kinh nghiệm luôn sẵn sàng hỗ trợ, tư vấn và đồng hành cùng bạn trong suốt quá trình giao dịch.</p>
+                        {{-- <a href="#" class="serv-link">Read more</a> --}}
                     </div>
                 </div>
                 <!-- services-item  end-->
