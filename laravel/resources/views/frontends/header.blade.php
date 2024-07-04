@@ -89,7 +89,7 @@
                 <li>
                     <a href="{{ route('agents.index') }}">Đối tác</a>
                 </li> --}}
-                {{-- <li>
+                <li>
                     <a href="#">Pages <i class="fa fa-caret-down"></i></a>
                     <!--second level -->
                     <ul>
@@ -104,7 +104,7 @@
                         <li><a href="404.html">404</a></li>
                     </ul>
                     <!--second level end-->
-                </li> --}}
+                </li>
             </ul>
         </nav>
     </div>
@@ -147,7 +147,7 @@
                     <option value="" disabled>Không có dữ liệu</option>
                     @endisset
                 </select>
-                
+
                 <label>BDS Phướng / Xã</label>
                 <select name="ward" data-placeholder="Phường Xã" class="chosen-select on-radius no-search-select">
                     <option value="">Phường Xã</option>
