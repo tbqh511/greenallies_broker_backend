@@ -92,7 +92,7 @@
                         <div class="about-img fl-wrap">
                             <img src="images/all/1.jpg" class="respimg" alt="">
                             <div class="about-img-hotifer color-bg">
-                                <p>Dalatbds - Không chỉ là một nền tảng, mà còn là cam kết về chất lượng, sự tin cậy và đồng hành lâu dài, góp phần nâng tầm giá trị bất động sản Đà Lạt.</p>
+                                <p>Đà Lạt BDS - Hợp tác để kiến tạo thị trường bất động sản Đà Lạt minh bạch, bền vững và thịnh vượng.</p>
                                 <h4>Huy Thái</h4>
                                 <h5>Dalat BDS CEO</h5>
                             </div>
