@@ -40,6 +40,16 @@
                 <!-- services-item -->
                 <div class="col-md-4">
                     <div class="services-item fl-wrap">
+                        <i class="fal fa-phone-laptop"></i>
+                        <h4>Công nghệ tiên tiến <span>02</span></h4>
+                        <p>Ứng dụng công nghệ hiện đại, mang đến trải nghiệm tìm kiếm, giao dịch bất động sản nhanh chóng, thuận tiện và an toàn.</p>
+                        {{-- <a href="#" class="serv-link">Read more</a> --}}
+                    </div>
+                </div>
+                <!-- services-item  end-->
+                <!-- services-item -->
+                <div class="col-md-4">
+                    <div class="services-item fl-wrap">
                         <i class="fal fa-headset"></i>
                         <h4>Thông tin minh bạch <span>01</span></h4>
                         <p>Cung cấp thông tin thị trường bất động sản Đà Lạt chính xác, đáng tin cậy, giúp bạn đưa ra quyết định đầu tư sáng suốt.</p>
@@ -51,16 +61,6 @@
                 <div class="col-md-4">
                     <div class="services-item fl-wrap">
                         <i class="fal fa-users-cog"></i>
-                        <h4>Công nghệ tiên tiến <span>02</span></h4>
-                        <p>Ứng dụng công nghệ hiện đại, mang đến trải nghiệm tìm kiếm, giao dịch bất động sản nhanh chóng, thuận tiện và an toàn.</p>
-                        {{-- <a href="#" class="serv-link">Read more</a> --}}
-                    </div>
-                </div>
-                <!-- services-item  end-->
-                <!-- services-item -->
-                <div class="col-md-4">
-                    <div class="services-item fl-wrap">
-                        <i class="fal fa-phone-laptop"></i>
                         <h4>Đồng hành tin cậy <span>03</span></h4>
                         <p>Đội ngũ chuyên gia giàu kinh nghiệm luôn sẵn sàng hỗ trợ, tư vấn và đồng hành cùng bạn trong suốt quá trình giao dịch.</p>
                         {{-- <a href="#" class="serv-link">Read more</a> --}}
