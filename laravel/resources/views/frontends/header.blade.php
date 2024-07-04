@@ -93,15 +93,8 @@
                     <a href="#">Pages <i class="fa fa-caret-down"></i></a>
                     <!--second level -->
                     <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contacts.html">Contacts</a></li>
-                        <li><a href="help.html">Help FAQ</a></li>
-                        <li><a href="pricing.html">Pricing </a></li>
-                        <li><a href="dashboard.html">User Dashboard</a></li>
-                        <li><a href="blog-single.html">Blog Single</a></li>
-                        <li><a href="compare.html">Compare</a></li>
-                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                        <li><a href="404.html">404</a></li>
+                        <li><a href="{{ url('/dalatbds') }}">About</a></li>
+                        <li><a href="{{ url('/lien-he') }}">Contacts</a></li>
                     </ul>
                     <!--second level end-->
                 </li>
