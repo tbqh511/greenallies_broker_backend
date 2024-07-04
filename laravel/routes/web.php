@@ -52,7 +52,7 @@ use Illuminate\Support\Facades\Artisan;
 //     return view('coming_soon');
 // });
 
-Route::get('/', [FrontEndHomeController::class, 'index'])->name('index');
+Route::get('/frontend', [FrontEndHomeController::class, 'index'])->name('index');
 
 //property controller
 Route::get('/property/{id}', [FrontEndPropertiesController::class, 'getPropertyById'])->name('property.showid');
@@ -252,7 +252,7 @@ Route::middleware(['auth', 'checklogin'])->group(function () {
         Route::resource('parameters', ParameterController::class);
         Route::get('parameter-list', [ParameterController::class, 'show']);
         Route::post('parameter-update', [ParameterController::class, 'update']);
-        
+
         /// END :: PARAMETER FACILITY ROUTE
 
         /// START :: OUTDOOR FACILITY ROUTE
