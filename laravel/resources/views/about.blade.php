@@ -112,8 +112,8 @@
         <div class="container">
             <!-- section-title -->
             <div class="section-title st-center fl-wrap">
-                <h4>The Crew</h4>
-                <h2>Our Awesome team</h2>
+                <h4>Đội ngũ</h4>
+                <h2>Đội ngũ tuyệt vời của chúng tôi</h2>
             </div>
             <!-- section-title end -->
             <div class="clearfix"></div>
@@ -147,20 +147,21 @@
                 <div class="col-md-4">
                     <div class="team-item fl-wrap">
                         <div class="team-img fl-wrap">
-                            <img src="images/agency/agent/1.jpg" class="respimg" alt="">
+                            <img src="images/agency/agent/2.jpg" class="respimg" alt="">
                         </div>
                         <div class="team-content fl-wrap">
-                            <h4>Austin Evon</h4>
-                            <h5>Developer / Designer</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
+                            <h4>Huy Thái</h4>
+                            <h5>CEO / Developer </h5>
+                            <p>
+                                "Đam mê công nghệ và khát khao đổi mới là động lực để chúng tôi kiến tạo những giải pháp vượt trội, góp phần xây dựng một tương lai tốt đẹp hơn."
+                            </p>
                         </div>
                         <div class="team-footer fl-wrap">
                             <ul class="team-social">
-                                <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="https://www.facebook.com/tbqh511/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                {{-- <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li> --}}
                             </ul>
                             <a href="mailto:yourmail@email.com" class="tolt tf-btn" data-microtip-position="top-right"
                                 data-tooltip="Write Message"><i class="fal fa-envelope"></i></a>
