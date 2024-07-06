@@ -31,7 +31,7 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-6">
                     <div class="about-img fl-wrap">
-                        <img src="/images/bg/about.jpg" class="respimg" alt="">
+                        <img src="/images/bg/about.jpg" class="respimg" alt="Đà Lạt BDS">
                         <div class="about-img-hotifer color-bg">
                             <p>Bất động sản không chỉ là nơi để đặt chân mà còn là nơi để đặt trái tim.</p>
                             <h4>John Andrew Holmes</h4>

@@ -90,7 +90,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-6">
                         <div class="about-img fl-wrap">
-                            <img src="images/all/1.jpg" class="respimg" alt="">
+                            <img src="/images/bg/about.jpg" class="respimg" alt="Đà Lạt BDS">
                             <div class="about-img-hotifer color-bg">
                                 <p>Đà Lạt BDS - Hợp tác để kiến tạo thị trường bất động sản Đà Lạt minh bạch, bền vững và thịnh vượng.</p>
                                 <h4>Huy Thái</h4>
