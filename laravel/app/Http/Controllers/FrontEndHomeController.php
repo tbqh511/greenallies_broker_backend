@@ -26,12 +26,12 @@ class FrontEndHomeController extends Controller
         // Get the district code from configuration
         $districtCode = config('location.district_code');
         // If there's a district code, get the list of wards in that district
-        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->orderByRaw("CASE 
-        WHEN full_name LIKE 'phường%' THEN 1 
-        WHEN full_name LIKE 'Xã%' THEN 2 
-        ELSE 3 END, CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), full_name")->get() : LocationsWard::orderByRaw("CASE 
-        WHEN full_name LIKE 'phường%' THEN 1 
-        WHEN full_name LIKE 'Xã%' THEN 2 
+        $locationsWards = ($districtCode != null) ? LocationsWard::where('district_code', $districtCode)->orderByRaw("CASE
+        WHEN full_name LIKE 'phường%' THEN 1
+        WHEN full_name LIKE 'Xã%' THEN 2
+        ELSE 3 END, CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), full_name")->get() : LocationsWard::orderByRaw("CASE
+        WHEN full_name LIKE 'phường%' THEN 1
+        WHEN full_name LIKE 'Xã%' THEN 2
         ELSE 3 END, CAST(SUBSTRING_INDEX(full_name, ' ', -1) AS UNSIGNED), full_name")->get();
 
         // Get the list of product categories
@@ -84,7 +84,7 @@ class FrontEndHomeController extends Controller
             ],
             // Các cặp title và value khác có thể thêm vào đây
         ];
-        
+
 
 
         //dd($newestProducts[0]->parameters[0]->pivot->pivot_value);
@@ -104,6 +104,42 @@ class FrontEndHomeController extends Controller
             'locationsWards' => $locationsWards,
             'categories' => $categories,
             'newestProducts' => $newestProducts,
+            'agents' => $agents,
+            'infos' => $infos,
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function about()
+    {
+        // Get list top agent
+        $agents = Customer::withCount('property')->orderBy('property_count', 'desc')->get();
+
+        //get info for homepage
+        $infos= [
+            [
+                'title' => 'Bất động sản',
+                'value' => Property::count()
+            ],
+            [
+                'title' => 'Đối tác',
+                'value' => Customer::count()
+            ],
+            [
+                'title' => 'Khách hàng hài lòng',
+                'value' => CrmHost::count()
+            ],
+            [
+                'title' => 'Bất động sản mới trong tuần',
+                'value' => Property::where('created_at', '>=', Carbon::now()->subDays(7))->count()
+            ],
+            // Các cặp title và value khác có thể thêm vào đây
+        ];
+
+
+        return view('about', [
             'agents' => $agents,
             'infos' => $infos,
         ]);
