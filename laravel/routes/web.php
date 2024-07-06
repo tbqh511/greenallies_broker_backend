@@ -80,9 +80,7 @@ Route::get('/agent/{id}', [FrontEndAgentsController::class, 'getAgentById'])->na
 Route::get('/agents', [FrontEndAgentsController::class, 'index'])->name('agents.index');
 
 
-Route::get('/dalatbds', function () {
-    return view('about');
-});
+Route::get('/dalatbds',[FrontEndHomeController::class, 'about'])->name('about');
 
 Route::get('/lien-he', function () {
     return view('contact');
