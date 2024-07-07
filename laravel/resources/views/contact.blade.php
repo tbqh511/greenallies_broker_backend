@@ -24,7 +24,7 @@
     <div class="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">
         <div class="container">
             <div class="breadcrumbs-list">
-                <a href="#">Home</a> <a href="#">Pages</a><span>Contacts</span>
+                <a href="/">Trang chủ</a> <span>Liên hệ</span>
             </div>
             <div class="share-holder hid-share">
                 <a href="#" class="share-btn showshare sfcs"> <i class="fas fa-share-alt"></i> Share </a>
@@ -41,9 +41,9 @@
                 <div class="col-md-4">
                     <div class="services-item fl-wrap">
                         <i class="fal fa-envelope"></i>
-                        <h4>Our Mails <span>01</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <a href="#" class="serv-link sl-b">yourmail@domain.com</a>
+                        <h4>Email Của Chúng Tôi <span>01</span></h4>
+                        <p>Chúng tôi luôn sẵn sàng giải đáp mọi thắc mắc của bạn qua email.</p>
+                        <a href="#" class="serv-link sl-b">info@dalatbds.com</a>
                     </div>
                 </div>
                 <!-- services-item  end-->
@@ -51,9 +51,9 @@
                 <div class="col-md-4">
                     <div class="services-item fl-wrap">
                         <i class="fal fa-phone-rotary"></i>
-                        <h4>Our Phones<span>02</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <a href="#" class="serv-link sl-b">+7(111)123456789</a>
+                        <h4>Số Điện Thoại Của Chúng Tôi <span>02</span></h4>
+                        <p>Hãy gọi cho chúng tôi để được tư vấn trực tiếp từ đội ngũ chuyên nghiệp.</p>
+                        <a href="#" class="serv-link sl-b">0918.96.38.78</a>
                     </div>
                 </div>
                 <!-- services-item  end-->
@@ -61,9 +61,9 @@
                 <div class="col-md-4">
                     <div class="services-item fl-wrap">
                         <i class="fal fa-map-marked"></i>
-                        <h4>Our Adress <span>03</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <a href="#" class="serv-link sl-b">USA 27TH Brooklyn NY</a>
+                        <h4>Địa Chỉ Của Chúng Tôi <span>03</span></h4>
+                        <p>Hãy ghé thăm văn phòng của chúng tôi để được hỗ trợ tận tình.</p>
+                        <a href="#" class="serv-link sl-b">27/5 Yersin, Phường 10, Tp Đà Lạt</a>
                     </div>
                 </div>
                 <!-- services-item  end-->
@@ -71,30 +71,29 @@
             <div class="clearfix"></div>
             <div class="contacts-opt fl-wrap">
                 <div class="contact-social">
-                    <span class="cs-title">Find us on: </span>
+                    <span class="cs-title">Tìm chúng tôi trên:</span>
                     <ul>
-                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.facebook.com/dalatbdscom/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        {{-- <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li> --}}
                     </ul>
                 </div>
-                <a href="#" class="btn small-btn float-btn color-bg cf_btn">Write Mesagge</a>
-                <div class="contact-notifer">Or visit our <a href="help.html"> help page</a></div>
+                <a href="#" class="btn small-btn float-btn color-bg cf_btn">Gửi Tin Nhắn</a>
+                <div class="contact-notifer">Hoặc ghé thăm <a href="help.html">trang trợ giúp</a> của chúng tôi</div>
             </div>
             <!--box-widget  -->
             <div class="box-widget">
-                <div class="box-widget-title single_bwt fl-wrap   ">Office Location</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-                    lobortis pulvinar. Donec a consectetur nulla.</p>
+                <div class="box-widget-title single_bwt fl-wrap">Địa Điểm Văn Phòng</div>
+                <p>Chúng tôi tọa lạc tại một vị trí thuận tiện, dễ dàng tiếp cận và sẵn sàng đón tiếp bạn.</p>
                 <!--box-widget end-->
             </div>
             <!--box-widget-->
             <div class="box-widget fl-wrap">
                 <div class="map-widget contacts-map fl-wrap">
                     <div class="map-container mapC_vis">
-                        <div id="singleMap" data-latitude="40.7427837" data-longitude="-73.11445617675781"
-                            data-infotitle="Our Loacation In NewYork" data-infotext="70 Bright St New York, USA"></div>
+                        <div id="singleMap" data-latitude="11.940419" data-longitude="108.458313"
+                            data-infotitle="Văn Phòng Của Chúng Tôi Tại Đà Lạt" data-infotext="Số 123, Đường XYZ, Đà Lạt, Việt Nam"></div>
                         <div class="scrollContorl"></div>
                     </div>
                 </div>
