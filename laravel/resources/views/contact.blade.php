@@ -89,7 +89,7 @@
                 <!--box-widget end-->
             </div>
             <!--box-widget-->
-            {{-- <div class="box-widget fl-wrap">
+            <div class="box-widget fl-wrap">
                 <div class="map-widget contacts-map fl-wrap">
                     <div class="map-container mapC_vis">
                         <div id="singleMap" data-latitude="11.940419" data-longitude="108.458313"
@@ -97,7 +97,7 @@
                         <div class="scrollContorl"></div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             <!--box-widget end -->
         </div>
     </section>
