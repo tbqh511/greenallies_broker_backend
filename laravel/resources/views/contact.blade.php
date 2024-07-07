@@ -63,7 +63,7 @@
                         <i class="fal fa-map-marked"></i>
                         <h4>Địa Chỉ Của Chúng Tôi <span>03</span></h4>
                         <p>Hãy ghé thăm văn phòng của chúng tôi để được hỗ trợ tận tình.</p>
-                        <a href="#" class="serv-link sl-b">27/5 Yersin, Phường 10, Tp Đà Lạt</a>
+                        <a href="#" class="serv-link sl-b">27/6 Yersin, Phường 10, Tp Đà Lạt</a>
                     </div>
                 </div>
                 <!-- services-item  end-->
@@ -79,8 +79,8 @@
                         <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li> --}}
                     </ul>
                 </div>
-                <a href="#" class="btn small-btn float-btn color-bg cf_btn">Gửi Tin Nhắn</a>
-                <div class="contact-notifer">Hoặc ghé thăm <a href="help.html">trang trợ giúp</a> của chúng tôi</div>
+                {{-- <a href="#" class="btn small-btn float-btn color-bg cf_btn">Gửi Tin Nhắn</a>
+                <div class="contact-notifer">Hoặc ghé thăm <a href="help.html">trang trợ giúp</a> của chúng tôi</div> --}}
             </div>
             <!--box-widget  -->
             <div class="box-widget">
