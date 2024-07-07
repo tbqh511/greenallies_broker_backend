@@ -76,7 +76,7 @@
     <!--sub-footer-->
     <div class="sub-footer gray-bg fl-wrap">
         <div class="container">
-            <div class="copyright"> Copyright © 2023 wwww.dalatbs.com</div>
+            <div class="copyright"> Copyright © 2023 wwww.dalatbds.com</div>
             <div class="subfooter-nav">
                 <ul class="no-list-style">
                     {{-- <li><a href="#">Terms of use</a></li>
