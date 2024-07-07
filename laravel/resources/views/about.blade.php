@@ -164,7 +164,7 @@
                                 <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li> --}}
                             </ul>
-                            <a href="mailto:yourmail@email.com" class="tolt tf-btn" data-microtip-position="top-right"
+                            <a href="mailto:tbqh0511@gmail.com" class="tolt tf-btn" data-microtip-position="top-right"
                                 data-tooltip="Write Message"><i class="fal fa-envelope"></i></a>
                         </div>
                     </div>

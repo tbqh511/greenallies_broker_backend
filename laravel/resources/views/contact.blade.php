@@ -2,21 +2,20 @@
 @section('content')
 <div class="content">
     <!--  section  -->
-    <section class="hidden-section single-par2  " data-scrollax-parent="true">
+    <section class="hidden-section single-par2" data-scrollax-parent="true">
         <div class="bg-wrap bg-parallax-wrap-gradien">
-            <div class="bg par-elem " data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+            <div class="bg par-elem" data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
         </div>
         <div class="container">
             <div class="section-title center-align big-title">
-                <h2><span>Our Contacts</span></h2>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec tincidunt arcu, sit amet fermentum
-                    sem.</h4>
+                <h2><span>Liên Hệ Của Chúng Tôi</span></h2>
+                <h4>Điểm đến tin cậy cho mọi nhu cầu bất động sản tại Đà Lạt.</h4>
             </div>
             <div class="scroll-down-wrap">
                 <div class="mousey">
                     <div class="scroller"></div>
                 </div>
-                <span>Scroll Down To Discover</span>
+                <span>Cuộn Xuống Để Khám Phá</span>
             </div>
         </div>
     </section>
