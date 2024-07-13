@@ -991,6 +991,9 @@ class ApiController extends Controller
                     if (isset($request->propery_type)) {
                         $property->propery_type = $request->propery_type;
                     }
+                    if (isset($request->commission)) {
+                        $property->commission = $request->commission;
+                    }
 
                     if (isset($request->price)) {
                         $property->price = $request->price;
