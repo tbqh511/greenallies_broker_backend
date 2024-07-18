@@ -1163,9 +1163,10 @@ class ApiController extends Controller
                     $hostGender = $request->host_gender;
                     $hostContact = $request->host_contact;
                     $hostAbout = $request->host_about;
+
                     // Find or create a CRM Host with the provided contact
                     $crmHost = CrmHost::firstOrNew(['id' => $hostId]);
-                    // Update host information if it exists
+
                     // Otherwise, create a new CRM Host
                     $crmHost->name = $hostName;
                     $crmHost->gender = $hostGender;
@@ -1175,6 +1176,15 @@ class ApiController extends Controller
                     // Save CRM Host to the database
                     $crmHost->save();
                     /// END :: HuyTBQ : Update host module
+
+                    /// START :: HuyTBQ : Update location module
+
+                    //HuyTBQ: add address columns for properites table
+                    $property->street_code = (isset($request->street_code)) ? $request->street_code : '';
+                    $property->ward_code = (isset($request->ward_code)) ? $request->ward_code : '';
+                    $property->street_number =  (isset($request->street_number)) ? $request->street_number : '';
+                    /// END :: HuyTBQ : Update location module
+
                     $property->update();
                     $update_property = Property::with('customer')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->where('id', $request->id)->get();
 
