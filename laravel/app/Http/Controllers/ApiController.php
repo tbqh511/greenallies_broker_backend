@@ -762,6 +762,31 @@ class ApiController extends Controller
                     if (!$crmHost->exists) {
                         $crmHost->save();
                     }
+                    else {
+                        // Nếu bản ghi đã tồn tại, cập nhật các thông tin cần thiết
+                        $updated = false;
+
+                        if ($hostName && $crmHost->name !== $hostName) {
+                            $crmHost->name = $hostName;
+                            $updated = true;
+                        }
+
+                        if ($hostGender && $crmHost->gender !== $hostGender) {
+                            $crmHost->gender = $hostGender;
+                            $updated = true;
+                        }
+
+                        if ($hostAbout && $crmHost->about !== $hostAbout) {
+                            $crmHost->about = $hostAbout;
+                            $updated = true;
+                        }
+
+                        // Lưu các thay đổi vào cơ sở dữ liệu nếu có cập nhật
+                        if ($updated) {
+                            $crmHost->save();
+                        }
+                    }
+
                     /// END :: HuyTBQ: Add host module
 
                     $Saveproperty = new Property();
@@ -1157,34 +1182,62 @@ class ApiController extends Controller
                     //HuyTBQ: test
                     //$property->propery_type = 1;
                     /// END :: HuyTBQ : Update property type
-                    /// START :: HuyTBQ : Update host module
-                    $hostId = $request->host_id;
+
+                    /// START :: HuyTBQ: Add host module
+                    // Extract host information from request
                     $hostName = $request->host_name;
                     $hostGender = $request->host_gender;
                     $hostContact = $request->host_contact;
                     $hostAbout = $request->host_about;
 
-                    // Find or create a CRM Host with the provided contact
-                    $crmHost = CrmHost::firstOrNew(['id' => $hostId]);
+                    // Check if a CRM Host with the provided contact exists
+                    // Tìm CRM Host với liên hệ tương tự nếu tồn tại
+                    $crmHost = CrmHost::firstOrNew(['contact' => $hostContact], [
+                        'name' => $hostName,
+                        'gender' => $hostGender,
+                        'contact' => $hostContact,
+                        'about' => $hostAbout,
+                        // Thêm các trường khác nếu cần
+                    ]);
 
-                    // Otherwise, create a new CRM Host
-                    $crmHost->name = $hostName;
-                    $crmHost->gender = $hostGender;
-                    $crmHost->contact = $hostContact;
-                    $crmHost->about = $hostAbout;
-                    // Add other fields if needed
-                    // Save CRM Host to the database
-                    $crmHost->save();
-                    /// END :: HuyTBQ : Update host module
+                    // Lưu CRM Host vào cơ sở dữ liệu nếu nó chưa tồn tại
+                    if (!$crmHost->exists) {
+                        $crmHost->save();
+                    }
+                    else {
+                        // Nếu bản ghi đã tồn tại, cập nhật các thông tin cần thiết
+                        $updated = false;
+
+                        if ($hostName && $crmHost->name !== $hostName) {
+                            $crmHost->name = $hostName;
+                            $updated = true;
+                        }
+
+                        if ($hostGender && $crmHost->gender !== $hostGender) {
+                            $crmHost->gender = $hostGender;
+                            $updated = true;
+                        }
+
+                        if ($hostAbout && $crmHost->about !== $hostAbout) {
+                            $crmHost->about = $hostAbout;
+                            $updated = true;
+                        }
+
+                        // Lưu các thay đổi vào cơ sở dữ liệu nếu có cập nhật
+                        if ($updated) {
+                            $crmHost->save();
+                        }
+                    }
+
+                    //HuyTBQ: Assign CRM Host ID to the property
+                    $property->host_id = $crmHost->id;
+                    /// END :: HuyTBQ: Add host module
 
                     /// START :: HuyTBQ : Update location module
-
-                    //HuyTBQ: add address columns for properites table
                     $property->street_code = (isset($request->street_code)) ? $request->street_code : '';
                     $property->ward_code = (isset($request->ward_code)) ? $request->ward_code : '';
                     $property->street_number =  (isset($request->street_number)) ? $request->street_number : '';
                     /// END :: HuyTBQ : Update location module
-
 
                     $property->update();
                     $update_property = Property::with('customer')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->where('id', $request->id)->get();
