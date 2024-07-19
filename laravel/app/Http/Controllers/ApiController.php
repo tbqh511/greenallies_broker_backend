@@ -1185,7 +1185,7 @@ class ApiController extends Controller
                     $property->street_number =  (isset($request->street_number)) ? $request->street_number : '';
                     /// END :: HuyTBQ : Update location module
 
-                    dd($property);
+
                     $property->update();
                     $update_property = Property::with('customer')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->where('id', $request->id)->get();
 
