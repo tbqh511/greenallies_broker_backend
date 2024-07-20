@@ -90,7 +90,7 @@
                     <a href="{{ route('agents.index') }}">Đối tác</a>
                 </li> --}}
                 <li><a href="{{ url('/gioi-thieu') }}">Đà Lạt BDS</a></li>
-                <li><a href="{{ url('/lien-he') }}">Liên hệ sdfsdf</a></li>
+                <li><a href="{{ url('/lien-he') }}">Liên hệ</a></li>
             </ul>
         </nav>
     </div>
@@ -110,7 +110,7 @@
         </div> --}}
         <div class="custom-form">
             <form method="GET" name="registerform" action="{{ route('properties.index') }}">
-                <label>Cho thuê & Bán</label>
+                <label>Cho thuê & Bán ssss</label>
                 <select name="propery_type" data-placeholder="Tình trạng" class="chosen-select on-radius no-search-select">
                     <option value="">Cho thuê & Bán</option>
                     <option value="0" {{ request()->input('propery_type') == '0' ? 'selected' :
