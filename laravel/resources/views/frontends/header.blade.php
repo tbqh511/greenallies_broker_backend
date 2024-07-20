@@ -44,7 +44,7 @@
                     <a href="/" class="act-link">Trang chủ <i class="fa"></i></a>
                 </li>
                 <li>
-                    <a href="{{ route('properties.index', ['propery_type' => 0]) }}">Bán <i class="fa "></i></a>
+                    <a href="{{ route('properties.index', ['propery_type' => 0]) }}">Báns <i class="fa "></i></a>
                 </li>
                 <li>
                     <a href="{{ route('properties.index', ['propery_type' => 1]) }}">Cho thuê <i class="fa "></i></a>
