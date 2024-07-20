@@ -110,7 +110,7 @@
         </div> --}}
         <div class="custom-form">
             <form method="GET" name="registerform" action="{{ route('properties.index') }}">
-                <label>Cho thuê & Bán ssss</label>
+                <label>Cho thuê & Bán</label>
                 <select name="propery_type" data-placeholder="Tình trạng" class="chosen-select on-radius no-search-select">
                     <option value="">Cho thuê & Bán</option>
                     <option value="0" {{ request()->input('propery_type') == '0' ? 'selected' :

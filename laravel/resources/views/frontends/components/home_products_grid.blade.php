@@ -4,7 +4,7 @@
             <div class="col-md-4">
                 <div class="section-title fl-wrap">
                     <h4>Bất động sản hấp dẫn</h4>
-                    <h2>Bất động sản mới nhất</h2>
+                    <h2>Bất động sản mới nhất HuyTBQ:123</h2>
                 </div>
             </div>
             <div class="col-md-8">
