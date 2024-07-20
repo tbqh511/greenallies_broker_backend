@@ -44,7 +44,7 @@
                     <a href="/" class="act-link">Trang chủ <i class="fa"></i></a>
                 </li>
                 <li>
-                    <a href="{{ route('properties.index', ['propery_type' => 0]) }}">Báns <i class="fa "></i></a>
+                    <a href="{{ route('properties.index', ['propery_type' => 0]) }}">Bán <i class="fa "></i></a>
                 </li>
                 <li>
                     <a href="{{ route('properties.index', ['propery_type' => 1]) }}">Cho thuê <i class="fa "></i></a>
@@ -90,7 +90,7 @@
                     <a href="{{ route('agents.index') }}">Đối tác</a>
                 </li> --}}
                 <li><a href="{{ url('/gioi-thieu') }}">Đà Lạt BDS</a></li>
-                <li><a href="{{ url('/lien-he') }}">Liên hệ</a></li>
+                <li><a href="{{ url('/lien-he') }}">Liên hệ sdfsdf</a></li>
             </ul>
         </nav>
     </div>
