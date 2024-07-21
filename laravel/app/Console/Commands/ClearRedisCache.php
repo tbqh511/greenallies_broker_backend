@@ -39,8 +39,12 @@ class ClearRedisCache extends Command
      */
     public function handle()
     {
-        Redis::flushall();
-        $this->info('Redis cache cleared successfully.');
-        return 0;
+        try {
+            $redis = Redis::connection();
+            $redis->flushdb();
+            $this->info('Redis cache cleared successfully.');
+        } catch (\Exception $e) {
+            $this->error('Error clearing Redis cache: ' . $e->getMessage());
+        }
     }
 }
