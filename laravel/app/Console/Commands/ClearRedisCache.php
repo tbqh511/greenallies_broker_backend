@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redis;
 
 class ClearRedisCache extends Command
 {
@@ -11,14 +13,24 @@ class ClearRedisCache extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'cache:clear-redis';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Clear Redis cache';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * Execute the console command.
@@ -27,6 +39,8 @@ class ClearRedisCache extends Command
      */
     public function handle()
     {
-        return Command::SUCCESS;
+        Redis::flushall();
+        $this->info('Redis cache cleared successfully.');
+        return 0;
     }
 }
