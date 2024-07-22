@@ -94,7 +94,7 @@ class FrontEndHomeController extends Controller
 
         //dd($newestProducts[2]->number_floor);
         //dd(config('global.number_floor'));
-        dd($newestProducts);
+        //dd($newestProducts);
         // $property = Property::with('customer')->with('user')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->with('ward')->with('street')->with('host')->get();
 
 
