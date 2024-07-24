@@ -61,9 +61,10 @@ class FrontEndHomeController extends Controller
             //->where('propery_type','1')
             ->orderBy($sort, $order)
             ->skip($offset)
-            ->take($limit)
-            ->get();
+            ->take($limit);
 
+        $newestProducts = $newestProducts->Where('status', 1);
+        $newestProducts->get();
         //get info for homepage
         $infos= [
             [
@@ -85,20 +86,16 @@ class FrontEndHomeController extends Controller
             // Các cặp title và value khác có thể thêm vào đây
         ];
 
-
-
         //dd($newestProducts[0]->parameters[0]->pivot->pivot_value);
         //dd($newestProducts[0]->parameters[0]->pivot->value);
         // $valueOfParameterId15 = $newestProducts[0]->parameters->where('name', config('global.area'))->first()->pivot->value;
         // dd($valueOfParameterId15);
-
         //dd($newestProducts[2]->number_floor);
         //dd(config('global.number_floor'));
         //dd($newestProducts);
         // $property = Property::with('customer')->with('user')->with('category:id,category,image')->with('assignfacilities.outdoorfacilities')->with('favourite')->with('parameters')->with('interested_users')->with('ward')->with('street')->with('host')->get();
-
-
         // Return the frontend_home view with the necessary data
+
         return view('frontend_home', [
             'locationsStreets' => $locationsStreets,
             'locationsWards' => $locationsWards,
