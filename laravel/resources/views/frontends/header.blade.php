@@ -111,7 +111,7 @@
         <div class="custom-form">
             <form method="GET" name="registerform" action="{{ route('properties.index') }}">
                 <label>Cho thuê & Bán</label>
-                <select name="propery_type" data-placeholder="Tình trạng" class="chosen-select on-radius no-search-select">
+                <select name="propery_type" data-placeholder="Tình trạng" class="chosen-select on-radius no-search-select" style="z-index: 1;">
                     <option value="">Cho thuê & Bán</option>
                     <option value="0" {{ request()->input('propery_type') == '0' ? 'selected' :
                         ''}}>Bán</option>
@@ -119,7 +119,7 @@
                         ''}}>Cho Thuê</option>
                 </select>
                 <label>Loại BDS</label>
-                <select name="category" data-placeholder="Loại BDS" class="chosen-select on-radius no-search-select">
+                <select name="category" data-placeholder="Loại BDS" class="chosen-select on-radius no-search-select" style="z-index: 1;">
                     <option value="">Loại BDS</option>
                     @isset($categories)
                     @foreach ($categories as $categorie)
@@ -135,7 +135,7 @@
                 </select>
 
                 <label>BDS Phướng / Xã</label>
-                <select name="ward" data-placeholder="Phường Xã" class="chosen-select on-radius no-search-select">
+                <select name="ward" data-placeholder="Phường Xã" class="chosen-select on-radius no-search-select" style="z-index: 1;">
                     <option value="">Phường Xã</option>
                     @isset($locationsWards)
                     @foreach ($locationsWards as $locationsWard)
