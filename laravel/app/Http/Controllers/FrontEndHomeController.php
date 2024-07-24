@@ -63,7 +63,7 @@ class FrontEndHomeController extends Controller
             ->skip($offset)
             ->take($limit);
 
-        $newestProducts = $newestProducts->Where('status', 1);
+        //$newestProducts = $newestProducts->Where('status', 1);
         $newestProducts->get();
         //get info for homepage
         $infos= [
