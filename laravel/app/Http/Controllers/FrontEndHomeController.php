@@ -58,13 +58,12 @@ class FrontEndHomeController extends Controller
             ->with('ward')
             ->with('street')
             ->with('host')
-            //->where('propery_type','1')
+            ->where('status','1')
             ->orderBy($sort, $order)
             ->skip($offset)
-            ->take($limit);
+            ->take($limit)
+            ->get();
 
-        //$newestProducts = $newestProducts->Where('status', 1);
-        $newestProducts->get();
         //get info for homepage
         $infos= [
             [
