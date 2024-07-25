@@ -800,7 +800,7 @@ blockquote p {
   	background:#fff;
 }
 .header-search-wrapper .nice-select {
-	z-index: 20;
+    /*z-index: 20;*/
 }
 .nice-select{
 	background: #F5F7FB;
@@ -886,6 +886,7 @@ blockquote p {
 }
 .header-search-wrapper .custom-form  .nice-select .list {
 	margin-top:0;
+    z-index: 30;
 }
 /*------ navigation  ------------------------------------------------*/
 .nav-holder {
