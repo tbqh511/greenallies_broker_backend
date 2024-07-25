@@ -799,9 +799,9 @@ blockquote p {
 .header-search-wrapper .nice-select , .header-search-wrapper .custom-form input[type="text"] {
   	background:#fff;
 }
-.header-search-wrapper .nice-select {
-    /*z-index: 20;*/
-}
+/*.header-search-wrapper .nice-select {
+    z-index: 20;
+}*/
 .nice-select{
 	background: #F5F7FB;
 	float:left;
