@@ -749,44 +749,14 @@ class ApiController extends Controller
                     $hostAbout = $request->host_about;
 
                     // Check if a CRM Host with the provided contact exists
-                    // Tìm CRM Host với liên hệ tương tự nếu tồn tại
-                    $crmHost = CrmHost::firstOrNew(['contact' => $hostContact], [
+                    $crmHost = CrmHost::create([
                         'name' => $hostName,
                         'gender' => $hostGender,
                         'contact' => $hostContact,
                         'about' => $hostAbout,
                         // Thêm các trường khác nếu cần
                     ]);
-
-                    // Lưu CRM Host vào cơ sở dữ liệu nếu nó chưa tồn tại
-                    if (!$crmHost->exists) {
-                        $crmHost->save();
-                    }
-                    else {
-                        // Nếu bản ghi đã tồn tại, cập nhật các thông tin cần thiết
-                        $updated = false;
-
-                        if ($hostName && $crmHost->name !== $hostName) {
-                            $crmHost->name = $hostName;
-                            $updated = true;
-                        }
-
-                        if ($hostGender && $crmHost->gender !== $hostGender) {
-                            $crmHost->gender = $hostGender;
-                            $updated = true;
-                        }
-
-                        if ($hostAbout && $crmHost->about !== $hostAbout) {
-                            $crmHost->about = $hostAbout;
-                            $updated = true;
-                        }
-
-                        // Lưu các thay đổi vào cơ sở dữ liệu nếu có cập nhật
-                        if ($updated) {
-                            $crmHost->save();
-                        }
-                    }
-
+                    $crmHost->save();
                     /// END :: HuyTBQ: Add host module
 
                     $Saveproperty = new Property();
@@ -1191,46 +1161,20 @@ class ApiController extends Controller
                     $hostAbout = $request->host_about;
 
                     // Check if a CRM Host with the provided contact exists
-                    // Tìm CRM Host với liên hệ tương tự nếu tồn tại
-                    $crmHost = CrmHost::firstOrNew(['contact' => $hostContact], [
-                        'name' => $hostName,
-                        'gender' => $hostGender,
-                        'contact' => $hostContact,
-                        'about' => $hostAbout,
-                        // Thêm các trường khác nếu cần
-                    ]);
-
-                    // Lưu CRM Host vào cơ sở dữ liệu nếu nó chưa tồn tại
-                    if (!$crmHost->exists) {
-                        $crmHost->save();
-                    }
-                    else {
-                        // Nếu bản ghi đã tồn tại, cập nhật các thông tin cần thiết
-                        $updated = false;
-
-                        if ($hostName && $crmHost->name !== $hostName) {
-                            $crmHost->name = $hostName;
-                            $updated = true;
-                        }
-
-                        if ($hostGender && $crmHost->gender !== $hostGender) {
-                            $crmHost->gender = $hostGender;
-                            $updated = true;
-                        }
-
-                        if ($hostAbout && $crmHost->about !== $hostAbout) {
-                            $crmHost->about = $hostAbout;
-                            $updated = true;
-                        }
-
-                        // Lưu các thay đổi vào cơ sở dữ liệu nếu có cập nhật
-                        if ($updated) {
-                            $crmHost->save();
-                        }
-                    }
-
+                    $crmHost = CrmHost::updateOrCreate(
+                        ['id' => $property->host_id], // Điều kiện tìm kiếm
+                        [
+                            'name' => $hostName,
+                            'gender' => $hostGender,
+                            'contact' => $hostContact,
+                            'about' => $hostAbout,
+                            // Thêm các trường khác nếu cần
+                        ]
+                    );
+                    $crmHost->save();
                     //HuyTBQ: Assign CRM Host ID to the property
                     $property->host_id = $crmHost->id;
+
                     /// END :: HuyTBQ: Add host module
 
                     /// START :: HuyTBQ : Update location module
