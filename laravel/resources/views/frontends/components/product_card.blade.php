@@ -33,27 +33,29 @@
                 {{-- <ul> --}}
                     {{-- <li><i class="fal fa-bed"></i><span>3</span></li>
                     <li><i class="fal fa-bath"></i><span>2</span></li> --}}
-                    {{-- <li><i class="fal fa-cube"></i><span>{{ number_format($productCard->area) }} m²</span></li>
+                    {{-- <li><i class="fal fa-cube"></i><span>{{ number_format((float) $productCard->area) }} m²</span></li>
                     --}}
-
                     {{--
                 </ul> --}}
                 <ul>
                     @if ($productCard->area)
-                        <li><i class="fas fa-arrows-alt"></i><span>{{ number_format($productCard->area) }} m²</span></li>
+                        <li>
+                            <i class="fas fa-arrows-alt"></i>
+                            <span>{{ number_format((float) $productCard->area) }} m²</span>
+                        </li>
                     @endif
                     @if ($productCard->number_room)
-                        <li><i class="fas fa-door-open"></i><span>{{ number_format($productCard->number_room) }}</span></li>
+                        <li><i class="fas fa-door-open"></i><span>{{ number_format((float) $productCard->number_room) }}</span></li>
                     @endif
                     @if ($productCard->number_floor)
-                        <li><i class="fas fa-layer-group"></i><span>{{ number_format($productCard->number_floor) }}</span></li>
+                        <li><i class="fas fa-layer-group"></i><span>{{ number_format((float) $productCard->number_floor) }}</span></li>
                     @endif
                 </ul>
             </div>
             <div class="geodir-category-footer fl-wrap">
                 <a href="{{ route('agent.showid', ['id' => $productCard->added_by]) }}" class="gcf-company">
                         <img src="{{$productCard->agent ? ($productCard->agent->profile ? $productCard->agent->profile : 'https://dalatbds.com/images/users/1693209486.1303.png'):'https://dalatbds.com/images/users/1693209486.1303.png'}}" alt="Đà Lạt BDS">
-                        
+
                         <span>{{ $productCard->agent ? ($productCard->agent->name ?: 'Đà Lạt BDS') : 'Đà Lạt BDS' }}</span>
                     </a>
                 <div class="listing-rating card-popup-rainingvis tolt" data-microtip-position="top" data-tooltip="Good"
