@@ -513,8 +513,18 @@ class ApiController extends Controller
         $street_code = $request->street_code;
         $ward_code = $request->ward_code;
         $host_id = $request->host_id;
+        $price_sort = $request->price_sort;
 
-
+        // HuyTBQ: Add sorting logic for price
+        if (isset($price_sort)) {
+            if ($price_sort == 0) {
+                // Sắp xếp giá từ cao xuống thấp
+                $property = $property->orderBy('price', 'DESC');
+            } elseif ($price_sort == 1) {
+                // Sắp xếp giá từ thấp lên cao
+                $property = $property->orderBy('price', 'ASC');
+            }
+        }
 
         if (isset($street_number)) {
             $property = $property->where('street_number', $street_number);
