@@ -504,7 +504,7 @@ p {
 	stroke-dashoffset: 220px; transition: linear 6s stroke-dashoffset;
 }
 .gradient-bg  , #subscribe-button:hover , .cf_btn:hover , .btn:hover    {
-    background: linear-gradient(to left, #3C6AFD, #57C7FA);
+    background: linear-gradient(to left, #209362, #57C7FA);
 }
 .contact-form-wrap  {
 	position: fixed;
