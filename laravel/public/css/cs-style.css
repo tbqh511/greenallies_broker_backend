@@ -79,7 +79,7 @@ body {
 .loader-inner {
   position: absolute;
   margin: -18px 0 0 -18px;
-  border: 3.6px solid #24975b;
+  border: 3.6px solid #209362;
   box-sizing: border-box;
   overflow: hidden;
   width: 36px;
@@ -89,14 +89,14 @@ body {
   animation: loader-spin 2s linear infinite reverse;
   -webkit-filter: url(#goo);
           filter: url(#goo);
-  box-shadow: 0 0 0 1px #24975b inset;
+  box-shadow: 0 0 0 1px #209362 inset;
 }
 .loader-inner:before {
   content: "";
   position: absolute;
   -webkit-animation: loader-spin 2s cubic-bezier(0.59, 0.25, 0.4, 0.69) infinite;
           animation: loader-spin 2s cubic-bezier(0.59, 0.25, 0.4, 0.69) infinite;
-  background: #24975b;
+  background: #209362;
   -webkit-transform-origin: top center;
           transform-origin: top center;
   border-radius: 50%;
@@ -183,7 +183,7 @@ p {
 	width: 620px;
 	min-height: 100vh;
 	position: relative;
-	background: #24975b;
+	background: #209362;
 	z-index: 2;
 	padding: 150px 50px 60px;
 }
@@ -270,7 +270,7 @@ p {
     z-index: 2;
 	font-weight: 500;
     color: #fff;
-	background: linear-gradient(to left, #3C6AFD, #24975b);
+	background: linear-gradient(to left, #3C6AFD, #209362);
 	transition: all 200ms linear;
 	font-family: 'Jost', sans-serif;
 }
@@ -288,7 +288,7 @@ p {
 	height: 36px;
 	border-radius: 4px;
 	line-height: 36px;
-	color: #24975b;
+	color: #209362;
 	transition: all 200ms linear;
 }
 .cs-social li a:hover {
@@ -455,14 +455,14 @@ p {
 }
 .cs-contacts li span {
 	margin-right:12px;
-	color: #24975b;
+	color: #209362;
 }
 .cf_btn {
 	position: absolute;
 	right: 70px;
 	top: 40px;
-	background: #24975b;
-    background: linear-gradient(to left, #3C6AFD, #24975b);
+	background: #209362;
+    background: linear-gradient(to left, #3C6AFD, #209362);
 	color: #fff;
 	z-index: 20;
 	padding: 13px 30px;
@@ -562,13 +562,13 @@ p {
 	cursor: pointer;
 	border-left: 1px solid #eee;
 	border-bottom: 1px solid #eee;
-	color: #24975b;
+	color: #209362;
 	background: #fff;
 	transition: all 200ms linear;
 }
 .close-contact-form:hover {
 	color:#fff;
-	background:#24975b;
+	background:#209362;
 }
 .contact-form-main {
 	padding: 70px 50px 20px;
@@ -611,7 +611,7 @@ p {
     height: 44px;
     line-height: 44px;
     margin-top: 11px;
-   color: #24975b;
+   color: #209362;
     font-weight: bold;
     font-size: 14px;
     text-align: center;
@@ -643,7 +643,7 @@ p {
     font-weight: 500;
     font-size: 12px;
     margin-top: 15px;
-	background: #24975b;
+	background: #209362;
 	outline: none;
     border: none;
     cursor: pointer;
@@ -680,7 +680,7 @@ p {
 	color: #144273;
 }
 #message div strong {
-	color:#24975b;
+	color:#209362;
 }
 .hid-body {
 	overflow: hidden;
