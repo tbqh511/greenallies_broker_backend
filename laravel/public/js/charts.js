@@ -30,10 +30,10 @@ var config = {
                 fill: true,
                 animation: false,
                 backgroundColor: "rgba(94, 207, 177, 0.2)",
-                borderColor: "#3270FC",
+                borderColor: "#24975b",
 				pointBackgroundColor:"#fff",
                 pointBorderWidth: 1,
-				pointBorderColor: "#3270FC",
+				pointBorderColor: "#24975b",
                 pointHoverBorderWidth: 1,
                 data: [16, 12, 37, 33, 44, 98, 20]
             },

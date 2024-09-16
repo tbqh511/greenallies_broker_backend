@@ -75,7 +75,7 @@ body {
 .loader-inner {
   position: absolute;
   margin: -18px 0 0 -18px;
-  border: 3.6px solid #3270FC;
+  border: 3.6px solid #24975b;
   box-sizing: border-box;
   overflow: hidden;
   width: 36px;
@@ -85,14 +85,14 @@ body {
   animation: loader-spin 2s linear infinite reverse;
   -webkit-filter: url(#goo);
           filter: url(#goo);
-  box-shadow: 0 0 0 1px #3270FC inset;
+  box-shadow: 0 0 0 1px #24975b inset;
 }
 .loader-inner:before {
   content: "";
   position: absolute;
   -webkit-animation: loader-spin 2s cubic-bezier(0.59, 0.25, 0.4, 0.69) infinite;
           animation: loader-spin 2s cubic-bezier(0.59, 0.25, 0.4, 0.69) infinite;
-  background: #3270FC;
+  background: #24975b;
   -webkit-transform-origin: top center;
           transform-origin: top center;
   border-radius: 50%;
@@ -5765,13 +5765,13 @@ section.single-par2  .scroll-down-wrap{
 	cursor: pointer;
 	border-left: 1px solid #eee;
 	border-bottom: 1px solid #eee;
-	color: #3270FC;
+	color: #24975b;
 	background: #fff;
 	transition: all 200ms linear;
 }
 .close-contact-form:hover {
 	color:#fff;
-	background:#3270FC;
+	background:#24975b;
 }
 .contact-form-main {
 	padding: 70px 50px 20px;
@@ -6724,7 +6724,7 @@ section.single-par2  .scroll-down-wrap{
 	padding: 14px 0;
 	line-height: 0;
 	border-radius: 2px;
-	background: #3270FC;
+	background: #24975b;
 	visibility: hidden;
 	opacity: 0;
     transition: all 0.2s linear;
@@ -6745,7 +6745,7 @@ section.single-par2  .scroll-down-wrap{
 .add-list i {
 	margin-right: 0;
 	color: #fff;
-	background: #3270FC;
+	background: #24975b;
     height: 40px;
 	width: 40px;
     line-height: 40px;
@@ -6762,7 +6762,7 @@ section.single-par2  .scroll-down-wrap{
 }
 .show-reg-form i {
 	margin: 0;
-	color: #3270FC;
+	color: #24975b;
 	font-weight: 300;
 }
 .hs-btn {
