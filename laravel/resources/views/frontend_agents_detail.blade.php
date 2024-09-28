@@ -1,7 +1,7 @@
 @extends('frontends.master')
 
 @section('content')
-<!-- content -->	
+<!-- content -->
 <div class="content">
     <!-- breadcrumbs-->
     @include('frontends.components.home_breadcrumb', [
@@ -32,7 +32,7 @@
                             <div class="agent_card-title fl-wrap">
                                 <h4> {{$agent->name}} </h4>
                                 <div class="geodir-category-location fl-wrap">
-                                    <h5><a href="agency-single.html">Mạng lưới thổ Đà Lạt BDS</a></h5>
+                                    <h5><a href="agency-single.html">Mạng lưới thổ địa GreenAllies</a></h5>
                                     <div class="listing-rating card-popup-rainingvis" data-starrating2="4"><span class="re_stars-title">Tốt</span></div>
                                 </div>
                             </div>
@@ -46,12 +46,12 @@
                             <div class="card-verified tolt" data-microtip-position="left" data-tooltip="Đã xác minh"><i class="fal fa-user-check"></i></div>
                         </div>
                     </div>
-                    
+
                     <div class="list-single-main-container fl-wrap">
                         <!-- list-single-main-item -->
                         <div class="list-single-main-item fl-wrap">
                             <div class="list-single-main-item-title">
-                                <h3>Đối tác Đà Lạt BDS</h3>
+                                <h3>Đối tác Green AlliesĐà Lạt BDS</h3>
                             </div>
                             <div class="list-single-main-item_content fl-wrap">
                                 <p>Đà Lạt BDS hân hạnh chào đón đối tác vào hành trình khám phá thị trường bất động sản phát triển của Đà Lạt.</p>
@@ -64,9 +64,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- list-single-main-item end -->              
+                        <!-- list-single-main-item end -->
                     </div>
-                    
+
                     <!-- content-tabs-wrap -->
                     <div class="content-tabs-wrap tabs-act fl-wrap">
                         <div class="content-tabs fl-wrap">
@@ -76,8 +76,8 @@
                                 <li><a href="#tab-reviews">Nhận xét</a></li> --}}
                             </ul>
                         </div>
-                        
-                        <!--tabs -->                       
+
+                        <!--tabs -->
                         <div class="tabs-container">
                             <!--tab -->
                             <div class="tab">
@@ -98,7 +98,7 @@
                                         @else
                                             <a href="#" class="prevposts-link disabled"><i class="fa fa-caret-left"></i></a>
                                         @endif
-                                    
+
                                         @foreach ($properties->getUrlRange(1, $properties->lastPage()) as $page => $url)
                                             @if ($page == $properties->currentPage())
                                                 <a href="#" class="current-page">{{ $page }}</a>
@@ -106,14 +106,14 @@
                                                 <a href="{{ $url }}">{{ $page }}</a>
                                             @endif
                                         @endforeach
-                                    
+
                                         @if ($properties->nextPageUrl())
                                             <a href="{{ $properties->nextPageUrl() }}" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
                                         @else
                                             <a href="#" class="nextposts-link disabled"><i class="fa fa-caret-right"></i></a>
                                         @endif
                                     </div>
-                                    <!-- pagination end-->						
+                                    <!-- pagination end-->
                                 </div>
                             </div>
                             <!--tab  end-->
@@ -132,10 +132,10 @@
                                                         <span class="review-number blue-bg">5.0</span>
                                                         <div class="listing-rating card-popup-rainingvis" data-starrating2="5"><span class="re_stars-title">Excellent</span></div>
                                                     </div>
-                                                    <!-- reviews-comments-item -->  
+                                                    <!-- reviews-comments-item -->
                                                     <div class="reviews-comments-item">
                                                         <div class="review-comments-avatar">
-                                                            <img src="images/avatar/1.jpg" alt=""> 
+                                                            <img src="images/avatar/1.jpg" alt="">
                                                         </div>
                                                         <div class="reviews-comments-item-text smpar">
                                                             <div class="box-widget-menu-btn smact"><i class="far fa-ellipsis-h"></i></div>
@@ -150,11 +150,11 @@
                                                             <div class="reviews-comments-item-date"><span class="reviews-comments-item-date-item"><i class="far fa-calendar-check"></i>12 April 2018</span><a href="#" class="rate-review"><i class="fal fa-thumbs-up"></i>  Helpful Review  <span>6</span> </a></div>
                                                         </div>
                                                     </div>
-                                                    <!--reviews-comments-item end--> 
-                                                    <!-- reviews-comments-item -->  
+                                                    <!--reviews-comments-item end-->
+                                                    <!-- reviews-comments-item -->
                                                     <div class="reviews-comments-item">
                                                         <div class="review-comments-avatar">
-                                                            <img src="images/avatar/1.jpg" alt=""> 
+                                                            <img src="images/avatar/1.jpg" alt="">
                                                         </div>
                                                         <div class="reviews-comments-item-text smpar">
                                                             <div class="box-widget-menu-btn smact"><i class="far fa-ellipsis-h"></i></div>
@@ -169,11 +169,11 @@
                                                             <div class="reviews-comments-item-date"><span class="reviews-comments-item-date-item"><i class="far fa-calendar-check"></i>03 December 2017</span><a href="#" class="rate-review"><i class="fal fa-thumbs-up"></i>  Helpful Review  <span>2</span> </a></div>
                                                         </div>
                                                     </div>
-                                                    <!--reviews-comments-item end-->                                                                  
+                                                    <!--reviews-comments-item end-->
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- list-single-main-item end -->                                             
+                                        <!-- list-single-main-item end -->
                                         <!-- list-single-main-item -->
                                         <div class="list-single-main-item fl-wrap" id="sec5">
                                             <div class="list-single-main-item-title fl-wrap">
@@ -196,7 +196,7 @@
                                                         <label for="rating-5"    class="fal fa-star"></label>
                                                     </div>
                                                     <div class="count-radio-wrapper">
-                                                        <span id="count-checked-radio">Your Rating</span>  
+                                                        <span id="count-checked-radio">Your Rating</span>
                                                     </div>
                                                 </div>
                                                 <!-- Review Comment -->
@@ -219,13 +219,13 @@
                                             </div>
                                             <!-- Add Review Box / End -->
                                         </div>
-                                        <!-- list-single-main-item end -->             										
+                                        <!-- list-single-main-item end -->
                                     </div>
                                 </div>
                             </div> --}}
-                            <!--tab end-->							
+                            <!--tab end-->
                         </div>
-                        <!--tabs end-->  
+                        <!--tabs end-->
                     </div>
                     <!-- content-tabs-wrap end -->
                 </div>
@@ -257,7 +257,7 @@
                             </div>
                         </div>
                     </div> --}}
-                    <!--box-widget end --> 									
+                    <!--box-widget end -->
                     <!--box-widget-->
                     <div class="box- bwt-first fl-wrap">
                         <div class="box-widget-fixed-init fl-wrap" id="sec-contact">
@@ -268,7 +268,7 @@
                                         <label>Tên của bạn* <span class="dec-icon"><i class="fas fa-user"></i></span></label>
                                         <input name="phone" type="text" onClick="this.select()" value="">
                                         <label>Email của bạn* <span class="dec-icon"><i class="fas fa-envelope"></i></span></label>
-                                        <input name="mail" type="text" onClick="this.select()" value="">      
+                                        <input name="mail" type="text" onClick="this.select()" value="">
                                         <textarea cols="40" rows="3" placeholder="Tin nhắn của bạn:" style="height: 150px"></textarea>
                                         <button type="submit" class="btn float-btn color-bg fw-btn"> Gửi</button>
                                     </form>
@@ -276,9 +276,9 @@
                             </div>
                         </div>
                     </div>
-                    <!--box-widget end -->               									
+                    <!--box-widget end -->
                 </div>
-                <!--   sidebar end-->								
+                <!--   sidebar end-->
             </div>
         </div>
         <div class="limit-box fl-wrap"></div>

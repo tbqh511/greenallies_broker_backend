@@ -62,7 +62,7 @@
                         <div class="footer-widget-title fl-wrap">
                             <h4>Tải ứng dụng DalatBDS</h4>
                         </div>
-                        <p>Bắt đầu làm việc với Đà Lạt BDS, nền tảng có thể cung cấp mọi thứ bạn cần. </p>
+                        <p>Bắt đầu làm việc với Green Allies, nền tảng có thể cung cấp mọi thứ bạn cần. </p>
                         <div class="api-links fl-wrap">
                             <a href="#" class="api-btn color-bg"><i class="fab fa-apple"></i> App Store</a>
                             <a href="https://play.google.com/store/search?q=dalat%20bds&c=apps" class="api-btn color-bg"><i class="fab fa-google-play"></i> Play Market</a>

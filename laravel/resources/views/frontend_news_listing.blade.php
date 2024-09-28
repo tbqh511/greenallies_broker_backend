@@ -193,8 +193,8 @@
                                     <div class="bg  " data-bg="https://i.pravatar.cc/388"></div>
                                 </div>
                                 <div class="banner-widget_content">
-                                    <h5>Bạn có muốn tham gia mạng lưới thổ địa cùng Đà Lạt BDS?</h5>
-                                    <a href="#" class="btn float-btn color-bg small-btn">Hãy trở thành Đối Tác của Đà Lạt BDS</a>
+                                    <h5>Bạn có muốn tham gia mạng lưới thổ địa cùng Green Allies?</h5>
+                                    <a href="#" class="btn float-btn color-bg small-btn">Hãy trở thành Đối Tác của Green Allies</a>
                                 </div>
                             </div>
                         </div>

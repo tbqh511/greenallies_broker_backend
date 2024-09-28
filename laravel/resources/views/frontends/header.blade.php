@@ -89,7 +89,7 @@
                 <li>
                     <a href="{{ route('agents.index') }}">Đối tác</a>
                 </li> --}}
-                <li><a href="{{ url('/gioi-thieu') }}">Đà Lạt BDS</a></li>
+                <li><a href="{{ url('/gioi-thieu') }}">Green Allies</a></li>
                 <li><a href="{{ url('/lien-he') }}">Liên hệ</a></li>
             </ul>
         </nav>

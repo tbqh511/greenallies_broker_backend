@@ -90,7 +90,7 @@
                                 <div class="progress-indicator">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                                         <circle cx="16" cy="16" r="15.9155" class="progress-bar__background" />
-                                        <circle cx="16" cy="16" r="15.9155" class="progress-bar__progress 
+                                        <circle cx="16" cy="16" r="15.9155" class="progress-bar__progress
                                             js-progress-bar" />
                                     </svg>
                                 </div>
@@ -605,7 +605,7 @@
                                 </div> --}}
                                 <div class="profile-widget-card">
                                     <div class="profile-widget-image">
-                                        <img src="{{$property->agent ? ($property->agent->profile ? $property->agent->profile : 'https://dalatbds.com/images/users/1693209486.1303.png'):'https://dalatbds.com/images/users/1693209486.1303.png'}}" alt="Đà Lạt BDS">
+                                        <img src="{{$property->agent ? ($property->agent->profile ? $property->agent->profile : 'https://dalatbds.com/images/users/1693209486.1303.png'):'https://dalatbds.com/images/users/1693209486.1303.png'}}" alt="Green Allies">
                                     </div>
                                     <div class="profile-widget-header-title">
                                         @if(isset($property->added_by))

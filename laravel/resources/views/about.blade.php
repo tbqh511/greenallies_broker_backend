@@ -8,7 +8,7 @@
         </div>
         <div class="container">
             <div class="section-title center-align big-title">
-                <h2><span>Đà Lạt BDS</span></h2>
+                <h2><span>Green Allies</span></h2>
                 <h4>Điểm đến tin cậy cho mọi nhu cầu bất động sản tại Đà Lạt.</h4>
             </div>
             <div class="scroll-down-wrap">
@@ -24,7 +24,7 @@
     <div class="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">
         <div class="container">
             <div class="breadcrumbs-list">
-                <a href="/">Trang chủ</a> <span>Đà Lạt BDS</span>
+                <a href="/">Trang chủ</a> <span>Green Allies</span>
             </div>
             <div class="share-holder hid-share">
                 <a href="#" class="share-btn showshare sfcs"> <i class="fas fa-share-alt"></i> Chia sẻ </a>
@@ -90,11 +90,11 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-6">
                         <div class="about-img fl-wrap">
-                            <img src="/images/bg/about.jpg" class="respimg" alt="Đà Lạt BDS">
+                            <img src="/images/bg/about.jpg" class="respimg" alt="Green Allies">
                             <div class="about-img-hotifer color-bg">
-                                <p>Đà Lạt BDS - Hợp tác để kiến tạo thị trường bất động sản Đà Lạt minh bạch, bền vững và thịnh vượng.</p>
-                                <h4>Huy Thái</h4>
-                                <h5>Dalat BDS CEO</h5>
+                                <p>Green Allies - Hợp tác để kiến tạo thị trường bất động sản Đà Lạt minh bạch, bền vững và thịnh vượng.</p>
+                                <h4>Tâm Võ</h4>
+                                <h5>Green Allies CEO</h5>
                             </div>
                         </div>
                     </div>

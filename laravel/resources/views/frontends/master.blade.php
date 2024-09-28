@@ -4,7 +4,7 @@
 <head>
     <!-- basic   -->
     <meta charset="UTF-8">
-    <title>Đà Lạt BDS - Mạng lưới thổ địa Đà Lạt</title>
+    <title>Green Allies - Mạng lưới thổ địa Đà Lạt</title>
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
