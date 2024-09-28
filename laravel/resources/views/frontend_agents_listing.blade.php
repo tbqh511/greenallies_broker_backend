@@ -7,8 +7,8 @@
     <section class="parallax-section single-par color-bg">
         <div class="container">
             <div class="section-title center-align big-title">
-                <h2><span>Danh Sách Các đối tác của Đà Lạt BDS</span></h2>
-                <h4>Kết nối ước mơ - Đà Lạt BDS: Nơi hội tụ của sự đam mê và thành công!</h4>
+                <h2><span>Danh Sách Các đối tác của Green Allies</span></h2>
+                <h4>Kết nối ước mơ - Green Allies: Nơi hội tụ của sự đam mê và thành công!</h4>
             </div>
         </div>
         <div class="pwh_bg"></div>
@@ -100,7 +100,7 @@
                                 </div>
                             </article>
                         </div>
-                        
+
                         @endforeach
                         <!--  agent card item end -->
                     </div>
