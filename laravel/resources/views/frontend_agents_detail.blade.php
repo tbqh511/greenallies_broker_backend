@@ -51,10 +51,10 @@
                         <!-- list-single-main-item -->
                         <div class="list-single-main-item fl-wrap">
                             <div class="list-single-main-item-title">
-                                <h3>Đối tác Green AlliesĐà Lạt BDS</h3>
+                                <h3>Đối tác Green Allies</h3>
                             </div>
                             <div class="list-single-main-item_content fl-wrap">
-                                <p>Đà Lạt BDS hân hạnh chào đón đối tác vào hành trình khám phá thị trường bất động sản phát triển của Đà Lạt.</p>
+                                <p>Green Allies hân hạnh chào đón đối tác vào hành trình khám phá thị trường bất động sản phát triển của Đà Lạt.</p>
                                 <p>Với một nền tảng linh hoạt và các dịch vụ chuyên nghiệp, chúng tôi cam kết mang lại trải nghiệm tuyệt vời và cơ hội kinh doanh đáng giá cho bạn. Hãy cùng nhau tạo ra những thành công mới và phát triển bền vững trong ngành bất động sản Đà Lạt!</p>
                                 <div class="list-single-tags fl-wrap tags-stylwrap" style="margin-top: 20px;">
                                     <span>Khu Vực Dịch Vụ:</span>
