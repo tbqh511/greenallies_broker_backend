@@ -2171,37 +2171,100 @@ class ApiController extends Controller
 
     //     return response()->json($response);
     // }
+    // public function get_languages(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'language_code' => 'required',
+
+    //     ]);
+    //     if (!$validator->fails()) {
+
+    //         DB::enableQueryLog();
+
+    //         $language = Language::where('code', $request->language_code);
+
+    //         $result = $language->get();
+
+    //         //  dd(DB::getQueryLog());
+
+    //         if ($result) {
+    //             $response['error'] = false;
+    //             $response['message'] = "Data Fetch Successfully";
+    //             $response['data'] = $result;
+    //         } else {
+    //             $response['error'] = false;
+    //             $response['message'] = "No data found!";
+    //             $response['data'] = [];
+    //         }
+    //     } else {
+    //         $response['error'] = true;
+    //         $response['message'] = $validator->errors()->first();
+    //     }
+    //     return response()->json($response);
+    // }
+
+    //Test code: 
+
     public function get_languages(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'language_code' => 'required',
-
         ]);
+
         if (!$validator->fails()) {
+            $language = Language::where('code', $request->language_code)->first();
 
-            DB::enableQueryLog();
+            if ($language) {
+                // Đặt đường dẫn đến file JSON dựa vào loại ngôn ngữ
+                $json_file_path = public_path(($request->web_language_file ? 'web_languages/' : 'languages/') . $request->language_code . '.json');
 
-            $language = Language::where('code', $request->language_code);
+                // Kiểm tra sự tồn tại của file JSON
+                if (file_exists($json_file_path)) {
+                    $json_string = file_get_contents($json_file_path);
 
-            $result = $language->get();
+                    // Kiểm tra nếu file JSON trống
+                    if (empty($json_string)) {
+                        return response()->json([
+                            'error' => true,
+                            'message' => "JSON file is empty",
+                        ]);
+                    }
 
-            //  dd(DB::getQueryLog());
-
-            if ($result) {
-                $response['error'] = false;
-                $response['message'] = "Data Fetch Successfully";
-                $response['data'] = $result;
+                    // Thử giải mã JSON và kiểm tra lỗi
+                    $json_data = json_decode($json_string);
+                    if (json_last_error() === JSON_ERROR_NONE) {
+                        $language->file_name = $json_data;
+                        return response()->json([
+                            'error' => false,
+                            'message' => "Data Fetch Successfully",
+                            'data' => $language,
+                        ]);
+                    } else {
+                        return response()->json([
+                            'error' => true,
+                            'message' => "Invalid JSON format in the language file: " . json_last_error_msg(),
+                        ]);
+                    }
+                } else {
+                    return response()->json([
+                        'error' => true,
+                        'message' => "Language file not found",
+                    ]);
+                }
             } else {
-                $response['error'] = false;
-                $response['message'] = "No data found!";
-                $response['data'] = [];
+                return response()->json([
+                    'error' => true,
+                    'message' => "Language not found",
+                ]);
             }
         } else {
-            $response['error'] = true;
-            $response['message'] = $validator->errors()->first();
+            return response()->json([
+                'error' => true,
+                'message' => $validator->errors()->first(),
+            ]);
         }
-        return response()->json($response);
     }
+
     public function get_payment_details(Request $request)
     {
         $payload = JWTAuth::getPayload($this->bearerToken($request));
