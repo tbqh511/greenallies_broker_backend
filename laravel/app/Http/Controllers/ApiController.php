@@ -2131,36 +2131,80 @@ class ApiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'language_code' => 'required',
-
         ]);
+
         if (!$validator->fails()) {
+            $language = Language::where('code', $request->language_code)->first();
 
-            DB::enableQueryLog();
+            if ($language) {
+                if ($request->web_language_file) {
+                    $json_file_path = public_path('web_languages/' . $request->language_code . '.json');
+                } else {
+                    $json_file_path = public_path('languages/' . $request->language_code . '.json');
+                }
 
-            $language = Language::where('code', $request->language_code);
+                if (file_exists($json_file_path)) {
+                    $json_string = file_get_contents($json_file_path);
+                    $json_data = json_decode($json_string);
 
-            $result = $language->get();
-
-            //  dd(DB::getQueryLog());
-
-            if ($result) {
-                $response['error'] = false;
-                $response['message'] = "Data Fetch Successfully";
-
-
-
-                $response['data'] = $result;
+                    if ($json_data !== null) {
+                        $language->file_name = $json_data;
+                        $response['error'] = false;
+                        $response['message'] = "Data Fetch Successfully";
+                        $response['data'] = $language;
+                    } else {
+                        $response['error'] = true;
+                        $response['message'] = "Invalid JSON format in the language file";
+                    }
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = "Language file not found";
+                }
             } else {
-                $response['error'] = false;
-                $response['message'] = "No data found!";
-                $response['data'] = [];
+                $response['error'] = true;
+                $response['message'] = "Language not found";
             }
         } else {
             $response['error'] = true;
             $response['message'] = $validator->errors()->first();
         }
+
         return response()->json($response);
     }
+    // public function get_languages(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'language_code' => 'required',
+
+    //     ]);
+    //     if (!$validator->fails()) {
+
+    //         DB::enableQueryLog();
+
+    //         $language = Language::where('code', $request->language_code);
+
+    //         $result = $language->get();
+
+    //         //  dd(DB::getQueryLog());
+
+    //         if ($result) {
+    //             $response['error'] = false;
+    //             $response['message'] = "Data Fetch Successfully";
+
+
+
+    //             $response['data'] = $result;
+    //         } else {
+    //             $response['error'] = false;
+    //             $response['message'] = "No data found!";
+    //             $response['data'] = [];
+    //         }
+    //     } else {
+    //         $response['error'] = true;
+    //         $response['message'] = $validator->errors()->first();
+    //     }
+    //     return response()->json($response);
+    // }
     public function get_payment_details(Request $request)
     {
         $payload = JWTAuth::getPayload($this->bearerToken($request));
