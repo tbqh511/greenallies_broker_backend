@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 // Artisan::call('migrate');
 Route::post('get_system_settings', [ApiController::class, 'get_system_settings']);
 Route::post('user_signup', [ApiController::class, 'user_signup']);
-Route::post('get_languages', [ApiController::class, 'get_languages']);
+Route::get('get_languages', [ApiController::class, 'get_languages']);
 Route::get('app_payment_status', [ApiController::class, 'app_payment_status']);
 
 // Route::get('paypal', [ApiController::class, 'paypal']);
