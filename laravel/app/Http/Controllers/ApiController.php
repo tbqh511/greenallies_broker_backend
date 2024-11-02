@@ -2204,35 +2204,53 @@ class ApiController extends Controller
     // }
 
     //Test code: 
-
     public function get_languages(Request $request)
     {
+        // Bắt đầu quá trình và ghi log
+        Log::info("Start get_languages function");
+
         $validator = Validator::make($request->all(), [
             'language_code' => 'required',
         ]);
 
         if (!$validator->fails()) {
+            Log::info("Validation passed");
+
             $language = Language::where('code', $request->language_code)->first();
+            Log::info("Language query result: " . json_encode($language));
 
             if ($language) {
+                Log::info("Language found in database: " . $request->language_code);
+
                 // Đặt đường dẫn đến file JSON dựa vào loại ngôn ngữ
                 $json_file_path = public_path(($request->web_language_file ? 'web_languages/' : 'languages/') . $request->language_code . '.json');
+                Log::info("JSON file path: " . $json_file_path);
 
                 // Kiểm tra sự tồn tại của file JSON
                 if (file_exists($json_file_path)) {
+                    Log::info("File exists: " . $json_file_path);
+
                     $json_string = file_get_contents($json_file_path);
 
                     // Kiểm tra nếu file JSON trống
                     if (empty($json_string)) {
+                        Log::error("JSON file is empty");
                         return response()->json([
                             'error' => true,
                             'message' => "JSON file is empty",
                         ]);
                     }
 
+                    Log::info("JSON file content: " . $json_string);
+
                     // Thử giải mã JSON và kiểm tra lỗi
                     $json_data = json_decode($json_string);
-                    if (json_last_error() === JSON_ERROR_NONE) {
+                    $json_error = json_last_error();
+                    Log::info("JSON decode error code: " . $json_error);
+
+                    if ($json_error === JSON_ERROR_NONE) {
+                        Log::info("JSON parsed successfully");
+
                         $language->file_name = $json_data;
                         return response()->json([
                             'error' => false,
@@ -2240,24 +2258,30 @@ class ApiController extends Controller
                             'data' => $language,
                         ]);
                     } else {
+                        $json_error_message = json_last_error_msg();
+                        Log::error("Invalid JSON format: " . $json_error_message);
+
                         return response()->json([
                             'error' => true,
-                            'message' => "Invalid JSON format in the language file: " . json_last_error_msg(),
+                            'message' => "Invalid JSON format in the language file: " . $json_error_message,
                         ]);
                     }
                 } else {
+                    Log::error("Language file not found at path: " . $json_file_path);
                     return response()->json([
                         'error' => true,
                         'message' => "Language file not found",
                     ]);
                 }
             } else {
+                Log::error("Language not found in database for code: " . $request->language_code);
                 return response()->json([
                     'error' => true,
                     'message' => "Language not found",
                 ]);
             }
         } else {
+            Log::error("Validation failed: " . $validator->errors()->first());
             return response()->json([
                 'error' => true,
                 'message' => $validator->errors()->first(),
@@ -2265,6 +2289,7 @@ class ApiController extends Controller
         }
     }
 
+    
     public function get_payment_details(Request $request)
     {
         $payload = JWTAuth::getPayload($this->bearerToken($request));
