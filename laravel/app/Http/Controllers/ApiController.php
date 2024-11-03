@@ -2216,8 +2216,8 @@ class ApiController extends Controller
 
             if ($language) {
                 $json_file_path = $request->web_language_file 
-                    ? 'https://reals.greenallies.co.th/web_languages/' . $request->language_code . '.json' 
-                    : 'https://reals.greenallies.co.th/languages/' . $request->language_code . '.json';
+                    ? public_path('web_languages/' . $request->language_code . '.json') 
+                    : public_path('languages/' . $request->language_code . '.json');
 
                 // if (file_exists($json_file_path)) {
                 //     $json_string = file_get_contents($json_file_path);
@@ -2258,7 +2258,7 @@ class ApiController extends Controller
                                 'error' => false,
                                 'message' => "Data Fetch Successfully",
                                 'data' => $language,
-                                'data1' => $json_file_path,
+                                'data1' => $json_string,
                             ];
                         } else {
                             // Lỗi nếu JSON không hợp lệ
