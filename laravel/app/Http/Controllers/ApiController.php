@@ -2206,50 +2206,49 @@ class ApiController extends Controller
 
     //Test code: 
     public function get_languages(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'language_code' => 'required',
-        ]);
+{
+    $validator = Validator::make($request->all(), [
+        'language_code' => 'required',
+    ]);
 
-        if (!$validator->fails()) {
-            $language = Language::where('code', $request->language_code)->first();
+    if (!$validator->fails()) {
+        $language = Language::where('code', $request->language_code)->first();
 
-            if ($language) {
-                if ($request->web_language_file) {
-                    $json_file_path = public_path('web_languages/' . $request->language_code . '.json');
-                } else {
-                    $json_file_path = public_path('languages/' . $request->language_code . '.json');
-                }
+        if ($language) {
+            $json_file_path = $request->web_language_file 
+                ? public_path('web_languages/' . $request->language_code . '.json') 
+                : public_path('languages/' . $request->language_code . '.json');
 
-                if (file_exists($json_file_path)) {
-                    $json_string = file_get_contents($json_file_path);
-                    $json_data = json_decode($json_string);
+            if (file_exists($json_file_path)) {
+                $json_string = file_get_contents($json_file_path);
+                $json_data = json_decode($json_string, true); // Thêm 'true' để trả về mảng thay vì object
 
-                    if ($json_data !== null) {
-                        $language->file_name = $json_data;
-                        $language->json_file_path = $json_file_path;
-                        $response['error'] = false;
-                        $response['message'] = "Data Fetch Successfully";
-                        $response['data'] = $language;
-                    } else {
-                        $response['error'] = true;
-                        $response['message'] = "Invalid JSON format in the language file";
-                    }
+                if ($json_data !== null) {
+                    // Chuyển mảng thành chuỗi JSON để tránh lỗi
+                    $language->file_name = json_encode($json_data);
+                    $language->json_file_path = $json_file_path;
+                    $response['error'] = false;
+                    $response['message'] = "Data Fetch Successfully";
+                    $response['data'] = $language;
                 } else {
                     $response['error'] = true;
-                    $response['message'] = "Language file not found";
+                    $response['message'] = "Invalid JSON format in the language file";
                 }
             } else {
                 $response['error'] = true;
-                $response['message'] = "Language not found";
+                $response['message'] = "Language file not found";
             }
         } else {
             $response['error'] = true;
-            $response['message'] = $validator->errors()->first();
+            $response['message'] = "Language not found";
         }
-
-        return response()->json($response);
+    } else {
+        $response['error'] = true;
+        $response['message'] = $validator->errors()->first();
     }
+
+    return response()->json($response);
+}
 
     
     public function get_payment_details(Request $request)
