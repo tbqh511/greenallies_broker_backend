@@ -2221,8 +2221,7 @@ class ApiController extends Controller
 
                 if (file_exists($json_file_path)) {
                     $json_string = file_get_contents($json_file_path);
-                    $json_data = json_decode($json_string, true); // Thêm 'true' để trả về mảng thay vì object
-                    
+                    $json_data = json_decode($json_string, true);                     
 
                     if ($json_data !== null) {
                         // Chuyển mảng thành chuỗi JSON để tránh lỗi
