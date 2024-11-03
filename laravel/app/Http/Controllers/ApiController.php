@@ -2215,18 +2215,19 @@ class ApiController extends Controller
             $language = Language::where('code', $request->language_code)->first();
 
             if ($language) {
-                $json_file_path = $request->web_language_file 
-                    ? public_path('web_languages/' . $request->language_code . '.json') 
-                    : public_path('languages/' . $request->language_code . '.json');
+                if ($request->web_language_file) {
+                    $json_file_path = public_path('web_languages/' . $request->language_code . '.json');
+                } else {
+                    $json_file_path = public_path('languages/' . $request->language_code . '.json');
+                }
 
                 if (file_exists($json_file_path)) {
                     $json_string = file_get_contents($json_file_path);
-                    $json_data = json_decode($json_string, true); // Thêm 'true' để trả về mảng thay vì object
+                    $json_data = json_decode($json_string);
 
                     if ($json_data !== null) {
-                        // Chuyển mảng thành chuỗi JSON để tránh lỗi
-                        $language->file_name = json_encode($json_data);
-                        
+                        $language->file_name = $json_data;
+                        $language->json_file_path = $json_file_path;
                         $response['error'] = false;
                         $response['message'] = "Data Fetch Successfully";
                         $response['data'] = $language;
