@@ -2207,71 +2207,49 @@ class ApiController extends Controller
     //Test code: 
     public function get_languages(Request $request)
     {
-        try {
-            // Bước 1: Kiểm tra và xác thực tham số đầu vào
-            $validator = Validator::make($request->all(), [
-                'language_code' => 'required',
-            ]);
+        $validator = Validator::make($request->all(), [
+            'language_code' => 'required',
+        ]);
 
-            if ($validator->fails()) {
-                return response()->json([
-                    'error' => true,
-                    'message' => 'Validation failed: ' . $validator->errors()->first(),
-                ]);
-            }
-
-            // Bước 2: Tìm kiếm ngôn ngữ trong cơ sở dữ liệu
+        if (!$validator->fails()) {
             $language = Language::where('code', $request->language_code)->first();
-            if (!$language) {
-                return response()->json([
-                    'error' => true,
-                    'message' => "Language not found for code: " . $request->language_code,
-                ]);
+
+            if ($language) {
+                $json_file_path = $request->web_language_file 
+                    ? public_path('web_languages/' . $request->language_code . '.json') 
+                    : public_path('languages/' . $request->language_code . '.json');
+
+                if (file_exists($json_file_path)) {
+                    $json_string = file_get_contents($json_file_path);
+                    $json_data = json_decode($json_string, true); // Thêm 'true' để trả về mảng thay vì object
+
+                    if ($json_data !== null) {
+                        // Chuyển mảng thành chuỗi JSON để tránh lỗi
+                        $language->file_name = json_encode($json_data);
+                        
+                        $response['error'] = false;
+                        $response['message'] = "Data Fetch Successfully";
+                        $response['data'] = $language;
+                    } else {
+                        $response['error'] = true;
+                        $response['message'] = "Invalid JSON format in the language file";
+                    }
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = "Language file not found";
+                }
+            } else {
+                $response['error'] = true;
+                $response['message'] = "Language not found";
             }
-
-            // Bước 3: Xác định đường dẫn tới file JSON
-            $json_file_path = public_path(($request->web_language_file ? 'web_languages/' : 'languages/') . $request->language_code . '.json');
-
-            if (!file_exists($json_file_path)) {
-                return response()->json([
-                    'error' => true,
-                    'message' => "Language file not found at path: " . $json_file_path,
-                ]);
-            }
-
-            // Bước 4: Đọc nội dung file JSON
-            $json_string = file_get_contents($json_file_path);
-            if ($json_string === false) {
-                return response()->json([
-                    'error' => true,
-                    'message' => "Failed to read JSON file at path: " . $json_file_path,
-                ]);
-            }
-
-            // Bước 5: Giải mã nội dung JSON
-            $json_data = json_decode($json_string, true);
-            if (json_last_error() !== JSON_ERROR_NONE) {
-                return response()->json([
-                    'error' => true,
-                    'message' => "Invalid JSON format in the language file: " . json_last_error_msg(),
-                ]);
-            }
-
-            // Gán dữ liệu JSON vào đối tượng ngôn ngữ và trả về phản hồi
-            $language->file_name = $json_data;
-            return response()->json([
-                'error' => false,
-                'message' => "Data Fetch Successfully",
-                'data' => $language,
-            ]);
-        } catch (\Exception $e) {
-            // Xử lý lỗi không mong muốn và trả về phản hồi lỗi
-            return response()->json([
-                'error' => true,
-                'message' => "Internal Server Error: " . $e->getMessage(),
-            ], 500);
+        } else {
+            $response['error'] = true;
+            $response['message'] = $validator->errors()->first();
         }
+
+        return response()->json($response);
     }
+
     
     public function get_payment_details(Request $request)
     {
