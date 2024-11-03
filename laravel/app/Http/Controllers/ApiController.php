@@ -2219,73 +2219,28 @@ class ApiController extends Controller
                     ? public_path('web_languages/' . $request->language_code . '.json') 
                     : public_path('languages/' . $request->language_code . '.json');
 
-                // if (file_exists($json_file_path)) {
-                //     $json_string = file_get_contents($json_file_path);
-                //     $json_data = json_decode($json_string, true); // Thêm 'true' để trả về mảng thay vì object
+                if (file_exists($json_file_path)) {
+                    $json_string = file_get_contents($json_file_path);
+                    $json_data = json_decode($json_string, true); // Thêm 'true' để trả về mảng thay vì object
                     
 
-                //     if ($json_data !== null) {
-                //         // Chuyển mảng thành chuỗi JSON để tránh lỗi
-                //         $language->json_data = $json_data;
+                    if ($json_data !== null) {
+                        // Chuyển mảng thành chuỗi JSON để tránh lỗi
+                        $language->json_data = $json_data;
                     
-                //         $response['error'] = false;
-                //         $response['message'] = "Data Fetch Successfully";
-                //         $response['data'] = $language;
-                //     } else {
-                //         $response['error'] = true;
-                //         $response['message'] = "Invalid JSON format in the language file";
-                //         $response['data'] = $json_file_path;
-                //     }
-                // } else {
-                //     $response['error'] = true;
-                //     $response['message'] = "Language file not found";
-                // }
-                if (file_exists($json_file_path)) {
-                    $file = @fopen($json_file_path, 'r');
-                    if ($file) {
-                        // Đọc nội dung file với fread
-                        $json_string = fread($file, filesize($json_file_path));
-                        fclose($file);
-                
-                        // Giải mã chuỗi JSON
-                        $json_data = json_decode($json_string, true); // true để trả về mảng thay vì object
-                
-                        if ($json_data !== null) {
-                            // Lưu dữ liệu JSON vào đối tượng language
-                            $language->json_data = $json_data;
-                
-                            $response = [
-                                'error' => false,
-                                'message' => "Data Fetch Successfully",
-                                'data' => $language,
-                                'data1' => $json_string,
-                            ];
-                        } else {
-                            // Lỗi nếu JSON không hợp lệ
-                            $response = [
-                                'error' => true,
-                                'message' => "Invalid JSON format in the language file",
-                                'data' => $json_string,
-                            ];
-                        }
+                        $response['error'] = false;
+                        $response['message'] = "Data Fetch Successfully";
+                        $response['data'] = $language;
                     } else {
-                        // Ghi log lỗi nếu không thể mở file
-                        $error = error_get_last();
-                        Log::error('Failed to open JSON file: ' . $json_file_path . ' - Error: ' . $error['message']);
-                        
-                        $response = [
-                            'error' => true,
-                            'message' => 'Unable to open JSON file at the specified path.',
-                        ];
+                        $response['error'] = true;
+                        $response['message'] = "Invalid JSON format in the language file";
+                        $response['data'] = $json_file_path;
                     }
                 } else {
-                    // Trường hợp file không tồn tại
-                    $response = [
-                        'error' => true,
-                        'message' => "Language file not found",
-                    ];
+                    $response['error'] = true;
+                    $response['message'] = "Language file not found";
                 }
-            } else {
+                            } else {
                 $response['error'] = true;
                 $response['message'] = "Language not found";
             }
