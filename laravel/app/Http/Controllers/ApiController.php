@@ -2228,7 +2228,7 @@ class ApiController extends Controller
                         $language->file_name = json_encode($json_data);
                         $language->json_file_path = $json_file_path;
                         $language->json_string = $json_string;
-                        $language->json_data = $json_data;
+                        $language->json_data = $json_string;
 
                         $response['error'] = false;
                         $response['message'] = "Data Fetch Successfully";
