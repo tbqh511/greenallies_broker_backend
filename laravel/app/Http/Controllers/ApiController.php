@@ -2258,6 +2258,7 @@ class ApiController extends Controller
                                 'error' => false,
                                 'message' => "Data Fetch Successfully",
                                 'data' => $language,
+                                'data1' => $json_file_path,
                             ];
                         } else {
                             // Lỗi nếu JSON không hợp lệ
