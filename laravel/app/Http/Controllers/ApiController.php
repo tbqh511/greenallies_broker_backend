@@ -2234,6 +2234,7 @@ class ApiController extends Controller
                     } else {
                         $response['error'] = true;
                         $response['message'] = "Invalid JSON format in the language file";
+                        $response['data'] = $json_file_path;
                     }
                 } else {
                     $response['error'] = true;
